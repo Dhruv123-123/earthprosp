@@ -1,0 +1,6 @@
+data/
+outputs/*.npz
+outputs/*.parquet
+__pycache__/
+*.pyc
+.pytest_cache/

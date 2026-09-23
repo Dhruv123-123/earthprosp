@@ -1,0 +1,11 @@
+numpy
+pandas
+pyarrow
+scikit-learn
+torch
+h3>=4
+rasterio
+pyproj
+shapely>=2
+matplotlib
+pytest
