@@ -150,7 +150,80 @@ Chile/Australia labels).
 
 ## Pilot results
 
-See `outputs/westus/` and the README summary table.
+**Setup:** western US (lon −125…−102, lat 31…49), AEF 2024, overview level 6
+(1.28 km), H3 res 6, restricted to US cells where MRDS is complete. That gives
+**87,992 cells, 17,537 (19.9%) with a target MRDS record and 10,035 with a producer.**
+The CV is 5-fold spatial (res-3 blocks). The NN was trained for 15 epochs; the SSL
+variant adds 5 pre-training epochs. Full per-fold numbers are in `outputs/westus/cv_folds.csv`.
+
+### Presence: held-out capture (mean ± sd over 5 folds; random = x% at x% area)
+
+| model | uses AEF | capture@5% | capture@10% | capture@20% | capture AUC | producers: capture@20% | producers: AUC |
+|---|---|---|---|---|---|---|---|
+| knn (distance to nearest training deposit) | no | 0.13 | 0.22 | 0.36 | 0.651 ± .023 | 0.39 | 0.663 |
+| logistic reg. on mean embedding | yes | 0.14 | 0.26 | 0.45 | 0.725 ± .017 | 0.50 | 0.751 |
+| **GBM on bag stats + context** | yes | **0.18** | **0.32** | **0.53** | **0.761 ± .020** | **0.61** | **0.798** |
+| NN (adapter + MIL + PU heads) | yes | 0.16 | 0.30 | 0.51 | 0.755 ± .020 | 0.60 | 0.792 |
+| NN + self-supervised adaptation | yes | 0.16 | 0.30 | 0.51 | 0.756 ± .019 | 0.58 | 0.792 |
+
+### Composition: split among classes, on held-out positive cells
+
+| model | top-1 acc. | cross-entropy ↓ | mass on classes present |
+|---|---|---|---|
+| class-frequency prior | 0.383 | 2.241 | 0.370 |
+| GBM (dominant-class classifier) | 0.469 | 2.089 | **0.589** |
+| **NN composition head** | **0.478** | **1.824** | 0.552 |
+| NN + SSL | 0.477 | 1.833 | 0.554 |
+
+### What this says
+1. **AEF carries real prospectivity signal.** In held-out 12,000 km² blocks, the top 20%
+   of area holds ~53% of known deposit cells and ~61% of producer cells. The pure
+   spatial-interpolation baseline gets 36% / 39%, and random gets 20%.
+2. **The deep "fine-tuned" model does not beat gradient boosting on presence yet**
+   (0.755 vs 0.761 AUC, within noise). The pooled 1.28 km embedding plus neighbourhood
+   context captures most of what the adapter + attention pooling can extract. The
+   NN's advantage is the **composition head**. It is better calibrated (cross-entropy
+   1.82 vs 2.09) and gives a coherent split in one model.
+3. **Self-supervised adaptation added nothing** at this scale. AEF is already a
+   self-supervised representation, and re-learning invariances on top of it is
+   redundant. Budget should go to covariates and labels instead.
+4. **Possible mine-footprint leakage.** Here is the fraction of each label type in
+   the top 20% of area (pooled out-of-fold):
+
+   | label type | n cells | knn | GBM | NN |
+   |---|---|---|---|---|
+   | producer | 10,035 | 0.38 | 0.61 | 0.59 |
+   | prospect | 3,052 | 0.35 | 0.48 | 0.48 |
+   | occurrence only | 4,450 | 0.32 | 0.38 | 0.35 |
+
+   The AEF lift over knn is large for producers but small for occurrences, which have
+   little surface disturbance. Part of the signal is plausibly "this looks like a
+   mine" (pits, dumps, roads), not "this looks like ore-forming geology". The #1 next
+   experiment is to mask disturbed 10 m pixels before pooling and re-measure.
+5. **Composition is the hard part.** Top-1 is 0.48 vs a 0.38 prior. Commodity is set by
+   deep processes (magma chemistry, fluid source) that the surface only partly
+   reflects. A deposit-type head and geophysics/geology covariates are the obvious
+   levers (§4.3, §5).
+6. **Scores are ranks, not probabilities.** The nnPU output depends on the assumed
+   prior (mean predicted prospectivity is 0.47 against the 0.30 prior used). Calibrate
+   against an assumed deposit density before quoting absolute numbers.
+
+**Map:** `outputs/westus/map.png`. Qualitatively it recovers known belts: Cu in the
+southern-Arizona porphyry belt, U on the Colorado Plateau and in the Wyoming basins,
+Au along the Mother Lode/Sierra, Carlin and Walker Lane trends and in Idaho–Montana,
+Pb-Zn around Coeur d'Alene, and Ni-Cr/Hg in the Klamath and Coast Ranges. The
+Snake River Plain basalts and the Central Valley alluvium are correctly dark.
+
+## Path to "every cell on Earth"
+1. `scripts/fetch_aef.py --global` (~34k COGs → ~4 M res-6 cells; about an hour).
+2. Global labels: merge national deposit DBs (§3). Train on regions with complete
+   labels, and treat everywhere else as unlabeled (PU) or exclude it from the
+   unlabeled pool.
+3. Add covariates (§5) as `cov`. Without them, predictions under cover are extrapolation.
+4. Cross-continent transfer test (train Americas → test Australia/Africa) before
+   trusting any global map.
+5. Report per-cell uncertainty (fold ensemble spread) alongside the split, and flag
+   cells whose embedding is out of the training distribution.
 
 ## References
 * Brown et al. 2025, *AlphaEarth Foundations: An embedding field model for accurate and efficient global mapping from sparse label data*, Google DeepMind.

@@ -1,1 +1,23 @@
 87,992 cells, 17,537 positive (19.9%), 10,035 with a producer
+fold 0: 16,916 test cells, 873s
+fold 1: 18,096 test cells, 844s
+fold 2: 18,822 test cells, 834s
+fold 3: 17,647 test cells, 904s
+fold 4: 16,511 test cells, 894s
+                              capture@1%        capture@5%        capture@10%        capture@20%        capture_auc        roc_auc_pu        top1_acc        cross_entropy        mass_on_present       
+                                    mean    std       mean    std        mean    std        mean    std        mean    std       mean    std     mean    std          mean    std            mean    std
+task              model                                                                                                                                                                                 
+composition       class_prior        NaN    NaN        NaN    NaN         NaN    NaN         NaN    NaN         NaN    NaN        NaN    NaN    0.383  0.032         2.241  0.023           0.370  0.016
+                  gbm                NaN    NaN        NaN    NaN         NaN    NaN         NaN    NaN         NaN    NaN        NaN    NaN    0.469  0.024         2.089  0.103           0.589  0.013
+                  nn                 NaN    NaN        NaN    NaN         NaN    NaN         NaN    NaN         NaN    NaN        NaN    NaN    0.478  0.022         1.824  0.052           0.552  0.006
+                  nn_ssl             NaN    NaN        NaN    NaN         NaN    NaN         NaN    NaN         NaN    NaN        NaN    NaN    0.477  0.017         1.833  0.046           0.554  0.008
+presence_all      gbm              0.042  0.006      0.180  0.025       0.319  0.038       0.529  0.040       0.761  0.020      0.826  0.018      NaN    NaN           NaN    NaN             NaN    NaN
+                  knn              0.028  0.004      0.126  0.012       0.223  0.021       0.364  0.031       0.651  0.023      0.688  0.023      NaN    NaN           NaN    NaN             NaN    NaN
+                  lr_mean          0.029  0.004      0.140  0.014       0.259  0.020       0.454  0.028       0.725  0.017      0.780  0.015      NaN    NaN           NaN    NaN             NaN    NaN
+                  nn               0.040  0.007      0.164  0.019       0.297  0.031       0.514  0.040       0.755  0.020      0.818  0.018      NaN    NaN           NaN    NaN             NaN    NaN
+                  nn_ssl           0.040  0.007      0.164  0.022       0.296  0.034       0.509  0.037       0.756  0.019      0.819  0.017      NaN    NaN           NaN    NaN             NaN    NaN
+presence_producer gbm              0.061  0.011      0.237  0.040       0.395  0.056       0.608  0.049       0.798  0.022      0.836  0.021      NaN    NaN           NaN    NaN             NaN    NaN
+                  knn              0.032  0.007      0.144  0.022       0.246  0.035       0.386  0.046       0.663  0.028      0.683  0.028      NaN    NaN           NaN    NaN             NaN    NaN
+                  lr_mean          0.035  0.007      0.162  0.018       0.293  0.023       0.501  0.037       0.751  0.020      0.783  0.020      NaN    NaN           NaN    NaN             NaN    NaN
+                  nn               0.055  0.016      0.206  0.033       0.360  0.046       0.595  0.050       0.792  0.022      0.829  0.020      NaN    NaN           NaN    NaN             NaN    NaN
+                  nn_ssl           0.054  0.015      0.205  0.038       0.356  0.053       0.584  0.042       0.792  0.020      0.829  0.019      NaN    NaN           NaN    NaN             NaN    NaN

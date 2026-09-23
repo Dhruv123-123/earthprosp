@@ -26,26 +26,30 @@ def plot(df: pd.DataFrame, path: str, known=None):
     import matplotlib.pyplot as plt
 
     cmap = plt.get_cmap("tab20")
-    fig, axes = plt.subplots(1, 2, figsize=(16, 8), constrained_layout=True)
+    fig, axes = plt.subplots(1, 3, figsize=(24, 8), constrained_layout=True)
+    ms = 3.0
     ax = axes[0]
-    sc = ax.scatter(df.lon, df.lat, c=df.p_prospective, s=0.6, cmap="magma", marker="h", linewidths=0)
-    fig.colorbar(sc, ax=ax, shrink=0.6, label="P(prospective)")
-    if known is not None:
-        ax.scatter(known.lon, known.lat, s=0.3, c="cyan", alpha=0.25, linewidths=0, label="producer cells")
-        ax.legend(loc="lower left", markerscale=10)
+    sc = ax.scatter(df.lon, df.lat, c=df.p_prospective, s=ms, cmap="magma", marker="h", linewidths=0)
+    fig.colorbar(sc, ax=ax, shrink=0.6, label="prospectivity score (rank, not calibrated)")
     ax.set_title("Prospectivity (any target commodity)")
     ax = axes[1]
+    ax.scatter(df.lon, df.lat, c="0.15", s=ms, marker="h", linewidths=0)
+    if known is not None:
+        ax.scatter(known.lon, known.lat, s=ms, c="gold", marker="h", linewidths=0)
+    ax.set_title("Known producer cells (MRDS), for comparison")
+    ax = axes[2]
     idx = df.top_class.map(C.CLASS_INDEX).to_numpy()
     alpha = np.clip(df.p_prospective.to_numpy() / np.quantile(df.p_prospective, 0.98), 0.05, 1)
     colors = cmap(idx % 20)
-    colors[:, 3] = alpha
-    ax.scatter(df.lon, df.lat, c=colors, s=0.6, marker="h", linewidths=0)
+    colors[:, :3] *= alpha[:, None]  # fade to black, not to white
+    ax.scatter(df.lon, df.lat, c=colors[:, :3], s=ms, marker="h", linewidths=0)
     for i, c in enumerate(C.CLASSES):
         ax.scatter([], [], color=cmap(i % 20), label=c, s=30)
-    ax.legend(loc="lower left", ncol=3, fontsize=8)
+    ax.legend(loc="lower left", ncol=3, fontsize=8, facecolor="white")
     ax.set_title("Dominant commodity class (opacity = prospectivity)")
     for ax in axes:
         ax.set_aspect(1 / np.cos(np.radians(df.lat.mean())))
+        ax.set_facecolor("black")
         ax.set_xlabel("lon")
         ax.set_ylabel("lat")
     fig.savefig(path, dpi=130)
@@ -60,8 +64,16 @@ def main():
     ap.add_argument("--epochs", type=int, default=15)
     ap.add_argument("--pretrain-epochs", type=int, default=0)
     ap.add_argument("--out", required=True)
+    ap.add_argument("--plot-only", action="store_true", help="re-render map.png from split.parquet")
     a = ap.parse_args()
     os.makedirs(a.out, exist_ok=True)
+    if a.plot_only:
+        df = pd.read_parquet(os.path.join(a.out, "split.parquet"))
+        cb = aef.CellBags.load(a.bags)
+        conf = labels.align(cb.cells, labels.cell_labels(labels.load_mrds(a.mrds)))["conf"]
+        known = set(cb.cells[conf >= 1.0])
+        plot(df, os.path.join(a.out, "map.png"), known=df[df.h3.isin(known)])
+        return
 
     cb = aef.CellBags.load(a.bags)
     lab = labels.align(cb.cells, labels.cell_labels(labels.load_mrds(a.mrds)))

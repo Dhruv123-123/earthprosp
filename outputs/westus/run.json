@@ -1,0 +1,15 @@
+{
+  "args": {
+    "bags": "data/westus_2024.npz",
+    "mrds": "data/mrds.csv",
+    "country": "USA",
+    "countries_geojson": "data/ne_countries.geojson",
+    "folds": 5,
+    "epochs": 15,
+    "pretrain_epochs": 5,
+    "models": "knn,lr_mean,gbm,nn,nn_ssl",
+    "out": "outputs/westus"
+  },
+  "n_cells": 87992,
+  "n_pos": 17537
+}
