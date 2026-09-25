@@ -1,0 +1,5 @@
+feature_group,capture_auc_when_shuffled,drop
+aef_mean,0.74,0.078
+aef_std,0.793,0.025
+context_10km,0.753,0.066
+context_25km,0.749,0.069

@@ -1,0 +1,22 @@
+{
+  "among_deposit_balanced_accuracy": 0.2541111593667477,
+  "chance": 0.06666666666666667,
+  "classes": [
+    "Au",
+    "Ag",
+    "Cu",
+    "PbZn",
+    "Fe",
+    "Mn",
+    "U",
+    "WMoSn",
+    "NiCoPGECr",
+    "LiBeTaNb",
+    "REE",
+    "Al",
+    "HgSbAs",
+    "BaF",
+    "P"
+  ],
+  "model_capture_auc_in_sample": 0.8183403274012943
+}

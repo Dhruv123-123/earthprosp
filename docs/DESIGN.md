@@ -340,6 +340,41 @@ The global label sources need `data/usgs_global/` (unzipped `ofr20051294-csv.zip
 4. Add national label sources (GA OZMIN, GSC CMDB, BGS, SERNAGEOMIN) to fix the Cu-centric composition.
 5. Add a deposit-type head (porphyry / orogenic Au / MVT / VMS / LCT / laterite …) instead of commodities.
 
+## What the AEF dimensions say about specific commodities
+
+`scripts/analyze_features.py` → `outputs/analysis/`. A class member is a producer or
+world-class deposit cell where that class makes up ≥50% of the mix. Background is 400k random
+land cells.
+
+* **The 64 dimensions have no physical names.** A00–A63 are learned jointly from
+  Sentinel-1/2, Landsat, DEM, climate, GEDI and other inputs. No axis means "iron oxide" or
+  "clay". Associations have to be measured.
+* **One shared "mineralised terrain" direction dominates.** Averaged over all classes, the largest
+  shifts from background are A26 (d −0.85), A29 (+0.80), A49 (−0.76) and A38 (−0.65), and almost every
+  class moves the same way along them. Signature cosine similarity between classes is mostly 0.5–0.9.
+* **Two families separate cleanly.** *Magmatic-hydrothermal* metals (Au, Ag, Cu, W-Mo-Sn,
+  Hg-Sb-As; mutual similarity 0.67–0.90) sit apart from *sedimentary, weathering and
+  industrial* commodities (Fe, Mn, Pb-Zn, Ba-F, P, Al, REE; 0.63–0.94). Across the two families
+  similarity drops as low as 0.14 (Al vs U) and 0.18 (Fe vs Ag). That matches the orogenic-belt vs
+  platform/basin/regolith settings they form in.
+* **Most distinctive:** U (A49 d −2.41; 69% correct among deposit classes, which is the
+  Colorado-Plateau sandstone landscape). Hg-Sb-As (39%), Fe (36%) and P (33%) are also recognisable.
+  **Cu is barely distinguishable from Ag** (6% correct, 29% predicted as Ag). Overall balanced
+  accuracy among 15 classes is 0.25 against 0.067 chance.
+* **Each class vs background:** linear-probe AUC is 0.82–0.98 on held-out res-1 blocks, and
+  local-only and context-only features perform almost identically. The signal is
+  **landscape and setting scale**, not a spectral fingerprint of ore minerals. At 1.28 km, alteration
+  halos are averaged away.
+* **What the global model leans on:** shuffling feature groups drops capture AUC by 0.078 for the local
+  mean embedding, 0.069 for 25 km context, 0.066 for 10 km context and 0.025 for local std.
+* **Confound:** the signatures of Al (cosine 0.55 with the urban signature), P (0.53),
+  REE (0.42), Ba-F, Mn and Fe resemble built-up land, which is quarry- and pit-like disturbed ground.
+  Au (0.06) and U (0.00) do not.
+
+To tie predictions to actual minerals, the next step is to add a mineralogy layer as a
+covariate or as a target for interpreting AEF directions. Candidates are NASA EMIT surface-mineral
+maps (kaolinite, alunite, goethite, hematite, calcite, …) or ASTER SWIR mineral indices.
+
 ## References
 * Brown et al. 2025, *AlphaEarth Foundations: An embedding field model for accurate and efficient global mapping from sparse label data*, Google DeepMind.
 * Kiryo et al. 2017, *Positive-Unlabeled Learning with Non-Negative Risk Estimator*, NeurIPS.
