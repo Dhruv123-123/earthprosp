@@ -4,8 +4,9 @@
 `[P(none), P(Au), P(Cu), P(PbZn), ...]`, summing to 1. Build it from AlphaEarth
 Foundations (AEF) embeddings, a fine-tuned adapter and a prospectivity head.
 
-This document covers the design choices, what is feasible today and what the first
-real-data pilot (western US) shows. Numbers are in [Pilot results](#pilot-results).
+This document covers the design choices, the western-US pilot
+([Pilot results](#pilot-results)) and the full global run
+([Global run](#global-run-every-land-cell-on-earth)).
 
 ---
 
@@ -214,16 +215,130 @@ Au along the Mother Lode/Sierra, Carlin and Walker Lane trends and in Idaho–Mo
 Pb-Zn around Coeur d'Alene, and Ni-Cr/Hg in the Klamath and Coast Ranges. The
 Snake River Plain basalts and the Central Valley alluvium are correctly dark.
 
-## Path to "every cell on Earth"
-1. `scripts/fetch_aef.py --global` (~34k COGs → ~4 M res-6 cells; about an hour).
-2. Global labels: merge national deposit DBs (§3). Train on regions with complete
-   labels, and treat everywhere else as unlabeled (PU) or exclude it from the
-   unlabeled pool.
-3. Add covariates (§5) as `cov`. Without them, predictions under cover are extrapolation.
-4. Cross-continent transfer test (train Americas → test Australia/Africa) before
-   trusting any global map.
-5. Report per-cell uncertainty (fold ensemble spread) alongside the split, and flag
-   cells whose embedding is out of the training distribution.
+## Global run (every land cell on Earth)
+
+**Output:** `outputs/global/earthprosp_global_res6.parquet` (38.6 MB). It holds all
+**4,489,547** land H3 res-6 cells with `p_prospective` and the 15-class split. Decode it with
+`earthprosp.io.read_compact`. You can explore it interactively in `outputs/global/explorer.html`
+(res-4 aggregate). The static maps are `global_map.png` and `global_by_commodity.png`; the country
+rankings are `by_country.csv`; `greenfield_candidates.csv` lists high-scoring cells with no labelled
+deposit within ~25 km.
+
+### Pipeline
+1. **AEF fetch** (`scripts/fetch_global.py`, `earthprosp/global_agg.py`): all 34,149 COGs of 2024
+   at overview level 6. Each tile is reduced in a worker process to per-cell partial sums
+   (count, Σx, Σx²), sharded to disk (resumable), then merged into mean and std. This took **32 min**
+   on one 4-core machine with 0 failed tiles. It matches the bag pipeline exactly (cosine 1.000 on all
+   92k overlapping pilot cells).
+2. **Features:** mean (64) + std (64) + neighbourhood context at 10 km and 25 km (128).
+   Per-pixel bags do not fit globally. On the pilot, a flat-feature MLP (`FeatureProspectivityModel`)
+   matched the bag model (capture AUC 0.745 vs 0.755; composition CE 1.84 vs 1.82) at ~30× the speed.
+3. **Labels** (`labels.global_records`): MRDS plus four USGS global compilations:
+   *Major mineral deposits of the world* (OFR 2005-1294), *Porphyry Cu* (OFR 2008-1155),
+   *Sediment-hosted Cu* (OFR 03-107) and *VMS* (OFR 2009-1034). For the grade-tonnage deposits
+   the composition is the **share of in-ground metal value** (grade × long-run price), so a
+   Cu-Au porphyry contributes to Cu and Au in proportion to value.
+4. **Training:** nnPU + composition loss. Each epoch sees all positives and a fresh 1 M-cell
+   unlabeled sample (prior 0.05).
+
+### The US-bias problem and the fix (v1 → v2)
+The first global model (v1, kept in `outputs/global_v1/`) used every MRDS record as a positive.
+It learned "looks like the United States": the US is 6.3% of land but took
+**44% of the global top-5% area**, and only 9 of Australia's 139 world-class deposit cells
+ranked in the global top 5%. The cause is **spatially varying label propensity**. MRDS is ~10×
+denser in the US and records every prospect and occurrence there, which violates the
+"selected completely at random" assumption behind PU learning.
+
+v2 applies two fixes:
+* **One labelling standard worldwide:** only producers and the global world-class compilations
+  count as positives (29,166 cells). Prospects and occurrences become unlabeled.
+* **Propensity reweighting:** each positive is weighted by `global_rate / region_rate` (H3 res-1
+  regions of ~600,000 km², clipped to [0.05, 20]). Each region's positives then carry the same
+  total weight per unit area, so "where people have filed reports" stops being predictive.
+
+| bias check (global top-5% of land) | v1 | v2 |
+|---|---|---|
+| US share of top-5% area (US = 6.3% of land) | 44% | **15%** |
+| Australia world-class deposit cells in global top 5% | 9 / 139 | **43 / 139** |
+| Africa world-class deposit cells in global top 5% | 323 / 878 | **352 / 878** |
+| South America world-class deposit cells in global top 5% | 181 / 341 | 131 / 341 |
+
+South America lost ground because v1's Andes partly scored high for looking like the
+US Cordillera.
+
+### Validation (v2, feature NN; `outputs/global/cv_results.csv`)
+**Spatial 5-fold CV on H3 res-1 blocks** (~600,000 km² held out at a time):
+
+| target (held-out cells) | model | capture@5% | capture@20% | capture AUC |
+|---|---|---|---|---|
+| deposits outside the US | knn (distance to known deposits) | 0.18 | 0.43 | 0.689 |
+| | GBM | 0.27 | 0.65 | 0.817 |
+| | **NN** | 0.26 | 0.61 | 0.804 |
+| world-class deposits | knn | 0.17 | 0.40 | 0.673 |
+| | GBM | 0.22 | 0.62 | 0.805 |
+| | **NN** | 0.18 | 0.56 | 0.776 |
+
+**Whole-continent hold-outs** (the continent is removed from training entirely). World-class deposits:
+
+| held-out continent | knn AUC | GBM AUC | NN AUC (v1 → v2) | NN capture@20% |
+|---|---|---|---|---|
+| Africa | 0.394 | 0.802 | 0.756 → **0.788** | 0.60 |
+| Australia | 0.441 | 0.745 | 0.750 → **0.772** | 0.54 |
+| South America | 0.541 | 0.686 | 0.690 → 0.688 | 0.40 |
+
+Distance-to-known-deposits collapses to chance or worse on an unseen continent. The AEF models
+keep an AUC of 0.69–0.80, so the embedding carries geology that transfers across continents.
+GBM and the NN are close. An ensemble is an easy next gain.
+
+**The commodity split does not transfer across continents.** Under CV the composition head
+beats the global class mix (top-1 0.39 vs 0.29; CE 2.12 vs 2.36). On unseen continents it is
+worse than the mix (Australia top-1 0.11 vs 0.30). So the final split is shrunk toward the
+global mix by distance to the nearest labelled deposit: full trust within 500 km (the CV regime),
+α = 0.2 beyond 1,500 km (fitted on the continent hold-outs), linear in between. `composition_trust`
+records this per cell. A median cell is 128 km from a label, so most of the map keeps the learned split.
+
+### What the global map shows
+Bright: the Andes, the Canadian and US Cordillera, Mexico, the Pilbara/Yilgarn and Mt Isa,
+Fennoscandia, the Urals, the Tethyan belt (Anatolia, Zagros, Himalaya), the Arabian–Nubian
+Shield, southern and central Africa, and the Philippines and Indonesia. Dark: the major sedimentary basins
+(Sahara, Amazon, Congo, West Siberian, Great Plains).
+
+**Rediscoveries:** several top "greenfield" cells (no labelled deposit within 25 km) are real
+deposits missing from our label set. Examples are Gove bauxite (Australia), Weda Bay nickel
+laterite (Halmahera), heavy-mineral-sand REE in Sri Lanka and Vietnam, Antalya ophiolite
+chromite (Turkey), the Kinta-area tin belt (Malaysia), Kerio Valley fluorspar (Kenya) and the
+Kursk Magnetic Anomaly iron (Belgorod). This is the strongest qualitative evidence that the
+signal is geological.
+
+**Known failure modes, visible in the candidate list:**
+* **Urban land scores like mines.** Cities are bare, disturbed ground to AEF. Candidates within 30 km
+  of a city of ≥250k are flagged (`urban_flag`), and the flag catches ~20% of the list. Several suburban
+  false positives slip under the threshold (Lawrence KS for Pb-Zn, the San Antonio fringe for U).
+  The fix is an urban and mine-footprint mask before pooling.
+* **Bare rock scores high** (east Greenland, high Himalaya). Exposure is necessary for AEF to see
+  anything, but it is not sufficient for ore.
+* **Cu is over-represented** in shields (Canada, Fennoscandia, Siberia). The global compilations are
+  Cu-centric (porphyry, sediment-hosted, VMS) and value weighting favours Cu.
+* The same caveats as the pilot apply: surface-only signal, no geophysics, and scores are ranks rather than
+  calibrated probabilities.
+
+### Reproduce (≈2.5 h on 4 CPUs)
+```bash
+python scripts/fetch_global.py --year 2024 --out data/global_2024.npz        # 32 min
+python scripts/run_global.py --out outputs/global                            # 35 min (+15 min context features)
+python scripts/global_report.py --out outputs/global                         # maps, tables, candidates
+python scripts/export_compact.py --out outputs/global                        # committed parquet
+python scripts/build_explorer.py --out outputs/global --skill "..."          # interactive page
+```
+The global label sources need `data/usgs_global/` (unzipped `ofr20051294-csv.zip`,
+`porcu-csv.zip`, `sedcu-csv.zip`, `vms-csv.zip` from mrdata.usgs.gov).
+
+### Next steps, in order of expected value
+1. Mask urban and mine-footprint 10 m pixels before pooling. This addresses the leakage and the urban false positives.
+2. Add geophysics and geology covariates (§5), which matter most under cover.
+3. Ensemble GBM with the NN on presence, and calibrate against an assumed deposit density.
+4. Add national label sources (GA OZMIN, GSC CMDB, BGS, SERNAGEOMIN) to fix the Cu-centric composition.
+5. Add a deposit-type head (porphyry / orogenic Au / MVT / VMS / LCT / laterite …) instead of commodities.
 
 ## References
 * Brown et al. 2025, *AlphaEarth Foundations: An embedding field model for accurate and efficient global mapping from sparse label data*, Google DeepMind.

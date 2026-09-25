@@ -36,9 +36,17 @@ def neighbourhood_context(cells: np.ndarray, emb: np.ndarray, rings=(2, 6)) -> n
     """
     lookup = {c: i for i, c in enumerate(cells)}
     out = np.zeros((len(cells), emb.shape[1] * len(rings)), np.float32)
+    emb = np.asarray(emb, np.float32)
     for j, k in enumerate(rings):
-        for i, c in enumerate(cells):
-            idx = [lookup[n] for n in h3.grid_disk(c, k) if n in lookup]
-            v = emb[idx].mean(0)
-            out[i, j * emb.shape[1]:(j + 1) * emb.shape[1]] = v / (np.linalg.norm(v) + 1e-8)
+        for s in range(0, len(cells), 50000):
+            # Build a padded (chunk, ring_size) neighbour index; -1 = missing neighbour.
+            nb = [[lookup.get(n, -1) for n in h3.grid_disk(c, k)] for c in cells[s:s + 50000]]
+            width = max(len(r) for r in nb)
+            idx = np.full((len(nb), width), -1, np.int64)
+            for i, r in enumerate(nb):
+                idx[i, :len(r)] = r
+            valid = idx >= 0
+            v = (emb[np.where(valid, idx, 0)] * valid[..., None]).sum(1) / valid.sum(1, keepdims=True)
+            out[s:s + len(nb), j * emb.shape[1]:(j + 1) * emb.shape[1]] = \
+                v / (np.linalg.norm(v, axis=1, keepdims=True) + 1e-8)
     return out

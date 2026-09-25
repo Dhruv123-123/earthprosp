@@ -93,3 +93,51 @@ def spatial_folds(groups: np.ndarray, k: int = 5, seed: int = 0) -> list[np.ndar
     fold_of = {g: i % k for i, g in enumerate(uniq)}
     f = np.array([fold_of[g] for g in groups])
     return [np.where(f == i)[0] for i in range(k)]
+
+
+def fit_features(X, positive, weight, composition, cfg: TrainConfig = TrainConfig(),
+                 unlabeled_subsample: int | None = None):
+    """Train FeatureProspectivityModel with nnPU + composition loss on flat features.
+
+    `weight` is the per-positive weight (label confidence x any propensity reweighting).
+    `unlabeled_subsample` draws a fresh random subset of unlabeled cells each epoch, which
+    keeps epochs cheap on millions of cells without changing the PU estimator.
+    """
+    from .model import FeatureProspectivityModel
+
+    torch.manual_seed(cfg.seed)
+    rng = np.random.default_rng(cfg.seed)
+    X = np.asarray(X)
+    P = np.asarray(positive, bool)
+    prior = cfg.prior if cfg.prior is not None else min(0.5, 1.5 * float(P.mean()))
+    model = FeatureProspectivityModel(X.shape[1], composition.shape[1], cfg.d, cfg.dropout)
+    opt = torch.optim.AdamW(model.parameters(), lr=cfg.lr, weight_decay=cfg.weight_decay)
+    sched = torch.optim.lr_scheduler.CosineAnnealingLR(opt, cfg.epochs)
+    pos_idx, unl_idx = np.where(P)[0], np.where(~P)[0]
+    for ep in range(cfg.epochs):
+        model.train()
+        u = unl_idx if unlabeled_subsample is None or unlabeled_subsample >= len(unl_idx) \
+            else rng.choice(unl_idx, unlabeled_subsample, replace=False)
+        idx = rng.permutation(np.concatenate([pos_idx, u]))
+        tot = 0.0
+        for s in range(0, len(idx), cfg.batch):
+            i = np.sort(idx[s:s + cfg.batch])
+            xb = _t(X[i])
+            logit, comp = model(xb)
+            pb, wb = _t(P[i], torch.bool), _t(weight[i])
+            l_pu, _ = nnpu_loss(logit, pb, wb, prior)
+            loss = l_pu + cfg.comp_weight * composition_loss(comp, _t(composition[i]), pb, wb)
+            opt.zero_grad()
+            loss.backward()
+            opt.step()
+            tot += loss.item() * len(i)
+        sched.step()
+        if cfg.verbose:
+            print(f"[fit_features] epoch {ep} loss {tot / len(idx):.4f}", flush=True)
+    return model
+
+
+@torch.no_grad()
+def predict_features(model, X, batch: int = 65536) -> np.ndarray:
+    model.eval()
+    return np.concatenate([model.split(_t(X[s:s + batch])).numpy() for s in range(0, len(X), batch)])

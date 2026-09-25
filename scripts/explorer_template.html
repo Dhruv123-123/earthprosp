@@ -1,0 +1,310 @@
+<title>EarthProsp Atlas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root {
+  --page: #f9f9f7;
+  --surface: #fcfcfb;
+  --ink: #0b0b0b;
+  --ink-2: #52514e;
+  --muted: #898781;
+  --hair: #e1e0d9;
+  --axis: #c3c2b7;
+  --ring: rgba(11,11,11,0.10);
+  --land: #ecebe6;
+  --coast: #b9b8b0;
+  --accent: #2a78d6;
+  --known: #d03b3b;
+  --r0: #cde2fb; --r1: #9ec5f4; --r2: #6da7ec; --r3: #3987e5; --r4: #256abf; --r5: #184f95; --r6: #0d366b;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --page: #0d0d0d; --surface: #1a1a19; --ink: #ffffff; --ink-2: #c3c2b7; --muted: #898781;
+    --hair: #2c2c2a; --axis: #383835; --ring: rgba(255,255,255,0.10);
+    --land: #242423; --coast: #4a4a46; --accent: #3987e5; --known: #e66767;
+    --r0: #0d366b; --r1: #184f95; --r2: #256abf; --r3: #3987e5; --r4: #6da7ec; --r5: #9ec5f4; --r6: #cde2fb;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #0d0d0d; --surface: #1a1a19; --ink: #ffffff; --ink-2: #c3c2b7; --muted: #898781;
+  --hair: #2c2c2a; --axis: #383835; --ring: rgba(255,255,255,0.10);
+  --land: #242423; --coast: #4a4a46; --accent: #3987e5; --known: #e66767;
+  --r0: #0d366b; --r1: #184f95; --r2: #256abf; --r3: #3987e5; --r4: #6da7ec; --r5: #9ec5f4; --r6: #cde2fb;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--page); color: var(--ink);
+  font: 14px/1.5 "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  padding-inline: 16px; padding-block: 20px 40px;
+}
+.wrap { max-width: 1320px; margin: 0 auto; display: grid; gap: 16px; }
+header { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 24px; }
+h1 { font-size: 22px; font-weight: 600; margin: 0; letter-spacing: -0.01em; text-wrap: balance; }
+.sub { color: var(--ink-2); margin: 2px 0 0; max-width: 72ch; }
+.mono { font-family: "IBM Plex Mono", ui-monospace, monospace; font-variant-numeric: tabular-nums; }
+.controls { display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: center; }
+label.ctl { display: flex; gap: 8px; align-items: center; color: var(--ink-2); font-size: 13px; }
+select, button.chip {
+  font: inherit; color: var(--ink); background: var(--surface); border: 1px solid var(--axis);
+  border-radius: 6px; padding: 5px 8px;
+}
+button.chip { cursor: pointer; }
+button.chip[aria-pressed="true"] { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+select:focus-visible, button:focus-visible, canvas:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.legend { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--muted); }
+.ramp { width: 180px; height: 10px; border-radius: 2px; }
+.stage { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 16px; align-items: start; }
+@media (max-width: 900px) { .stage { grid-template-columns: 1fr; } }
+.mapbox { position: relative; background: var(--surface); border: 1px solid var(--ring); border-radius: 8px; overflow: hidden; }
+canvas#map { display: block; width: 100%; aspect-ratio: 2.4 / 1; cursor: grab; touch-action: none; }
+canvas#map.dragging { cursor: grabbing; }
+.zoom { position: absolute; right: 10px; top: 10px; display: grid; gap: 4px; }
+.zoom button { width: 30px; height: 30px; font-size: 16px; line-height: 1; background: var(--surface); color: var(--ink);
+  border: 1px solid var(--axis); border-radius: 6px; cursor: pointer; }
+.hint { position: absolute; left: 10px; bottom: 8px; font-size: 11px; color: var(--muted); }
+aside.panel { background: var(--surface); border: 1px solid var(--ring); border-radius: 8px; padding: 14px 16px; display: grid; gap: 10px; }
+.panel h2 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin: 0; font-weight: 500; }
+.loc { font-size: 15px; font-weight: 500; }
+.kv { display: grid; grid-template-columns: auto 1fr; gap: 2px 12px; font-size: 13px; }
+.kv dt { color: var(--ink-2); }
+.kv dd { margin: 0; text-align: right; }
+.bars { display: grid; gap: 5px; }
+.bar { display: grid; grid-template-columns: 88px 1fr 44px; gap: 8px; align-items: center; font-size: 12.5px; }
+.bar .track { height: 8px; background: var(--hair); border-radius: 4px; overflow: hidden; }
+.bar .fill { height: 100%; background: var(--accent); border-radius: 0 4px 4px 0; }
+.bar .v { text-align: right; color: var(--ink-2); }
+.empty { color: var(--muted); font-size: 13px; }
+section.notes { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px 28px; }
+.notes h3 { font-size: 14px; margin: 0 0 4px; font-weight: 600; }
+.notes p { margin: 0; color: var(--ink-2); max-width: 65ch; }
+.tablewrap { overflow-x: auto; }
+table { border-collapse: collapse; font-size: 13px; width: 100%; }
+th, td { text-align: left; padding: 5px 10px 5px 0; border-bottom: 1px solid var(--hair); white-space: nowrap; }
+th { color: var(--muted); font-weight: 500; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; }
+th.num, td.num { text-align: right; font-family: "IBM Plex Mono", ui-monospace, monospace; font-variant-numeric: tabular-nums; }
+</style>
+
+<div class="wrap">
+  <header>
+    <div>
+      <h1>EarthProsp Atlas</h1>
+      <p class="sub">Mineral prospectivity for every land cell on Earth, predicted from AlphaEarth Foundations satellite embeddings (2024). Shown here at H3 resolution 4 (~1,770 km² per hexagon), averaged from __NCELLS__ resolution-6 cells.</p>
+    </div>
+    <div class="controls">
+      <label class="ctl" for="commodity">Commodity
+        <select id="commodity"></select>
+      </label>
+      <button class="chip" id="known" type="button" aria-pressed="false">Known deposits</button>
+      <div class="legend" aria-hidden="true">
+        <span class="mono" id="lo">0</span><canvas class="ramp" id="ramp" width="180" height="10"></canvas><span class="mono" id="hi">1</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="stage">
+    <div class="mapbox">
+      <canvas id="map" tabindex="0" aria-label="World map of mineral prospectivity. Drag to pan, scroll to zoom, hover a location for its commodity split."></canvas>
+      <div class="zoom"><button id="zin" type="button" aria-label="Zoom in">+</button><button id="zout" type="button" aria-label="Zoom out">−</button><button id="zreset" type="button" aria-label="Reset view">⟲</button></div>
+      <div class="hint">Drag to pan · scroll or +/− to zoom · hover for the split</div>
+    </div>
+    <aside class="panel" aria-live="polite">
+      <h2>Cell split</h2>
+      <div id="detail"><p class="empty">Hover or tap the map to see the predicted split for that hexagon.</p></div>
+    </aside>
+  </div>
+
+  <section class="notes">
+    <div>
+      <h3>What the colour means</h3>
+      <p>With “Any commodity” selected, colour is the prospectivity score: the model’s ranking of how likely a hexagon is to host a deposit of any of the 15 classes. Choosing a commodity colours by that class’s share of the split, P(deposit) × P(class | deposit). Scales stretch to the 99th percentile of each view. Scores rank cells; they are not calibrated probabilities.</p>
+    </div>
+    <div>
+      <h3>How well it works</h3>
+      <p>__SKILL__</p>
+    </div>
+    <div>
+      <h3>Where not to trust it</h3>
+      <p>AlphaEarth sees the surface. Under glacial cover, rainforest, deep soil and young sediment the map is extrapolation. Training labels are densest in the US, part of the signal reflects visible mining disturbance, and the model has no geophysics yet.</p>
+    </div>
+  </section>
+
+  <section>
+    <h3 style="font-size:14px;margin:0 0 6px;font-weight:600">Countries with the most prospective ground for <span id="tblname">any commodity</span></h3>
+    <div class="tablewrap"><table id="tbl"><thead><tr><th>Country</th><th class="num">Expected prospective cells</th><th class="num">Land cells</th><th class="num">Mean score</th><th class="num">Known deposit cells</th></tr></thead><tbody></tbody></table></div>
+  </section>
+</div>
+
+<script>
+const CLASSES = __CLASSES__;
+const LABELS = __LABELS__;
+const COUNTRIES = __COUNTRIES__;
+const COUNTRY_TABLE = __COUNTRY_TABLE__;
+const LAND = __LAND__;
+const B64 = "__DATA__";
+const REC = 4 + 1 + 1 + 2 + CLASSES.length; // lat,lon int16; p u8; known u8; country u16; q[15] u8
+
+const bin = Uint8Array.from(atob(B64), c => c.charCodeAt(0));
+const dv = new DataView(bin.buffer);
+const N = bin.length / REC;
+const lat = new Float32Array(N), lon = new Float32Array(N), P = new Float32Array(N), known = new Uint8Array(N), ctry = new Uint16Array(N);
+const Q = new Float32Array(N * CLASSES.length);
+for (let i = 0; i < N; i++) {
+  const o = i * REC;
+  lat[i] = dv.getInt16(o, true) / 100; lon[i] = dv.getInt16(o + 2, true) / 100;
+  P[i] = bin[o + 4] / 255; known[i] = bin[o + 5]; ctry[i] = dv.getUint16(o + 6, true);
+  let s = 0; for (let k = 0; k < CLASSES.length; k++) s += bin[o + 8 + k];
+  for (let k = 0; k < CLASSES.length; k++) Q[i * CLASSES.length + k] = s ? bin[o + 8 + k] / s : 0;
+}
+// spatial hash (1 degree buckets) for hover lookup
+const buckets = new Map();
+for (let i = 0; i < N; i++) { const key = Math.floor(lat[i]) * 1000 + Math.floor(lon[i]); if (!buckets.has(key)) buckets.set(key, []); buckets.get(key).push(i); }
+
+const sel = document.getElementById("commodity");
+sel.add(new Option("Any commodity", "-1"));
+CLASSES.forEach((c, k) => sel.add(new Option(LABELS[k], String(k))));
+const canvas = document.getElementById("map"), ctx = canvas.getContext("2d");
+const ramp = document.getElementById("ramp");
+let view = { cx: 0, cy: 12, scale: 1 }; // scale 1 = whole world (lon -180..180) fits width
+let showKnown = false, hover = -1, values = new Float32Array(N), vmax = 1;
+const LAT_TOP = 84, LAT_BOT = -60;
+
+function css(n) { return getComputedStyle(document.documentElement).getPropertyValue(n).trim(); }
+function rampColors() { return [0,1,2,3,4,5,6].map(i => css("--r" + i)); }
+function hexToRgb(h) { const n = parseInt(h.slice(1), 16); return [(n >> 16) & 255, (n >> 8) & 255, n & 255]; }
+function interp(cols, t) {
+  const x = Math.max(0, Math.min(1, t)) * (cols.length - 1), i = Math.min(cols.length - 2, Math.floor(x)), f = x - i;
+  const a = cols[i], b = cols[i + 1];
+  return `rgb(${Math.round(a[0] + (b[0]-a[0])*f)},${Math.round(a[1] + (b[1]-a[1])*f)},${Math.round(a[2] + (b[2]-a[2])*f)})`;
+}
+function computeValues() {
+  const k = +sel.value;
+  for (let i = 0; i < N; i++) values[i] = k < 0 ? P[i] : P[i] * Q[i * CLASSES.length + k];
+  const s = Array.from(values).sort((a, b) => a - b);
+  vmax = Math.max(1e-6, s[Math.floor(0.99 * (s.length - 1))]);
+  document.getElementById("lo").textContent = "0";
+  document.getElementById("hi").textContent = vmax >= 0.1 ? vmax.toFixed(2) : vmax.toFixed(3);
+}
+function project(la, lo) {
+  const W = canvas.width, H = canvas.height, pxPerDeg = W / 360 * view.scale;
+  return [W / 2 + (lo - view.cx) * pxPerDeg, H / 2 - (la - view.cy) * pxPerDeg];
+}
+function unproject(x, y) {
+  const W = canvas.width, H = canvas.height, pxPerDeg = W / 360 * view.scale;
+  return [view.cy - (y - H / 2) / pxPerDeg, view.cx + (x - W / 2) / pxPerDeg];
+}
+function clampView() {
+  view.scale = Math.max(1, Math.min(24, view.scale));
+  const halfW = 180 / view.scale, halfH = (canvas.height / canvas.width) * 180 / view.scale;
+  view.cx = Math.max(-180 + halfW, Math.min(180 - halfW, view.cx));
+  const top = LAT_TOP, bot = LAT_BOT;
+  if (top - bot <= 2 * halfH) view.cy = (top + bot) / 2; else view.cy = Math.max(bot + halfH, Math.min(top - halfH, view.cy));
+}
+function resize() {
+  const r = canvas.getBoundingClientRect(), d = window.devicePixelRatio || 1;
+  canvas.width = Math.round(r.width * d); canvas.height = Math.round(r.height * d);
+  clampView(); draw();
+}
+function draw() {
+  const W = canvas.width, H = canvas.height, pxPerDeg = W / 360 * view.scale;
+  ctx.fillStyle = css("--surface"); ctx.fillRect(0, 0, W, H);
+  // land underlay
+  ctx.fillStyle = css("--land"); ctx.strokeStyle = css("--coast"); ctx.lineWidth = Math.max(1, (window.devicePixelRatio || 1) * 0.6);
+  ctx.beginPath();
+  for (const ring of LAND) { ring.forEach(([lo, la], j) => { const [x, y] = project(la, lo); j ? ctx.lineTo(x, y) : ctx.moveTo(x, y); }); ctx.closePath(); }
+  ctx.fill();
+  // hexagons as cells: ~0.42 deg tall, widened by 1/cos(lat)
+  const cols = rampColors().map(hexToRgb), NB = 48, byBin = Array.from({ length: NB }, () => []);
+  for (let i = 0; i < N; i++) { const b = Math.min(NB - 1, Math.floor(values[i] / vmax * NB)); byBin[b].push(i); }
+  const h = 0.42 * pxPerDeg + 0.5;
+  for (let b = 0; b < NB; b++) {
+    ctx.fillStyle = interp(cols, (b + 0.5) / NB);
+    for (const i of byBin[b]) {
+      const [x, y] = project(lat[i], lon[i]); if (x < -20 || y < -20 || x > W + 20 || y > H + 20) continue;
+      const w = h / Math.max(0.2, Math.cos(lat[i] * Math.PI / 180));
+      ctx.fillRect(x - w / 2, y - h / 2, w, h);
+    }
+  }
+  ctx.stroke();
+  if (showKnown) {
+    ctx.fillStyle = css("--known");
+    const r = Math.max(1.2, 0.09 * pxPerDeg);
+    for (let i = 0; i < N; i++) if (known[i]) { const [x, y] = project(lat[i], lon[i]); ctx.beginPath(); ctx.arc(x, y, r, 0, 7); ctx.fill(); }
+  }
+  if (hover >= 0) {
+    const [x, y] = project(lat[hover], lon[hover]); const w = h / Math.max(0.2, Math.cos(lat[hover] * Math.PI / 180));
+    ctx.strokeStyle = css("--ink"); ctx.lineWidth = 2 * (window.devicePixelRatio || 1); ctx.strokeRect(x - w / 2 - 2, y - h / 2 - 2, w + 4, h + 4);
+  }
+  // legend ramp
+  const rc = ramp.getContext("2d"); for (let x = 0; x < ramp.width; x++) { rc.fillStyle = interp(cols, x / (ramp.width - 1)); rc.fillRect(x, 0, 1, ramp.height); }
+}
+function nearest(la, lo) {
+  let best = -1, bd = 0.6 * 0.6;
+  for (let a = Math.floor(la) - 1; a <= Math.floor(la) + 1; a++) for (let b = Math.floor(lo) - 1; b <= Math.floor(lo) + 1; b++) {
+    const arr = buckets.get(a * 1000 + b); if (!arr) continue;
+    const c = Math.cos(la * Math.PI / 180);
+    for (const i of arr) { const d = (lat[i] - la) ** 2 + ((lon[i] - lo) * c) ** 2; if (d < bd) { bd = d; best = i; } }
+  }
+  return best;
+}
+function fmt(v) { return v >= 0.1 ? v.toFixed(2) : v.toFixed(3); }
+function showDetail(i) {
+  const el = document.getElementById("detail");
+  if (i < 0) { el.innerHTML = '<p class="empty">No land cell here. Hover or tap a coloured hexagon.</p>'; return; }
+  const ns = lat[i] >= 0 ? "N" : "S", ew = lon[i] >= 0 ? "E" : "W";
+  const rows = CLASSES.map((c, k) => [k, P[i] * Q[i * CLASSES.length + k]]).sort((a, b) => b[1] - a[1]).slice(0, 6);
+  const top = rows[0][1] || 1;
+  el.innerHTML = `<div class="loc">${COUNTRIES[ctry[i]] || "Unassigned"}</div>
+    <div class="mono" style="color:var(--muted);font-size:12px">${Math.abs(lat[i]).toFixed(2)}°${ns} ${Math.abs(lon[i]).toFixed(2)}°${ew}</div>
+    <dl class="kv"><dt>Prospectivity score</dt><dd class="mono">${fmt(P[i])}</dd>
+    <dt>P(none)</dt><dd class="mono">${fmt(1 - P[i])}</dd>
+    <dt>Known deposit cells</dt><dd class="mono">${known[i]}</dd></dl>
+    <h2 style="margin-top:4px">Top of the split</h2>
+    <div class="bars">${rows.map(([k, v]) => `<div class="bar"><span>${LABELS[k]}</span><span class="track"><span class="fill" style="display:block;width:${(v / top * 100).toFixed(1)}%"></span></span><span class="v mono">${fmt(v)}</span></div>`).join("")}</div>`;
+}
+function renderTable() {
+  const k = +sel.value, key = k < 0 ? "p_prospective" : "p_" + CLASSES[k];
+  document.getElementById("tblname").textContent = k < 0 ? "any commodity" : LABELS[k];
+  const rows = [...COUNTRY_TABLE].sort((a, b) => b[key] - a[key]).slice(0, 12);
+  document.querySelector("#tbl tbody").innerHTML = rows.map(r => `<tr><td>${r.country}</td><td class="num">${Math.round(r[key]).toLocaleString()}</td><td class="num">${r.cells.toLocaleString()}</td><td class="num">${r.mean_p.toFixed(3)}</td><td class="num">${r.known_positive_cells.toLocaleString()}</td></tr>`).join("");
+}
+function setHover(evt) {
+  const r = canvas.getBoundingClientRect(), d = window.devicePixelRatio || 1;
+  const [la, lo] = unproject((evt.clientX - r.left) * d, (evt.clientY - r.top) * d);
+  const i = nearest(la, lo); if (i !== hover) { hover = i; showDetail(i); draw(); }
+}
+let drag = null;
+canvas.addEventListener("pointerdown", e => { drag = { x: e.clientX, y: e.clientY, cx: view.cx, cy: view.cy, moved: false }; canvas.setPointerCapture(e.pointerId); });
+canvas.addEventListener("pointermove", e => {
+  if (drag) {
+    const dx = e.clientX - drag.x, dy = e.clientY - drag.y;
+    if (Math.abs(dx) + Math.abs(dy) > 3) { drag.moved = true; canvas.classList.add("dragging"); }
+    if (drag.moved) { const r = canvas.getBoundingClientRect(), degPerPx = 360 / r.width / view.scale; view.cx = drag.cx - dx * degPerPx; view.cy = drag.cy + dy * degPerPx; clampView(); draw(); return; }
+  }
+  setHover(e);
+});
+canvas.addEventListener("pointerup", e => { if (drag && !drag.moved) setHover(e); drag = null; canvas.classList.remove("dragging"); });
+function zoomAt(f, px, py) {
+  const [la, lo] = px == null ? [view.cy, view.cx] : unproject(px, py);
+  view.scale *= f; clampView();
+  if (px != null) { const [la2, lo2] = unproject(px, py); view.cx += lo - lo2; view.cy += la - la2; clampView(); }
+  draw();
+}
+canvas.addEventListener("wheel", e => { e.preventDefault(); const r = canvas.getBoundingClientRect(), d = window.devicePixelRatio || 1; zoomAt(e.deltaY < 0 ? 1.25 : 0.8, (e.clientX - r.left) * d, (e.clientY - r.top) * d); }, { passive: false });
+canvas.addEventListener("keydown", e => {
+  const step = 20 / view.scale;
+  if (e.key === "+" || e.key === "=") zoomAt(1.25); else if (e.key === "-") zoomAt(0.8);
+  else if (e.key === "ArrowLeft") { view.cx -= step; clampView(); draw(); } else if (e.key === "ArrowRight") { view.cx += step; clampView(); draw(); }
+  else if (e.key === "ArrowUp") { view.cy += step; clampView(); draw(); } else if (e.key === "ArrowDown") { view.cy -= step; clampView(); draw(); }
+});
+document.getElementById("zin").onclick = () => zoomAt(1.5);
+document.getElementById("zout").onclick = () => zoomAt(1 / 1.5);
+document.getElementById("zreset").onclick = () => { view = { cx: 0, cy: 12, scale: 1 }; clampView(); draw(); };
+document.getElementById("known").onclick = e => { showKnown = !showKnown; e.currentTarget.setAttribute("aria-pressed", String(showKnown)); draw(); };
+sel.onchange = () => { computeValues(); renderTable(); if (hover >= 0) showDetail(hover); draw(); };
+new MutationObserver(draw).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+matchMedia("(prefers-color-scheme: dark)").addEventListener("change", draw);
+new ResizeObserver(resize).observe(canvas);
+computeValues(); renderTable(); resize();
+</script>

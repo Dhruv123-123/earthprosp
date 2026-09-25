@@ -1,0 +1,152 @@
+{
+ "Au": {
+  "United States of America": 20787.0,
+  "Russia": 7147.0,
+  "Brazil": 5923.0,
+  "Canada": 5514.0,
+  "China": 3477.0,
+  "Australia": 3416.0,
+  "Colombia": 2204.0,
+  "Venezuela": 1639.0
+ },
+ "Ag": {
+  "United States of America": 5111.0,
+  "Peru": 1576.0,
+  "Mexico": 1443.0,
+  "Canada": 1427.0,
+  "Russia": 662.0,
+  "Argentina": 599.0,
+  "Chile": 537.0,
+  "Bolivia": 504.0
+ },
+ "Cu": {
+  "United States of America": 8684.0,
+  "Canada": 8219.0,
+  "Russia": 6124.0,
+  "China": 5015.0,
+  "Australia": 3536.0,
+  "Chile": 2677.0,
+  "Peru": 2083.0,
+  "Kazakhstan": 1922.0
+ },
+ "PbZn": {
+  "United States of America": 9491.0,
+  "Canada": 2682.0,
+  "China": 1736.0,
+  "Peru": 1701.0,
+  "Mexico": 1547.0,
+  "Russia": 1444.0,
+  "Iran": 1352.0,
+  "Argentina": 1153.0
+ },
+ "Fe": {
+  "United States of America": 13773.0,
+  "Russia": 2825.0,
+  "China": 2686.0,
+  "Canada": 1728.0,
+  "Brazil": 1256.0,
+  "Australia": 1099.0,
+  "India": 1091.0,
+  "Argentina": 712.0
+ },
+ "Mn": {
+  "United States of America": 3930.0,
+  "China": 1557.0,
+  "India": 826.0,
+  "Brazil": 769.0,
+  "Russia": 540.0,
+  "Mexico": 495.0,
+  "Argentina": 475.0,
+  "Indonesia": 443.0
+ },
+ "U": {
+  "United States of America": 7882.0,
+  "Australia": 1053.0,
+  "Brazil": 312.0,
+  "Canada": 205.0,
+  "Argentina": 154.0,
+  "South Africa": 136.0,
+  "Democratic Republic of the Congo": 92.0,
+  "Mexico": 91.0
+ },
+ "WMoSn": {
+  "Brazil": 3041.0,
+  "United States of America": 2759.0,
+  "Russia": 1812.0,
+  "China": 1706.0,
+  "Bolivia": 1009.0,
+  "Canada": 751.0,
+  "Australia": 643.0,
+  "Thailand": 587.0
+ },
+ "NiCoPGECr": {
+  "Russia": 4265.0,
+  "United States of America": 2236.0,
+  "Canada": 2122.0,
+  "Australia": 1801.0,
+  "Brazil": 1123.0,
+  "Turkey": 1072.0,
+  "South Africa": 927.0,
+  "Zimbabwe": 693.0
+ },
+ "LiBeTaNb": {
+  "United States of America": 1145.0,
+  "Brazil": 965.0,
+  "China": 512.0,
+  "Argentina": 397.0,
+  "Canada": 381.0,
+  "Namibia": 352.0,
+  "Mozambique": 293.0,
+  "Democratic Republic of the Congo": 267.0
+ },
+ "REE": {
+  "Australia": 886.0,
+  "United States of America": 780.0,
+  "Brazil": 324.0,
+  "Mozambique": 203.0,
+  "Mongolia": 199.0,
+  "China": 194.0,
+  "Russia": 172.0,
+  "India": 108.0
+ },
+ "Al": {
+  "United States of America": 1454.0,
+  "Brazil": 950.0,
+  "India": 848.0,
+  "Russia": 813.0,
+  "Australia": 810.0,
+  "China": 687.0,
+  "Guinea": 542.0,
+  "France": 491.0
+ },
+ "HgSbAs": {
+  "United States of America": 2251.0,
+  "Mexico": 653.0,
+  "Japan": 585.0,
+  "Russia": 530.0,
+  "China": 434.0,
+  "Bolivia": 410.0,
+  "Turkey": 301.0,
+  "Peru": 285.0
+ },
+ "BaF": {
+  "United States of America": 3629.0,
+  "Mexico": 1305.0,
+  "Argentina": 573.0,
+  "France": 548.0,
+  "Brazil": 334.0,
+  "South Africa": 293.0,
+  "Mongolia": 286.0,
+  "China": 278.0
+ },
+ "P": {
+  "United States of America": 2077.0,
+  "Russia": 1072.0,
+  "China": 1033.0,
+  "Brazil": 480.0,
+  "Mexico": 433.0,
+  "India": 418.0,
+  "Australia": 335.0,
+  "Algeria": 296.0
+ }
+}

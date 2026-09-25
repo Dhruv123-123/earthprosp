@@ -1,0 +1,357 @@
+class,h3,lat,lon,country,p_class,p_prospective
+Au,8666f5837ffffff,4.738,-76.108,Colombia,0.712,0.932
+Au,86bcce047ffffff,-26.165,26.17,South Africa,0.708,0.892
+Au,86660a6cfffffff,5.666,-74.268,Colombia,0.707,0.886
+Au,86bce8d97ffffff,-29.146,26.187,South Africa,0.687,0.991
+Au,8666e4d07ffffff,5.655,-74.447,Colombia,0.671,0.895
+Au,8666e4d77ffffff,5.61,-74.352,Colombia,0.67,0.9
+Au,8666e4d57ffffff,5.558,-74.376,Colombia,0.668,0.938
+Au,86bceeacfffffff,-29.169,26.252,South Africa,0.667,0.993
+Au,8666e4d37ffffff,5.704,-74.482,Colombia,0.666,0.849
+Au,86660a68fffffff,5.76,-74.398,Colombia,0.656,0.819
+Au,8666e4c27ffffff,5.554,-74.436,Colombia,0.646,0.911
+Au,8666e4d17ffffff,5.652,-74.507,Colombia,0.643,0.884
+Au,86bcee367ffffff,-29.111,26.243,South Africa,0.64,0.994
+Au,8666e49b7ffffff,5.669,-74.208,Colombia,0.635,0.899
+Au,86660aa17ffffff,6.25,-73.761,Colombia,0.634,0.738
+Au,8666f510fffffff,4.423,-76.198,Colombia,0.629,0.888
+Au,8666e4c1fffffff,5.45,-74.485,Colombia,0.625,0.872
+Au,86660a65fffffff,5.721,-74.183,Colombia,0.625,0.799
+Au,8666f58d7ffffff,4.53,-76.148,Colombia,0.624,0.869
+Au,86bccc947ffffff,-27.646,25.6,South Africa,0.619,0.981
+Au,8666e4d0fffffff,5.607,-74.412,Colombia,0.617,0.897
+Au,8666e4d27ffffff,5.708,-74.422,Colombia,0.616,0.887
+Au,8666e4d2fffffff,5.659,-74.387,Colombia,0.614,0.914
+Au,8666e4c37ffffff,5.551,-74.496,Colombia,0.614,0.892
+Au,8666e4c2fffffff,5.506,-74.401,Colombia,0.611,0.904
+Ag,8666c4c77ffffff,2.853,-75.581,Colombia,0.326,0.977
+Ag,8666c4c47ffffff,2.803,-75.546,Colombia,0.245,0.931
+Ag,8666c4c2fffffff,2.903,-75.617,Colombia,0.242,0.962
+Ag,862a31637ffffff,41.6,-70.52,United States of America,0.217,0.857
+Ag,8666c4c0fffffff,2.849,-75.642,Colombia,0.21,0.948
+Ag,862a3145fffffff,41.768,-70.56,United States of America,0.205,0.819
+Cu,862b03b0fffffff,45.283,-64.377,Canada,0.74,0.86
+Cu,862b0140fffffff,45.396,-64.013,(none),0.708,0.828
+Cu,862b1d817ffffff,44.751,-65.584,Canada,0.704,0.765
+Cu,862b03a27ffffff,45.249,-64.448,Canada,0.68,0.794
+Cu,862b1d91fffffff,44.821,-65.444,Canada,0.676,0.712
+Cu,862b1d837ffffff,44.786,-65.514,Canada,0.666,0.732
+Cu,862b1d127ffffff,44.645,-65.793,(none),0.656,0.766
+Cu,86adaea2fffffff,-28.501,17.418,Namibia,0.653,0.995
+Cu,862b03a07ffffff,45.214,-64.519,Canada,0.653,0.749
+Cu,862b1d807ffffff,44.727,-65.507,Canada,0.648,0.713
+Cu,862b2ed87ffffff,46.585,-60.984,Canada,0.643,0.669
+Cu,862b1d8afffffff,44.715,-65.654,Canada,0.641,0.754
+Cu,862b0040fffffff,46.39,-64.649,Canada,0.64,0.68
+Cu,862b0328fffffff,44.926,-65.234,Canada,0.636,0.739
+Cu,862b1d827ffffff,44.762,-65.437,Canada,0.631,0.683
+Cu,862b1d927ffffff,44.891,-65.304,Canada,0.629,0.724
+Cu,86adac4dfffffff,-28.676,17.437,South Africa,0.619,0.982
+Cu,862b03b57ffffff,45.225,-64.37,Canada,0.616,0.779
+Cu,86adaeb77ffffff,-28.617,17.431,Namibia,0.615,0.996
+Cu,86adaeb57ffffff,-28.559,17.424,Namibia,0.614,0.995
+Cu,86adaea0fffffff,-28.442,17.412,Namibia,0.605,0.999
+Cu,862b03a1fffffff,45.18,-64.59,Canada,0.602,0.682
+Cu,862b03327ffffff,45.134,-64.81,Canada,0.597,0.745
+Cu,862b0e64fffffff,43.963,-64.824,Canada,0.595,0.771
+Cu,862b1d107ffffff,44.61,-65.863,Canada,0.593,0.704
+PbZn,8626e8b4fffffff,35.955,-94.353,United States of America,0.729,0.974
+PbZn,862672207ffffff,40.205,-92.612,United States of America,0.701,0.797
+PbZn,8626e8c5fffffff,36.168,-95.249,United States of America,0.7,0.829
+PbZn,8626e81a7ffffff,36.116,-95.21,United States of America,0.689,0.929
+PbZn,8626521a7ffffff,38.284,-94.781,United States of America,0.68,0.766
+PbZn,8626722f7ffffff,40.108,-92.685,United States of America,0.678,0.8
+PbZn,862656467ffffff,39.151,-94.781,United States of America,0.678,0.752
+PbZn,8626e8b5fffffff,35.955,-94.426,United States of America,0.677,0.965
+PbZn,8626722e7ffffff,40.105,-92.61,United States of America,0.677,0.812
+PbZn,8626722c7ffffff,40.056,-92.646,United States of America,0.669,0.833
+PbZn,862672217ffffff,40.208,-92.688,United States of America,0.669,0.801
+PbZn,8626722dfffffff,40.007,-92.683,United States of America,0.667,0.782
+PbZn,8626e8077ffffff,35.907,-94.978,United States of America,0.666,0.941
+PbZn,8626722d7ffffff,40.059,-92.722,United States of America,0.665,0.793
+PbZn,8626ed6b7ffffff,35.954,-94.279,United States of America,0.665,0.977
+PbZn,86265289fffffff,38.384,-94.635,United States of America,0.663,0.738
+PbZn,8626e8a0fffffff,35.904,-94.535,United States of America,0.659,0.979
+PbZn,86265654fffffff,39.201,-94.745,United States of America,0.658,0.738
+PbZn,8626e8a77ffffff,35.904,-94.461,United States of America,0.658,0.981
+PbZn,86267276fffffff,40.265,-92.879,United States of America,0.654,0.82
+PbZn,8626568cfffffff,39.344,-94.18,United States of America,0.654,0.728
+PbZn,862656cdfffffff,39.355,-94.79,United States of America,0.654,0.699
+PbZn,862656507ffffff,39.357,-94.943,United States of America,0.653,0.695
+PbZn,8626e8c4fffffff,36.168,-95.175,United States of America,0.653,0.851
+PbZn,8626722cfffffff,40.004,-92.607,United States of America,0.651,0.782
+Fe,8644e9757ffffff,34.197,-87.205,United States of America,0.839,0.948
+Fe,8644e9607ffffff,34.242,-87.101,United States of America,0.835,0.922
+Fe,8644e962fffffff,34.246,-87.17,United States of America,0.827,0.92
+Fe,8644e970fffffff,34.144,-87.173,United States of America,0.814,0.933
+Fe,8644e972fffffff,34.095,-87.208,United States of America,0.797,0.95
+Fe,8644e9627ffffff,34.193,-87.137,United States of America,0.77,0.905
+Fe,8644e9747ffffff,34.201,-87.274,United States of America,0.749,0.903
+Fe,8644e9777ffffff,34.148,-87.241,United States of America,0.744,0.923
+Fe,8644e9767ffffff,34.152,-87.309,United States of America,0.733,0.945
+Fe,8644e90dfffffff,34.099,-87.276,United States of America,0.732,0.961
+Fe,8644e90e7ffffff,34.001,-87.348,United States of America,0.729,0.918
+Fe,86270829fffffff,47.846,-93.333,United States of America,0.725,0.759
+Fe,8644e90f7ffffff,33.997,-87.279,United States of America,0.724,0.937
+Fe,86270866fffffff,47.848,-93.424,United States of America,0.705,0.744
+Fe,8644e90d7ffffff,34.046,-87.244,United States of America,0.705,0.889
+Fe,860b95a27ffffff,55.606,86.118,Russia,0.688,0.811
+Fe,8644e90cfffffff,34.103,-87.345,United States of America,0.686,0.948
+Fe,860b96207ffffff,53.651,87.885,Russia,0.679,0.771
+Fe,862aa42e7ffffff,42.091,-76.79,United States of America,0.668,0.765
+Fe,862a82497ffffff,39.555,-82.433,United States of America,0.661,0.796
+Fe,8644e90efffffff,34.054,-87.38,United States of America,0.657,0.899
+Fe,86270b4cfffffff,47.047,-94.323,United States of America,0.656,0.721
+Fe,863ea55b7ffffff,24.918,17.733,Libya,0.653,0.671
+Fe,862b8a2efffffff,42.995,-76.094,United States of America,0.651,0.729
+Fe,8644e901fffffff,33.948,-87.315,United States of America,0.648,0.833
+Mn,8626eb32fffffff,34.65,-94.925,United States of America,0.65,0.938
+Mn,8626eb71fffffff,34.596,-95.545,United States of America,0.636,0.943
+Mn,8626eb397ffffff,34.597,-95.252,United States of America,0.624,0.952
+Mn,8626eb3afffffff,34.597,-95.106,United States of America,0.597,0.947
+Mn,8626eb057ffffff,34.755,-95.222,United States of America,0.596,0.886
+Mn,8626eb047ffffff,34.755,-95.149,United States of America,0.594,0.874
+Mn,8626eb227ffffff,34.545,-94.994,United States of America,0.592,0.935
+Mn,8626eb707ffffff,34.649,-95.511,United States of America,0.59,0.931
+Mn,8626eb717ffffff,34.648,-95.584,United States of America,0.573,0.89
+Mn,86265a0f7ffffff,35.464,-92.839,United States of America,0.573,0.924
+Mn,8626eb30fffffff,34.597,-94.959,United States of America,0.563,0.927
+Mn,8626eb387ffffff,34.597,-95.179,United States of America,0.56,0.882
+Mn,8626eb3b7ffffff,34.65,-95.218,United States of America,0.558,0.883
+Mn,8626eb31fffffff,34.597,-95.032,United States of America,0.546,0.884
+Mn,8626eb757ffffff,34.544,-95.433,United States of America,0.52,0.859
+Mn,8626eb0e7ffffff,34.755,-95.296,United States of America,0.514,0.81
+Mn,8626e979fffffff,34.911,-94.46,United States of America,0.513,0.83
+Mn,8626eb05fffffff,34.702,-95.183,United States of America,0.511,0.816
+Mn,8626eb7afffffff,34.595,-95.618,United States of America,0.51,0.812
+Mn,8626eb767ffffff,34.597,-95.325,United States of America,0.503,0.87
+Mn,8626e971fffffff,34.962,-94.28,United States of America,0.498,0.856
+Mn,8626e970fffffff,34.962,-94.207,United States of America,0.494,0.814
+Mn,8626e9787ffffff,34.963,-94.426,United States of America,0.492,0.818
+Mn,8626ebad7ffffff,34.702,-94.891,United States of America,0.49,0.8
+Mn,8626eba67ffffff,34.807,-94.603,United States of America,0.489,0.791
+U,86278a597ffffff,45.289,-106.048,United States of America,0.644,0.661
+U,86279996fffffff,45.238,-106.082,United States of America,0.632,0.65
+U,862799907ffffff,45.316,-106.351,United States of America,0.609,0.652
+U,86279d66fffffff,45.406,-106.453,United States of America,0.602,0.624
+U,86278a5b7ffffff,45.34,-106.015,United States of America,0.596,0.622
+U,862799947ffffff,45.232,-106.166,United States of America,0.595,0.619
+U,86279d297ffffff,45.457,-106.419,United States of America,0.588,0.611
+U,86279994fffffff,45.187,-106.115,United States of America,0.584,0.599
+U,862799967ffffff,45.283,-106.132,United States of America,0.582,0.611
+U,862799927ffffff,45.367,-106.318,United States of America,0.578,0.632
+U,86279990fffffff,45.271,-106.3,United States of America,0.577,0.603
+U,862799957ffffff,45.226,-106.25,United States of America,0.571,0.594
+U,86279992fffffff,45.322,-106.267,United States of America,0.57,0.61
+U,86279991fffffff,45.265,-106.384,United States of America,0.566,0.602
+U,86279995fffffff,45.181,-106.199,United States of America,0.563,0.578
+U,864891887ffffff,28.495,-97.549,United States of America,0.562,0.569
+U,8627999a7ffffff,45.304,-106.519,United States of America,0.559,0.587
+U,862799277ffffff,44.453,-106.113,United States of America,0.556,0.562
+U,86279d747ffffff,45.547,-106.521,United States of America,0.549,0.668
+U,86279d2c7ffffff,45.379,-106.149,United States of America,0.549,0.568
+U,86279d2dfffffff,45.328,-106.183,United States of America,0.547,0.577
+U,862799917ffffff,45.31,-106.435,United States of America,0.541,0.601
+U,8648918a7ffffff,28.44,-97.581,United States of America,0.541,0.548
+U,86279d75fffffff,45.496,-106.555,United States of America,0.541,0.669
+U,86279d757ffffff,45.541,-106.606,United States of America,0.541,0.681
+WMoSn,868189197ffffff,-5.85,-37.732,Brazil,0.568,0.632
+WMoSn,868189ca7ffffff,-6.093,-37.526,Brazil,0.557,0.625
+WMoSn,86651d52fffffff,5.891,100.654,Malaysia,0.553,0.596
+WMoSn,868189cafffffff,-6.044,-37.567,Brazil,0.548,0.619
+WMoSn,86650365fffffff,5.278,100.758,Malaysia,0.548,0.571
+WMoSn,868189037ffffff,-5.824,-37.898,Brazil,0.547,0.619
+WMoSn,86818918fffffff,-5.813,-37.836,Brazil,0.537,0.614
+WMoSn,868189cf7ffffff,-5.996,-37.608,Brazil,0.535,0.605
+WMoSn,86651d497ffffff,6.276,100.656,Malaysia,0.533,0.625
+WMoSn,86651d48fffffff,6.23,100.556,Malaysia,0.532,0.582
+WMoSn,86651d4b7ffffff,6.219,100.683,Malaysia,0.53,0.648
+WMoSn,868189c87ffffff,-6.033,-37.505,Brazil,0.529,0.594
+WMoSn,868189ce7ffffff,-6.007,-37.671,Brazil,0.524,0.6
+WMoSn,8681891afffffff,-5.873,-37.857,Brazil,0.523,0.596
+WMoSn,868189c5fffffff,-5.97,-37.775,Brazil,0.518,0.592
+WMoSn,868189527ffffff,-5.925,-37.524,Brazil,0.516,0.587
+WMoSn,868189c47ffffff,-6.03,-37.797,Brazil,0.516,0.593
+WMoSn,8681890a7ffffff,-5.753,-37.814,Brazil,0.515,0.605
+WMoSn,868189c1fffffff,-6.056,-37.63,Brazil,0.515,0.595
+WMoSn,868189cefffffff,-5.959,-37.712,Brazil,0.513,0.59
+WMoSn,868189c0fffffff,-6.067,-37.693,Brazil,0.512,0.592
+WMoSn,868189c77ffffff,-6.078,-37.756,Brazil,0.511,0.594
+WMoSn,868189cdfffffff,-5.887,-37.628,Brazil,0.51,0.573
+WMoSn,868189ccfffffff,-5.899,-37.691,Brazil,0.509,0.577
+WMoSn,868189c8fffffff,-5.984,-37.546,Brazil,0.508,0.576
+NiCoPGECr,863f6c617ffffff,37.355,30.833,Turkey,0.668,0.792
+NiCoPGECr,869c25437ffffff,-18.371,146.282,Australia,0.658,0.673
+NiCoPGECr,867ac1457ffffff,6.93,40.721,Ethiopia,0.655,0.772
+NiCoPGECr,869c2551fffffff,-18.425,146.304,Australia,0.654,0.667
+NiCoPGECr,869772797ffffff,-19.852,28.172,Zimbabwe,0.648,0.796
+NiCoPGECr,86950c2a7ffffff,-5.359,122.026,Indonesia,0.648,0.702
+NiCoPGECr,862dacae7ffffff,37.563,36.639,Turkey,0.621,0.679
+NiCoPGECr,867ac14e7ffffff,6.962,40.765,Ethiopia,0.616,0.8
+NiCoPGECr,862dacacfffffff,37.564,36.771,Turkey,0.616,0.675
+NiCoPGECr,86970b21fffffff,-18.131,28.918,Zimbabwe,0.614,0.751
+NiCoPGECr,865d1398fffffff,19.39,-155.524,United States of America,0.61,0.634
+NiCoPGECr,867ac1447ffffff,6.897,40.677,Ethiopia,0.606,0.758
+NiCoPGECr,86970b2e7ffffff,-18.107,28.856,Zimbabwe,0.599,0.756
+NiCoPGECr,862dac327ffffff,37.411,36.712,Turkey,0.598,0.677
+NiCoPGECr,862daddb7ffffff,37.625,36.768,Turkey,0.596,0.652
+NiCoPGECr,862dacaefffffff,37.594,36.704,Turkey,0.595,0.632
+NiCoPGECr,862dacac7ffffff,37.533,36.706,Turkey,0.581,0.705
+NiCoPGECr,862dac307ffffff,37.381,36.78,Turkey,0.574,0.652
+NiCoPGECr,86a35678fffffff,-15.77,50.015,Madagascar,0.574,0.656
+NiCoPGECr,867ac1477ffffff,6.875,40.732,Ethiopia,0.573,0.709
+NiCoPGECr,869e2db07ffffff,-20.626,164.866,New Caledonia,0.567,0.602
+NiCoPGECr,862daca57ffffff,37.624,36.636,Turkey,0.566,0.637
+NiCoPGECr,86bcd161fffffff,-24.888,29.532,South Africa,0.553,0.851
+NiCoPGECr,865d138b7ffffff,19.303,-155.594,United States of America,0.551,0.58
+NiCoPGECr,862dacadfffffff,37.503,36.774,Turkey,0.548,0.613
+LiBeTaNb,86204b6dfffffff,47.746,89.117,China,0.604,0.709
+LiBeTaNb,8625a5d67ffffff,47.74,89.207,China,0.562,0.654
+LiBeTaNb,86204b6cfffffff,47.797,89.169,China,0.538,0.626
+LiBeTaNb,86204b6c7ffffff,47.802,89.078,China,0.538,0.643
+LiBeTaNb,8625a5997ffffff,47.791,89.259,China,0.521,0.644
+LiBeTaNb,86204b6efffffff,47.853,89.13,China,0.519,0.599
+LiBeTaNb,8625a5d6fffffff,47.735,89.298,China,0.502,0.652
+LiBeTaNb,8625a5107ffffff,47.605,89.644,China,0.494,0.677
+LiBeTaNb,8625a56efffffff,47.021,90.283,China,0.493,0.61
+LiBeTaNb,8625a1d4fffffff,46.845,90.48,China,0.465,0.525
+LiBeTaNb,8625a56cfffffff,46.964,90.319,China,0.442,0.519
+LiBeTaNb,8625a1d67ffffff,46.908,90.356,China,0.437,0.516
+LiBeTaNb,86ada0297ffffff,-29.068,19.364,South Africa,0.425,0.682
+LiBeTaNb,8625a18b7ffffff,46.895,90.532,China,0.412,0.496
+LiBeTaNb,8625a1997ffffff,46.958,90.408,China,0.399,0.554
+LiBeTaNb,8625a1d47ffffff,46.851,90.392,China,0.384,0.461
+LiBeTaNb,8625a58b7ffffff,47.729,89.388,China,0.383,0.545
+LiBeTaNb,86adae697ffffff,-27.685,17.974,Namibia,0.375,0.658
+LiBeTaNb,862a32957ffffff,43.009,-71.739,United States of America,0.371,0.773
+LiBeTaNb,86204a377ffffff,48.151,87.603,China,0.362,0.506
+LiBeTaNb,86ada3097ffffff,-28.248,19.269,Namibia,0.361,0.624
+LiBeTaNb,86204aadfffffff,48.208,87.562,China,0.36,0.628
+LiBeTaNb,86ad86adfffffff,-26.685,20.091,South Africa,0.356,0.741
+LiBeTaNb,86204b657ffffff,47.91,89.092,China,0.354,0.513
+LiBeTaNb,86ad85a1fffffff,-27.557,18.194,Namibia,0.349,0.583
+REE,86611c077ffffff,7.297,79.855,Sri Lanka,0.388,0.458
+REE,864172c6fffffff,20.063,110.378,(none),0.376,0.543
+REE,86602244fffffff,9.607,76.503,India,0.362,0.407
+REE,86611e32fffffff,8.305,79.849,Sri Lanka,0.358,0.449
+REE,86611c687ffffff,7.883,79.78,Sri Lanka,0.357,0.405
+REE,86417289fffffff,20.017,110.34,China,0.343,0.61
+REE,8660312c7ffffff,10.498,76.198,India,0.339,0.577
+REE,86611e3afffffff,8.463,79.883,Sri Lanka,0.335,0.466
+REE,8669149a7ffffff,12.475,109.247,Vietnam,0.328,0.631
+REE,866002cefffffff,11.905,75.381,India,0.326,0.618
+REE,86611e31fffffff,8.411,79.852,Sri Lanka,0.32,0.45
+REE,86611e757ffffff,8.725,79.979,Sri Lanka,0.319,0.404
+REE,86602246fffffff,9.554,76.532,India,0.316,0.381
+REE,86611c0c7ffffff,7.457,79.829,Sri Lanka,0.307,0.385
+REE,86611c16fffffff,7.137,79.881,Sri Lanka,0.304,0.448
+REE,866914987ffffff,12.418,109.271,Vietnam,0.303,0.654
+REE,866002c57ffffff,11.853,75.409,India,0.3,0.564
+REE,86611eadfffffff,8.253,79.818,(none),0.294,0.345
+REE,866914c2fffffff,12.155,109.21,Vietnam,0.292,0.42
+REE,8660312cfffffff,10.498,76.14,India,0.285,0.466
+REE,866914d5fffffff,12.205,109.247,(none),0.284,0.344
+REE,866022447ffffff,9.606,76.561,India,0.281,0.353
+REE,86a72650fffffff,-31.789,115.888,Australia,0.279,0.463
+REE,866006147ffffff,10.969,75.887,India,0.277,0.353
+REE,866111727ffffff,7.891,80.945,Sri Lanka,0.274,0.495
+Al,865f08d67ffffff,5.61,-57.505,Guyana,0.771,0.79
+Al,865f08d2fffffff,5.576,-57.411,Guyana,0.77,0.79
+Al,865f0c687ffffff,5.43,-57.359,Guyana,0.765,0.773
+Al,865f08d77ffffff,5.621,-57.447,Guyana,0.76,0.775
+Al,865f0c6dfffffff,5.565,-57.469,Guyana,0.759,0.796
+Al,865f08d6fffffff,5.654,-57.542,Guyana,0.747,0.778
+Al,865f0898fffffff,5.631,-57.657,Guyana,0.723,0.742
+Al,865f0899fffffff,5.643,-57.6,Guyana,0.715,0.751
+Al,865f08d4fffffff,5.711,-57.52,Guyana,0.713,0.736
+Al,865f08d47ffffff,5.666,-57.484,Guyana,0.704,0.72
+Al,865f08897ffffff,5.755,-57.557,Guyana,0.691,0.731
+Al,865f0ece7ffffff,5.299,-56.439,Suriname,0.691,0.715
+Al,865f08d17ffffff,5.6,-57.294,Guyana,0.685,0.692
+Al,865f088b7ffffff,5.699,-57.578,Guyana,0.682,0.718
+Al,865f088afffffff,5.732,-57.672,Guyana,0.677,0.716
+Al,865f0ea5fffffff,5.567,-57.2,(none),0.676,0.697
+Al,865f0ecd7ffffff,5.368,-56.358,Suriname,0.668,0.683
+Al,865f088a7ffffff,5.687,-57.636,Guyana,0.665,0.695
+Al,865f0888fffffff,5.788,-57.651,Guyana,0.665,0.7
+Al,865f0e1b7ffffff,5.39,-56.512,Suriname,0.665,0.691
+Al,865f0c6d7ffffff,5.52,-57.432,Guyana,0.66,0.664
+Al,865f08817ffffff,5.676,-57.694,Guyana,0.658,0.711
+Al,865f08887ffffff,5.744,-57.615,Guyana,0.657,0.698
+Al,865f0881fffffff,5.72,-57.73,Guyana,0.645,0.672
+Al,8654eace7ffffff,9.727,-13.402,Guinea,0.64,0.746
+HgSbAs,864b61547ffffff,33.013,132.981,Japan,0.531,0.818
+HgSbAs,864b6151fffffff,32.94,132.831,Japan,0.518,0.842
+HgSbAs,864b6150fffffff,32.979,132.873,Japan,0.517,0.811
+HgSbAs,864b61507ffffff,32.985,132.808,Japan,0.486,0.785
+HgSbAs,864b61517ffffff,32.946,132.765,Japan,0.481,0.79
+HgSbAs,864b6024fffffff,32.951,132.7,Japan,0.453,0.791
+HgSbAs,864b6142fffffff,32.929,132.962,Japan,0.446,0.812
+HgSbAs,862e65747ffffff,34.17,136.249,Japan,0.441,0.736
+HgSbAs,864b6152fffffff,33.025,132.85,Japan,0.439,0.762
+HgSbAs,864b61557ffffff,32.974,132.939,Japan,0.403,0.706
+HgSbAs,864b61437ffffff,32.895,132.854,Japan,0.397,0.728
+HgSbAs,864b61577ffffff,33.019,132.915,Japan,0.395,0.652
+HgSbAs,862e6576fffffff,34.123,136.218,Japan,0.386,0.726
+HgSbAs,864b61407ffffff,32.889,132.92,Japan,0.367,0.703
+HgSbAs,862eac34fffffff,43.68,144.588,Japan,0.349,0.412
+HgSbAs,862ead557ffffff,43.754,144.173,Japan,0.348,0.441
+HgSbAs,862ead51fffffff,43.799,144.295,Japan,0.347,0.426
+HgSbAs,862eac347ffffff,43.676,144.665,Japan,0.345,0.457
+HgSbAs,862eac24fffffff,43.791,144.449,Japan,0.339,0.398
+HgSbAs,862eac267ffffff,43.734,144.557,Japan,0.339,0.408
+HgSbAs,864b60247ffffff,32.957,132.635,Japan,0.329,0.625
+HgSbAs,862eadc97ffffff,43.684,144.511,Japan,0.329,0.411
+HgSbAs,862eac35fffffff,43.729,144.634,Japan,0.328,0.428
+HgSbAs,862eac26fffffff,43.738,144.48,Japan,0.328,0.412
+HgSbAs,864b61427ffffff,32.934,132.896,Japan,0.327,0.654
+BaF,86b2cb08fffffff,-36.825,-69.738,Argentina,0.506,0.635
+BaF,86266910fffffff,37.376,-85.224,United States of America,0.504,0.766
+BaF,86266912fffffff,37.422,-85.187,United States of America,0.497,0.842
+BaF,862669b9fffffff,37.304,-84.986,United States of America,0.495,0.788
+BaF,862669177ffffff,37.37,-85.155,United States of America,0.493,0.754
+BaF,86b2cb0dfffffff,-36.897,-69.658,Argentina,0.49,0.646
+BaF,86b2cb0d7ffffff,-36.861,-69.698,Argentina,0.482,0.645
+BaF,862669027ffffff,37.33,-85.261,United States of America,0.474,0.769
+BaF,862669a97ffffff,37.211,-85.06,United States of America,0.47,0.752
+BaF,862669aa7ffffff,37.251,-84.954,United States of America,0.468,0.804
+BaF,862669107ffffff,37.429,-85.256,United States of America,0.462,0.773
+BaF,86266902fffffff,37.277,-85.229,United States of America,0.457,0.765
+BaF,8626690afffffff,37.243,-85.403,United States of America,0.452,0.743
+BaF,862669c17ffffff,37.659,-85.591,United States of America,0.451,0.671
+BaF,862669dafffffff,37.753,-85.579,United States of America,0.45,0.784
+BaF,862669727ffffff,37.15,-85.477,United States of America,0.448,0.78
+BaF,862669077ffffff,37.224,-85.197,United States of America,0.441,0.773
+BaF,862669d8fffffff,37.711,-85.624,United States of America,0.438,0.665
+BaF,86266915fffffff,37.271,-85.16,United States of America,0.435,0.746
+BaF,862669067ffffff,37.218,-85.128,United States of America,0.433,0.75
+BaF,862669d9fffffff,37.718,-85.693,United States of America,0.432,0.676
+BaF,86266865fffffff,37.579,-86.398,United States of America,0.43,0.758
+BaF,862669187ffffff,37.395,-85.43,United States of America,0.428,0.711
+BaF,862669d1fffffff,37.745,-85.505,United States of America,0.427,0.758
+BaF,86266911fffffff,37.382,-85.293,United States of America,0.425,0.728
+P,8644a9a67ffffff,28.56,-81.911,United States of America,0.578,0.729
+P,861f4d6c7ffffff,53.927,30.292,Belarus,0.555,0.705
+P,86441a687ffffff,28.569,-82.032,United States of America,0.545,0.678
+P,8644f4d37ffffff,28.665,-81.964,United States of America,0.538,0.681
+P,8644a9b5fffffff,28.507,-81.884,United States of America,0.527,0.667
+P,8644f4d27ffffff,28.67,-82.025,United States of America,0.525,0.674
+P,8644a9a47ffffff,28.608,-81.877,United States of America,0.524,0.692
+P,8640b529fffffff,32.125,114.08,China,0.517,0.74
+P,8644a9a77ffffff,28.555,-81.85,United States of America,0.512,0.673
+P,86441a69fffffff,28.617,-81.998,United States of America,0.511,0.639
+P,8630acc9fffffff,36.087,120.369,China,0.509,0.836
+P,86441a6afffffff,28.574,-82.093,United States of America,0.506,0.632
+P,8644a9b57ffffff,28.454,-81.857,United States of America,0.505,0.622
+P,8644a9a6fffffff,28.613,-81.937,United States of America,0.502,0.643
+P,861f4ea87ffffff,53.87,27.701,Belarus,0.492,0.694
+P,862db378fffffff,31.851,36.713,Jordan,0.491,0.593
+P,86110602fffffff,59.843,30.292,Russia,0.49,0.595
+P,8644a9a2fffffff,28.502,-81.823,United States of America,0.489,0.641
+P,8644a9c2fffffff,28.101,-81.218,United States of America,0.488,0.692
+P,86441a68fffffff,28.622,-82.059,United States of America,0.487,0.601
+P,8644a9a4fffffff,28.661,-81.903,United States of America,0.487,0.645
+P,8644ad46fffffff,27.508,-81.385,United States of America,0.483,0.765
+P,8644a9a5fffffff,28.656,-81.843,United States of America,0.483,0.655
+P,861969d47ffffff,52.502,5.436,Netherlands,0.482,0.658
+P,861f4a50fffffff,52.784,27.514,Belarus,0.479,0.65

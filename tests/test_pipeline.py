@@ -96,3 +96,33 @@ def test_pretrain_runs_and_changes_weights():
     m = torch.as_tensor(d["cb"].mask)
     pretrain(enc, b, m, epochs=1, batch=64, verbose=False)
     assert not torch.allclose(before, enc.adapter.proj.weight)
+
+
+def test_feature_model_recovers_planted_signal():
+    from earthprosp.train import fit_features, predict_features
+
+    d = synthetic.make(n_side=40, pos_rate=0.1, strength=8.0, seed=1)
+    cb = d["cb"]
+    X = np.concatenate([cb.mean_embedding(), features.bag_stats(cb)[:, 64:128]], 1)
+    folds = spatial_folds(grid.spatial_blocks(cb.cells, block_res=4), k=3)
+    te = folds[0]
+    tr = np.setdiff1d(np.arange(len(X)), te)
+    m = fit_features(X[tr], d["positive"][tr], d["conf"][tr], d["composition"][tr],
+                     TrainConfig(d=32, epochs=100, batch=128, lr=3e-3, prior=0.1, seed=0),
+                     unlabeled_subsample=500)
+    s = predict_features(m, X[te])
+    np.testing.assert_allclose(s.sum(1), 1.0, rtol=1e-5)
+    assert evaluate.capture_curve(1 - s[:, 0], d["truly_positive"][te])["capture_auc"] > 0.75
+
+
+def test_grade_tonnage_composition_is_value_weighted(tmp_path):
+    f = tmp_path / "gt.csv"
+    pd.DataFrame({"latitude": [-23.0, -24.0], "longitude": [-69.0, -70.0],
+                  "cugrd": [0.5, np.nan], "mogrd": [0.02, np.nan], "augrd": [0.1, np.nan], "aggrd": [2.0, np.nan]}).to_csv(f)
+    rec = labels.grade_tonnage_records(str(f), "Cu", "porcu")
+    v = rec.iloc[0]
+    assert v["Cu"] > v["WMoSn"] > 0 and v["Au"] > 0 and v["Ag"] > 0
+    assert rec.iloc[1]["Cu"] == 1.0  # no grades -> primary class
+    cl = labels.cell_labels_from_records(rec)
+    np.testing.assert_allclose(cl[C.CLASSES].sum(axis=1), 1.0, rtol=1e-6)
+    assert cl["major"].all()

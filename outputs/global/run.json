@@ -1,0 +1,31 @@
+{
+  "args": {
+    "stats": "data/global_2024.npz",
+    "features_cache": "data/global_features.npz",
+    "epochs": 15,
+    "unlabeled_per_epoch": 1000000,
+    "prior": 0.05,
+    "folds": 5,
+    "skip_cv": true,
+    "positive_min_conf": 1.0,
+    "propensity_power": 1.0,
+    "propensity_clip": [
+      0.05,
+      20.0
+    ],
+    "load_model": true,
+    "alpha_far": 0.2,
+    "out": "outputs/global"
+  },
+  "n_cells": 4489547,
+  "n_pos": 29166,
+  "n_world_class": 4307,
+  "composition_alpha": 0.2,
+  "bias": {
+    "us_share_land": 0.06296604089454905,
+    "us_share_top5pct": 0.15224209053893922,
+    "south_america_world_class_in_global_top5pct": "131/341",
+    "australia_world_class_in_global_top5pct": "43/139",
+    "africa_world_class_in_global_top5pct": "352/878"
+  }
+}

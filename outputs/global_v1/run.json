@@ -1,0 +1,15 @@
+{
+  "args": {
+    "stats": "data/global_2024.npz",
+    "features_cache": "data/global_features.npz",
+    "epochs": 15,
+    "unlabeled_per_epoch": 1000000,
+    "prior": 0.05,
+    "folds": 5,
+    "skip_cv": false,
+    "out": "outputs/global"
+  },
+  "n_cells": 4489547,
+  "n_pos": 52287,
+  "n_world_class": 4307
+}

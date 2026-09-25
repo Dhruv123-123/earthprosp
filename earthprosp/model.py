@@ -126,3 +126,32 @@ def composition_loss(comp_logits, target, positive, weight):
     ce = -(target[positive] * lp).sum(-1)
     w = weight[positive]
     return (ce * w).sum() / w.sum().clamp(min=1e-6)
+
+
+class FeatureProspectivityModel(nn.Module):
+    """Same presence / composition heads on a flat per-cell feature vector.
+
+    Used for the global run, where per-cell pixel bags do not fit in memory and each
+    cell is summarised by mergeable statistics (mean, std) plus neighbourhood context.
+    """
+
+    def __init__(self, n_features: int, n_classes: int, d: int = 256, dropout: float = 0.2):
+        super().__init__()
+        self.trunk = nn.Sequential(
+            nn.LayerNorm(n_features),
+            nn.Linear(n_features, d), nn.GELU(), nn.Dropout(dropout),
+            nn.Linear(d, d), nn.GELU(), nn.Dropout(dropout),
+            nn.Linear(d, d // 2), nn.GELU(),
+        )
+        self.presence = nn.Linear(d // 2, 1)
+        self.composition = nn.Linear(d // 2, n_classes)
+
+    def forward(self, x):
+        h = self.trunk(x)
+        return self.presence(h).squeeze(-1), self.composition(h)
+
+    @torch.no_grad()
+    def split(self, x):
+        logit, comp = self(x)
+        p = torch.sigmoid(logit).unsqueeze(-1)
+        return torch.cat([1 - p, p * torch.softmax(comp, -1)], -1)

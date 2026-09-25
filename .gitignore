@@ -4,3 +4,5 @@ outputs/*.parquet
 __pycache__/
 *.pyc
 .pytest_cache/
+outputs/*/global_split_res6.parquet
+outputs/*/oof_scores.npz
