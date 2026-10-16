@@ -222,6 +222,9 @@ def main():
     ap.add_argument("--folds", type=int, default=5)
     ap.add_argument("--buffer-km", type=float, default=50.0)
     ap.add_argument("--skip-cv", action="store_true")
+    ap.add_argument("--cv-sets", default="aef,geo,aef_geo", help="feature sets compared in CV")
+    ap.add_argument("--drop-features", default="",
+                    help="comma-separated feature names to leave out, e.g. wc_built,wc_crop")
     ap.add_argument("--fresh", action="store_true", help="ignore CV splits and models saved by an earlier run")
     ap.add_argument("--with-nn", action="store_true", help="also run the v2 feature NN in CV (needs ~2x RAM)")
     ap.add_argument("--nn-epochs", type=int, default=12)
@@ -238,8 +241,16 @@ def main():
     X, cov_cols = feature_matrix(cells, Xa, a.data)
     del Xa
     names = aef_names() + cov_cols
-    a.n_features = X.shape[1]
-    sets = {"aef": np.arange(256), "geo": np.arange(256, X.shape[1]), "aef_geo": np.arange(X.shape[1])}
+    drop = set(filter(None, a.drop_features.split(",")))
+    unknown = drop - set(names)
+    if unknown:
+        raise SystemExit(f"--drop-features: unknown {sorted(unknown)}")
+    keep = np.array([n not in drop for n in names])
+    if drop:
+        log(f"leaving out {sorted(drop)}")
+    sets = {"aef": np.arange(256), "geo": np.where(keep & (np.arange(len(names)) >= 256))[0],
+            "aef_geo": np.where(keep)[0]}
+    a.n_features = len(sets["aef_geo"])
     log(f"{len(cells):,} cells, {X.shape[1]} features ({len(cov_cols)} covariates)")
 
     lab, rec = build_labels(cells, a.data)
@@ -270,7 +281,7 @@ def main():
     def run_split(tag, tr, te):
         t0 = time.time()
         scores = {"knn": knn_score(lat, lon, tr[pos[tr]], te)}
-        for name in ("aef", "geo", "aef_geo"):
+        for name in a.cv_sets.split(","):
             m = fit_gbm(X, sets[name], tr, pos, w, sample_prob, a.cv_bags, fast=True)
             scores[f"gbm_{name}"] = m.predict(_sub(X, te, sets[name]))
         if a.with_nn:
@@ -281,8 +292,9 @@ def main():
             scores["nn_aef_geo"] = 1 - predict_features(nn, Xn[te])[:, 0]
             del Xn
         # District-scale smoothing of the held-out predictions (uses predictions only).
-        ridx = smoothing.ring_index(cells[te], 2)
-        scores["gbm_aef_geo_ring2"] = smoothing.ring_mean(scores["gbm_aef_geo"], ridx, self_weight=0.5)
+        ridx = smoothing.ring_index(cells[te], 2) if "gbm_aef_geo" in scores else None
+        if ridx is not None:
+            scores["gbm_aef_geo_ring2"] = smoothing.ring_mean(scores["gbm_aef_geo"], ridx, self_weight=0.5)
         members = [k for k in scores if k in ("gbm_aef_geo", "nn_aef_geo")]
         if len(members) > 1:
             scores["ensemble"] = np.mean([pu.rank_normalise(scores[k]) for k in members], 0)
