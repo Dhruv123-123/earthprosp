@@ -56,6 +56,20 @@ SOURCES: dict[str, Source] = {s.key: s for s in [
            [f"https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/{f}"
             for f in ("PB2002_steps.json", "PB2002_orogens.json", "PB2002_plates.json", "PB2002_boundaries.json")],
            "plates", "ODC-By", "Bird 2003, G-cubed 4(3) 1027", note="all URLs are fetched (one file each)"),
+    Source("litho1", "LITHO1.0 + CRUST1.0 regionalisation (bundled in the litho1pt0 wheel)",
+           ["https://files.pythonhosted.org/packages/py3/l/litho1pt0/litho1pt0-1.5.0-py3-none-any.whl"],
+           "litho1", "LGPL-3.0 (package); model: Pasyanos et al. 2014",
+           "Pasyanos, Masters, Laske & Ma 2014, JGR 119; Laske et al. 2013 CRUST1.0",
+           note="the .npz arrays are extracted from the wheel"),
+    Source("volcanoes", "Holocene volcanoes (NOAA significant-volcano list, plotly mirror)",
+           ["https://raw.githubusercontent.com/plotly/datasets/master/volcano_db.csv"],
+           "github", "public domain", "NOAA NCEI / Smithsonian GVP"),
+    Source("gcdd", "Global Copper Deposit Dataset (Mindat-linked, grades and ages)",
+           ["https://raw.githubusercontent.com/dawn-a/Global-copper-deposit-dataset/main/Global_Copper_Deposit_Main.xlsx"],
+           "github", "see repository", "Wang et al. 2026, Geoscience Data Journal, doi:10.1002/gdj3.70040"),
+    Source("earthbyte_porphyry", "EarthByte global porphyry Cu deposits with ages",
+           ["https://raw.githubusercontent.com/EarthByte/porphyry-prospectivity-global/main/deposits.csv"],
+           "github", "see repository", "Alfonso et al. 2024 (EarthByte)"),
     Source("countries", "Natural Earth 1:50m admin-0 countries",
            ["https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_50m_admin_0_countries.geojson"],
            ".", "public domain", "Natural Earth"),
@@ -76,6 +90,8 @@ STREAMED = {
     "copernicus_dem": "Copernicus GLO-90 DEM COGs (s3://copernicus-dem-90m/, eu-central-1)",
     "worldcover": "ESA WorldCover 10 m 2021 COGs (s3://esa-worldcover/v200/2021/map/, eu-central-1)",
     "overture_land_use": "Overture Maps base/land_use parquet (s3://overturemaps-us-west-2/release/)",
+    "minmod": "DARPA CriticalMAAS MinMod mineral sites, incl. full MRDS "
+              "(git clone github.com/DARPA-CRITICALMAAS/ta2-minmod-data; python -m earthprosp.minmod)",
 }
 
 
@@ -108,6 +124,12 @@ def fetch(key: str, raw_dir: str = "data/raw", verbose: bool = True) -> bool:
             if s.unzip and name.endswith(".zip"):
                 with zipfile.ZipFile(path) as z:
                     z.extractall(dest)
+            if name.endswith(".whl"):  # data bundled in a Python wheel: keep only *.npz, flattened
+                with zipfile.ZipFile(path) as z:
+                    for m in z.namelist():
+                        if m.endswith(".npz"):
+                            with z.open(m) as src, open(os.path.join(dest, os.path.basename(m)), "wb") as f:
+                                shutil.copyfileobj(src, f)
             if not fetch_all:
                 break
         except Exception as exc:  # blocked host, 404: try the next mirror

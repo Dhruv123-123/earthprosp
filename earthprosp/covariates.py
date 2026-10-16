@@ -11,6 +11,9 @@ Families and sources (all public; see earthprosp/sources.py for URLs and licence
   faults      GEM Global Active Faults (Styron & Pagani 2020): distance + density by kinematics
   plates      Bird (2003) PB2002 boundaries: distance to subduction, collision, rift, transform;
               convergence rate at the nearest convergent step; inside orogen
+  litho       LITHO1.0 LAB / Moho / sediment thickness, LAB gradient and signed distance to the
+              100 and 170 km LAB contours; CRUST1.0 crust type (Archean ... arc ... rift)
+  volcano     Holocene volcanoes: distance and counts within 100 / 300 km
 Further families (terrain from Copernicus DEM, land cover from ESA WorldCover, magnetics,
 crust and lithosphere models) plug in the same way.
 """
@@ -109,6 +112,26 @@ def plates_family(cells, lat, lon, stencil, raw):
     return out
 
 
+@family("litho")
+def litho_family(cells, lat, lon, stencil, raw):
+    import os
+    from . import lithosphere
+    path = f"{raw}/litho1/litho_data.npz"
+    if not os.path.exists(path):
+        raise FileNotFoundError(path)
+    return lithosphere.features(lat, lon, path, f"{raw}/litho1/Crust1pt0-regionalisation.npz")
+
+
+@family("volcano")
+def volcano_family(cells, lat, lon, stencil, raw):
+    """Holocene volcanoes (NOAA/Smithsonian list): proximity to active magmatic arcs,
+    the heat engine of porphyry and epithermal systems."""
+    v = pd.read_csv(f"{raw}/github/volcano_db.csv", encoding="latin1")
+    v = v.dropna(subset=["Latitude", "Longitude"])
+    return vectors.point_features("volcano", v.Latitude.to_numpy(), v.Longitude.to_numpy(), lat, lon,
+                                  radii_km=(100, 300))
+
+
 def build(cells, families=None, raw_dir: str = "data/raw", cache: str | None = "data/covariates.parquet",
           refresh: tuple = ()) -> pd.DataFrame:
     """Covariate table indexed by H3 cell. Cached per column: existing families are reused."""
@@ -124,7 +147,7 @@ def build(cells, families=None, raw_dir: str = "data/raw", cache: str | None = "
     lat, lon = grid.cell_centers(cells)
     stencil = None
     for fam in families:
-        done = [c for c in out.columns if c.startswith(_prefix(fam))]
+        done = [c for c in out.columns if c.startswith(_prefix(fam))]  # str.startswith takes tuples
         if done and fam not in refresh:
             continue
         if stencil is None:
@@ -145,7 +168,8 @@ def build(cells, families=None, raw_dir: str = "data/raw", cache: str | None = "
 
 
 def _prefix(fam: str) -> str:
-    return {"gravity": "grav_", "topo": "topo_", "faults": "fault_", "plates": "plate_"}.get(fam, fam + "_")
+    return {"gravity": "grav_", "topo": "topo_", "faults": "fault_", "plates": "plate_",
+            "litho": ("litho_", "crust_")}.get(fam, fam + "_")
 
 
 def family_of(column: str) -> str:
