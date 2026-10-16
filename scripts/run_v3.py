@@ -285,6 +285,9 @@ def main():
             pd.DataFrame(rows).to_csv(os.path.join(a.out, "cv_results.csv"), index=False)
         for name, box in HOLDOUTS.items():
             te = np.where(in_box(lat, lon, box))[0]
+            if pos[te].sum() < 10:  # region outside this run's cells (regional runs)
+                log(f"holdout_{name}: skipped, {int(pos[te].sum())} positive cells")
+                continue
             tr = np.setdiff1d(np.arange(len(cells)), te)
             rows += run_split(f"holdout_{name}", tr, te)
             pd.DataFrame(rows).to_csv(os.path.join(a.out, "cv_results.csv"), index=False)
