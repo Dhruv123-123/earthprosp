@@ -163,3 +163,109 @@ def cell_labels_from_records(rec: pd.DataFrame, res: int = grid.DEFAULT_RES) -> 
     g[C.CLASSES] = g[C.CLASSES].div(tot, axis=0)
     g["positive"] = True
     return g
+
+
+# ---------------------------------------------------------------------------
+# v3 label set: one global standard without MRDS
+# ---------------------------------------------------------------------------
+# Free-text commodity names (USGS mineral facilities, OSM `resource=*`) -> class.
+_TEXT_RULES: list[tuple[str, str]] = [
+    (r"\bgold\b|\bau\b", "Au"), (r"silver|\bag\b", "Ag"), (r"copper|\bcu\b", "Cu"),
+    (r"\blead\b|\bzinc\b|\bpb\b|\bzn\b|galena|sphalerite", "PbZn"),
+    (r"iron ore|iron\b|magnetite|hematite|haematite|\bfe\b", "Fe"), (r"manganese|\bmn\b", "Mn"),
+    (r"uranium|\bu3o8\b", "U"), (r"tungsten|molybdenum|\btin\b|cassiterite|wolfram|bismuth", "WMoSn"),
+    (r"nickel|cobalt|platinum|palladium|\bpgm?s?\b|chrom", "NiCoPGECr"),
+    (r"lithium|beryl|tantal|niobium|columbium|cesium|spodumene", "LiBeTaNb"),
+    (r"rare.earth|\bree\b|monazite|thorium|yttrium", "REE"), (r"bauxite|alumin", "Al"),
+    (r"mercury|antimony|arsenic", "HgSbAs"), (r"barite|baryte|fluorspar|fluorite", "BaF"),
+    (r"phosphat", "P"),
+]
+
+
+def text_to_vector(text) -> np.ndarray:
+    """Commodity vector from free text ("Copper, cobalt"); first match weighs most."""
+    import re
+    vec = np.zeros(C.N_CLASSES, np.float32)
+    if text is None or (isinstance(text, float) and text != text):
+        return vec
+    parts = [p.strip().lower().replace("_", " ") for p in re.split(r"[,;/]", str(text)) if p.strip()]
+    seen, rank = set(), 0
+    for p in parts:
+        for pat, cls in _TEXT_RULES:
+            if re.search(pat, p):
+                if cls not in seen and rank < 3:
+                    vec[C.CLASS_INDEX[cls]] += C.POSITION_WEIGHT[rank]
+                    seen.add(cls)
+                    rank += 1
+                break
+    return vec
+
+
+def mineral_facility_records(path: str = "data/raw/wri/minfac/minfac.shp") -> pd.DataFrame:
+    """USGS Mineral Facilities of the World (non-US): operating *mines* only.
+
+    Plants, smelters and refineries are dropped (they sit where the power and ports are,
+    not on the ore), as are oil/gas, coal and industrial minerals (no class)."""
+    import geopandas as gpd
+    g = gpd.read_file(path)
+    mine = g["fac_type"].fillna("").str.contains("Mine", case=False)
+    g = g[mine].reset_index(drop=True)
+    vec = np.stack([text_to_vector(t) for t in g["commodity"]])
+    keep = vec.sum(1) > 0
+    lat = pd.to_numeric(g["latitude"], errors="coerce").to_numpy()
+    lon = pd.to_numeric(g["longitude"], errors="coerce").to_numpy()
+    from . import mineral_systems as MS
+    rec = _records(lat[keep], lon[keep], vec[keep], 1.0, "minfac")
+    rec["precision"] = g.loc[keep, "precision"].to_numpy()[rec.index] if len(rec) == keep.sum() else None
+    rec["system"] = [MS.assign(v) for v in rec[C.CLASSES].to_numpy()]
+    return rec
+
+
+def major_deposit_records_typed(folder: str) -> pd.DataFrame:
+    """Major deposits with a mineral-system label (model text first, then rules)."""
+    from . import mineral_systems as MS
+    rec = major_deposit_records(folder)
+    dep = pd.read_csv(f"{folder}/deposit.csv", encoding="latin1")
+    dep = dep.dropna(subset=["latitude", "longitude"])
+    # major_deposit_records drops rows without a class; realign on coordinates.
+    key = lambda la, lo: (np.round(la, 4), np.round(lo, 4))  # noqa: E731
+    meta = {key(a, b): (t, m, d) for a, b, t, m, d in
+            zip(dep.latitude, dep.longitude, dep.dep_type, dep.type_detail, dep.model_name)}
+    systems = []
+    for la, lo, v in zip(rec.latitude, rec.longitude, rec[C.CLASSES].to_numpy()):
+        t, m, d = meta.get(key(la, lo), (None, None, None))
+        text = " ".join(str(x) for x in (m, d) if isinstance(x, str)) or None
+        systems.append(MS.assign(v, t, text))
+    rec["system"] = systems
+    return rec
+
+
+def osm_mine_records(path: str = "data/overture_mines.parquet", min_km2: float = 0.0) -> pd.DataFrame:
+    """OSM mine/quarry polygons whose `resource` tag names a target commodity.
+
+    Independent of the USGS compilations (mapped by OSM volunteers from imagery and
+    local knowledge), so it is used as an *evaluation* set, not for training."""
+    d = pd.read_parquet(path)
+    d = d[d["bbox_km2"] >= min_km2]
+    vec = np.stack([text_to_vector(t) for t in d["resource"].fillna("")])
+    keep = vec.sum(1) > 0
+    rec = _records(d.lat.to_numpy()[keep], d.lon.to_numpy()[keep], vec[keep], 1.0, "osm")
+    rec["bbox_km2"] = d["bbox_km2"].to_numpy()[keep]
+    return rec
+
+
+def global_records_v3(raw_dir: str = "data/raw", mrds_path: str = "data/mrds.csv") -> pd.DataFrame:
+    """Training records with one global standard: world-class deposits + operating mines.
+
+    MRDS producers are added when the MRDS csv is present (its host is not always
+    reachable); propensity weighting downstream keeps the dense US from dominating."""
+    import os
+    parts = [major_deposit_records_typed(f"{raw_dir}/wri/major/ofr20051294"),
+             mineral_facility_records(f"{raw_dir}/wri/minfac/minfac.shp")]
+    if os.path.exists(mrds_path):
+        m = mrds_records(load_mrds(mrds_path))
+        parts.append(m[m["conf"] >= 1.0])
+    rec = pd.concat(parts, ignore_index=True)
+    if "system" not in rec:
+        rec["system"] = None
+    return rec
