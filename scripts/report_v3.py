@@ -105,6 +105,8 @@ def main():
     df["country"] = country_of(df, a.countries_geojson)
     marg = [f"p_{c}" for c in C.CLASSES]
     agg = df.groupby("country")[["p_prospective"] + marg].sum()
+    for s_ in MS.SYSTEMS:  # expected prospective cells per mineral system
+        agg[f"sys_{s_}"] = (df.p_prospective * df[f"sys_{s_}"]).groupby(df.country).sum()
     agg["cells"] = df.groupby("country").size()
     agg["mean_p"] = agg.p_prospective / agg.cells
     agg["known_positive_cells"] = df.groupby("country").known_positive.sum()
