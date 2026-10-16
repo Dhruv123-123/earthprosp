@@ -254,18 +254,168 @@ def osm_mine_records(path: str = "data/overture_mines.parquet", min_km2: float =
     return rec
 
 
-def global_records_v3(raw_dir: str = "data/raw", mrds_path: str = "data/mrds.csv") -> pd.DataFrame:
-    """Training records with one global standard: world-class deposits + operating mines.
-
-    MRDS producers are added when the MRDS csv is present (its host is not always
-    reachable); propensity weighting downstream keeps the dense US from dominating."""
-    import os
-    parts = [major_deposit_records_typed(f"{raw_dir}/wri/major/ofr20051294"),
-             mineral_facility_records(f"{raw_dir}/wri/minfac/minfac.shp")]
-    if os.path.exists(mrds_path):
-        m = mrds_records(load_mrds(mrds_path))
-        parts.append(m[m["conf"] >= 1.0])
-    rec = pd.concat(parts, ignore_index=True)
-    if "system" not in rec:
-        rec["system"] = None
+def earthbyte_porphyry_records(path: str = "data/raw/github/deposits.csv") -> pd.DataFrame:
+    """EarthByte global porphyry Cu compilation (Alfonso et al. 2024): positives only."""
+    d = pd.read_csv(path)
+    d = d[d["label"].astype(str).str.lower() == "positive"]
+    vec = np.zeros((len(d), C.N_CLASSES), np.float32)
+    vec[:, C.CLASS_INDEX["Cu"]] = 1.0
+    rec = _records(d.lat.to_numpy(), d.lon.to_numpy(), vec, 1.0, "earthbyte")
+    rec["system"] = "porphyry_skarn_cu"
     return rec
+
+
+def global_records_v3(raw_dir: str = "data/raw", minmod_path: str = "data/minmod_sites.parquet",
+                      mrds_path: str = "data/mrds.csv") -> pd.DataFrame:
+    """All label records for v3, one row per record, with `source`, `conf`, `world_class`,
+    `compilation` and `system`.
+
+    MinMod supplies MRDS and the USGS compilations; USGS mineral facilities, the Global
+    Copper Deposit Dataset and the EarthByte porphyry list add non-US mines and
+    deposits. Without the MinMod dump it falls back to the WRI mirror of the major
+    deposits (and to MRDS when its csv is present)."""
+    import os
+    parts = []
+    if os.path.exists(minmod_path):
+        parts.append(minmod_records(minmod_path))
+    else:
+        mj = major_deposit_records_typed(f"{raw_dir}/wri/major/ofr20051294")
+        mj["world_class"] = mj["compilation"] = True
+        parts.append(mj)
+        if os.path.exists(mrds_path):
+            parts.append(mrds_records(load_mrds(mrds_path)))
+    optional = [(mineral_facility_records, f"{raw_dir}/wri/minfac/minfac.shp"),
+                (global_copper_records, f"{raw_dir}/github/Global_Copper_Deposit_Main.xlsx"),
+                (earthbyte_porphyry_records, f"{raw_dir}/github/deposits.csv")]
+    for fn, path in optional:
+        if os.path.exists(path):
+            r = fn(path)
+            r["compilation"] = r["source"].isin(["gcdd", "earthbyte"])
+            parts.append(r)
+    rec = pd.concat(parts, ignore_index=True)
+    for col, default in (("world_class", False), ("compilation", False), ("system", None)):
+        if col not in rec:
+            rec[col] = default
+        rec[col] = rec[col].where(rec[col].notna(), default)
+    return rec
+
+
+# MinMod site_type (MRDS dev status and variants) -> label weight.
+_SITE_TYPE_WEIGHT = {"producer": 1.0, "past producer": 1.0, "mine": 1.0, "mines": 1.0, "active": 1.0,
+                     "prospect": 0.6, "prospects": 0.6, "deposit": 0.6,
+                     "occurrence": 0.3, "occurrences": 0.3, "occurence": 0.3, "unknown": 0.3}
+# USGS world-class compilations (v2 definition: major deposits + porphyry Cu + sediment-hosted
+# Cu + VMS) and the wider set of grade-tonnage deposit compilations.
+WORLD_CLASS_SOURCES = ("mrdata.usgs.gov/major-deposits", "mrdata.usgs.gov/porcu",
+                       "mrdata.usgs.gov/sedcu", "mrdata.usgs.gov/vms")
+COMPILATION_SOURCES = WORLD_CLASS_SOURCES + (
+    "mrdata.usgs.gov/sedznpb", "mrdata.usgs.gov/sedexmvt", "mrdata.usgs.gov/sedau",
+    "mrdata.usgs.gov/podchrome", "mrdata.usgs.gov/ree", "mrdata.usgs.gov/carbonatite",
+    "mrdata.usgs.gov/laterite", "mrdata.usgs.gov/phosphate", "mrdata.usgs.gov/ofr20151121")
+
+
+def site_type_weight(site_type) -> float:
+    if not isinstance(site_type, str):
+        return 0.3
+    t = site_type.strip().lower().rstrip("?").replace("(?)", "").strip()
+    if t == "plant":
+        return 0.0
+    return _SITE_TYPE_WEIGHT.get(t, 0.3)
+
+
+def minmod_records(path: str = "data/minmod_sites.parquet") -> pd.DataFrame:
+    """Label records from the MinMod dump (MRDS + USGS compilations + state surveys).
+
+    conf: 1.0 for producers / past producers and for every record of a deposit
+    compilation (those list economic deposits), 0.6 prospects, 0.3 occurrences.
+    `world_class` marks the v2 world-class compilations."""
+    from . import minmod
+    from . import mineral_systems as MS
+    d = pd.read_parquet(path)
+    vec = minmod.class_vectors(d)
+    keep = vec.sum(1) > 0
+    d, vec = d[keep].reset_index(drop=True), vec[keep]
+    src = d["source"].fillna("")
+    comp_src = src.str.contains("|".join(COMPILATION_SOURCES), regex=True).to_numpy()
+    conf = np.array([site_type_weight(t) for t in d["site_type"]], np.float32)
+    conf = np.where(comp_src, 1.0, conf).astype(np.float32)
+    keep2 = conf > 0  # plants are not deposits
+    d, vec, conf, comp_src = d[keep2].reset_index(drop=True), vec[keep2], conf[keep2], comp_src[keep2]
+    rec = _records(d.lat.to_numpy(), d.lon.to_numpy(), vec, conf, "minmod")
+    # _records may drop rows with bad coordinates; MinMod rows are already filtered, so align 1:1.
+    assert len(rec) == len(d)
+    rec["origin"] = d["source"].to_numpy()
+    rec["world_class"] = src[keep2].str.contains("|".join(WORLD_CLASS_SOURCES), regex=True).to_numpy()
+    rec["compilation"] = comp_src
+    by_source = [next((sysname for key, sysname in _SOURCE_SYSTEM.items() if key in o), None)
+                 for o in d["source"].fillna("")]
+    rec["system"] = [bs or MS.assign(v, None, t or None)
+                     for bs, v, t in zip(by_source, vec, d["deposit_types"].fillna(""))]
+    return rec
+
+
+# Single-deposit-type compilations: the source itself fixes the mineral system.
+_SOURCE_SYSTEM = {
+    "/vms": "vms", "/porcu": "porphyry_skarn_cu", "/sedcu": "sed_hosted_base",
+    "/sedznpb": "sed_hosted_base", "/sedexmvt": "sed_hosted_base", "/sedau": "epithermal_orogenic_au",
+    "/podchrome": "magmatic_mafic", "/nicrpge": "magmatic_mafic", "/laterite": "surficial_residual",
+    "/carbonatite": "felsic_alkaline_rare", "/ree": "felsic_alkaline_rare",
+    "/phosphate": "chemical_sedimentary", "/potash": "chemical_sedimentary",
+}
+
+
+def global_copper_records(path: str = "data/raw/github/Global_Copper_Deposit_Main.xlsx") -> pd.DataFrame:
+    """Global Copper Deposit Dataset (Wang et al. 2026, Geoscience Data Journal; Mindat-linked).
+
+    Composition = in-ground metal value from tonnage-weighted grades; system from its
+    deposit-type field."""
+    from . import mineral_systems as MS
+    d = pd.read_excel(path).dropna(subset=["Latitude", "Longitude"])
+    cols = {"Copper_grade(Cu; %)": ("Cu", 9000 / 100), "Molybdenum_grade(Mo; %)": ("WMoSn", 40000 / 100),
+            "Gold_grade(Au; g/t)": ("Au", 80.0), "Silver_grade(Ag; g/t)": ("Ag", 1.0),
+            "Lead_grade(Pb; %)": ("PbZn", 2100 / 100), "Zinc_grade(Zn; %)": ("PbZn", 2700 / 100),
+            "Nickel_grade(Ni; %)": ("NiCoPGECr", 16000 / 100), "Cobalt_grade(Co; g/t)": ("NiCoPGECr", 0.03)}
+    vec = np.zeros((len(d), C.N_CLASSES), np.float32)
+    for col, (cls, value) in cols.items():
+        vec[:, C.CLASS_INDEX[cls]] += np.nan_to_num(pd.to_numeric(d[col], errors="coerce").to_numpy()) * value
+    vec[vec.sum(1) == 0, C.CLASS_INDEX["Cu"]] = 1.0
+    rec = _records(d.Latitude.to_numpy(), d.Longitude.to_numpy(), vec, 1.0, "gcdd")
+    rec["world_class"] = pd.to_numeric(d["Tonnage(Mt)"], errors="coerce").fillna(0).to_numpy()[rec.index] >= 100
+    rec["system"] = [MS.assign(v, None, t) for v, t in zip(rec[C.CLASSES].to_numpy(),
+                                                          d["Deposit_type"].to_numpy()[rec.index])]
+    return rec
+
+
+def cell_labels_v3(rec: pd.DataFrame, res: int = grid.DEFAULT_RES, min_conf: float = 0.0) -> pd.DataFrame:
+    """Per-cell labels: commodity composition, mineral-system mix, confidence and flags.
+
+    Only records with conf >= min_conf contribute (use 1.0 for one global labelling
+    standard). `n_any` counts every record regardless, as a survey-effort proxy."""
+    from . import mineral_systems as MS
+    cells_all = grid.latlng_to_cells(rec.latitude.to_numpy(), rec.longitude.to_numpy(), res)
+    effort = pd.Series(1, index=cells_all).groupby(level=0).sum().rename("n_any")
+    m = rec["conf"].to_numpy() >= min_conf
+    r, cells = rec[m], cells_all[m]
+    vec = r[C.CLASSES].to_numpy(np.float32)
+    vec = vec / vec.sum(1, keepdims=True)
+    w = r["conf"].to_numpy(np.float32)[:, None]
+    tab = pd.DataFrame(vec * w, columns=C.CLASSES)
+    sysv = MS.one_hot(r["system"].to_numpy()) * w
+    for i, s in enumerate(MS.SYSTEMS):
+        tab[f"sys_{s}"] = sysv[:, i]
+    tab["cell"] = cells
+    tab["conf"] = r["conf"].to_numpy()
+    tab["n_records"] = 1
+    tab["world_class"] = r["world_class"].astype(bool).to_numpy()
+    tab["compilation"] = r["compilation"].astype(bool).to_numpy()
+    sys_cols = [f"sys_{s}" for s in MS.SYSTEMS]
+    g = tab.groupby("cell").agg({**{c: "sum" for c in C.CLASSES + sys_cols}, "conf": "max",
+                                  "n_records": "sum", "world_class": "any", "compilation": "any"})
+    tot = g[C.CLASSES].sum(axis=1)
+    g[C.CLASSES] = g[C.CLASSES].div(tot, axis=0)
+    st = g[sys_cols].sum(axis=1)
+    g[sys_cols] = g[sys_cols].div(st.where(st > 0, 1.0), axis=0)
+    g["has_system"] = st > 0
+    g["positive"] = True
+    g = g.join(effort, how="left")
+    return g
