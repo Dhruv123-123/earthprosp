@@ -69,6 +69,20 @@ def aef_features(stats_path, cache):
     return cells, X
 
 
+def stack_features(Xa, cov):
+    """One float16 matrix [AEF | covariates] built in place.
+
+    At 4.49M cells x ~350 columns, float32 plus the temporaries of a concatenate peaked
+    above 13 GB and was OOM-killed. float16 (3 GB) keeps ~3 significant digits, which is
+    plenty for histogram trees (63 bins) and every covariate is below float16's 65,504
+    maximum. Rows are cast to float32 only when a bag or chunk is gathered."""
+    X = np.empty((len(Xa), Xa.shape[1] + cov.shape[1]), np.float16)
+    X[:, :Xa.shape[1]] = Xa
+    for j, c in enumerate(cov.columns):
+        X[:, Xa.shape[1] + j] = cov[c].to_numpy(np.float32)
+    return X
+
+
 def aef_names():
     return ([f"aef_mean_A{i:02d}" for i in range(64)] + [f"aef_std_A{i:02d}" for i in range(64)]
             + [f"aef_ctx10_A{i:02d}" for i in range(64)] + [f"aef_ctx25_A{i:02d}" for i in range(64)])
@@ -208,8 +222,8 @@ def main():
     lat, lon = grid.cell_centers(cells)
     cov = covariate_table(cells, a.data)
     cov_cols = list(cov.columns)
-    X = np.concatenate([Xa.astype(np.float32), cov.to_numpy(np.float32)], 1)
-    del Xa
+    X = stack_features(Xa, cov)
+    del Xa, cov
     names = aef_names() + cov_cols
     sets = {"aef": np.arange(256), "geo": np.arange(256, X.shape[1]), "aef_geo": np.arange(X.shape[1])}
     log(f"{len(cells):,} cells, {X.shape[1]} features ({len(cov_cols)} covariates)")

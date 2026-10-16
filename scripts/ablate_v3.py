@@ -39,7 +39,7 @@ def main():
     cells, Xa = R.aef_features(a.stats, a.features_cache)
     lat, lon = grid.cell_centers(cells)
     cov = R.covariate_table(cells, a.data)
-    X = np.concatenate([Xa.astype(np.float32), cov.to_numpy(np.float32)], 1)
+    X = R.stack_features(Xa, cov)
     del Xa
     names = np.array(R.aef_names() + list(cov.columns))
     fam = np.array([R._family(n) for n in names])
