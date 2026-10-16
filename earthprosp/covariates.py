@@ -167,9 +167,43 @@ def build(cells, families=None, raw_dir: str = "data/raw", cache: str | None = "
     return out
 
 
+@family("magnetics")
+def magnetics_family(cells, lat, lon, stencil, raw):
+    """Crustal total-field anomaly synthesised from NOAA EMM2017 (degree 790, EMAG2-based):
+    magnetite-bearing intrusions, greenstone belts, BIF and the structures that offset them."""
+    from . import geophysics as gp
+    from . import magnetics
+    tmi = magnetics.total_field_anomaly(f"{raw}/magnetics/emm2017.wmm.cof")
+    return gp.cell_features(magnetics.magnetic_stack(tmi), stencil)
+
+
+@family("heatflow")
+def heatflow_family(cells, lat, lon, stencil, raw):
+    """IHFC Global Heat Flow Database 2023, continental sites: Gaussian kernel mean of
+    surface heat flow at 150 and 400 km. Where no site is within reach the value is NaN
+    (the trees treat it as missing), rather than an extrapolated guess. Site density is
+    deliberately not a feature: boreholes cluster where people explore."""
+    d = pd.read_csv(f"{raw}/heatflow/IHFC_2023_GHFDB.csv", sep=";", encoding="latin1", low_memory=False,
+                    usecols=["q", "lat", "lng", "A_dom"])
+    q = pd.to_numeric(d.q, errors="coerce")
+    d = d[(d.A_dom == "continental") & q.between(1, 250)].assign(q=q)
+    plat, plon = d.lat.to_numpy(float), d.lng.to_numpy(float)
+    out = {}
+    for sigma2 in (150, 400):  # density_grid smooths with sigma = radius / 2
+        r = 2 * sigma2
+        num = vectors.density_grid(plat, plon, 1.0, r, res_deg=0.25)
+        H = vectors.density_grid(plat, plon, 1.0, r, res_deg=0.25, weights=d.q.to_numpy(float))
+        den = num.sample(lat, lon)
+        val = H.sample(lat, lon) / np.where(den > 0, den, np.nan)
+        # Support: expected number of sites within ~sigma; below 0.5 the mean is unreliable.
+        support = den * np.pi * sigma2 ** 2
+        out[f"heatflow_q_{sigma2}km"] = np.where(support >= 0.5, val, np.nan).astype(np.float32)
+    return out
+
+
 def _prefix(fam: str) -> str:
     return {"gravity": "grav_", "topo": "topo_", "faults": "fault_", "plates": "plate_",
-            "litho": ("litho_", "crust_")}.get(fam, fam + "_")
+            "litho": ("litho_", "crust_"), "magnetics": "mag_"}.get(fam, fam + "_")
 
 
 def family_of(column: str) -> str:

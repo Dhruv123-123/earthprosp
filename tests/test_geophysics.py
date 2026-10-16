@@ -69,3 +69,19 @@ def test_density_grid_matches_uniform_density():
     lon = rng.uniform(0, 20, n)
     g = vectors.density_grid(lat, lon, 1.0, 100.0)
     np.testing.assert_allclose(g.sample(np.array([0.0]), np.array([10.0])), 0.1, rtol=0.08)
+
+
+def test_read_wmmf_orders_coefficients_by_m_then_n(tmp_path):
+    import struct
+
+    from earthprosp import magnetics
+    N = 2
+    C = [0.0, 10.0, 20.0, 11.0, 21.0, 22.0]   # m=0: n=0,1,2; m=1: n=1,2; m=2: n=2
+    S = [-11.0, -21.0, -22.0]                 # m=1: n=1,2; m=2: n=2
+    b = b"TESTMODL" + struct.pack("<ii", N, N) + np.array(C, "<f8").tobytes() + np.array(S, "<f8").tobytes()
+    (tmp_path / "m.cof").write_bytes(b)
+    model_id, blocks = magnetics.read_wmmf(str(tmp_path / "m.cof"))
+    k = blocks[0]
+    assert model_id == "TESTMODL"
+    assert k[0, 1, 0] == 10 and k[0, 2, 0] == 20 and k[0, 2, 1] == 21 and k[0, 2, 2] == 22
+    assert k[1, 1, 1] == -11 and k[1, 2, 1] == -21 and k[1, 2, 2] == -22 and k[1, 1, 0] == 0

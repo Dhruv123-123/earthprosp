@@ -56,7 +56,7 @@ class PointIndex:
         return out
 
 
-def density_grid(plat, plon, weight_per_point: float, radius_km: float, res_deg: float = 0.1):
+def density_grid(plat, plon, weight_per_point: float, radius_km: float, res_deg: float = 0.1, weights=None):
     """Smoothed point density (per km^2) on a global grid: counts per pixel, divided by
     pixel area, Gaussian-smoothed with sigma = radius / 2 (in km, isotropic on the ground).
 
@@ -66,7 +66,7 @@ def density_grid(plat, plon, weight_per_point: float, radius_km: float, res_deg:
     from .rasters import GeoGrid
     lat_edges = np.arange(-90, 90 + res_deg / 2, res_deg)
     lon_edges = np.arange(-180, 180 + res_deg / 2, res_deg)
-    H, _, _ = np.histogram2d(plat, plon, bins=[lat_edges, lon_edges])
+    H, _, _ = np.histogram2d(plat, plon, bins=[lat_edges, lon_edges], weights=weights)
     lat_c = (lat_edges[:-1] + lat_edges[1:]) / 2
     lon_c = (lon_edges[:-1] + lon_edges[1:]) / 2
     area = (res_deg * 110.57) * (res_deg * 111.32 * np.maximum(np.cos(np.radians(lat_c)), 0.01))

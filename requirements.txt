@@ -18,3 +18,4 @@ joblib
 openpyxl
 matplotlib
 pytest
+pyshtools>=4.13

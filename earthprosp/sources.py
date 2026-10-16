@@ -76,6 +76,14 @@ SOURCES: dict[str, Source] = {s.key: s for s in [
     Source("land", "Natural Earth 1:110m land polygons (explorer basemap)",
            ["https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_land.geojson"],
            ".", "public domain", "Natural Earth"),
+    Source("magnetics", "NOAA Enhanced Magnetic Model 2017 (crustal field to degree 790; GeographicLib format)",
+           ["https://media.githubusercontent.com/media/open-space-collective/open-space-toolkit-data/main/"
+            "data/environment/magnetic/earth/emm2017.wmm.cof"],
+           "magnetics", "public domain (NOAA NCEI)", "Chulliat et al. 2017, NOAA EMM2017 (includes EMAG2)"),
+    Source("heatflow", "IHFC Global Heat Flow Database, release 2023",
+           ["https://raw.githubusercontent.com/gacuervol/Geospatial-HeatFlow-ML/main/src/nombre_paquete/"
+            "database/IHFC_2023_GHFDB.csv"],
+           "heatflow", "CC-BY 4.0", "Global Heat Flow Data Assessment Group 2023, doi:10.5880/fidgeo.2023.008"),
     Source("mrds", "USGS Mineral Resources Data System (MRDS)",
            ["https://mrdata.usgs.gov/mrds/mrds-csv.zip"],
            ".", "public domain", "USGS MRDS", unzip=True,

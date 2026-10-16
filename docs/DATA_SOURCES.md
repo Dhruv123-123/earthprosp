@@ -34,6 +34,8 @@ canonical host is not reachable, a mirror on AWS S3 or GitHub is used (see
 | faults | GEM Global Active Faults | distance and length density, for all faults and by kinematics (normal, reverse/thrust, strike-slip) | WRI mirror | Styron & Pagani 2020 |
 | plates | Bird 2003 PB2002 | distance to subduction, collision, rift and transform boundaries; convergence rate at the nearest convergent step; inside an orogen | GitHub (fraxen/tectonicplates) | Bird 2003 |
 | volcano | NOAA significant volcanoes | distance; counts within 100 and 300 km | GitHub (plotly/datasets) | NOAA NCEI / Smithsonian GVP |
+| magnetics | NOAA Enhanced Magnetic Model 2017, crustal field to SH degree 790 (~50 km), built from EMAG2 + satellite data | total-field anomaly synthesised at the surface (crustal field projected on the 2017 main field); 100 km regional and residual; HGM; vertical derivative; tilt; analytic-signal amplitude | GeographicLib `.cof` via a Git LFS mirror on GitHub | Chulliat et al. 2017; public domain |
+| heatflow | IHFC Global Heat Flow Database 2023 (continental sites, 1–250 mW/m²) | Gaussian kernel mean heat flow at 150 and 400 km; missing where fewer than ~0.5 sites are in reach | GitHub mirror | GHFDB 2023, doi:10.5880/fidgeo.2023.008, CC-BY 4.0 |
 | landcover | ESA WorldCover 2021 v200 | fractions of 11 classes per cell, from ~300 m reads | ESA S3 | Zanaga et al. 2022, CC-BY 4.0 |
 | terrain | Copernicus GLO-90 DEM | elevation mean, std, min and max; relief; slope mean and std, from ~360 m reads | Copernicus S3 | © DLR/ESA, Copernicus |
 | s2_alteration | ESA WorldCover Sentinel-2 2020 median composites | bare-pixel clay (B11/B12), ferric (B4/B2), ferrous (B12/B8 + B3/B4) and gossan (B11/B4) ratios; bare fraction; NDVI | ESA S3 | CC-BY 4.0 |
@@ -42,12 +44,14 @@ canonical host is not reachable, a mirror on AWS S3 or GitHub is used (see
 
 These datasets were blocked by the network or absent from every allowed host:
 
-- EMAG2v3 and WDMAM magnetics
+- EMAG2v3 and WDMAM grids (EMM2017 coefficients stand in; note that where EMAG2 had no
+  aeromagnetic coverage, e.g. much of South America and central Africa, EMM2017 falls back
+  to the long-wavelength satellite field, so magnetic detail there is weaker)
 - WGM2012 gravity
 - Hoggard LAB grids (LITHO1.0 is used instead)
 - GLiM lithology
 - GlobSed sediment thickness (CRUST1.0/LITHO1.0 sediments are used instead)
-- Lucazeau 2019 heat flow
+- Lucazeau 2019 heat-flow grid (IHFC 2023 points stand in)
 - Maus 2022 / Tang 2023 mining polygons (Overture/OSM is used instead)
 - ASTER and EMIT mineral maps (they need Earthdata credentials; Sentinel-2 ratios stand in)
 
