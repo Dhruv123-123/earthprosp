@@ -31,6 +31,8 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--out", default="outputs/v3")
     ap.add_argument("--countries-geojson", default="data/raw/ne_50m_admin_0_countries.geojson")
+    ap.add_argument("--change", nargs=2, default=["data/global_2018.npz", "data/global_2024.npz"],
+                    help="two AEF years for the surface-change leakage diagnostic (skipped if missing)")
     a = ap.parse_args()
     import matplotlib
     matplotlib.use("Agg")
@@ -147,6 +149,29 @@ def main():
             .groupby("country")[[f"e_{s}" for s in MS.SYSTEMS]].sum()
         json.dump({s: sys_country[f"e_{s}"].drop(index="(none)", errors="ignore").nlargest(8).round(0).to_dict()
                    for s in MS.SYSTEMS}, f, indent=1)
+    if all(os.path.exists(p) for p in a.change):
+        change_diagnostic(df, a)
+
+
+def change_diagnostic(df, a):
+    """How much of the top of the map is recent surface change (pits, tailings, clearing)?"""
+    from scipy.stats import spearmanr
+
+    from earthprosp import aef_change
+    ch = aef_change.change(*a.change)["aef_change_cos"]
+    d = df[["h3", "p_prospective", "known_positive"]].assign(change=ch.reindex(df.h3.to_numpy()).to_numpy())
+    d = d.dropna(subset=["change"])
+    hi_change = d.change >= d.change.quantile(0.95)
+    out = {"years": a.change, "cells": int(len(d)),
+           "spearman_score_vs_change": float(spearmanr(d.p_prospective, d.change).statistic)}
+    for f in (0.01, 0.05):
+        top = d.p_prospective >= d.p_prospective.quantile(1 - f)
+        out[f"top{int(f * 100)}pct_share_in_top5pct_change"] = float((top & hi_change).sum() / top.sum())
+        out[f"top{int(f * 100)}pct_unlabelled_share_in_top5pct_change"] = float(
+            (top & hi_change & ~d.known_positive).sum() / max((top & ~d.known_positive).sum(), 1))
+    out["known_positive_share_in_top5pct_change"] = float((hi_change & d.known_positive).sum() / d.known_positive.sum())
+    json.dump(out, open(os.path.join(a.out, "change_diagnostic.json"), "w"), indent=2)
+    print("surface-change diagnostic:", out)
 
 
 if __name__ == "__main__":
