@@ -146,11 +146,11 @@ def build_labels(cells, data_dir):
     if os.path.exists(osm_path):
         o = labels.osm_mine_records(osm_path)
         oc = set(grid.latlng_to_cells(o.latitude.to_numpy(), o.longitude.to_numpy()))
-        lab["osm_metal"] = np.isin(cells, list(oc))
+        lab["osm_metal"] = pd.Index(cells).isin(oc)  # np.isin on object arrays is quadratic
         allm = pd.read_parquet(osm_path)
         allm = allm[allm["class"] == "quarry"]
         fc = set(grid.latlng_to_cells(allm.lat.to_numpy(), allm.lon.to_numpy()))
-        lab["mine_footprint"] = np.isin(cells, list(fc))
+        lab["mine_footprint"] = pd.Index(cells).isin(fc)
     return lab, rec
 
 
