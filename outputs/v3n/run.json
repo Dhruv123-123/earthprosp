@@ -1,0 +1,32 @@
+{
+  "args": {
+    "stats": "data/global_2024.npz",
+    "data": "data",
+    "features_cache": "data/global_features.npz",
+    "out": "outputs/v3n",
+    "bags": 8,
+    "cv_bags": 4,
+    "folds": 5,
+    "buffer_km": 50.0,
+    "skip_cv": false,
+    "cv_system_heads": false,
+    "cv_sets": "aef_geo",
+    "drop_features": "seis_shallow_logdensity_100km,seis_intermediate_logdensity_200km,seis_deep_logdensity_300km,seis_intermediate_logdist,seis_subcrustal_depth_km,slab_depth_km,slab_dist_km,slab_arc_signed_km,slab_nearest_depth_km,prov_accreted_arc,prov_island_arc,prov_continental_arc,prov_collisional_orogen,prov_extensional,prov_rift,prov_plume,prov_shield,prov_platform,prov_basin",
+    "fresh": false,
+    "with_nn": false,
+    "nn_epochs": 12,
+    "prior": 0.05,
+    "system_heads": true,
+    "target_group": false,
+    "n_features": 352,
+    "neutralize_features": "wc_built,wc_crop"
+  },
+  "n_cells": 4489547,
+  "n_pos": 32858,
+  "bias": {
+    "us_share_land": 0.06296604089454905,
+    "us_share_top5pct": 0.250060139523695,
+    "aoa_fraction": 0.9385764309851305
+  },
+  "note": "bias recomputed after the run's own run.json write failed; world-class counts omitted"
+}

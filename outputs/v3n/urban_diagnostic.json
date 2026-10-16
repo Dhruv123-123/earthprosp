@@ -1,0 +1,21 @@
+{
+  "built_threshold": 0.2,
+  "land_share": 0.006757686475141651,
+  "positive_share": 0.026142796274879785,
+  "top1pct_share": 0.013879883773983623,
+  "top1pct_unlabelled_share": 0.01427750095822154,
+  "top5pct_share": 0.014725163893091276,
+  "top5pct_unlabelled_share": 0.014407655086174089,
+  "top5pct_share_by_country": {
+    "United States of America": 0.2677,
+    "Australia": 0.0537,
+    "Russia": 0.0461,
+    "Brazil": 0.0405,
+    "Canada": 0.0394,
+    "Iran": 0.0348,
+    "Peru": 0.034,
+    "China": 0.0328,
+    "Mexico": 0.0273,
+    "Argentina": 0.0256
+  }
+}
