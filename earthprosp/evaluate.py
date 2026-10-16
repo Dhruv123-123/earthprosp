@@ -35,3 +35,37 @@ def composition_metrics(pred_comp: np.ndarray, target: np.ndarray, weight: np.nd
         "cross_entropy": float((ce * w).sum() / w.sum()),
         "mass_on_present": float((mass * w).sum() / w.sum()),
     }
+
+
+def enrichment(score: np.ndarray, positive: np.ndarray, frac: float = 0.05) -> float:
+    """Deposit density in the top `frac` of area relative to the average (1 = random)."""
+    k = max(int(np.ceil(frac * len(score))), 1)
+    top = np.argpartition(-score, k - 1)[:k]
+    base = positive.mean()
+    return float(positive[top].mean() / base) if base > 0 else float("nan")
+
+
+def block_bootstrap_ci(score: np.ndarray, positive: np.ndarray, blocks: np.ndarray, metric: str = "capture_auc",
+                       n_boot: int = 200, seed: int = 0, alpha: float = 0.05) -> tuple[float, float, float]:
+    """Point estimate and (1 - alpha) CI of a capture metric, resampling whole spatial blocks.
+
+    Deposits are clustered, so resampling cells understates the uncertainty; resampling
+    blocks (e.g. H3 res-2 parents) keeps each cluster together."""
+    rng = np.random.default_rng(seed)
+    codes, uniq = _factorize(blocks)
+    members = [np.where(codes == i)[0] for i in range(len(uniq))]
+    point = capture_curve(score, positive)[metric]
+    vals = []
+    for _ in range(n_boot):
+        pick = rng.integers(0, len(uniq), len(uniq))
+        idx = np.concatenate([members[i] for i in pick])
+        if 0 < positive[idx].sum() < len(idx):
+            vals.append(capture_curve(score[idx], positive[idx])[metric])
+    lo, hi = np.percentile(vals, [100 * alpha / 2, 100 * (1 - alpha / 2)]) if vals else (np.nan, np.nan)
+    return float(point), float(lo), float(hi)
+
+
+def _factorize(x):
+    import pandas as pd
+    codes, uniq = pd.factorize(np.asarray(x, dtype=object))
+    return codes, uniq
