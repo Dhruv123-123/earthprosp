@@ -1,0 +1,92 @@
+{
+ "porphyry_skarn_cu": {
+  "United States of America": 3138.0,
+  "China": 2865.0,
+  "Canada": 2559.0,
+  "Russia": 2538.0,
+  "Australia": 2242.0,
+  "Chile": 1425.0,
+  "Peru": 1218.0,
+  "Mexico": 880.0
+ },
+ "epithermal_orogenic_au": {
+  "United States of America": 11607.0,
+  "Russia": 6161.0,
+  "Brazil": 4683.0,
+  "Canada": 4004.0,
+  "Australia": 2944.0,
+  "China": 2922.0,
+  "Mexico": 1618.0,
+  "Peru": 1354.0
+ },
+ "vms": {
+  "Canada": 921.0,
+  "China": 514.0,
+  "Norway": 424.0,
+  "Russia": 391.0,
+  "Sweden": 336.0,
+  "Australia": 326.0,
+  "Japan": 269.0,
+  "Kazakhstan": 224.0
+ },
+ "sed_hosted_base": {
+  "United States of America": 5400.0,
+  "Canada": 3388.0,
+  "China": 2794.0,
+  "Russia": 2306.0,
+  "Australia": 1692.0,
+  "Mexico": 1517.0,
+  "Brazil": 1183.0,
+  "Argentina": 1143.0
+ },
+ "magmatic_mafic": {
+  "Russia": 2467.0,
+  "Turkey": 1426.0,
+  "Canada": 939.0,
+  "United States of America": 743.0,
+  "Australia": 574.0,
+  "China": 509.0,
+  "Brazil": 459.0,
+  "Indonesia": 432.0
+ },
+ "felsic_alkaline_rare": {
+  "Brazil": 3784.0,
+  "Russia": 2041.0,
+  "China": 1964.0,
+  "United States of America": 1814.0,
+  "Australia": 1598.0,
+  "Canada": 951.0,
+  "Bolivia": 672.0,
+  "Argentina": 608.0
+ },
+ "chemical_sedimentary": {
+  "United States of America": 7167.0,
+  "Russia": 3477.0,
+  "China": 3315.0,
+  "Iran": 2652.0,
+  "Australia": 2443.0,
+  "India": 2407.0,
+  "Brazil": 2101.0,
+  "Canada": 1029.0
+ },
+ "surficial_residual": {
+  "Brazil": 341.0,
+  "Guinea": 309.0,
+  "United States of America": 282.0,
+  "India": 221.0,
+  "Indonesia": 157.0,
+  "Australia": 151.0,
+  "Kazakhstan": 148.0,
+  "Russia": 116.0
+ },
+ "sandstone_u": {
+  "United States of America": 1740.0,
+  "Australia": 95.0,
+  "Brazil": 31.0,
+  "Canada": 26.0,
+  "China": 24.0,
+  "Russia": 20.0,
+  "South Africa": 17.0,
+  "Kazakhstan": 16.0
+ }
+}
