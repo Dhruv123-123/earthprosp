@@ -196,6 +196,8 @@ def main():
     ap.add_argument("--with-nn", action="store_true", help="also run the v2 feature NN in CV (needs ~2x RAM)")
     ap.add_argument("--nn-epochs", type=int, default=12)
     ap.add_argument("--prior", type=float, default=0.05)
+    ap.add_argument("--system-heads", action="store_true",
+                    help="also fit one PU model per mineral system and compare it with presence x share")
     ap.add_argument("--target-group", action="store_true",
                     help="draw unlabeled cells in proportion to regional survey effort")
     a = ap.parse_args()
@@ -223,7 +225,10 @@ def main():
                "n_pos_cells": int(pos.sum()), "n_world_class_cells": int(lab["world_class"].sum())},
               open(os.path.join(a.out, "labels.json"), "w"), indent=2)
 
+    sys_pos = {s: system_positive(lab, i) for i, s in enumerate(MS.SYSTEMS)} if a.system_heads else {}
+
     targets_of = lambda te: {  # noqa: E731
+        **{f"sys:{s}": sp[te] for s, sp in sys_pos.items()},
         "all": pos[te],
         "non_us": pos[te] & ~us[te],
         "world_class": lab["world_class"][te],
@@ -250,6 +255,11 @@ def main():
         if len(members) > 1:
             scores["ensemble"] = np.mean([pu.rank_normalise(scores[k]) for k in members], 0)
         rows = []
+        for s, sp in sys_pos.items():  # dedicated per-system heads, scored on their own target
+            if sp[tr].sum() >= 100 and sp[te].sum() >= 10:
+                hm = fit_gbm(X, sets["aef_geo"], tr, sp, w, sample_prob, a.cv_bags, fast=True)
+                rows.append({"split": tag, "model": "sys_head", "target": f"sys:{s}", "n_pos": int(sp[te].sum()),
+                             **evaluate.capture_curve(hm.predict(_sub(X, te, sets["aef_geo"])), sp[te])})
         for model, sc in scores.items():
             for tname, t in targets_of(te).items():
                 hit, wt = (t > 0, t) if t.dtype != bool else (t, None)
@@ -283,6 +293,13 @@ def main():
         print(summ.to_string(), flush=True)
 
     final(a, cells, lat, lon, X, names, sets, lab, w, sample_prob, us)
+
+
+def system_positive(lab, i, min_share=0.5):
+    """Positive cells whose mineral-system mix is dominated (>= min_share) by system i."""
+    S = lab["sys"]
+    share = S[:, i] / np.maximum(S.sum(1), 1e-9)
+    return lab["pos"] & lab["has_sys"] & (S.argmax(1) == i) & (share >= min_share)
 
 
 def _standardised(X, rows):
@@ -327,6 +344,14 @@ def final(a, cells, lat, lon, X, names, sets, lab, w, sample_prob, us):
     q = predict_soft(comp_m, Xc)
     qs = predict_soft(sys_m, Xc)
     joblib.dump({"commodity": comp_m, "system": sys_m}, os.path.join(a.out, "gbm_heads.joblib"))
+    heads = {}
+    if a.system_heads:
+        for i, s in enumerate(MS.SYSTEMS):
+            sp = system_positive(lab, i)
+            if sp.sum() >= 100:
+                log(f"system head {s}: {int(sp.sum()):,} positive cells")
+                hm = fit_gbm(X, cols, allr, sp, w, sample_prob, max(a.bags // 2, 2), seed=2)
+                heads[s] = pu.rank_normalise(hm.predict(Xc)).astype(np.float32)
 
     log("area of applicability (top-20 features by gain, importance-weighted)")
     imp = m.feature_importance("gain")
@@ -359,6 +384,8 @@ def final(a, cells, lat, lon, X, names, sets, lab, w, sample_prob, us):
         df[f"p_{c}"] = (p * q[:, i]).astype(np.float32)
     for i, s in enumerate(MS.SYSTEMS):
         df[f"sys_{s}"] = qs[:, i].astype(np.float32)
+    for s, v in heads.items():
+        df[f"head_{s}"] = v  # rank (0-1) from the dedicated per-system PU model
     df["top_class"] = pd.Categorical(np.array(C.CLASSES)[q.argmax(1)], categories=C.CLASSES)
     df["top_system"] = pd.Categorical(np.array(MS.SYSTEMS)[qs.argmax(1)], categories=MS.SYSTEMS)
     df["known_positive"] = pos
