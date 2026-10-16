@@ -24,8 +24,8 @@ def change(path_a: str, path_b: str) -> pd.DataFrame:
     """Cosine distance (0 = identical, 2 = opposite) per cell present in both years."""
     a, b = load_means(path_a), load_means(path_b)
     common = a.index.intersection(b.index)
-    A = a.loc[common].to_numpy()
-    B = b.loc[common].to_numpy()
+    A = a.loc[common].to_numpy().copy()
+    B = b.loc[common].to_numpy().copy()
     A /= np.linalg.norm(A, axis=1, keepdims=True) + 1e-8
     B /= np.linalg.norm(B, axis=1, keepdims=True) + 1e-8
     cos = (A * B).sum(1)
