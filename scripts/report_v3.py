@@ -31,6 +31,8 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--out", default="outputs/v3")
     ap.add_argument("--countries-geojson", default="data/raw/ne_50m_admin_0_countries.geojson")
+    ap.add_argument("--greenfield-ring", type=int, default=4,
+                    help="greenfield cells have no mineral record within this many H3 rings (4 ~ 15 km)")
     ap.add_argument("--change", nargs=2, default=["data/global_2018.npz", "data/global_2024.npz"],
                     help="two AEF years for the surface-change leakage diagnostic (skipped if missing)")
     a = ap.parse_args()
@@ -116,16 +118,19 @@ def main():
     agg = agg.drop(index="(none)", errors="ignore").sort_values("p_prospective", ascending=False)
     agg.round(4).to_csv(os.path.join(a.out, "by_country.csv"))
 
-    # Greenfield: top cells per system with no mineral record of any kind within ~25 km.
+    # Greenfield: top cells per system with no mineral record of any kind within --greenfield-ring.
     known = set(df.h3[df.any_record])
     drivers_path = os.path.join(a.out, "top1pct_drivers.parquet")
     drv = pd.read_parquet(drivers_path).set_index("h3") if os.path.exists(drivers_path) else None
     rows = []
+    p90 = df.p_prospective.quantile(0.9)
     for s in MS.SYSTEMS:
         score = df.p_prospective * df[f"sys_{s}"]
-        cand = df.assign(_s=score).nlargest(5000, "_s")
-        cand = cand[~cand.any_record & cand.in_aoa]
-        keep = [not any(n in known for n in h3.grid_disk(h, 6)) for h in cand.h3]
+        # Only cells that are prospective in their own right (top 10% of presence), so a
+        # rare system's list is empty rather than padded with low-scoring cells.
+        ok = ~df.any_record & df.in_aoa & (df.p_prospective >= p90)
+        cand = df[ok].assign(_s=score[ok]).nlargest(5000, "_s")
+        keep = [not any(n in known for n in h3.grid_disk(h, a.greenfield_ring)) for h in cand.h3]
         for r in cand[keep].head(20).itertuples():
             row = {"system": s, "h3": r.h3, "lat": round(r.lat, 3), "lon": round(r.lon, 3), "country": r.country,
                    "p_prospective": round(r.p_prospective, 3), "p_system": round(getattr(r, f"sys_{s}"), 3),
