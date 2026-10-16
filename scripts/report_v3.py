@@ -35,6 +35,8 @@ def main():
                     help="greenfield cells have no mineral record within this many H3 rings (4 ~ 15 km)")
     ap.add_argument("--change", nargs=2, default=["data/global_2018.npz", "data/global_2024.npz"],
                     help="two AEF years for the surface-change leakage diagnostic (skipped if missing)")
+    ap.add_argument("--worldcover", default="data/worldcover_res6.parquet",
+                    help="per-cell WorldCover fractions for the urban-bias diagnostic (skipped if missing)")
     a = ap.parse_args()
     import matplotlib
     matplotlib.use("Agg")
@@ -156,6 +158,8 @@ def main():
                    for s in MS.SYSTEMS}, f, indent=1)
     if all(os.path.exists(p) for p in a.change):
         change_diagnostic(df, a)
+    if os.path.exists(a.worldcover):
+        urban_diagnostic(df, a)
 
 
 def change_diagnostic(df, a):
@@ -177,6 +181,24 @@ def change_diagnostic(df, a):
     out["known_positive_share_in_top5pct_change"] = float((hi_change & d.known_positive).sum() / d.known_positive.sum())
     json.dump(out, open(os.path.join(a.out, "change_diagnostic.json"), "w"), indent=2)
     print("surface-change diagnostic:", out)
+
+
+def urban_diagnostic(df, a, built=0.2):
+    """Is the top of the map just towns? Share of urban cells (WorldCover built-up above
+    `built`) on land, among known positives, and in the top 1% / 5% of the map."""
+    wc = pd.read_parquet(a.worldcover, columns=["h3", "wc_built"]).set_index("h3").wc_built
+    d = df[["h3", "p_prospective", "known_positive", "country"]].assign(
+        urban=(wc.reindex(df.h3.to_numpy()).to_numpy() > built))
+    out = {"built_threshold": built, "land_share": float(d.urban.mean()),
+           "positive_share": float(d.urban[d.known_positive].mean())}
+    for f in (0.01, 0.05):
+        top = d.p_prospective >= d.p_prospective.quantile(1 - f)
+        out[f"top{int(f * 100)}pct_share"] = float(d.urban[top].mean())
+        out[f"top{int(f * 100)}pct_unlabelled_share"] = float(d.urban[top & ~d.known_positive].mean())
+    top = d.p_prospective >= d.p_prospective.quantile(0.95)
+    out["top5pct_share_by_country"] = (top.groupby(d.country).sum() / top.sum()).nlargest(10).round(4).to_dict()
+    json.dump(out, open(os.path.join(a.out, "urban_diagnostic.json"), "w"), indent=2)
+    print("urban diagnostic:", {k: v for k, v in out.items() if "country" not in k})
 
 
 if __name__ == "__main__":
