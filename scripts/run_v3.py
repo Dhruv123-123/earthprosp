@@ -75,7 +75,8 @@ def aef_names():
 
 
 def covariate_table(cells, data_dir):
-    cov = covariates.build(cells, cache=os.path.join(data_dir, "covariates.parquet"),
+    # One cache per cell set, so a regional smoke run never overwrites the global cache.
+    cov = covariates.build(cells, cache=os.path.join(data_dir, f"covariates_{len(cells)}.parquet"),
                            raw_dir=os.path.join(data_dir, "raw"))
     for p in RASTER_PRODUCTS:
         path = os.path.join(data_dir, f"{p}_res6.parquet")
@@ -83,7 +84,7 @@ def covariate_table(cells, data_dir):
             r = pd.read_parquet(path)
             r.index = r.index.astype(object)
             cov = cov.join(r.reindex(cov.index))
-            log(f"joined {p}: {r.shape[1]} columns, {r.index.isin(cov.index).mean():.1%} of its cells on land")
+            log(f"joined {p}: {r.shape[1]} columns, {cov.index.isin(r.index).mean():.1%} of cells covered")
     return cov
 
 
