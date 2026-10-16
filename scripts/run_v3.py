@@ -328,6 +328,12 @@ def final(a, cells, lat, lon, X, names, sets, lab, w, sample_prob, us):
     fam = np.array([_family(n) for n in np.array(names)[cols]])
     fams = sorted(set(fam))
     fam_contrib = np.stack([contrib[:, fam == f].sum(1) for f in fams], 1)
+    order = np.argsort(-fam_contrib, 1)[:, :3]
+    drv = pd.DataFrame({"h3": cells[top].astype(str)})
+    for j in range(3):
+        drv[f"driver{j + 1}"] = np.array(fams)[order[:, j]]
+        drv[f"driver{j + 1}_logodds"] = fam_contrib[np.arange(len(top)), order[:, j]].astype(np.float32)
+    drv.to_parquet(os.path.join(a.out, "top1pct_drivers.parquet"), index=False)
     pd.DataFrame(fam_contrib.mean(0)[None], columns=fams).T.rename(columns={0: "mean_logodds_top1pct"}).to_csv(
         os.path.join(a.out, "driver_families_top1pct.csv"))
     imp_df = pd.DataFrame({"feature": np.array(names)[cols], "family": fam, "gain": imp}).sort_values("gain", ascending=False)
