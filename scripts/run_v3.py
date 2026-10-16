@@ -222,6 +222,7 @@ def main():
     ap.add_argument("--folds", type=int, default=5)
     ap.add_argument("--buffer-km", type=float, default=50.0)
     ap.add_argument("--skip-cv", action="store_true")
+    ap.add_argument("--fresh", action="store_true", help="ignore CV splits and models saved by an earlier run")
     ap.add_argument("--with-nn", action="store_true", help="also run the v2 feature NN in CV (needs ~2x RAM)")
     ap.add_argument("--nn-epochs", type=int, default=12)
     ap.add_argument("--prior", type=float, default=0.05)
@@ -237,6 +238,7 @@ def main():
     X, cov_cols = feature_matrix(cells, Xa, a.data)
     del Xa
     names = aef_names() + cov_cols
+    a.n_features = X.shape[1]
     sets = {"aef": np.arange(256), "geo": np.arange(256, X.shape[1]), "aef_geo": np.arange(X.shape[1])}
     log(f"{len(cells):,} cells, {X.shape[1]} features ({len(cov_cols)} covariates)")
 
@@ -301,16 +303,25 @@ def main():
         return rows
 
     if not a.skip_cv:
-        rows = []
+        # Resumable: splits already in cv_results.csv (from a run that was killed) are kept.
+        res_path = os.path.join(a.out, "cv_results.csv")
+        rows = pd.read_csv(res_path).to_dict("records") if os.path.exists(res_path) and not a.fresh else []
+        done = {r["split"] for r in rows}
+        if done:
+            log(f"resuming CV: {sorted(done)} already done")
         folds = spatial_cv.buffered_block_folds(cells, lat, lon, k=a.folds, block_res=1, buffer_km=a.buffer_km)
         json.dump({k: {str(q): float(v) for q, v in d.items()} for k, d in
                    spatial_cv.nndm_like_folds(lat, lon, pos, folds).items()},
                   open(os.path.join(a.out, "cv_distance_check.json"), "w"), indent=2)
         for k, (tr, te) in enumerate(folds):
+            if f"cv{k}" in done:
+                continue
             rows += run_split(f"cv{k}", tr, te)
             pd.DataFrame(rows).to_csv(os.path.join(a.out, "cv_results.csv"), index=False)
         for name, box in HOLDOUTS.items():
             te = np.where(in_box(lat, lon, box))[0]
+            if f"holdout_{name}" in done:
+                continue
             if pos[te].sum() < 10:  # region outside this run's cells (regional runs)
                 log(f"holdout_{name}: skipped, {int(pos[te].sum())} positive cells")
                 continue
@@ -326,6 +337,22 @@ def main():
         print(summ.to_string(), flush=True)
 
     final(a, cells, lat, lon, X, names, sets, lab, w, sample_prob, us)
+
+
+def _cached(a, name, fit):
+    """Load a fitted model saved by an earlier (killed) run, or fit and save it."""
+    import joblib
+    path = os.path.join(a.out, name)
+    if os.path.exists(path) and not a.fresh:
+        m = joblib.load(path)
+        first = m.models[0] if hasattr(m, "models") else m[0]
+        if first.n_features_in_ == a.n_features:
+            log(f"reusing {name}")
+            return m
+        log(f"{name} was fitted on {first.n_features_in_} features, not {a.n_features}: refitting")
+    m = fit()
+    joblib.dump(m, path)
+    return m
 
 
 def system_positive(lab, i, min_share=0.5):
@@ -350,8 +377,7 @@ def final(a, cells, lat, lon, X, names, sets, lab, w, sample_prob, us):
     allr = np.arange(len(cells))
     log("final PU-bagged GBM on all cells")
     cols = sets["aef_geo"]
-    m = fit_gbm(X, cols, allr, pos, w, sample_prob, a.bags, seed=1)
-    joblib.dump(m, os.path.join(a.out, "gbm_presence.joblib"))
+    m = _cached(a, "gbm_presence.joblib", lambda: fit_gbm(X, cols, allr, pos, w, sample_prob, a.bags, seed=1))
     Xc = _cols(X, cols)
     bags = m.predict_bags(Xc)
     score = bags.mean(0)
@@ -374,19 +400,21 @@ def final(a, cells, lat, lon, X, names, sets, lab, w, sample_prob, us):
 
     log("commodity and mineral-system heads")
     prow = np.where(pos)[0]
-    comp_m = soft_multiclass(Xc, prow, lab["comp"], lab["conf"], C.N_CLASSES)
+    comp_m = _cached(a, "head_commodity.joblib",
+                     lambda: soft_multiclass(Xc, prow, lab["comp"], lab["conf"], C.N_CLASSES))
     srow = np.where(pos & lab["has_sys"])[0]
-    sys_m = soft_multiclass(Xc, srow, lab["sys"], lab["conf"], MS.N_SYSTEMS)
+    sys_m = _cached(a, "head_system.joblib",
+                    lambda: soft_multiclass(Xc, srow, lab["sys"], lab["conf"], MS.N_SYSTEMS))
     q = predict_soft(comp_m, Xc)
     qs = predict_soft(sys_m, Xc)
-    joblib.dump({"commodity": comp_m, "system": sys_m}, os.path.join(a.out, "gbm_heads.joblib"))
     heads = {}
     if a.system_heads:
         for i, s in enumerate(MS.SYSTEMS):
             sp = system_positive(lab, i)
             if sp.sum() >= 100:
                 log(f"system head {s}: {int(sp.sum()):,} positive cells")
-                hm = fit_gbm(X, cols, allr, sp, w, sample_prob, max(a.bags // 2, 2), seed=2)
+                hm = _cached(a, f"head_sys_{s}.joblib",
+                             lambda: fit_gbm(X, cols, allr, sp, w, sample_prob, max(a.bags // 2, 2), seed=2))
                 heads[s] = pu.rank_normalise(hm.predict(Xc)).astype(np.float32)
 
     log("area of applicability (top-20 features by gain, importance-weighted)")
