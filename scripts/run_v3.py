@@ -185,9 +185,33 @@ def _cols(X, cols):
     return X if len(cols) == X.shape[1] and (np.asarray(cols) == np.arange(X.shape[1])).all() else X[:, cols]
 
 
-def _sub(X, rows, cols):
-    """X[rows][:, cols] as float32 without materialising X[:, cols] for every row."""
-    return np.asarray(X[rows][:, cols], np.float32)
+def _sub(X, rows, cols, neutral=()):
+    """X[rows][:, cols] as float32 without materialising X[:, cols] for every row, with the
+    `neutral` positions (indices into cols) held at 0."""
+    out = np.asarray(X[rows][:, cols], np.float32)
+    if len(neutral):
+        out[:, neutral] = 0.0
+    return out
+
+
+class Neutral:
+    """Read-only view of X whose `idx` columns read as 0, without copying X.
+
+    Used to predict "as if this cell had no town or farmland": the model sees built-up and
+    cropland fractions in training, so the town signal goes there instead of leaking into
+    the AlphaEarth dimensions, and is then switched off at prediction time."""
+
+    def __init__(self, X, idx):
+        self.X, self.idx, self.shape = X, np.asarray(idx, int), X.shape
+
+    def __len__(self):
+        return len(self.X)
+
+    def __getitem__(self, key):
+        xb = np.array(self.X[key], np.float32)
+        if len(self.idx):
+            xb[..., self.idx] = 0.0
+        return xb
 
 
 def soft_multiclass(X, rows, Y, weight, n_classes, seed=0, n_estimators=300):
@@ -226,6 +250,8 @@ def main():
     ap.add_argument("--cv-sets", default="aef,geo,aef_geo", help="feature sets compared in CV")
     ap.add_argument("--drop-features", default="",
                     help="comma-separated feature names to leave out, e.g. wc_built,wc_crop")
+    ap.add_argument("--neutralize-features", default="",
+                    help="features kept in training but set to 0 when predicting, e.g. wc_built,wc_crop")
     ap.add_argument("--fresh", action="store_true", help="ignore CV splits and models saved by an earlier run")
     ap.add_argument("--with-nn", action="store_true", help="also run the v2 feature NN in CV (needs ~2x RAM)")
     ap.add_argument("--nn-epochs", type=int, default=12)
@@ -252,6 +278,14 @@ def main():
     sets = {"aef": np.arange(256), "geo": np.where(keep & (np.arange(len(names)) >= 256))[0],
             "aef_geo": np.where(keep)[0]}
     a.n_features = len(sets["aef_geo"])
+    neutral = set(filter(None, a.neutralize_features.split(",")))
+    if neutral - set(names) or neutral & drop:
+        raise SystemExit(f"--neutralize-features: unknown or dropped {sorted(neutral - set(names) | neutral & drop)}")
+    if neutral:
+        log(f"predicting with {sorted(neutral)} held at 0")
+    # positions of the neutral features inside each feature set
+    a.neutral = {k: np.array([i for i, c in enumerate(v) if names[c] in neutral], int) for k, v in sets.items()}
+    a.neutral_full = np.array([i for i, n in enumerate(names) if n in neutral], int)
     log(f"{len(cells):,} cells, {X.shape[1]} features ({len(cov_cols)} covariates)")
 
     lab, rec = build_labels(cells, a.data)
@@ -284,7 +318,7 @@ def main():
         scores = {"knn": knn_score(lat, lon, tr[pos[tr]], te)}
         for name in a.cv_sets.split(","):
             m = fit_gbm(X, sets[name], tr, pos, w, sample_prob, a.cv_bags, fast=True)
-            scores[f"gbm_{name}"] = m.predict(_sub(X, te, sets[name]))
+            scores[f"gbm_{name}"] = m.predict(_sub(X, te, sets[name], a.neutral[name]))
         if a.with_nn:
             from earthprosp.train import TrainConfig, fit_features, predict_features
             Xn = _standardised(X, tr)
@@ -304,7 +338,7 @@ def main():
             if sp[tr].sum() >= 100 and sp[te].sum() >= 10:
                 hm = fit_gbm(X, sets["aef_geo"], tr, sp, w, sample_prob, a.cv_bags, fast=True)
                 rows.append({"split": tag, "model": "sys_head", "target": f"sys:{s}", "n_pos": int(sp[te].sum()),
-                             **evaluate.capture_curve(hm.predict(_sub(X, te, sets["aef_geo"])), sp[te])})
+                             **evaluate.capture_curve(hm.predict(_sub(X, te, sets["aef_geo"], a.neutral["aef_geo"])), sp[te])})
         for model, sc in scores.items():
             for tname, t in targets_of(te).items():
                 hit, wt = (t > 0, t) if t.dtype != bool else (t, None)
@@ -392,7 +426,8 @@ def final(a, cells, lat, lon, X, names, sets, lab, w, sample_prob, us):
     cols = sets["aef_geo"]
     m = _cached(a, "gbm_presence.joblib", lambda: fit_gbm(X, cols, allr, pos, w, sample_prob, a.bags, seed=1))
     Xc = _cols(X, cols)
-    bags = m.predict_bags(Xc)
+    Xp = Neutral(Xc, a.neutral["aef_geo"])  # what predictions read
+    bags = m.predict_bags(Xp)
     score = bags.mean(0)
     unc = bags.std(0)
     # Prior-matched calibration: shift the log-odds so the mean presence over land equals
@@ -418,8 +453,8 @@ def final(a, cells, lat, lon, X, names, sets, lab, w, sample_prob, us):
     srow = np.where(pos & lab["has_sys"])[0]
     sys_m = _cached(a, "head_system.joblib",
                     lambda: soft_multiclass(Xc, srow, lab["sys"], lab["conf"], MS.N_SYSTEMS))
-    q = predict_soft(comp_m, Xc)
-    qs = predict_soft(sys_m, Xc)
+    q = predict_soft(comp_m, Xp)
+    qs = predict_soft(sys_m, Xp)
     heads = {}
     if a.system_heads:
         for i, s in enumerate(MS.SYSTEMS):
@@ -428,7 +463,7 @@ def final(a, cells, lat, lon, X, names, sets, lab, w, sample_prob, us):
                 log(f"system head {s}: {int(sp.sum()):,} positive cells")
                 hm = _cached(a, f"head_sys_{s}.joblib",
                              lambda: fit_gbm(X, cols, allr, sp, w, sample_prob, max(a.bags // 2, 2), seed=2))
-                heads[s] = pu.rank_normalise(hm.predict(Xc)).astype(np.float32)
+                heads[s] = pu.rank_normalise(hm.predict(Xp)).astype(np.float32)
 
     log("area of applicability (top-20 features by gain, importance-weighted)")
     imp = m.feature_importance("gain")
@@ -438,7 +473,7 @@ def final(a, cells, lat, lon, X, names, sets, lab, w, sample_prob, us):
 
     log("top drivers by feature family for the top 1% of cells")
     top = np.argsort(-score)[: max(len(score) // 100, 1)]
-    contrib = m.contributions(X[top][:, cols])[:, :-1]
+    contrib = m.contributions(Neutral(X, a.neutral_full)[top][:, cols])[:, :-1]
     fam = np.array([_family(n) for n in np.array(names)[cols]])
     fams = sorted(set(fam))
     fam_contrib = np.stack([contrib[:, fam == f].sum(1) for f in fams], 1)

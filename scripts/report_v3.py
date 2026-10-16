@@ -186,7 +186,7 @@ def change_diagnostic(df, a):
 def urban_diagnostic(df, a, built=0.2):
     """Is the top of the map just towns? Share of urban cells (WorldCover built-up above
     `built`) on land, among known positives, and in the top 1% / 5% of the map."""
-    wc = pd.read_parquet(a.worldcover, columns=["h3", "wc_built"]).set_index("h3").wc_built
+    wc = pd.read_parquet(a.worldcover, columns=["wc_built"]).wc_built  # indexed by h3
     d = df[["h3", "p_prospective", "known_positive", "country"]].assign(
         urban=(wc.reindex(df.h3.to_numpy()).to_numpy() > built))
     out = {"built_threshold": built, "land_share": float(d.urban.mean()),
