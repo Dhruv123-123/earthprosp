@@ -32,6 +32,8 @@ class Source:
     files: list[str] = field(default_factory=list)  # expected files after download
 
 
+ARC = "https://raw.githubusercontent.com/ndb38/arc-metals/master/1_arc-metals/supporting_datasets/Hayes2018/Slab2_TXT/"
+
 SOURCES: dict[str, Source] = {s.key: s for s in [
     Source("gravity", "EIGEN-6C4 gravity at 10 km height, 10 arc-min (fatiando-data)",
            ["https://github.com/fatiando-data/earth-gravity-10arcmin/releases/download/v1/earth-gravity-10arcmin.nc"],
@@ -84,6 +86,44 @@ SOURCES: dict[str, Source] = {s.key: s for s in [
            ["https://raw.githubusercontent.com/gacuervol/Geospatial-HeatFlow-ML/main/src/nombre_paquete/"
             "database/IHFC_2023_GHFDB.csv"],
            "heatflow", "CC-BY 4.0", "Global Heat Flow Data Assessment Group 2023, doi:10.5880/fidgeo.2023.008"),
+    Source("seismicity", "Earthquake hypocentres: ISC-GEM v9 (1904-2018) and USGS ComCat M4.5+ (2000-2024)",
+           ["https://raw.githubusercontent.com/GeoPython-UPD/notebooks/master/L6/data/eq_data/isc-gem-cat.csv",
+            "https://raw.githubusercontent.com/nadeeshafdo/SeismicDataWorldwide/main/query_M4.5%2B_2000-2024.csv"],
+           "seismicity", "ISC-GEM CC-BY-SA 3.0; ComCat public domain",
+           "Storchak et al. 2013 (ISC-GEM); USGS ANSS ComCat", note="all URLs"),
+    Source("slab2", "Slab2 subduction zone geometries, slab-top depth grids for 27 zones (USGS)",
+           [
+            ARC + "alu_slab2_dep_02.23.18.xyz",
+            ARC + "cal_slab2_dep_02.24.18.xyz",
+            ARC + "cam_slab2_dep_02.24.18.xyz",
+            ARC + "car_slab2_dep_02.24.18.xyz",
+            ARC + "cas_slab2_dep_02.24.18.xyz",
+            ARC + "cot_slab2_dep_02.24.18.xyz",
+            ARC + "hal_slab2_dep_02.23.18.xyz",
+            ARC + "hel_slab2_dep_02.24.18.xyz",
+            ARC + "him_slab2_dep_02.24.18.xyz",
+            ARC + "hin_slab2_dep_02.24.18.xyz",
+            ARC + "izu_slab2_dep_02.24.18.xyz",
+            ARC + "ker_slab2_dep_02.24.18.xyz",
+            ARC + "kur_slab2_dep_02.24.18.xyz",
+            ARC + "mak_slab2_dep_02.24.18.xyz",
+            ARC + "man_slab2_dep_02.24.18.xyz",
+            ARC + "mue_slab2_dep_02.24.18.xyz",
+            ARC + "pam_slab2_dep_02.26.18.xyz",
+            ARC + "phi_slab2_dep_02.26.18.xyz",
+            ARC + "png_slab2_dep_02.26.18.xyz",
+            ARC + "puy_slab2_dep_02.26.18.xyz",
+            ARC + "ryu_slab2_dep_02.26.18.xyz",
+            ARC + "sam_slab2_dep_02.23.18.xyz",
+            ARC + "sco_slab2_dep_02.23.18.xyz",
+            ARC + "sol_slab2_dep_02.23.18.xyz",
+            ARC + "sul_slab2_dep_02.23.18.xyz",
+            ARC + "sum_slab2_dep_02.23.18.xyz",
+            ARC + "van_slab2_dep_02.23.18.xyz"],
+           "slab2", "public domain", "Hayes et al. 2018, Science 362:58", note="all URLs"),
+    Source("geolprov", "World geologic provinces raster (USGS provinces, via StatGeochem artifacts)",
+           ["https://raw.githubusercontent.com/brenhinkeller/statgeochem-artifacts/main/geolprov/geolprov.tar.gz"],
+           "geolprov", "CC0", "Keller & Schoene 2012, Nature 485:490; USGS world geologic provinces"),
     Source("mrds", "USGS Mineral Resources Data System (MRDS)",
            ["https://mrdata.usgs.gov/mrds/mrds-csv.zip"],
            ".", "public domain", "USGS MRDS", unzip=True,
@@ -135,6 +175,10 @@ def fetch(key: str, raw_dir: str = "data/raw", verbose: bool = True) -> bool:
             if s.unzip and name.endswith(".zip"):
                 with zipfile.ZipFile(path) as z:
                     z.extractall(dest)
+            if name.endswith(".tar.gz"):
+                import tarfile
+                with tarfile.open(path) as t:
+                    t.extractall(dest, filter="data")
             if name.endswith(".whl"):  # data bundled in a Python wheel: keep only *.npz, flattened
                 with zipfile.ZipFile(path) as z:
                     for m in z.namelist():

@@ -201,9 +201,37 @@ def heatflow_family(cells, lat, lon, stencil, raw):
     return out
 
 
+@family("seismicity")
+def seismicity_family(cells, lat, lon, stencil, raw):
+    """ISC-GEM + USGS ComCat hypocentres: shallow, intermediate (slab) and deep seismicity
+    density, distance to intermediate-depth events, kernel mean sub-crustal depth."""
+    from . import subduction
+    return subduction.seismicity_features(subduction.read_catalog(f"{raw}/seismicity"), lat, lon)
+
+
+@family("slab")
+def slab_family(cells, lat, lon, stencil, raw):
+    """Slab2 slab-top depth beneath the cell, distance to the slab, signed distance to the
+    90-150 km depth band where arcs sit."""
+    from . import subduction
+    return subduction.slab_features(subduction.slab_grid(f"{raw}/slab2"), lat, lon)
+
+
+@family("province")
+def province_family(cells, lat, lon, stencil, raw):
+    """USGS world geologic provinces: smoothed fraction of each province type around the cell."""
+    import os
+    from . import subduction
+    path = f"{raw}/geolprov/geolprov.h5"
+    if not os.path.exists(path):
+        raise FileNotFoundError(path)
+    return subduction.province_features(path, lat, lon)
+
+
 def _prefix(fam: str) -> str:
     return {"gravity": "grav_", "topo": "topo_", "faults": "fault_", "plates": "plate_",
-            "litho": ("litho_", "crust_"), "magnetics": "mag_"}.get(fam, fam + "_")
+            "litho": ("litho_", "crust_"), "magnetics": "mag_",
+            "seismicity": "seis_", "province": "prov_"}.get(fam, fam + "_")
 
 
 def family_of(column: str) -> str:
