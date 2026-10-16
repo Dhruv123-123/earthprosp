@@ -31,7 +31,7 @@ import pandas as pd
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
 from earthprosp import commodities as C  # noqa: E402
-from earthprosp import covariates, evaluate, features, grid, labels, pu, spatial_cv  # noqa: E402
+from earthprosp import covariates, evaluate, features, grid, labels, pu, smoothing, spatial_cv  # noqa: E402
 from earthprosp import mineral_systems as MS  # noqa: E402
 
 HOLDOUTS = {
@@ -252,6 +252,9 @@ def main():
             nn = fit_features(Xn[tr], pos[tr], w[tr], lab["comp"][tr], cfg, unlabeled_subsample=500_000)
             scores["nn_aef_geo"] = 1 - predict_features(nn, Xn[te])[:, 0]
             del Xn
+        # District-scale smoothing of the held-out predictions (uses predictions only).
+        ridx = smoothing.ring_index(cells[te], 2)
+        scores["gbm_aef_geo_ring2"] = smoothing.ring_mean(scores["gbm_aef_geo"], ridx, self_weight=0.5)
         members = [k for k in scores if k in ("gbm_aef_geo", "nn_aef_geo")]
         if len(members) > 1:
             scores["ensemble"] = np.mean([pu.rank_normalise(scores[k]) for k in members], 0)
@@ -337,6 +340,9 @@ def final(a, cells, lat, lon, X, names, sets, lab, w, sample_prob, us):
     p = (1 / (1 + np.exp(-(logit + b)))).astype(np.float32)
     log(f"presence calibrated to mean {p.mean():.3f} (shift {b:.2f})")
 
+    log("district-scale smoothing (ring 2, half own score)")
+    p_district = smoothing.ring_mean(p, smoothing.ring_index(cells, 2), self_weight=0.5)
+
     log("commodity and mineral-system heads")
     prow = np.where(pos)[0]
     comp_m = soft_multiclass(Xc, prow, lab["comp"], lab["conf"], C.N_CLASSES)
@@ -379,7 +385,7 @@ def final(a, cells, lat, lon, X, names, sets, lab, w, sample_prob, us):
     imp_df.groupby("family")["gain"].sum().sort_values(ascending=False).to_csv(os.path.join(a.out, "family_importance.csv"))
 
     df = pd.DataFrame({"h3": cells.astype(str), "lat": lat.astype(np.float32), "lon": lon.astype(np.float32),
-                       "p_prospective": p, "score_rank": pu.rank_normalise(score), "uncertainty": unc.astype(np.float32),
+                       "p_prospective": p, "p_district": p_district, "score_rank": pu.rank_normalise(score), "uncertainty": unc.astype(np.float32),
                        "dissimilarity": di, "in_aoa": inside})
     for i, c in enumerate(C.CLASSES):
         df[f"p_{c}"] = (p * q[:, i]).astype(np.float32)

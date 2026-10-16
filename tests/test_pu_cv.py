@@ -63,3 +63,17 @@ def test_pu_rows_cols_match_explicit_subset():
     a = pu.PUBaggingGBM(n_bags=2, params=params, n_jobs=1).fit(X, lab, rows=rows, cols=cols)
     b = pu.PUBaggingGBM(n_bags=2, params=params, n_jobs=1).fit(X[rows][:, cols], lab[rows])
     np.testing.assert_allclose(a.predict(X[:, cols]), b.predict(X[:, cols]), atol=1e-6)
+
+
+def test_ring_mean_smooths_and_skips_missing():
+    from earthprosp import smoothing
+    c0 = h3.latlng_to_cell(-23.0, -69.0, 6)
+    cells = np.array(sorted(h3.grid_disk(c0, 1)), dtype=object)  # 7 cells
+    v = np.zeros(len(cells))
+    v[list(cells).index(c0)] = 7.0
+    idx = smoothing.ring_index(cells, 1)
+    m = smoothing.ring_mean(v, idx)
+    assert abs(m[list(cells).index(c0)] - 1.0) < 1e-6  # centre sees all 7
+    # An edge cell has 3 neighbours inside the patch plus itself: mean = 7 / 4.
+    edge = [i for i, c in enumerate(cells) if c != c0][0]
+    assert abs(m[edge] - 7 / 4) < 1e-6
