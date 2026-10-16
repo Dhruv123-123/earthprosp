@@ -38,10 +38,9 @@ def main():
 
     cells, Xa = R.aef_features(a.stats, a.features_cache)
     lat, lon = grid.cell_centers(cells)
-    cov = R.covariate_table(cells, a.data)
-    X = R.stack_features(Xa, cov)
+    X, cov_cols = R.feature_matrix(cells, Xa, a.data)
     del Xa
-    names = np.array(R.aef_names() + list(cov.columns))
+    names = np.array(R.aef_names() + cov_cols)
     fam = np.array([R._family(n) for n in names])
     is_aef = np.char.startswith(names.astype(str), "aef_")
     lab, _ = R.build_labels(cells, a.data)

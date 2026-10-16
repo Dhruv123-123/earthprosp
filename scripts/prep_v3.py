@@ -5,6 +5,8 @@ import os
 import sys
 import time
 
+import numpy as np
+
 sys.path.insert(0, os.path.dirname(__file__))
 import run_v3  # noqa: E402
 
@@ -16,6 +18,5 @@ a = ap.parse_args()
 t0 = time.time()
 cells, X = run_v3.aef_features(a.stats, a.features_cache)
 run_v3.log(f"AEF features {X.shape} ({time.time() - t0:.0f}s)")
-del X
-cov = run_v3.covariate_table(cells, a.data)
-run_v3.log(f"covariates {cov.shape}, NaN share {cov.isna().mean().mean():.2%} ({time.time() - t0:.0f}s)")
+X, cols = run_v3.feature_matrix(cells, X, a.data)
+run_v3.log(f"features {X.shape}, NaN share {np.isnan(X[::50, 256:]).mean():.2%} ({time.time() - t0:.0f}s)")

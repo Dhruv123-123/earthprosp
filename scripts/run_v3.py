@@ -69,37 +69,51 @@ def aef_features(stats_path, cache):
     return cells, X
 
 
-def stack_features(Xa, cov):
-    """One float16 matrix [AEF | covariates] built in place.
+def feature_matrix(cells, Xa, data_dir):
+    """[AEF | covariates | raster products] as one float16 matrix, filled column by column.
 
-    At 4.49M cells x ~350 columns, float32 plus the temporaries of a concatenate peaked
-    above 13 GB and was OOM-killed. float16 (3 GB) keeps ~3 significant digits, which is
-    plenty for histogram trees (63 bins) and every covariate is below float16's 65,504
-    maximum. Rows are cast to float32 only when a bag or chunk is gathered."""
-    X = np.empty((len(Xa), Xa.shape[1] + cov.shape[1]), np.float16)
+    At 4.49M cells x ~370 columns, building float32 frames and concatenating peaked above
+    13 GB and was OOM-killed. Here the peak is the AEF block plus the float16 result plus
+    one column. float16 keeps ~3 significant digits, which is plenty for histogram trees
+    (63 bins); every covariate is below its 65,504 maximum. Rows are cast to float32 only
+    when a bag or a prediction chunk is gathered. Returns (X, covariate column names)."""
+    import pyarrow.parquet as pq
+    cache = os.path.join(data_dir, f"covariates_{len(cells)}.parquet")  # one cache per cell set
+    cov = covariates.build(cells, cache=cache, raw_dir=os.path.join(data_dir, "raw"))
+    del cov  # computed and cached; re-read below one column at a time
+    sources = [(cache, None)]
+    for p in RASTER_PRODUCTS:
+        path = os.path.join(data_dir, f"{p}_res6.parquet")
+        if os.path.exists(path):
+            sources.append((path, p))
+    plan = []
+    for path, prod in sources:
+        meta = pq.read_schema(path)
+        idx_cols = set(meta.pandas_metadata["index_columns"]) if meta.pandas_metadata else set()
+        plan.append((path, prod, [c for c in meta.names if c not in idx_cols]))
+    names = [c for _, _, cols in plan for c in cols]
+    X = np.empty((len(cells), Xa.shape[1] + len(names)), np.float16)
     X[:, :Xa.shape[1]] = Xa
-    for j, c in enumerate(cov.columns):
-        X[:, Xa.shape[1] + j] = cov[c].to_numpy(np.float32)
-    return X
+    j = Xa.shape[1]
+    for path, prod, cols in plan:
+        pos = None
+        if prod is not None:
+            index = pd.read_parquet(path, columns=[]).index.astype(object)
+            pos = index.get_indexer(pd.Index(cells))
+            log(f"joined {prod}: {len(cols)} columns, {(pos >= 0).mean():.1%} of cells covered")
+        for c in cols:
+            v = pd.read_parquet(path, columns=[c])[c].to_numpy(np.float32)
+            if pos is None:
+                X[:, j] = v
+            else:
+                X[:, j] = np.where(pos >= 0, v[np.maximum(pos, 0)], np.nan)
+            j += 1
+    return X, names
 
 
 def aef_names():
     return ([f"aef_mean_A{i:02d}" for i in range(64)] + [f"aef_std_A{i:02d}" for i in range(64)]
             + [f"aef_ctx10_A{i:02d}" for i in range(64)] + [f"aef_ctx25_A{i:02d}" for i in range(64)])
-
-
-def covariate_table(cells, data_dir):
-    # One cache per cell set, so a regional smoke run never overwrites the global cache.
-    cov = covariates.build(cells, cache=os.path.join(data_dir, f"covariates_{len(cells)}.parquet"),
-                           raw_dir=os.path.join(data_dir, "raw"))
-    for p in RASTER_PRODUCTS:
-        path = os.path.join(data_dir, f"{p}_res6.parquet")
-        if os.path.exists(path):
-            r = pd.read_parquet(path)
-            r.index = r.index.astype(object)
-            cov = cov.join(r.reindex(cov.index))
-            log(f"joined {p}: {r.shape[1]} columns, {cov.index.isin(r.index).mean():.1%} of cells covered")
-    return cov
 
 
 # ---------------------------------------------------------------------------
@@ -220,10 +234,8 @@ def main():
 
     cells, Xa = aef_features(a.stats, a.features_cache)
     lat, lon = grid.cell_centers(cells)
-    cov = covariate_table(cells, a.data)
-    cov_cols = list(cov.columns)
-    X = stack_features(Xa, cov)
-    del Xa, cov
+    X, cov_cols = feature_matrix(cells, Xa, a.data)
+    del Xa
     names = aef_names() + cov_cols
     sets = {"aef": np.arange(256), "geo": np.arange(256, X.shape[1]), "aef_geo": np.arange(X.shape[1])}
     log(f"{len(cells):,} cells, {X.shape[1]} features ({len(cov_cols)} covariates)")
