@@ -53,3 +53,13 @@ def test_rank_normalise_and_target_group():
     cells, *_ = _patch(5)
     w = pu.target_group_propensity(cells, np.ones(len(cells)))
     np.testing.assert_allclose(w, 1.0)
+
+
+def test_pu_rows_cols_match_explicit_subset():
+    cells, lat, lon, X, truth, lab = _patch()
+    rows = np.arange(0, len(X), 2)
+    cols = np.array([0, 1, 3])
+    params = dict(n_estimators=30, learning_rate=0.1, num_leaves=7, min_child_samples=10, verbose=-1)
+    a = pu.PUBaggingGBM(n_bags=2, params=params, n_jobs=1).fit(X, lab, rows=rows, cols=cols)
+    b = pu.PUBaggingGBM(n_bags=2, params=params, n_jobs=1).fit(X[rows][:, cols], lab[rows])
+    np.testing.assert_allclose(a.predict(X[:, cols]), b.predict(X[:, cols]), atol=1e-6)
