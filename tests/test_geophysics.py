@@ -58,3 +58,14 @@ def test_cell_values_on_constant_grid():
     out = cell_values(g, stencil=cell_stencil(cells), reducers=("mean", "std"))
     np.testing.assert_allclose(out["mean"], 3.0)
     np.testing.assert_allclose(out["std"], 0.0, atol=1e-12)
+
+
+def test_density_grid_matches_uniform_density():
+    from earthprosp import vectors
+    rng = np.random.default_rng(0)
+    # 1 point per ~10 km^2 uniformly over a 20x20 degree equatorial box (Poisson noise ~2%).
+    n = int(20 * 110.57 * 20 * 111.32 / 10)
+    lat = rng.uniform(-10, 10, n)
+    lon = rng.uniform(0, 20, n)
+    g = vectors.density_grid(lat, lon, 1.0, 100.0)
+    np.testing.assert_allclose(g.sample(np.array([0.0]), np.array([10.0])), 0.1, rtol=0.08)

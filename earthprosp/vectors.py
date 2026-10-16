@@ -56,9 +56,28 @@ class PointIndex:
         return out
 
 
+def density_grid(plat, plon, weight_per_point: float, radius_km: float, res_deg: float = 0.1):
+    """Smoothed point density (per km^2) on a global grid: counts per pixel, divided by
+    pixel area, Gaussian-smoothed with sigma = radius / 2 (in km, isotropic on the ground).
+
+    A radius query per cell costs O(neighbours) and is far too slow for millions of cells
+    and dense fault traces; a smoothed raster sampled at the cells is O(1) per cell."""
+    from .geophysics import gaussian_lowpass
+    from .rasters import GeoGrid
+    lat_edges = np.arange(-90, 90 + res_deg / 2, res_deg)
+    lon_edges = np.arange(-180, 180 + res_deg / 2, res_deg)
+    H, _, _ = np.histogram2d(plat, plon, bins=[lat_edges, lon_edges])
+    lat_c = (lat_edges[:-1] + lat_edges[1:]) / 2
+    lon_c = (lon_edges[:-1] + lon_edges[1:]) / 2
+    area = (res_deg * 110.57) * (res_deg * 111.32 * np.maximum(np.cos(np.radians(lat_c)), 0.01))
+    dens = H * weight_per_point / area[:, None]
+    return gaussian_lowpass(GeoGrid(lat_c, lon_c, dens), radius_km / 2)
+
+
 def line_features(prefix: str, geoms, lat, lon, radii_km=(25, 100), step_km: float = 2.0,
                   cap_km: float = 2000.0) -> dict[str, np.ndarray]:
-    """Distance to nearest line (log-scaled) and line length density within each radius."""
+    """Distance to nearest line (capped, and log-scaled) and line length per area (m/km^2)
+    within each radius (Gaussian-weighted)."""
     v = densify_lines(geoms, step_km)
     if len(v) == 0:
         return {}
@@ -66,8 +85,8 @@ def line_features(prefix: str, geoms, lat, lon, radii_km=(25, 100), step_km: flo
     d = np.minimum(idx.distance_km(lat, lon), cap_km)
     out = {f"{prefix}_dist_km": d, f"{prefix}_logdist": np.log1p(d).astype(np.float32)}
     for r in radii_km:
-        length = idx.count_within(lat, lon, r) * step_km
-        out[f"{prefix}_len_density_{r}km"] = (length / (np.pi * r ** 2) * 1000).astype(np.float32)  # m per km^2
+        g = density_grid(v[:, 0], v[:, 1], step_km * 1000.0, r)  # metres of trace per km^2
+        out[f"{prefix}_len_density_{r}km"] = np.maximum(g.sample(lat, lon), 0).astype(np.float32)
     return out
 
 
@@ -77,5 +96,7 @@ def point_features(prefix: str, plat, plon, lat, lon, radii_km=(50,), cap_km: fl
     d = np.minimum(idx.distance_km(lat, lon), cap_km)
     out = {f"{prefix}_dist_km": d, f"{prefix}_logdist": np.log1p(d).astype(np.float32)}
     for r in radii_km:
-        out[f"{prefix}_count_{r}km"] = idx.count_within(lat, lon, r).astype(np.float32)
+        # Expected count within r (Gaussian-weighted density x disc area).
+        g = density_grid(np.asarray(plat), np.asarray(plon), 1.0, r, res_deg=0.25)
+        out[f"{prefix}_count_{r}km"] = np.maximum(g.sample(lat, lon) * np.pi * r ** 2, 0).astype(np.float32)
     return out
