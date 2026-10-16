@@ -27,9 +27,11 @@ import pandas as pd
 
 from . import grid
 
-INDEX_URL = "https://data.source.coop/tge-labs/aef/v1/annual/aef_index.parquet"
 S3_PREFIX = "s3://us-west-2.opendata.source.coop/"
-HTTPS_PREFIX = "https://data.source.coop/"
+# data.source.coop is the canonical HTTPS front end. Where only AWS endpoints are reachable
+# (locked-down egress), set EARTHPROSP_AEF_HTTPS=https://s3.us-west-2.amazonaws.com/us-west-2.opendata.source.coop/
+HTTPS_PREFIX = os.environ.get("EARTHPROSP_AEF_HTTPS", "https://data.source.coop/")
+INDEX_URL = HTTPS_PREFIX + "tge-labs/aef/v1/annual/aef_index.parquet"
 EMB_DIM = 64
 NODATA = -128
 
