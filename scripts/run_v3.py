@@ -222,6 +222,7 @@ def main():
     ap.add_argument("--folds", type=int, default=5)
     ap.add_argument("--buffer-km", type=float, default=50.0)
     ap.add_argument("--skip-cv", action="store_true")
+    ap.add_argument("--cv-system-heads", action="store_true", help="also compare per-system heads in CV (slow)")
     ap.add_argument("--cv-sets", default="aef,geo,aef_geo", help="feature sets compared in CV")
     ap.add_argument("--drop-features", default="",
                     help="comma-separated feature names to leave out, e.g. wc_built,wc_crop")
@@ -265,7 +266,7 @@ def main():
                "n_pos_cells": int(pos.sum()), "n_world_class_cells": int(lab["world_class"].sum())},
               open(os.path.join(a.out, "labels.json"), "w"), indent=2)
 
-    sys_pos = {s: system_positive(lab, i) for i, s in enumerate(MS.SYSTEMS)} if a.system_heads else {}
+    sys_pos = {s: system_positive(lab, i) for i, s in enumerate(MS.SYSTEMS)} if a.cv_system_heads else {}
 
     targets_of = lambda te: {  # noqa: E731
         **{f"sys:{s}": sp[te] for s, sp in sys_pos.items()},
