@@ -12,10 +12,14 @@ import numpy as np
 from sklearn.metrics import roc_auc_score
 
 
-def capture_curve(score: np.ndarray, positive: np.ndarray, fracs=(0.01, 0.05, 0.1, 0.2)) -> dict:
+def capture_curve(score: np.ndarray, positive: np.ndarray, fracs=(0.01, 0.05, 0.1, 0.2),
+                  weight: np.ndarray | None = None) -> dict:
+    """Share of positives in the top f of cells by score. With `weight` (e.g. contained metal
+    per cell), the share of total weight instead: a map that finds the giants scores higher
+    than one that finds many small showings."""
     order = np.argsort(-score)
-    pos_sorted = positive[order]
-    cum = np.cumsum(pos_sorted) / max(pos_sorted.sum(), 1)
+    pos_sorted = (positive if weight is None else np.where(positive, weight, 0.0))[order].astype(np.float64)
+    cum = np.cumsum(pos_sorted) / max(pos_sorted.sum(), 1e-12)
     n = len(score)
     out = {f"capture@{int(f * 100)}%": float(cum[max(int(np.ceil(f * n)) - 1, 0)]) for f in fracs}
     out["capture_auc"] = float(cum.mean())  # 0.5 = random, 1 = perfect

@@ -99,6 +99,7 @@ def _records(lat, lon, vec, conf, source) -> pd.DataFrame:
     df = pd.DataFrame(vec, columns=C.CLASSES)
     df["latitude"], df["longitude"], df["conf"], df["source"] = lat, lon, conf, source
     ok = df.latitude.between(-90, 90) & df.longitude.between(-180, 180)
+    ok &= ~((df.latitude == 0) & (df.longitude == 0))  # "Null Island": a missing location, not a deposit
     return df[ok].reset_index(drop=True)
 
 
@@ -371,6 +372,9 @@ def global_copper_records(path: str = "data/raw/github/Global_Copper_Deposit_Mai
     deposit-type field."""
     from . import mineral_systems as MS
     d = pd.read_excel(path).dropna(subset=["Latitude", "Longitude"])
+    # _records drops out-of-range coordinates and renumbers; filter first so positions align.
+    d = d[d.Latitude.between(-90, 90) & d.Longitude.between(-180, 180)
+          & ~((d.Latitude == 0) & (d.Longitude == 0))].reset_index(drop=True)
     cols = {"Copper_grade(Cu; %)": ("Cu", 9000 / 100), "Molybdenum_grade(Mo; %)": ("WMoSn", 40000 / 100),
             "Gold_grade(Au; g/t)": ("Au", 80.0), "Silver_grade(Ag; g/t)": ("Ag", 1.0),
             "Lead_grade(Pb; %)": ("PbZn", 2100 / 100), "Zinc_grade(Zn; %)": ("PbZn", 2700 / 100),
@@ -380,7 +384,10 @@ def global_copper_records(path: str = "data/raw/github/Global_Copper_Deposit_Mai
         vec[:, C.CLASS_INDEX[cls]] += np.nan_to_num(pd.to_numeric(d[col], errors="coerce").to_numpy()) * value
     vec[vec.sum(1) == 0, C.CLASS_INDEX["Cu"]] = 1.0
     rec = _records(d.Latitude.to_numpy(), d.Longitude.to_numpy(), vec, 1.0, "gcdd")
-    rec["world_class"] = pd.to_numeric(d["Tonnage(Mt)"], errors="coerce").fillna(0).to_numpy()[rec.index] >= 100
+    tonnage = pd.to_numeric(d["Tonnage(Mt)"], errors="coerce").fillna(0).to_numpy()[rec.index]
+    cu = pd.to_numeric(d["Copper_grade(Cu; %)"], errors="coerce").fillna(0).to_numpy()[rec.index]
+    rec["world_class"] = tonnage >= 100
+    rec["contained_cu_kt"] = tonnage * cu / 100 * 1000  # Mt ore x % Cu -> kt Cu
     rec["system"] = [MS.assign(v, None, t) for v, t in zip(rec[C.CLASSES].to_numpy(),
                                                           d["Deposit_type"].to_numpy()[rec.index])]
     return rec

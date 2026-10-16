@@ -105,6 +105,12 @@ def build_labels(cells, data_dir):
         "effort": loose["n_any"].fillna(0).to_numpy(np.float32),
     }
     lab["occurrence_only"] = lab["any_record"] & ~lab["pos"]
+    if "contained_cu_kt" in rec:
+        cc = grid.latlng_to_cells(rec.latitude.to_numpy(), rec.longitude.to_numpy())
+        cu = pd.Series(rec["contained_cu_kt"].fillna(0).to_numpy(), index=cc).groupby(level=0).sum()
+        lab["cu_kt"] = cu.reindex(cells).fillna(0).to_numpy(np.float32)
+    else:
+        lab["cu_kt"] = np.zeros(len(cells), np.float32)
     osm_path = os.path.join(data_dir, "overture_mines.parquet")
     lab["osm_metal"] = np.zeros(len(cells), bool)
     lab["mine_footprint"] = np.zeros(len(cells), bool)
@@ -224,6 +230,7 @@ def main():
         "occurrence_only": lab["occurrence_only"][te],
         "osm_metal_unlabelled": lab["osm_metal"][te] & ~lab["any_record"][te],
         "no_mine_footprint": pos[te] & ~lab["mine_footprint"][te],
+        "contained_cu": lab["cu_kt"][te],  # weighted by kt Cu (Global Copper Deposit Dataset)
     }
 
     def run_split(tag, tr, te):
@@ -245,9 +252,10 @@ def main():
         rows = []
         for model, sc in scores.items():
             for tname, t in targets_of(te).items():
-                if t.sum() >= 10:
-                    rows.append({"split": tag, "model": model, "target": tname, "n_pos": int(t.sum()),
-                                 **evaluate.capture_curve(sc, t)})
+                hit, wt = (t > 0, t) if t.dtype != bool else (t, None)
+                if hit.sum() >= 10:
+                    rows.append({"split": tag, "model": model, "target": tname, "n_pos": int(hit.sum()),
+                                 **evaluate.capture_curve(sc, hit, weight=wt)})
         log(f"{tag}: train {len(tr):,} test {len(te):,} ({time.time() - t0:.0f}s) "
             + " ".join(f"{r['model']}={r['capture_auc']:.3f}" for r in rows if r["target"] == "all"))
         return rows
