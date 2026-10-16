@@ -32,21 +32,26 @@ class PUBaggingGBM:
     max_unlabeled: int = 400_000
     params: dict = field(default_factory=lambda: dict(
         n_estimators=400, learning_rate=0.05, num_leaves=63, min_child_samples=40,
-        subsample=0.8, subsample_freq=1, colsample_bytree=0.6, reg_lambda=1.0, verbose=-1))
+        subsample=0.8, subsample_freq=1, colsample_bytree=0.6, reg_lambda=1.0, max_bin=63,
+        verbose=-1))
     seed: int = 0
     n_jobs: int = 4
     models: list = field(default_factory=list, repr=False)
     feature_names: list | None = None
 
-    def fit(self, X, positive, weight=None, sample_prob=None, feature_names=None):
+    def fit(self, X, positive, weight=None, sample_prob=None, feature_names=None, rows=None, cols=None):
         """positive: bool (n,); weight: per-positive weight (ignored for unlabeled);
-        sample_prob: optional per-cell probability for drawing unlabeled cells."""
+        sample_prob: optional per-cell probability for drawing unlabeled cells.
+
+        rows / cols restrict training to a subset of X without copying it: only the rows
+        drawn into each bag are gathered (X can be millions of rows by hundreds of columns)."""
         import lightgbm as lgb
         rng = np.random.default_rng(self.seed)
         positive = np.asarray(positive, bool)
         w = np.ones(len(positive), np.float32) if weight is None else np.asarray(weight, np.float32)
-        pos = np.where(positive)[0]
-        unl = np.where(~positive)[0]
+        universe = np.arange(len(positive)) if rows is None else np.asarray(rows)
+        pos = universe[positive[universe]]
+        unl = universe[~positive[universe]]
         p = None
         if sample_prob is not None:
             p = np.asarray(sample_prob, np.float64)[unl]
@@ -62,7 +67,9 @@ class PUBaggingGBM:
             y = np.concatenate([np.ones(len(pos)), np.zeros(n_u)])
             sw = np.concatenate([pw, np.full(n_u, uw)])
             m = lgb.LGBMClassifier(random_state=self.seed + b, n_jobs=self.n_jobs, **self.params)
-            m.fit(np.asarray(X[idx], np.float32), y, sample_weight=sw)
+            xb = X[np.sort(idx)] if cols is None else X[np.sort(idx)][:, cols]
+            order = np.argsort(np.argsort(idx))  # undo the sort (sorted gathers are faster)
+            m.fit(np.asarray(xb, np.float32)[order], y, sample_weight=sw)
             self.models.append(m)
         return self
 

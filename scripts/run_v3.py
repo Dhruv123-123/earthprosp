@@ -135,10 +135,14 @@ def knn_score(lat, lon, tr_pos_idx, te_idx):
     return -d
 
 
-def fit_gbm(X, cols, tr, pos, w, sample_prob, n_bags, seed=0):
+CV_PARAMS = dict(n_estimators=200, learning_rate=0.1)  # half the trees, double the rate: CV only ranks models
+
+
+def fit_gbm(X, cols, tr, pos, w, sample_prob, n_bags, seed=0, fast=False):
     m = pu.PUBaggingGBM(n_bags=n_bags, seed=seed)
-    sp = sample_prob[tr] if sample_prob is not None else None
-    return m.fit(_sub(X, tr, cols), pos[tr], w[tr], sample_prob=sp)
+    if fast:
+        m.params = {**m.params, **CV_PARAMS}
+    return m.fit(X, pos, w, sample_prob=sample_prob, rows=tr, cols=np.asarray(cols))
 
 
 def _cols(X, cols):
@@ -226,7 +230,7 @@ def main():
         t0 = time.time()
         scores = {"knn": knn_score(lat, lon, tr[pos[tr]], te)}
         for name in ("aef", "geo", "aef_geo"):
-            m = fit_gbm(X, sets[name], tr, pos, w, sample_prob, a.cv_bags)
+            m = fit_gbm(X, sets[name], tr, pos, w, sample_prob, a.cv_bags, fast=True)
             scores[f"gbm_{name}"] = m.predict(_sub(X, te, sets[name]))
         if a.with_nn:
             from earthprosp.train import TrainConfig, fit_features, predict_features
