@@ -54,12 +54,12 @@ def buffered_block_folds(cells, lat, lon, k: int = 5, block_res: int = 1, buffer
     return out
 
 
-def _standardise(Xtr, X, weights=None):
-    mu = Xtr.mean(0)
-    sd = Xtr.std(0) + 1e-9
+def _scaler(Xtr, weights=None):
+    mu = np.nanmean(Xtr, 0)
+    sd = np.nanstd(Xtr, 0) + 1e-9
     w = np.ones(Xtr.shape[1]) if weights is None else np.asarray(weights, np.float64)
     w = w / (w.sum() + 1e-12) * len(w)
-    return (Xtr - mu) / sd * w, (X - mu) / sd * w
+    return lambda Z: np.nan_to_num((np.asarray(Z, np.float64) - mu) / sd * w)
 
 
 def dissimilarity_index(X_train, X, weights=None, max_train: int = 50_000, seed: int = 0):
@@ -71,16 +71,17 @@ def dissimilarity_index(X_train, X, weights=None, max_train: int = 50_000, seed:
     Xtr = np.asarray(X_train, np.float32)
     if len(Xtr) > max_train:
         Xtr = Xtr[rng.choice(len(Xtr), max_train, replace=False)]
-    A, B = _standardise(Xtr.astype(np.float64), np.asarray(X, np.float64), weights)
+    scale = _scaler(Xtr.astype(np.float64), weights)
+    A = scale(Xtr)
     nn = NearestNeighbors(n_neighbors=2).fit(A)
     d_tr = nn.kneighbors(A)[0][:, 1]
     dbar = d_tr.mean()
     di_tr = d_tr / dbar
     q1, q3 = np.percentile(di_tr, [25, 75])
     thr = q3 + 1.5 * (q3 - q1)
-    out = np.zeros(len(B), np.float32)
-    for s in range(0, len(B), 200_000):
-        out[s:s + 200_000] = nn.kneighbors(B[s:s + 200_000], n_neighbors=1)[0][:, 0] / dbar
+    out = np.zeros(len(X), np.float32)
+    for s in range(0, len(X), 100_000):  # X may be huge: scale chunk by chunk
+        out[s:s + 100_000] = nn.kneighbors(scale(X[s:s + 100_000]), n_neighbors=1)[0][:, 0] / dbar
     return out, float(thr)
 
 
