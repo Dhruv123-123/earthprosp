@@ -511,7 +511,7 @@ def final(a, cells, lat, lon, X, names, sets, lab, w, sample_prob, us):
         mb = in_box(lat, lon, box)
         bias[f"{name}_world_class_in_global_top5pct"] = \
             f"{int((mb & lab['world_class'] & top5).sum())}/{int((mb & lab['world_class']).sum())}"
-    json.dump({"args": vars(a), "n_cells": int(len(cells)), "n_pos": int(pos.sum()), "bias": bias,
+    json.dump({"args": {k: v for k, v in vars(a).items() if k not in ("neutral", "neutral_full")}, "n_cells": int(len(cells)), "n_pos": int(pos.sum()), "bias": bias,
                "calibration_shift": float(b)}, open(os.path.join(a.out, "run.json"), "w"), indent=2)
     log(f"bias check: {bias}")
     log("done")
