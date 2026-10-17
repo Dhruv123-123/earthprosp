@@ -1,0 +1,5 @@
+family,gain_over_aef_all,gain_over_aef_non_us,gain_over_aef_world_class,loss_without_all,loss_without_non_us,loss_without_world_class
+lithosphere,0.0108,0.0108,0.0216,0.0037,0.0037,0.0066
+surface,0.0097,0.0097,0.0105,0.0028,0.0028,-0.0119
+geophysics,-0.0168,-0.0168,-0.0182,-0.0022,-0.0022,-0.0085
+tectonics,-0.0124,-0.0124,-0.0221,-0.0029,-0.0029,-0.0078
