@@ -6,6 +6,7 @@ data. Each of **4,489,547** H3 res-6 cells (~36 km²) gets a calibrated deposit 
 a split across 15 commodities and 9 mineral systems, a dedicated score per mineral system,
 bag-disagreement uncertainty and an area-of-applicability flag.
 
+* **Interactive explorer (claude.ai artifact, private to the project owner unless shared):** https://claude.ai/artifact/GgtPA8Q2R5aRkM5qYGm61J
 * **Current map (v3, lean and town-neutralised):** `outputs/v3L/` (explorer.html, v3_map.png,
   by_country.csv, greenfield_candidates.csv, global_v3_res4.parquet)
 * **Query a point or an area:** `python -m earthprosp.query point -22.3 -68.9`, `python -m earthprosp.query area --bbox -70 -25 -67 -20 --system porphyry_skarn_cu --greenfield`

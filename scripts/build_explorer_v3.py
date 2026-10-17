@@ -40,6 +40,8 @@ def main():
     ap.add_argument("--out", default="outputs/v3")
     ap.add_argument("--land", default="data/raw/ne_110m_land.geojson")
     ap.add_argument("--skill", default="")
+    ap.add_argument("--inputs", default="lithosphere structure (LITHO1.0, CRUST1.0), heat flow, land cover, "
+                    "terrain and Sentinel-2 alteration", help="what the model used besides AlphaEarth")
     a = ap.parse_args()
     g = pd.read_parquet(os.path.join(a.out, "global_v3_res4.parquet"))
     ll = np.array([h3.cell_to_latlng(h) for h in g.h4])
@@ -90,7 +92,7 @@ def main():
         "__SYSTEMS__": json.dumps(MS.SYSTEMS), "__SYS_LABELS__": json.dumps([SYS_LABELS[s] for s in MS.SYSTEMS]),
         "__COUNTRIES__": json.dumps(countries), "__COUNTRY_TABLE__": json.dumps(table, separators=(",", ":")),
         "__LAND__": json.dumps(rings, separators=(",", ":")), "__DATA__": data,
-        "__NCELLS__": f"{n6:,}", "__SKILL__": a.skill,
+        "__NCELLS__": f"{n6:,}", "__INPUTS__": a.inputs, "__SKILL__": a.skill,
     }.items():
         html = html.replace(key, val)
     path = os.path.join(a.out, "explorer.html")

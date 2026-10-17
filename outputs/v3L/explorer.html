@@ -90,7 +90,7 @@ th.num, td.num { text-align: right; font-family: "IBM Plex Mono", ui-monospace, 
   <header>
     <div>
       <h1>EarthProsp Atlas</h1>
-      <p class="sub">Mineral prospectivity for every land cell on Earth, from AlphaEarth Foundations satellite embeddings (2024) plus gravity, lithosphere, faults, plate boundaries, volcanoes, land cover, terrain and Sentinel-2 alteration. Shown at H3 resolution 4 (~1,770 km² per hexagon), averaged from 4,489,547 resolution-6 cells.</p>
+      <p class="sub">Mineral prospectivity for every land cell on Earth, from AlphaEarth Foundations satellite embeddings plus lithosphere structure (LITHO1.0, CRUST1.0), heat flow, land cover, terrain and Sentinel-2 alteration. Shown at H3 resolution 4 (~1,770 km² per hexagon), averaged from 4,489,547 resolution-6 cells.</p>
     </div>
     <div class="controls">
       <label class="ctl" for="commodity">Layer
@@ -123,7 +123,7 @@ th.num, td.num { text-align: right; font-family: "IBM Plex Mono", ui-monospace, 
     </div>
     <div>
       <h3>How well it works</h3>
-      <p></p>
+      <p>Scored on ground the model never saw. With spatial blocks held out (50 km dead zone), the top 20% of land captures about 82% of known deposit cells (capture AUC 0.89; distance to known deposits alone: 0.71). With a whole continent hidden from training, world-class deposits score 0.86 in Africa, 0.84 in Australia and 0.76 in South America. Deposits with no visible mine footprint score as well as the rest, and OpenStreetMap metal mines missing from every label set are found at 0.84.</p>
     </div>
     <div>
       <h3>Where not to trust it</h3>
