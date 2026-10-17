@@ -1,0 +1,35 @@
+{
+  "args": {
+    "stats": "data/global_2024.npz",
+    "data": "data",
+    "features_cache": "data/global_features.npz",
+    "out": "outputs/v3b",
+    "bags": 8,
+    "cv_bags": 4,
+    "folds": 5,
+    "buffer_km": 50.0,
+    "skip_cv": false,
+    "cv_system_heads": false,
+    "cv_sets": "aef_geo",
+    "drop_features": "wc_built,wc_crop",
+    "fresh": false,
+    "with_nn": false,
+    "nn_epochs": 12,
+    "prior": 0.05,
+    "system_heads": true,
+    "target_group": false,
+    "n_features": 350
+  },
+  "n_cells": 4489547,
+  "n_pos": 32858,
+  "bias": {
+    "us_share_land": 0.06296604089454905,
+    "us_share_top5pct": 0.23366209606286584,
+    "aoa_fraction": 0.9445360523010451,
+    "aoa_threshold": 1.8469290633152498,
+    "south_america_world_class_in_global_top5pct": "227/353",
+    "australia_world_class_in_global_top5pct": "116/138",
+    "africa_world_class_in_global_top5pct": "716/859"
+  },
+  "calibration_shift": -2.04527485370636
+}

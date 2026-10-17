@@ -1,37 +1,61 @@
 # earthprosp
 
-**Mineral prospectivity for every land cell on Earth from AlphaEarth Foundations (AEF)
-satellite embeddings.** Each of **4,489,547** H3 res-6 cells (~36 km²) gets a split
-`[P(none), P(Au), P(Cu), P(PbZn), …]` across 15 commodity classes. The model has a
-positive-unlabeled presence head and a composition head on top of frozen AEF embeddings.
+**Mineral prospectivity for every land cell on Earth**, from AlphaEarth Foundations (AEF)
+satellite embeddings plus public geophysics, lithosphere, tectonics, seismicity and terrain
+data. Each of **4,489,547** H3 res-6 cells (~36 km²) gets a calibrated deposit probability,
+a split across 15 commodities and 9 mineral systems, a dedicated score per mineral system,
+bag-disagreement uncertainty and an area-of-applicability flag.
 
-* **Global table:** [`outputs/global/earthprosp_global_res6.parquet`](outputs/global/earthprosp_global_res6.parquet) (38.6 MB; decode with `earthprosp.io.read_compact`)
-* **Interactive explorer:** `outputs/global/explorer.html` (open locally)
-* **Design, validation and caveats:** [docs/DESIGN.md](docs/DESIGN.md)
+* **Interactive explorer (claude.ai artifact, private to the project owner unless shared):** https://claude.ai/artifact/GgtPA8Q2R5aRkM5qYGm61J
+* **Current map (v3, lean and town-neutralised):** `outputs/v3L/` (explorer.html, v3_map.png,
+  by_country.csv, greenfield_candidates.csv, global_v3_res4.parquet)
+* **Query a point or an area:** `python -m earthprosp.query point -22.3 -68.9`, `python -m earthprosp.query area --bbox -70 -25 -67 -20 --system porphyry_skarn_cu --greenfield`
+* **What v3 changed, validation and results:** [docs/V3.md](docs/V3.md)
+* **Every dataset, where it came from and its licence:** [docs/DATA_SOURCES.md](docs/DATA_SOURCES.md)
+* v2 (AEF only) design notes: [docs/DESIGN.md](docs/DESIGN.md)
 
-![global map](outputs/global/global_map.png)
+![global map](outputs/v3L/v3_map.png)
 
-## Headline numbers (global, v2)
+## Headline numbers (v3)
 
-| test | distance to known deposits | **AEF model** |
-|---|---|---|
-| Spatial CV (600,000 km² blocks): world-class deposits in top 20% of land | 40% | **56%** (GBM 62%) |
-| Spatial CV: deposits outside the US in top 20% of land | 43% | **61%** |
-| Africa hidden from training: world-class capture AUC | 0.39 | **0.79** |
-| Australia hidden from training: world-class capture AUC | 0.44 | **0.77** |
-| South America hidden from training: world-class capture AUC | 0.54 | **0.69** |
+Capture AUC (0.5 = random, 1 = every deposit ranked first). CV uses spatial blocks with a
+50 km dead zone; a hold-out hides a whole continent from training.
 
-The first global model learned "looks like the US" (44% of the global top 5% of land sat in the US).
-Label-propensity reweighting and one global labelling standard cut that to 15%. The commodity
-split is reliable near known deposits and falls back toward the global mix far from them.
-Urban land and bare rock are the main false-positive modes. See DESIGN.md.
+| test | distance to known deposits | v2 (AEF only) | **v3** |
+|---|---|---|---|
+| Spatial CV, all deposits | 0.71 | — | **0.89** |
+| South America hidden, all deposits | 0.54 | — | **0.77** |
+| Spatial CV, world-class deposits | 0.64 | 0.81 | **0.84** |
+| Africa hidden, world-class | 0.43 | 0.79 | **0.86** |
+| Australia hidden, world-class | 0.44 | 0.77 | **0.84** |
+| South America hidden, world-class | 0.54 | 0.69 | **0.76** |
+| Spatial CV, porphyry Cu (dedicated head) | — | — | **0.91** |
+| South America hidden, porphyry Cu (dedicated head) | — | — | **0.92** |
 
-A western-US pilot with per-pixel bag models is in `outputs/westus/`.
+The shipped model is lean: AlphaEarth plus lithosphere (LITHO1.0, CRUST1.0, heat flow) and
+surface layers (land cover, terrain, Sentinel-2). Gravity, magnetics and the tectonic layers
+help inside the training continents but hurt a hidden continent, so they are left out of
+the map and kept in the pipeline (docs/V3.md, "Which datasets earn their place").
+
+Labels: 32,858 positive cells from DARPA CriticalMAAS MinMod (MRDS plus 30 USGS and state
+compilations), USGS mineral facilities, the Global Copper Deposit Dataset and EarthByte
+porphyries. Checks against leakage: deposits with no mapped mine footprint score the same
+as all deposits (0.88), OpenStreetMap metal mines missing from every label set are found
+at 0.83, and the top of the map is not enriched in 2018–2024 surface change. Towns, a
+confound in the first v3 map (12% of the top 1%), are removed by predicting with built-up
+and cropland held at zero (1.4%).
 
 ## Layout
 
 ```
 earthprosp/
+  covariates.py   per-cell geoscience covariate families (gravity, magnetics, litho, faults,
+                  plates, volcanoes, heat flow, seismicity, slab, provinces), cached as parquet
+  geophysics.py / magnetics.py / lithosphere.py / subduction.py / vectors.py / rasters.py
+  sources.py      every public dataset and its reachable mirror
+  minmod.py / labels.py / mineral_systems.py   labels, commodities and deposit models
+  pu.py           PU-bagged LightGBM;  spatial_cv.py  buffered blocks, NNDM, area of applicability
+  smoothing.py    district-scale ring smoothing;  aef_change.py  2018 vs 2024 surface change
   global_agg.py   streaming, resumable global AEF -> per-cell statistics
   io.py           decode the compact global table
   aef.py          read AEF COGs (public Source Cooperative mirror) at overview level -> per-cell pixel bags
@@ -45,6 +69,8 @@ earthprosp/
   evaluate.py     capture (success-rate) and composition metrics
   synthetic.py    planted-signal data for tests
 scripts/
+  run_v3.py       v3: features, CV + hold-outs, final map, mineral-system heads
+  report_v3.py / build_explorer_v3.py / ablate_v3.py / build_covariates.py / fetch_rasters.py
   fetch_aef.py    bbox or --global fetch -> data/*.npz
   run_pilot.py    spatial CV of baselines vs. NN
   predict_map.py  final model -> split.parquet + map.png (pilot)
@@ -56,16 +82,9 @@ scripts/
 
 ## Reproduce
 
-```bash
-pip install -r requirements.txt
-mkdir -p data
-curl -L https://mrdata.usgs.gov/mrds/mrds-csv.zip -o data/mrds.zip && unzip -o data/mrds.zip -d data
-curl -L https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_50m_admin_0_countries.geojson -o data/ne_countries.geojson
-python scripts/fetch_aef.py --bbox -125 31 -102 49 --year 2024 --out data/westus_2024.npz   # ~1 min
-python scripts/run_pilot.py --bags data/westus_2024.npz --country USA --out outputs/westus --epochs 15 --pretrain-epochs 5   # ~75 min on 4 CPUs
-python scripts/predict_map.py --bags data/westus_2024.npz --train-country USA --out outputs/westus
-pytest -q
-```
+The v3 pipeline (data fetch, AEF aggregation, covariates, CV, final map, report) is listed
+step by step in [docs/V3.md](docs/V3.md#pipeline). It needs ~15 GB RAM and runs in a few
+hours on 4 CPUs once the AEF statistics are aggregated. `python -m pytest` runs the tests.
 
 AEF data: "The AlphaEarth Foundations Satellite Embedding dataset is produced by Google
 and Google DeepMind." (CC-BY 4.0), via the Source Cooperative mirror `tge-labs/aef`.

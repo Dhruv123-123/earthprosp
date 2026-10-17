@@ -1,0 +1,38 @@
+{
+  "args": {
+    "stats": "data/global_2024.npz",
+    "data": "data",
+    "features_cache": "data/global_features.npz",
+    "out": "outputs/v3L",
+    "bags": 8,
+    "cv_bags": 4,
+    "folds": 5,
+    "buffer_km": 50.0,
+    "skip_cv": false,
+    "cv_system_heads": false,
+    "cv_systems": "porphyry_skarn_cu,epithermal_orogenic_au",
+    "cv_only": false,
+    "cv_sets": "aef_geo",
+    "drop_features": "grav_bouguer,grav_bouguer_reg200,grav_bouguer_resid200,grav_bouguer_band50_200,grav_hgm,grav_hgm_resid,grav_tilt,grav_vd,grav_free_air,grav_hgm_ridge,grav_resid_cell_range,topo_etopo,topo_reg100,topo_resid100,topo_hgm,fault_all_dist_km,fault_all_logdist,fault_all_len_density_25km,fault_all_len_density_100km,fault_normal_dist_km,fault_normal_logdist,fault_normal_len_density_50km,fault_reverse_dist_km,fault_reverse_logdist,fault_reverse_len_density_50km,fault_strikeslip_dist_km,fault_strikeslip_logdist,fault_strikeslip_len_density_50km,plate_subduction_dist_km,plate_subduction_logdist,plate_collision_dist_km,plate_collision_logdist,plate_rift_dist_km,plate_rift_logdist,plate_transform_dist_km,plate_transform_logdist,plate_conv_rate_nearest,plate_in_orogen,volcano_dist_km,volcano_logdist,volcano_count_100km,volcano_count_300km,mag_tmi,mag_tmi_abs,mag_reg100,mag_resid100,mag_hgm,mag_vd,mag_tilt,mag_analytic_signal,seis_shallow_logdensity_100km,seis_intermediate_logdensity_200km,seis_deep_logdensity_300km,seis_intermediate_logdist,seis_subcrustal_depth_km,slab_depth_km,slab_dist_km,slab_arc_signed_km,slab_nearest_depth_km,prov_accreted_arc,prov_island_arc,prov_continental_arc,prov_collisional_orogen,prov_extensional,prov_rift,prov_plume,prov_shield,prov_platform,prov_basin",
+    "neutralize_features": "wc_built,wc_crop",
+    "fresh": false,
+    "with_nn": false,
+    "nn_epochs": 12,
+    "prior": 0.05,
+    "system_heads": true,
+    "target_group": false,
+    "n_features": 302
+  },
+  "n_cells": 4489547,
+  "n_pos": 32858,
+  "bias": {
+    "us_share_land": 0.06296604089454905,
+    "us_share_top5pct": 0.25030069761847484,
+    "aoa_fraction": 0.9402556649924815,
+    "aoa_threshold": 1.8876622678087367,
+    "south_america_world_class_in_global_top5pct": "232/353",
+    "australia_world_class_in_global_top5pct": "118/138",
+    "africa_world_class_in_global_top5pct": "684/859"
+  },
+  "calibration_shift": -1.9661244750022888
+}

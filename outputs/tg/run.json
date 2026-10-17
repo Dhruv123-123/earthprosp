@@ -1,0 +1,38 @@
+{
+  "args": {
+    "stats": "data/global_2024.npz",
+    "data": "data",
+    "features_cache": "data/global_features.npz",
+    "out": "outputs/tg",
+    "bags": 8,
+    "cv_bags": 4,
+    "folds": 5,
+    "buffer_km": 50.0,
+    "skip_cv": false,
+    "cv_system_heads": false,
+    "cv_systems": "",
+    "cv_only": false,
+    "cv_sets": "aef_geo",
+    "drop_features": "seis_shallow_logdensity_100km,seis_intermediate_logdensity_200km,seis_deep_logdensity_300km,seis_intermediate_logdist,seis_subcrustal_depth_km,slab_depth_km,slab_dist_km,slab_arc_signed_km,slab_nearest_depth_km,prov_accreted_arc,prov_island_arc,prov_continental_arc,prov_collisional_orogen,prov_extensional,prov_rift,prov_plume,prov_shield,prov_platform,prov_basin",
+    "neutralize_features": "wc_built,wc_crop",
+    "fresh": false,
+    "with_nn": false,
+    "nn_epochs": 12,
+    "prior": 0.05,
+    "system_heads": false,
+    "target_group": true,
+    "n_features": 352
+  },
+  "n_cells": 4489547,
+  "n_pos": 32858,
+  "bias": {
+    "us_share_land": 0.06296604089454905,
+    "us_share_top5pct": 0.0016883539217476913,
+    "aoa_fraction": 0.7281723523553713,
+    "aoa_threshold": 2.438384788000891,
+    "south_america_world_class_in_global_top5pct": "66/353",
+    "australia_world_class_in_global_top5pct": "103/138",
+    "africa_world_class_in_global_top5pct": "541/859"
+  },
+  "calibration_shift": -2.7567218542099
+}
