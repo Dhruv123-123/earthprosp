@@ -94,16 +94,17 @@ def main():
     rows = []
     for region in regions:
         te = np.load(os.path.join(a.out, f"te_{region}.npy"))
-        targets = {"all": pos[te], "world_class": lab["world_class"][te], "contained_cu": lab["cu_kt"][te]}
+        targets = {"all": (pos[te], None), "world_class": (lab["world_class"][te], None),
+                   "contained_cu": (lab["cu_kt"][te] > 0, lab["cu_kt"][te])}
         cand = {n: scores[f"{region}/{n}"] for n in CONFIGS if f"{region}/{n}" in scores}
         for e, (p, q) in ENSEMBLES.items():
             if p in cand and q in cand:
                 cand[e] = (rank(cand[p]) + rank(cand[q])) / 2
         for n, s in cand.items():
-            for t, y in targets.items():
-                if np.asarray(y).astype(bool).sum() >= 10:
+            for t, (y, wt) in targets.items():
+                if y.sum() >= 10:
                     rows.append({"region": region, "config": n, "target": t,
-                                 "capture_auc": evaluate.capture_curve(s, y)["capture_auc"]})
+                                 "capture_auc": evaluate.capture_curve(s, y, weight=wt)["capture_auc"]})
     df = pd.DataFrame(rows)
     df.to_csv(os.path.join(a.out, "transfer_results.csv"), index=False)
     wide = df.pivot_table(index=["target", "config"], columns="region", values="capture_auc")
