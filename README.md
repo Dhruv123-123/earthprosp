@@ -6,14 +6,14 @@ data. Each of **4,489,547** H3 res-6 cells (~36 km²) gets a calibrated deposit 
 a split across 15 commodities and 9 mineral systems, a dedicated score per mineral system,
 bag-disagreement uncertainty and an area-of-applicability flag.
 
-* **Current map (v3, town-neutralised):** `outputs/v3n/` (explorer.html, v3_map.png,
+* **Current map (v3, lean and town-neutralised):** `outputs/v3L/` (explorer.html, v3_map.png,
   by_country.csv, greenfield_candidates.csv, global_v3_res4.parquet)
 * **Query a point or an area:** `python -m earthprosp.query point -22.3 -68.9`, `python -m earthprosp.query area --bbox -70 -25 -67 -20 --system porphyry_skarn_cu --greenfield`
 * **What v3 changed, validation and results:** [docs/V3.md](docs/V3.md)
 * **Every dataset, where it came from and its licence:** [docs/DATA_SOURCES.md](docs/DATA_SOURCES.md)
 * v2 (AEF only) design notes: [docs/DESIGN.md](docs/DESIGN.md)
 
-![global map](outputs/v3n/v3_map.png)
+![global map](outputs/v3L/v3_map.png)
 
 ## Headline numbers (v3)
 
@@ -23,14 +23,18 @@ Capture AUC (0.5 = random, 1 = every deposit ranked first). CV uses spatial bloc
 | test | distance to known deposits | v2 (AEF only) | **v3** |
 |---|---|---|---|
 | Spatial CV, all deposits | 0.71 | — | **0.89** |
+| South America hidden, all deposits | 0.54 | — | **0.77** |
 | Spatial CV, world-class deposits | 0.64 | 0.81 | **0.84** |
 | Africa hidden, world-class | 0.43 | 0.79 | **0.86** |
 | Australia hidden, world-class | 0.44 | 0.77 | **0.84** |
-| South America hidden, world-class | 0.54 | 0.69 | **0.71** |
-| Spatial CV, porphyry Cu (dedicated head) | — | — | **0.92** |
-| South America hidden, porphyry Cu (dedicated head) | — | — | **0.94** |
+| South America hidden, world-class | 0.54 | 0.69 | **0.76** |
+| Spatial CV, porphyry Cu (dedicated head) | — | — | **0.91** |
+| South America hidden, porphyry Cu (dedicated head) | — | — | **0.92** |
 
-The porphyry rows come from the first v3 run (`--cv-system-heads`).
+The shipped model is lean: AlphaEarth plus lithosphere (LITHO1.0, CRUST1.0, heat flow) and
+surface layers (land cover, terrain, Sentinel-2). Gravity, magnetics and the tectonic layers
+help inside the training continents but hurt a hidden continent, so they are left out of
+the map and kept in the pipeline (docs/V3.md, "Which datasets earn their place").
 
 Labels: 32,858 positive cells from DARPA CriticalMAAS MinMod (MRDS plus 30 USGS and state
 compilations), USGS mineral facilities, the Global Copper Deposit Dataset and EarthByte

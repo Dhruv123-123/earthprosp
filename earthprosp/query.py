@@ -16,7 +16,7 @@ import h3
 import numpy as np
 import pandas as pd
 
-DEFAULT_DIR = "outputs/v3n"
+DEFAULT_DIR = "outputs/v3L"
 
 
 def load(out_dir: str = DEFAULT_DIR) -> tuple[pd.DataFrame, int]:
