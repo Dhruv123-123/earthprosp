@@ -45,6 +45,14 @@ at 0.83, and the top of the map is not enriched in 2018–2024 surface change. T
 confound in the first v3 map (12% of the top 1%), are removed by predicting with built-up
 and cropland held at zero (1.4%).
 
+## v4: 0.7 km² maps for two belts
+
+A 0.7 km² (H3 res-8) model built from 160 m AlphaEarth pixels beats the 36 km² map in
+all ten spatial folds across the Great Basin + Arizona and the Central Andes (capture
+AUC 0.82 vs 0.79 and 0.83 vs 0.82; inside the top-10% districts 0.70 vs 0.63 and 0.69 vs
+0.65). Maps and greenfield target lists: `outputs/downscale_wus`, `outputs/downscale_andes`
+(docs/V3.md, "v4").
+
 ## Layout
 
 ```
