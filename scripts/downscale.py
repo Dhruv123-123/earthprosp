@@ -201,9 +201,6 @@ def main():
 
 def final_map(a, c8, lat, lon, p6, X8, nz8, pos8, w8, any_rec8):
     """Res-8 map: the fine model fitted on every cell, blended with the shipped global map."""
-    import matplotlib
-    matplotlib.use("Agg")
-    import matplotlib.pyplot as plt
     log("final fine model on all cells")
     m = pu.PUBaggingGBM(n_bags=2 * a.bags, seed=1)
     m.fit(X8, pos8, w8)
@@ -227,19 +224,8 @@ def final_map(a, c8, lat, lon, p6, X8, nz8, pos8, w8, any_rec8):
     # keep one target per ~5 km (res-7 parent) so the list is not one cluster
     top = top.assign(p7=parents(top.h3.to_numpy(), 7)).drop_duplicates("p7").head(50).drop(columns="p7")
     top.round(4).to_csv(os.path.join(a.out, "greenfield_targets_res8.csv"), index=False)
-    fig, ax = plt.subplots(figsize=(11, 10), dpi=150)
-    o = np.argsort(blend)
-    ax.scatter(lon[o], lat[o], c=blend[o], s=0.02, cmap="magma", vmin=0.5, vmax=1.0, linewidths=0, rasterized=True)
-    k = pos8
-    ax.scatter(lon[k], lat[k], s=0.3, c="#38bdf8", linewidths=0, label="known deposit cells")
-    ax.scatter(top.lon, top.lat, s=14, facecolors="none", edgecolors="#22c55e", linewidths=0.8,
-               label="greenfield targets (no record within 3 km)")
-    ax.set_aspect(1 / np.cos(np.radians(lat.mean())))
-    ax.set_facecolor("#0b0b0b")
-    ax.legend(loc="lower left", fontsize=8, markerscale=6)
-    ax.set_title("Res-8 (~0.7 km²) prospectivity: fine AlphaEarth model x global district score", fontsize=10)
-    fig.tight_layout()
-    fig.savefig(os.path.join(a.out, "map_res8.png"))
+    import render_res8
+    render_res8.main(a.out)
     log(f"wrote map_res8.parquet, map_res8.png, {len(top)} greenfield targets")
 
 
