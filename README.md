@@ -8,6 +8,7 @@ bag-disagreement uncertainty and an area-of-applicability flag.
 
 * **Current map (v3, town-neutralised):** `outputs/v3n/` (explorer.html, v3_map.png,
   by_country.csv, greenfield_candidates.csv, global_v3_res4.parquet)
+* **Query a point or an area:** `python -m earthprosp.query point -22.3 -68.9`, `python -m earthprosp.query area --bbox -70 -25 -67 -20 --system porphyry_skarn_cu --greenfield`
 * **What v3 changed, validation and results:** [docs/V3.md](docs/V3.md)
 * **Every dataset, where it came from and its licence:** [docs/DATA_SOURCES.md](docs/DATA_SOURCES.md)
 * v2 (AEF only) design notes: [docs/DESIGN.md](docs/DESIGN.md)
