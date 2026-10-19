@@ -45,6 +45,15 @@ at 0.83, and the top of the map is not enriched in 2018–2024 surface change. T
 confound in the first v3 map (12% of the top 1%), are removed by predicting with built-up
 and cropland held at zero (1.4%).
 
+## v5: 0.7 km² maps for 15 belts
+
+The 0.7 km² (H3 res-8) model now covers 15 of the world's major metallogenic belts (28.1M cells).
+It beats the 36 km² map on held-out ground in 10 of 15 belts (median capture AUC 0.822 vs 0.799),
+and in 11 of 15 inside the top districts (0.694 vs 0.648). One model trained on all belts beats
+each belt's own model where data is thin (Copperbelt 0.70 to 0.92). On a belt it has never seen it
+still scores a median 0.75. Maps, tests and greenfield targets: `outputs/atlas/index.html`,
+`outputs/downscale_<belt>/` (docs/V3.md, "v5").
+
 ## v4: 0.7 km² maps for two belts
 
 A 0.7 km² (H3 res-8) model built from 160 m AlphaEarth pixels beats the 36 km² map in
