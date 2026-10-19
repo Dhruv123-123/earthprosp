@@ -30,7 +30,13 @@ BELTS = {  # folder suffix: (name, what is there)
     "fennoscandia": ("Fennoscandian Shield", "Orogenic gold, VMS, iron, nickel"),
     "carajas_qf": ("Carajás and Quadrilátero Ferrífero", "IOCG copper, iron ore, orogenic gold"),
     "png": ("Papua New Guinea", "Porphyry copper-gold, epithermal gold"),
+    # Frontier: few recorded deposits, mapped with the model pooled across the belts above.
+    "birimian": ("West African Birimian", "Orogenic and paleoplacer gold, manganese"),
+    "arabian_nubian": ("Arabian-Nubian Shield", "Orogenic gold, VMS copper-zinc"),
+    "guiana": ("Guiana Shield", "Orogenic gold, bauxite"),
+    "gobi": ("Gobi and South Mongolia", "Porphyry copper-gold, orogenic gold"),
 }
+FRONTIER = {"birimian", "arabian_nubian", "guiana", "gobi"}
 
 
 def land_path(geojson, w=720, h=360):
@@ -83,13 +89,14 @@ def main():
         t = pd.read_csv(os.path.join(d, "greenfield_targets_res8.csv")).head(20)
         x0, y0, x1, y1 = meta["bbox"]
         belts.append({"key": key, "name": name, "deposits": deposits, "bbox": meta["bbox"],
+                      "frontier": key in FRONTIER, "map_model": meta.get("map_model", "fine"),
                       "cells": meta["n_res8"], "pos": meta["n_pos8"], "stat": stat, "img": f"maps/{key}.jpg",
                       "iw": w, "ih": h,
                       "targets": [{"lat": round(r.lat, 3), "lon": round(r.lon, 3), "score": round(r.blend, 4),
                                    "h3": r.h3} for r in t.itertuples()]})
     order = {k: i for i, k in enumerate(BELTS)}
     belts.sort(key=lambda b: order[b["key"]])
-    won = [b for b in belts if "fine" in b["stat"] and "coarse" in b["stat"]]
+    won = [b for b in belts if "fine" in b["stat"] and "coarse" in b["stat"] and not b["frontier"]]
     n_win = sum(b["stat"]["fine"]["auc"] > b["stat"]["coarse"]["auc"] for b in won)
     n_win_d = sum((b["stat"]["fine"]["district"] or 0) > (b["stat"]["coarse"]["district"] or 0) for b in won)
     med = lambda k, m: float(np.median([b["stat"][m][k] for b in won if b["stat"][m][k] is not None]))  # noqa: E731
@@ -98,9 +105,10 @@ def main():
                "auc_coarse": round(med("auc", "coarse"), 3) if won else None,
                "district_fine": round(med("district", "fine"), 3) if won else None,
                "district_coarse": round(med("district", "coarse"), 3) if won else None,
-               "cells": sum(b["cells"] for b in belts)}
+               "cells": sum(b["cells"] for b in belts), "n_core": sum(not b["frontier"] for b in belts)}
     page = open(a.template).read()
     page = page.replace("__LAND__", land_path(a.land)).replace("__DATA__", json.dumps({"belts": belts, "summary": summary}))
+    page = page.replace("__NCORE__", str(summary["n_core"])).replace("__NFRONT__", str(len(belts) - summary["n_core"]))
     page = page.replace("__NBELTS__", str(len(belts))).replace("__NCELLS__", f"{summary['cells'] / 1e6:.1f}")
     open(os.path.join(a.out, "index.html"), "w").write(page)
     print(f"{len(belts)} belts, {summary}")

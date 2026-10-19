@@ -113,6 +113,10 @@ def main():
     ap.add_argument("--final", action="store_true",
                     help="fit the fine model on every cell and write the res-8 map, blended with the global map")
     ap.add_argument("--global-map", default="outputs/v3L/global_v3_res6.parquet")
+    ap.add_argument("--pooled-model", default="",
+                    help="joblib from pool_belts.py --fit-final: scored as 'pooled' in the CV, and used for the "
+                         "map when the region has fewer than --pool-below positive cells")
+    ap.add_argument("--pool-below", type=int, default=400)
     ap.add_argument("--pool-dir", default="data/pool",
                     help="write a training sample here for pool_belts.py (empty string to skip)")
     a = ap.parse_args()
@@ -163,12 +167,17 @@ def main():
 
     if a.pool_dir:
         save_pool_sample(a, c8, lat, lon, X8, pos8, w8, any_rec8, no_fp, list(cov.columns))
+    pooled = None
+    if a.pooled_model:
+        import joblib
+        pooled = joblib.load(a.pooled_model)
     if a.final:
-        final_map(a, c8, lat, lon, p6, X8, nz8, pos8, w8, any_rec8)
+        final_map(a, c8, lat, lon, p6, X8, nz8, pos8, w8, any_rec8, pooled)
     if a.skip_cv:
         return
     folds = spatial_cv.buffered_block_folds(c8, lat, lon, k=a.folds, block_res=2, buffer_km=10.0)
-    rows, oof = [], {k: np.full(len(c8), np.nan, np.float32) for k in ("coarse", "fine", "blend")}
+    models = ("coarse", "fine", "blend") + (("pooled",) if pooled is not None else ())
+    rows, oof = [], {k: np.full(len(c8), np.nan, np.float32) for k in models}
     for k, (tr8, te8) in enumerate(folds):
         t0 = time.time()
         te6_set = set(p6[te8])
@@ -190,9 +199,13 @@ def main():
         fine = mf.predict(Xte)
         blend = np.sqrt(pu.rank_normalise(coarse) * pu.rank_normalise(fine))
         oof["coarse"][te8], oof["fine"][te8], oof["blend"][te8] = coarse, fine, blend
+        scored = [("coarse", coarse), ("fine", fine), ("blend", blend)]
+        if pooled is not None:  # trained on other belts only, so every fold is unseen ground
+            oof["pooled"][te8] = pooled.predict(Xte)
+            scored.append(("pooled", oof["pooled"][te8]))
         district = coarse >= np.quantile(coarse, 0.9)
         targets = {"all": pos8[te8], "occurrence_only": (any_rec8 & ~pos8)[te8], "no_mine_within_1.5km": no_fp[te8]}
-        for name, s in (("coarse", coarse), ("fine", fine), ("blend", blend)):
+        for name, s in scored:
             for t, y in targets.items():
                 if y.sum() < 5:
                     continue
@@ -214,15 +227,29 @@ def main():
     pd.DataFrame({"h3": c8, "lat": lat, "lon": lon, **oof, "positive": pos8, "any_record": any_rec8}).to_parquet(
         os.path.join(a.out, "downscale_oof_res8.parquet"), index=False, compression="zstd")
     json.dump({"bbox": a.bbox, "n_res8": int(len(c8)), "n_res6": int(len(c6)), "n_pos8": int(pos8.sum()),
-               "n_pos6": int(pos6.sum()), "folds": a.folds, "bags": a.bags, "covariates": list(cov.columns)},
+               "n_pos6": int(pos6.sum()), "folds": a.folds, "bags": a.bags,
+               "map_model": getattr(a, "map_model", "fine"), "covariates": list(cov.columns)},
               open(os.path.join(a.out, "downscale.json"), "w"), indent=2)
 
 
-def final_map(a, c8, lat, lon, p6, X8, nz8, pos8, w8, any_rec8):
-    """Res-8 map: the fine model fitted on every cell, blended with the shipped global map."""
-    log("final fine model on all cells")
-    m = pu.PUBaggingGBM(n_bags=2 * a.bags, seed=1)
-    m.fit(X8, pos8, w8)
+def final_map(a, c8, lat, lon, p6, X8, nz8, pos8, w8, any_rec8, pooled=None):
+    """Res-8 map: the fine model fitted on every cell (or, where the region has few deposits,
+    the model pooled across belts), blended with the shipped global map."""
+    use_pooled = pooled is not None and pos8.sum() < a.pool_below
+    sp = os.path.join(a.out, "downscale_summary.csv")
+    if pooled is not None and os.path.exists(sp):  # a CV already ran here: map with whichever won it
+        s = pd.read_csv(sp).set_index(["target", "model"]).capture_auc
+        if ("all", "pooled") in s.index:
+            use_pooled = s[("all", "pooled")] > s[("all", "fine")]
+            log(f"CV: fine {s[('all', 'fine')]:.3f}, pooled {s[('all', 'pooled')]:.3f}")
+    if use_pooled:
+        log("mapping with the pooled model")
+        m, a.map_model = pooled, "pooled"
+    else:
+        log("final fine model on all cells")
+        a.map_model = "fine"
+        m = pu.PUBaggingGBM(n_bags=2 * a.bags, seed=1)
+        m.fit(X8, pos8, w8)
     fine = np.empty(len(c8), np.float32)
     for s in range(0, len(c8), 300_000):
         xb = np.asarray(X8[s:s + 300_000], np.float32)

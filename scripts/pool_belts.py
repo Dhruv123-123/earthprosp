@@ -60,6 +60,8 @@ def main():
     ap.add_argument("--folds", type=int, default=5)
     ap.add_argument("--bags", type=int, default=4)
     ap.add_argument("--only", default="", help="comma list of belts to evaluate (all trained on)")
+    ap.add_argument("--fit-final", default="", metavar="PATH",
+                    help="instead of the test, fit one model on every belt and save it (joblib) for downscale.py")
     a = ap.parse_args()
     os.makedirs(a.out, exist_ok=True)
 
@@ -80,6 +82,13 @@ def main():
     trainable = np.concatenate([b["pos"] | b["uniform"] for b in belts.values()])
     belt = np.concatenate([np.full(len(b["pos"]), i) for i, b in enumerate(belts.values())])
     log(f"{len(X):,} sample cells, {pos.sum():,} positive")
+
+    if a.fit_final:
+        import joblib
+        m = fit(X, pos, w, np.where(trainable)[0], seed=7, bags=2 * a.bags)
+        joblib.dump(m, a.fit_final)
+        log(f"saved pooled model on {len(names)} belts to {a.fit_final}")
+        return
 
     only = [n for n in a.only.split(",") if n] or names
     rows, rows_path = [], os.path.join(a.out, "pool_folds.csv")
