@@ -27,26 +27,51 @@ def bag_stats(cb: CellBags, chunk: int = 20000) -> np.ndarray:
     return out
 
 
-def neighbourhood_context(cells: np.ndarray, emb: np.ndarray, rings=(2, 6)) -> np.ndarray:
+_CTX = {}
+
+
+def _ring_index(args):
+    """Padded (n, ring_size) neighbour index for cells[s:e]; -1 = missing neighbour."""
+    s, e, k = args
+    cells, lookup = _CTX["cells"], _CTX["lookup"]
+    nb = [[lookup.get(n, -1) for n in h3.grid_disk(c, k)] for c in cells[s:e]]
+    idx = np.full((len(nb), max(len(r) for r in nb)), -1, np.int64)
+    for i, r in enumerate(nb):
+        idx[i, :len(r)] = r
+    return s, idx
+
+
+def neighbourhood_context(cells: np.ndarray, emb: np.ndarray, rings=(2, 6), workers: int | None = None) -> np.ndarray:
     """Mean embedding over k-rings around each cell: (N, 64 * len(rings)).
 
     Mineral systems are regional (a porphyry belt, a greenstone belt, a basin margin),
     so the geology tens of km away is informative. Ring 2 ~ 10 km, ring 6 ~ 25 km
     radius at res 6. Cells missing from `cells` (ocean, outside AOI) are skipped.
+    Neighbour lookups (pure Python) run in `workers` forked processes for large inputs.
     """
-    lookup = {c: i for i, c in enumerate(cells)}
+    import multiprocessing as mp
+    import os
+    _CTX["cells"], _CTX["lookup"] = cells, {c: i for i, c in enumerate(cells)}
     out = np.zeros((len(cells), emb.shape[1] * len(rings)), np.float32)
     emb = np.asarray(emb, np.float32)
+    workers = workers or min(os.cpu_count() or 1, 8)
+    chunk = 50000
     for j, k in enumerate(rings):
-        for s in range(0, len(cells), 50000):
-            # Build a padded (chunk, ring_size) neighbour index; -1 = missing neighbour.
-            nb = [[lookup.get(n, -1) for n in h3.grid_disk(c, k)] for c in cells[s:s + 50000]]
-            width = max(len(r) for r in nb)
-            idx = np.full((len(nb), width), -1, np.int64)
-            for i, r in enumerate(nb):
-                idx[i, :len(r)] = r
-            valid = idx >= 0
-            v = (emb[np.where(valid, idx, 0)] * valid[..., None]).sum(1) / valid.sum(1, keepdims=True)
-            out[s:s + len(nb), j * emb.shape[1]:(j + 1) * emb.shape[1]] = \
-                v / (np.linalg.norm(v, axis=1, keepdims=True) + 1e-8)
+        jobs = [(s, min(s + chunk, len(cells)), k) for s in range(0, len(cells), chunk)]
+        if workers > 1 and len(jobs) > 1 and "fork" in mp.get_all_start_methods():
+            with mp.get_context("fork").Pool(workers) as pool:
+                parts = pool.imap_unordered(_ring_index, jobs)
+                for s, idx in parts:
+                    out[s:s + len(idx), j * emb.shape[1]:(j + 1) * emb.shape[1]] = _ring_mean(emb, idx)
+        else:
+            for job in jobs:
+                s, idx = _ring_index(job)
+                out[s:s + len(idx), j * emb.shape[1]:(j + 1) * emb.shape[1]] = _ring_mean(emb, idx)
+    _CTX.clear()
     return out
+
+
+def _ring_mean(emb, idx):
+    valid = idx >= 0
+    v = (emb[np.where(valid, idx, 0)] * valid[..., None]).sum(1) / valid.sum(1, keepdims=True)
+    return v / (np.linalg.norm(v, axis=1, keepdims=True) + 1e-8)
