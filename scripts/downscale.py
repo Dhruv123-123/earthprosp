@@ -74,6 +74,21 @@ def lean_covariates(cells6, data_dir, drop):
     return pd.concat(frames, axis=1)
 
 
+def save_pool_sample(a, c8, lat, lon, X8, pos8, w8, any_rec8, no_fp, cov_cols, frac=0.04):
+    """Every cell with a record plus a uniform `frac` of all cells, for training across belts.
+    `uniform` marks the random cells, which stand in for the whole belt when scoring it."""
+    rng = np.random.default_rng(0)
+    uniform = rng.random(len(c8)) < frac
+    keep = np.where(uniform | pos8 | any_rec8)[0]
+    os.makedirs(a.pool_dir, exist_ok=True)
+    name = os.path.basename(a.out.rstrip("/")).replace("downscale_", "")
+    np.savez(os.path.join(a.pool_dir, f"{name}.npz"), X=np.asarray(X8[keep], np.float16), pos=pos8[keep],
+             w=w8[keep], any_rec=any_rec8[keep], no_fp=no_fp[keep], uniform=uniform[keep],
+             lat=lat[keep].astype(np.float32), lon=lon[keep].astype(np.float32),
+             cells=c8[keep].astype(str), cov_cols=np.array(cov_cols), n_cells=len(c8))
+    log(f"pool sample: {len(keep):,} cells ({uniform.sum():,} uniform)")
+
+
 def footprint_cells(osm_path, bbox, res, k=2):
     o = pd.read_parquet(osm_path, columns=["class", "lat", "lon"])
     x0, y0, x1, y1 = bbox
@@ -98,6 +113,8 @@ def main():
     ap.add_argument("--final", action="store_true",
                     help="fit the fine model on every cell and write the res-8 map, blended with the global map")
     ap.add_argument("--global-map", default="outputs/v3L/global_v3_res6.parquet")
+    ap.add_argument("--pool-dir", default="data/pool",
+                    help="write a training sample here for pool_belts.py (empty string to skip)")
     a = ap.parse_args()
     os.makedirs(a.out, exist_ok=True)
     x0, y0, x1, y1 = a.bbox
@@ -144,6 +161,8 @@ def main():
     log(f"positives: res-8 {pos8.sum():,} ({pos8.mean():.3%}), res-6 {pos6.sum():,} ({pos6.mean():.2%}), "
         f"occurrence-only res-8 {(any_rec8 & ~pos8).sum():,}, positives with no mine/quarry within ~1.5 km {no_fp.sum():,}")
 
+    if a.pool_dir:
+        save_pool_sample(a, c8, lat, lon, X8, pos8, w8, any_rec8, no_fp, list(cov.columns))
     if a.final:
         final_map(a, c8, lat, lon, p6, X8, nz8, pos8, w8, any_rec8)
     if a.skip_cv:
