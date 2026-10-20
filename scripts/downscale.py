@@ -118,6 +118,7 @@ def main():
     ap.add_argument("--neutralize-features", default="wc_built,wc_crop")
     ap.add_argument("--folds", type=int, default=5)
     ap.add_argument("--bags", type=int, default=4)
+    ap.add_argument("--block-res", type=int, default=2, help="H3 res of the CV blocks (3 for a small region)")
     ap.add_argument("--skip-cv", action="store_true")
     ap.add_argument("--final", action="store_true",
                     help="fit the fine model on every cell and write the res-8 map, blended with the global map")
@@ -199,7 +200,7 @@ def main():
         final_map(a, c8, lat, lon, p6, X8, nz8, pos8, w8, any_rec8, pooled)
     if a.skip_cv:
         return
-    folds = spatial_cv.buffered_block_folds(c8, lat, lon, k=a.folds, block_res=2, buffer_km=10.0)
+    folds = spatial_cv.buffered_block_folds(c8, lat, lon, k=a.folds, block_res=a.block_res, buffer_km=10.0)
     models = ("coarse", "fine", "blend") + (("pooled",) if pooled is not None else ())
     rows, oof = [], {k: np.full(len(c8), np.nan, np.float32) for k in models}
     for k, (tr8, te8) in enumerate(folds):
