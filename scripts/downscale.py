@@ -89,6 +89,15 @@ def save_pool_sample(a, c8, lat, lon, X8, pos8, w8, any_rec8, no_fp, cov_cols, f
     log(f"pool sample: {len(keep):,} cells ({uniform.sum():,} uniform)")
 
 
+def extra_res8(path, cells8):
+    """Res-8 raster features (columns renamed with an r8_ prefix) aligned to cells8."""
+    df = pd.read_parquet(path)
+    if "h3" in df.columns:
+        df = df.set_index("h3")
+    keep = [c for c in df.columns if not c.endswith("_n") and c not in ("dem_min", "dem_max")]
+    return df[keep].reindex(pd.Index(cells8)).astype(np.float32).add_prefix("r8_")
+
+
 def footprint_cells(osm_path, bbox, res, k=2):
     o = pd.read_parquet(osm_path, columns=["class", "lat", "lon"])
     x0, y0, x1, y1 = bbox
@@ -119,6 +128,9 @@ def main():
     ap.add_argument("--pool-below", type=int, default=400)
     ap.add_argument("--fine-params", default="{}",
                     help='JSON LightGBM params for the fine model, e.g. \'{"num_leaves": 15, "min_child_samples": 20}\'')
+    ap.add_argument("--extra-res8", default="",
+                    help="comma list of res-8 parquets (fetch_rasters.py --res 8) whose columns are added to the "
+                         "fine model's features")
     ap.add_argument("--fine-bags", type=int, default=0, help="bags for the fine model (default --bags)")
     ap.add_argument("--pool-dir", default="data/pool",
                     help="write a training sample here for pool_belts.py (empty string to skip)")
@@ -148,7 +160,13 @@ def main():
     log(f"{cov.shape[1]} lean covariates")
 
     X6 = np.concatenate([m6, s6, ctx6, cov.to_numpy(np.float32)], 1)
-    X8 = np.concatenate([m8, s8, ctx8, m6[i6], s6[i6], cov.to_numpy(np.float32)[i6]], 1).astype(np.float16)
+    extra = [extra_res8(p, c8) for p in a.extra_res8.split(",") if p]
+    if extra:
+        extra = pd.concat(extra, axis=1)
+        log(f"{extra.shape[1]} res-8 raster features: {', '.join(extra.columns)}; "
+            f"{extra.notna().all(1).mean():.1%} of cells complete")
+    X8 = np.concatenate([m8, s8, ctx8, m6[i6], s6[i6], cov.to_numpy(np.float32)[i6]]
+                        + ([extra.to_numpy(np.float32)] if len(extra) else []), 1).astype(np.float16)
     cov_off6 = 64 * 4
     cov_off8 = 64 * 6
     nz6 = [cov_off6 + list(cov.columns).index(c) for c in neutral]

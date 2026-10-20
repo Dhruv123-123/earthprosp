@@ -178,9 +178,23 @@ def list_tiles(product: str, limit: int | None = None) -> list[str]:
     return urls[:limit] if limit else urls
 
 
-def run(product: str, urls: list[str], shard_dir: str, n_shards: int = 40, workers: int = 8, res: int = 6):
+def tile_overlaps(url: str, bbox) -> bool:
+    """Whether a tile (named by its lower-left corner, e.g. N36W117; at most 3 degrees square)
+    can overlap bbox = (lon0, lat0, lon1, lat1)."""
+    import re
+    m = re.search(r"([NS])(\d{2})(?:_00)?_?([EW])(\d{3})", os.path.basename(url))
+    if not m:
+        return True
+    lat = int(m.group(2)) * (1 if m.group(1) == "N" else -1)
+    lon = int(m.group(4)) * (1 if m.group(3) == "E" else -1)
+    x0, y0, x1, y1 = bbox
+    return lon < x1 and lon + 3 > x0 and lat < y1 and lat + 3 > y0
+
+
+def run(product: str, urls: list[str], shard_dir: str, n_shards: int = 40, workers: int = 8, res: int = 6,
+        level: int | None = None):
     os.makedirs(shard_dir, exist_ok=True)
-    level = PRODUCTS[product]["overview_level"]
+    level = PRODUCTS[product]["overview_level"] if level is None else level
     parts = np.array_split(np.arange(len(urls)), n_shards)
     with ProcessPoolExecutor(workers) as ex:
         for k, idx in enumerate(parts):
