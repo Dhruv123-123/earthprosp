@@ -175,15 +175,16 @@ def main():
 
     rec = labels.global_records_v3(os.path.join(a.data, "raw"), os.path.join(a.data, "minmod_sites.parquet"))
     rec = rec[rec.longitude.between(x0 - 1, x1 + 1) & rec.latitude.between(y0 - 1, y1 + 1)]
-    lab8 = labels.cell_labels_v3(rec, res=8, min_conf=1.0).reindex(pd.Index(c8))
-    any8 = labels.cell_labels_v3(rec, res=8, min_conf=0.0).reindex(pd.Index(c8))
+    fres = h3.get_resolution(c8[0])  # 8 normally; 9 for a ~0.1 km² test
+    lab8 = labels.cell_labels_v3(rec, res=fres, min_conf=1.0).reindex(pd.Index(c8))
+    any8 = labels.cell_labels_v3(rec, res=fres, min_conf=0.0).reindex(pd.Index(c8))
     lab6 = labels.cell_labels_v3(rec, res=6, min_conf=1.0).reindex(pd.Index(c6))
     pos8 = lab8["positive"].fillna(False).to_numpy(bool)
     any_rec8 = any8["positive"].fillna(False).to_numpy(bool)
     pos6 = lab6["positive"].fillna(False).to_numpy(bool)
     w8 = lab8["conf"].fillna(0).to_numpy(np.float32)
     w6 = lab6["conf"].fillna(0).to_numpy(np.float32)
-    fp = footprint_cells(os.path.join(a.data, "overture_mines.parquet"), a.bbox, 8)
+    fp = footprint_cells(os.path.join(a.data, "overture_mines.parquet"), a.bbox, fres, k={8: 2, 9: 5}.get(fres, 2))
     no_fp = pos8 & ~pd.Index(c8).isin(fp)
     log(f"positives: res-8 {pos8.sum():,} ({pos8.mean():.3%}), res-6 {pos6.sum():,} ({pos6.mean():.2%}), "
         f"occurrence-only res-8 {(any_rec8 & ~pos8).sum():,}, positives with no mine/quarry within ~1.5 km {no_fp.sum():,}")
