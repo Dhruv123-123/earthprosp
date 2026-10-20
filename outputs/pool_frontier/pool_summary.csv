@@ -1,0 +1,9 @@
+target,model,capture_auc,top5,top1
+all,local,0.7981,0.3677,0.0952
+all,local+transfer,0.8045,0.3702,0.1774
+all,pooled,0.8032,0.378,0.1442
+all,transfer,0.7203,0.2768,0.0896
+no_mine_within_1.5km,local,0.7871,0.3238,0.0898
+no_mine_within_1.5km,local+transfer,0.7857,0.3062,0.1583
+no_mine_within_1.5km,pooled,0.784,0.3227,0.1011
+no_mine_within_1.5km,transfer,0.6934,0.2006,0.0513
