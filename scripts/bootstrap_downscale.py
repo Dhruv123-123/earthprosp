@@ -34,12 +34,18 @@ def main():
     ap.add_argument("--out", default="outputs/bootstrap_downscale")
     ap.add_argument("--n", type=int, default=200)
     ap.add_argument("--block-res", type=int, default=3)
+    ap.add_argument("--only", nargs="*", help="regions to (re)run; other rows are kept from the earlier CSV")
     a = ap.parse_args()
     os.makedirs(a.out, exist_ok=True)
     rng = np.random.default_rng(0)
+    csv = os.path.join(a.out, "bootstrap_vs_coarse.csv")
     rows = []
+    if a.only and os.path.exists(csv):
+        rows = [r for r in pd.read_csv(csv).to_dict("records") if r["region"] not in a.only]
     for p in sorted(glob.glob("outputs/downscale_*/downscale_oof_res8.parquet")):
         region = p.split("/")[1].replace("downscale_", "")
+        if a.only and region not in a.only:
+            continue
         d = pd.read_parquet(p).dropna(subset=["coarse", "fine"])
         models = [m for m in ("fine", "blend", "pooled") if m in d and d[m].notna().all()]
         blocks = pd.factorize(np.array([h3.cell_to_parent(c, a.block_res) for c in d.h3]))[0]
@@ -75,7 +81,7 @@ def main():
                          "hi90": round(np.quantile(b, 0.95), 4), "p_above_zero": round((b > 0).mean(), 3)})
         print(" ".join(f"{r['region']}/{r['model']} {r['diff_vs_coarse']:+.3f} [{r['lo90']:+.3f}, {r['hi90']:+.3f}]"
                        for r in rows if r["region"] == region), flush=True)
-        pd.DataFrame(rows).to_csv(os.path.join(a.out, "bootstrap_vs_coarse.csv"), index=False)
+        pd.DataFrame(rows).sort_values(["region", "model"], key=lambda c: c if c.name == "region" else c.map({"fine": 0, "blend": 1, "pooled": 2})).to_csv(csv, index=False)
     df = pd.DataFrame(rows)
     f = df[df.model == "fine"]
     print(f"fine > coarse: point {int((f.diff_vs_coarse > 0).sum())}/{len(f)}, "
