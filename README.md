@@ -52,11 +52,14 @@ under-explored shields (19 regions, 34M cells). These numbers are capture AUC on
 
 * It beats the 36 km² map in 10 of 15 belts (median 0.827 vs 0.799), and in 12 of 15 inside the top
   districts. A block bootstrap makes the gain reliable in 8 regions. The map's blend of fine and
-  district scores is reliably better in 10 regions and reliably worse only in Papua New Guinea.
+  district scores is reliably better in 11 regions and reliably worse only in Papua New Guinea.
 * One model pooled across belts helps where a belt has few deposits (Copperbelt 0.70 to 0.92). On
   a region it has never seen, it scores 0.69 to 0.85. Each map uses whichever model won its own test.
 * Greenfield targets are stable: in the three belts refitted five times, every target made the
   top 1% in all five refits.
+* Targets bunch: a region's 50 often form a handful of clusters. `scripts/prospects_res8.py` keeps
+  one per anomaly, 10 km apart (`outputs/prospects_res8`). In a backtest that finds 70% more separate
+  deposit districts for the same hit rate.
 * No gain from Sentinel-2 alteration or terrain at res 8, from 0.1 km² cells, or from reweighting
   labels. The next gain needs more deposit records.
 
