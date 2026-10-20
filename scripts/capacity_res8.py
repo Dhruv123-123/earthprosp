@@ -26,7 +26,14 @@ CONFIGS = {  # name: (bag count, unlabeled ratio, LightGBM params on top of pu's
     "small_trees": (16, 5.0, dict(n_estimators=300, learning_rate=0.05, num_leaves=15, min_child_samples=20)),
     "ratio20": (4, 20.0, dict(n_estimators=300, learning_rate=0.05)),
     "big": (4, 5.0, dict(n_estimators=800, learning_rate=0.03, num_leaves=127, min_child_samples=20)),
+    # Label variant: prospects and showings with no recorded production also train as positives,
+    # at weight OCC_W (they are still scored only against the confirmed positives).
+    "small_occ": (16, 5.0, dict(n_estimators=300, learning_rate=0.05, num_leaves=15, min_child_samples=20)),
+    # Background variant: uniform cells within ~3 km (res-8 ring 3) of any mineral record are left
+    # out of the background, as likely unrecorded deposits.
+    "small_buffer": (16, 5.0, dict(n_estimators=300, learning_rate=0.05, num_leaves=15, min_child_samples=20)),
 }
+OCC_W = 0.3
 
 
 def main():
@@ -49,7 +56,15 @@ def main():
         b = dict(np.load(p))
         X, pos, w, uni = b["X"], b["pos"], b["w"].astype(np.float32), b["uniform"]
         nz = [COV_OFF + list(b["cov_cols"]).index(c) for c in NEUTRAL if c in list(b["cov_cols"])]
+        occ = b["any_rec"] & ~pos
         trainable = pos | uni
+        if any(c.endswith("_buffer") for c in a.configs.split(",")):
+            import h3
+            near_set = set()
+            for c0 in b["cells"][b["any_rec"] | pos]:
+                near_set.update(h3.grid_disk(str(c0), 3))
+            near = np.array([c0 in near_set for c0 in b["cells"]]) & ~pos
+            far_trainable = pos | (uni & ~near)
         folds = spatial_cv.buffered_block_folds(b["cells"].astype(object), b["lat"], b["lon"], k=5,
                                                 block_res=2, buffer_km=10.0)
         t0 = time.time()
@@ -62,7 +77,13 @@ def main():
                 bags, ratio, params = CONFIGS[c]
                 m = pu.PUBaggingGBM(n_bags=bags, unlabeled_ratio=ratio, seed=k)
                 m.params = {**m.params, **params}
-                m.fit(X, pos, w, rows=tr[trainable[tr]])
+                if c.endswith("_buffer"):
+                    m.fit(X, pos, w, rows=tr[far_trainable[tr]])
+                elif c.endswith("_occ"):
+                    rows_c = tr[(trainable | occ)[tr]]
+                    m.fit(X, pos | occ, np.where(occ, OCC_W, w).astype(np.float32), rows=rows_c)
+                else:
+                    m.fit(X, pos, w, rows=tr[trainable[tr]])
                 rows.append({"belt": n, "fold": k, "config": c, "n_pos_train": int(pos[tr].sum()),
                              **score(m.predict(Xte), pos[te], uni[te])})
         log_rows = [r for r in rows if r["belt"] == n]
@@ -76,7 +97,8 @@ def main():
     piv = per.capture_auc.unstack("config")
     print(piv.to_string())
     print(per.groupby("config").median().round(4).to_string())
-    print("belts beating base:", {c: int((piv[c] > piv["base"]).sum()) for c in piv.columns if c != "base"})
+    ref = piv.columns[0] if "base" not in piv else "base"
+    print(f"belts beating {ref}:", {c: int((piv[c] > piv[ref]).sum()) for c in piv.columns if c != ref})
 
 
 if __name__ == "__main__":
