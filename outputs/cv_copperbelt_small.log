@@ -1,0 +1,24 @@
+[18:44:13] 821,444 res-8 cells
+[18:44:18] 17,049 res-6 parents; ring context
+[18:46:26] 46 lean covariates
+[18:46:41] positives: res-8 182 (0.022%), res-6 113 (0.66%), occurrence-only res-8 203, positives with no mine/quarry within ~1.5 km 89
+[18:46:41] pool sample: 33,078 cells (32,709 uniform)
+[18:48:21] fold 0: test 128,117 res-8 cells, 2 positive (51s) 
+[18:49:09] fold 1: test 104,933 res-8 cells, 1 positive (48s) 
+[18:50:13] fold 2: test 213,498 res-8 cells, 16 positive (65s) coarse=0.855/0.917 fine=0.851/0.931 blend=0.860/0.924 pooled=0.997/0.993
+[18:51:04] fold 3: test 116,892 res-8 cells, 3 positive (51s) 
+[18:51:33] fold 4: test 258,004 res-8 cells, 160 positive (28s) coarse=0.819/0.800 fine=0.813/0.827 blend=0.841/0.840 pooled=0.989/0.966
+                             capture@1%  capture@5%  capture_auc  within_district_auc
+target               model                                                           
+all                  blend       0.4500      0.5500       0.8502               0.8823
+                     coarse      0.4094      0.4938       0.8370               0.8585
+                     fine        0.4469      0.5562       0.8322               0.8786
+                     pooled      0.7938      0.9938       0.9931               0.9797
+no_mine_within_1.5km blend       0.0506      0.1456       0.6628               0.7294
+                     coarse      0.0253      0.1013       0.6524               0.6864
+                     fine        0.0443      0.1266       0.6273               0.7194
+                     pooled      0.5835      0.9937       0.9878               0.9239
+occurrence_only      blend       0.3549      0.4674       0.8004               0.8163
+                     coarse      0.3579      0.4554       0.8276               0.8583
+                     fine        0.3549      0.4825       0.7582               0.7994
+                     pooled      0.4740      0.6745       0.8839               0.9138
