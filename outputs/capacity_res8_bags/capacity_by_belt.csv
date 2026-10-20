@@ -1,0 +1,16 @@
+belt,config,capture_auc,top5,top1
+copperbelt,bags16,0.7026,0.3125,0.3125
+copperbelt,base,0.7027,0.3125,0.3125
+copperbelt,small_trees,0.8439,0.6094,0.5
+fennoscandia,bags16,0.6924,0.289,0.1894
+fennoscandia,base,0.6973,0.3003,0.1827
+fennoscandia,small_trees,0.6923,0.2851,0.1855
+gobi,bags16,0.8322,0.4972,0.2111
+gobi,base,0.8257,0.4167,0.1833
+gobi,small_trees,0.8319,0.4694,0.1833
+png,bags16,0.7382,0.1085,0.0479
+png,base,0.7325,0.0991,0.0479
+png,small_trees,0.7435,0.1214,0.0735
+tibet,bags16,0.6804,0.2548,0.0441
+tibet,base,0.6661,0.3215,0.0441
+tibet,small_trees,0.6812,0.3215,0.0882

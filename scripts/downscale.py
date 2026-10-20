@@ -117,9 +117,14 @@ def main():
                     help="joblib from pool_belts.py --fit-final: scored as 'pooled' in the CV, and used for the "
                          "map when the region has fewer than --pool-below positive cells")
     ap.add_argument("--pool-below", type=int, default=400)
+    ap.add_argument("--fine-params", default="{}",
+                    help='JSON LightGBM params for the fine model, e.g. \'{"num_leaves": 15, "min_child_samples": 20}\'')
+    ap.add_argument("--fine-bags", type=int, default=0, help="bags for the fine model (default --bags)")
     ap.add_argument("--pool-dir", default="data/pool",
                     help="write a training sample here for pool_belts.py (empty string to skip)")
     a = ap.parse_args()
+    a.fine_params = json.loads(a.fine_params)
+    a.fine_bags = a.fine_bags or a.bags
     os.makedirs(a.out, exist_ok=True)
     x0, y0, x1, y1 = a.bbox
 
@@ -193,8 +198,8 @@ def main():
         coarse = s6_te.reindex(p6[te8]).to_numpy(np.float32)
         Xte = np.asarray(X8[te8], np.float32)
         Xte[:, nz8] = 0.0
-        mf = pu.PUBaggingGBM(n_bags=a.bags, seed=k)
-        mf.params = {**mf.params, **CV}
+        mf = pu.PUBaggingGBM(n_bags=a.fine_bags, seed=k)
+        mf.params = {**mf.params, **CV, **a.fine_params}
         mf.fit(X8, pos8, w8, rows=tr8)
         fine = mf.predict(Xte)
         blend = np.sqrt(pu.rank_normalise(coarse) * pu.rank_normalise(fine))
@@ -228,7 +233,7 @@ def main():
         os.path.join(a.out, "downscale_oof_res8.parquet"), index=False, compression="zstd")
     json.dump({"bbox": a.bbox, "n_res8": int(len(c8)), "n_res6": int(len(c6)), "n_pos8": int(pos8.sum()),
                "n_pos6": int(pos6.sum()), "folds": a.folds, "bags": a.bags,
-               "map_model": getattr(a, "map_model", "fine"), "covariates": list(cov.columns)},
+               "map_model": getattr(a, "map_model", "fine"), "fine_params": a.fine_params, "fine_bags": a.fine_bags, "covariates": list(cov.columns)},
               open(os.path.join(a.out, "downscale.json"), "w"), indent=2)
 
 
@@ -248,7 +253,8 @@ def final_map(a, c8, lat, lon, p6, X8, nz8, pos8, w8, any_rec8, pooled=None):
     else:
         log("final fine model on all cells")
         a.map_model = "fine"
-        m = pu.PUBaggingGBM(n_bags=2 * a.bags, seed=1)
+        m = pu.PUBaggingGBM(n_bags=2 * a.fine_bags, seed=1)
+        m.params = {**m.params, **a.fine_params}
         m.fit(X8, pos8, w8)
     fine = np.empty(len(c8), np.float32)
     for s in range(0, len(c8), 300_000):
