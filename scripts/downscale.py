@@ -202,6 +202,13 @@ def main():
     if a.final:
         final_map(a, c8, lat, lon, p6, X8, nz8, pos8, w8, any_rec8, pooled)
     if a.skip_cv:
+        if a.final:  # keep downscale.json in step with the map just written (CV fields stay)
+            jp = os.path.join(a.out, "downscale.json")
+            meta = json.load(open(jp)) if os.path.exists(jp) else {"bbox": a.bbox, "n_res8": int(len(c8)),
+                                                                   "n_pos8": int(pos8.sum())}
+            meta.update(map_model=getattr(a, "map_model", "fine"), fine_params=a.fine_params,
+                        fine_bags=a.fine_bags, seed_runs=a.seed_runs)
+            json.dump(meta, open(jp, "w"), indent=2)
         return
     folds = spatial_cv.buffered_block_folds(c8, lat, lon, k=a.folds, block_res=a.block_res, buffer_km=10.0)
     models = ("coarse", "fine", "blend") + (("pooled",) if pooled is not None else ())
@@ -256,7 +263,8 @@ def main():
         os.path.join(a.out, "downscale_oof_res8.parquet"), index=False, compression="zstd")
     json.dump({"bbox": a.bbox, "n_res8": int(len(c8)), "n_res6": int(len(c6)), "n_pos8": int(pos8.sum()),
                "n_pos6": int(pos6.sum()), "folds": a.folds, "bags": a.bags,
-               "map_model": getattr(a, "map_model", "fine"), "fine_params": a.fine_params, "fine_bags": a.fine_bags, "covariates": list(cov.columns)},
+               "map_model": getattr(a, "map_model", "fine"), "fine_params": a.fine_params, "fine_bags": a.fine_bags,
+               "seed_runs": a.seed_runs if a.final else None, "covariates": list(cov.columns)},
               open(os.path.join(a.out, "downscale.json"), "w"), indent=2)
 
 

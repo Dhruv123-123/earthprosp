@@ -64,5 +64,6 @@
     "s2_gossan",
     "s2_clay_std",
     "s2_ferric_std"
-  ]
+  ],
+  "seed_runs": 1
 }
