@@ -71,6 +71,8 @@ def main():
     ap.add_argument("--template", default="scripts/belt_atlas_template.html")
     a = ap.parse_args()
     os.makedirs(os.path.join(a.out, "maps"), exist_ok=True)
+    bp = "outputs/bootstrap_downscale/bootstrap_vs_coarse.csv"
+    boot = pd.read_csv(bp) if os.path.exists(bp) else pd.DataFrame(columns=["region", "model"])
     belts = []
     for key, (name, deposits) in BELTS.items():
         d = f"outputs/downscale_{key}"
@@ -89,7 +91,8 @@ def main():
         t = pd.read_csv(os.path.join(d, "greenfield_targets_res8.csv")).head(20)
         x0, y0, x1, y1 = meta["bbox"]
         belts.append({"key": key, "name": name, "deposits": deposits, "bbox": meta["bbox"],
-                      "frontier": key in FRONTIER, "map_model": meta.get("map_model", "fine"),
+                      "frontier": key in FRONTIER,
+                      "ci": {r.model: [r.diff_vs_coarse, r.lo90, r.hi90] for r in boot[boot.region == key].itertuples()}, "map_model": meta.get("map_model", "fine"),
                       "cells": meta["n_res8"], "pos": meta["n_pos8"], "stat": stat, "img": f"maps/{key}.jpg",
                       "iw": w, "ih": h,
                       "targets": [{"lat": round(r.lat, 3), "lon": round(r.lon, 3), "score": round(r.blend, 4),
