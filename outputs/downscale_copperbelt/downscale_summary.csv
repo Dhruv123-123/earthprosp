@@ -1,10 +1,10 @@
 target,model,capture@1%,capture@5%,capture_auc,within_district_auc
-all,blend,0.3125,0.3406,0.6927,0.7703
+all,blend,0.45,0.55,0.8502,0.8823
 all,coarse,0.4094,0.4938,0.837,0.8585
-all,fine,0.3125,0.3875,0.7618,0.6747
-no_mine_within_1.5km,blend,0.0,0.0063,0.4636,0.4332
+all,fine,0.4469,0.5562,0.8322,0.8786
+no_mine_within_1.5km,blend,0.0506,0.1456,0.6628,0.7294
 no_mine_within_1.5km,coarse,0.0253,0.1013,0.6524,0.6864
-no_mine_within_1.5km,fine,0.0,0.0886,0.6475,0.5877
-occurrence_only,blend,0.2344,0.3349,0.7587,0.8054
+no_mine_within_1.5km,fine,0.0443,0.1266,0.6273,0.7194
+occurrence_only,blend,0.3549,0.4674,0.8004,0.8163
 occurrence_only,coarse,0.3579,0.4554,0.8276,0.8583
-occurrence_only,fine,0.2344,0.2807,0.6369,0.5875
+occurrence_only,fine,0.3549,0.4825,0.7582,0.7994

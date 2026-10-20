@@ -11,6 +11,12 @@
   "n_pos6": 113,
   "folds": 5,
   "bags": 4,
+  "map_model": "fine",
+  "fine_params": {
+    "num_leaves": 15,
+    "min_child_samples": 20
+  },
+  "fine_bags": 16,
   "covariates": [
     "litho_lab_km",
     "litho_moho_km",
