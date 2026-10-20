@@ -45,14 +45,23 @@ at 0.83, and the top of the map is not enriched in 2018–2024 surface change. T
 confound in the first v3 map (12% of the top 1%), are removed by predicting with built-up
 and cropland held at zero (1.4%).
 
-## v5: 0.7 km² maps for 15 belts
+## v5: 0.7 km² maps for 15 belts and 4 frontier shields
 
-The 0.7 km² (H3 res-8) model now covers 15 of the world's major metallogenic belts (28.1M cells).
-It beats the 36 km² map on held-out ground in 10 of 15 belts (median capture AUC 0.822 vs 0.799),
-and in 11 of 15 inside the top districts (0.694 vs 0.648). One model trained on all belts beats
-each belt's own model where data is thin (Copperbelt 0.70 to 0.92). On a belt it has never seen it
-still scores a median 0.75. Maps, tests and greenfield targets: `outputs/atlas/index.html`,
-`outputs/downscale_<belt>/` (docs/V3.md, "v5").
+The 0.7 km² (H3 res-8) model now covers 15 of the world's major metallogenic belts and 4
+under-explored shields (19 regions, 34M cells). These numbers are capture AUC on ground the model never saw:
+
+* It beats the 36 km² map in 10 of 15 belts (median 0.827 vs 0.799), and in 12 of 15 inside the top
+  districts. A block bootstrap makes the gain reliable in 8 regions. The map's blend of fine and
+  district scores is reliably better in 10 regions and reliably worse only in Papua New Guinea.
+* One model pooled across belts helps where a belt has few deposits (Copperbelt 0.70 to 0.92). On
+  a region it has never seen, it scores 0.69 to 0.85. Each map uses whichever model won its own test.
+* Greenfield targets are stable: in the three belts refitted five times, every target made the
+  top 1% in all five refits.
+* No gain from Sentinel-2 alteration or terrain at res 8, from 0.1 km² cells, or from reweighting
+  labels. The next gain needs more deposit records.
+
+Atlas: `outputs/atlas/index.html`. Targets for all regions: `outputs/atlas/greenfield_targets_all_regions.csv`.
+The best 2% of cells per region: `outputs/atlas/res8_top.parquet`. Details are in docs/V3.md, "v5".
 
 ## v4: 0.7 km² maps for two belts
 
