@@ -73,6 +73,9 @@ def main():
     os.makedirs(os.path.join(a.out, "maps"), exist_ok=True)
     bp = "outputs/bootstrap_downscale/bootstrap_vs_coarse.csv"
     boot = pd.read_csv(bp) if os.path.exists(bp) else pd.DataFrame(columns=["region", "model"])
+    tp = os.path.join(a.out, "greenfield_targets_all_regions.csv")
+    sysmap = (pd.read_csv(tp).set_index("h3").likely_system.to_dict()
+              if os.path.exists(tp) and "likely_system" in pd.read_csv(tp, nrows=1) else {})
     belts = []
     for key, (name, deposits) in BELTS.items():
         d = f"outputs/downscale_{key}"
@@ -96,7 +99,7 @@ def main():
                       "cells": meta["n_res8"], "pos": meta["n_pos8"], "stat": stat, "img": f"maps/{key}.jpg",
                       "iw": w, "ih": h,
                       "targets": [{"lat": round(r.lat, 3), "lon": round(r.lon, 3), "score": round(r.blend, 4),
-                                   "h3": r.h3, "stable": round(float(getattr(r, "seed_top1pct_share", np.nan)), 2)
+                                   "h3": r.h3, "system": sysmap.get(r.h3, "").replace("_", " "), "stable": round(float(getattr(r, "seed_top1pct_share", np.nan)), 2)
                                    if hasattr(r, "seed_top1pct_share") else None} for r in t.itertuples()]})
     order = {k: i for i, k in enumerate(BELTS)}
     belts.sort(key=lambda b: order[b["key"]])
