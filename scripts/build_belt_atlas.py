@@ -76,6 +76,8 @@ def main():
     tp = os.path.join(a.out, "greenfield_targets_all_regions.csv")
     sysmap = (pd.read_csv(tp).set_index("h3").likely_system.to_dict()
               if os.path.exists(tp) and "likely_system" in pd.read_csv(tp, nrows=1) else {})
+    pp = "outputs/prospects_res8/prospects_all_regions.csv"
+    pros = pd.read_csv(pp) if os.path.exists(pp) else None
     belts = []
     for key, (name, deposits) in BELTS.items():
         d = f"outputs/downscale_{key}"
@@ -91,7 +93,12 @@ def main():
                                  "district": None if pd.isna(r.within_district_auc) else round(float(r.within_district_auc), 3),
                                  "top5": round(float(r["capture@5%"]), 3)}
         w, h = crop_jpg(os.path.join(d, "map_res8.png"), os.path.join(a.out, "maps", f"{key}.jpg"))
-        t = pd.read_csv(os.path.join(d, "greenfield_targets_res8.csv")).head(20)
+        if pros is not None and (pros.region_key == key).any():
+            # separate prospects, 10 km apart (scripts/prospects_res8.py)
+            t = pros[pros.region_key == key].head(20)
+            sysmap.update(t.set_index("h3").likely_system.to_dict())
+        else:
+            t = pd.read_csv(os.path.join(d, "greenfield_targets_res8.csv")).head(20)
         x0, y0, x1, y1 = meta["bbox"]
         belts.append({"key": key, "name": name, "deposits": deposits, "bbox": meta["bbox"],
                       "frontier": key in FRONTIER,
@@ -99,8 +106,9 @@ def main():
                       "cells": meta["n_res8"], "pos": meta["n_pos8"], "stat": stat, "img": f"maps/{key}.jpg",
                       "iw": w, "ih": h,
                       "targets": [{"lat": round(r.lat, 3), "lon": round(r.lon, 3), "score": round(r.blend, 4),
-                                   "h3": r.h3, "system": sysmap.get(r.h3, "").replace("_", " "), "stable": round(float(getattr(r, "seed_top1pct_share", np.nan)), 2)
-                                   if hasattr(r, "seed_top1pct_share") else None} for r in t.itertuples()]})
+                                   "h3": r.h3, "system": sysmap.get(r.h3, "").replace("_", " "),
+                                   "fp": int(r.footprint_cells) if hasattr(r, "footprint_cells") else None, "stable": round(float(getattr(r, "seed_top1pct_share", np.nan)), 2)
+                                   if hasattr(r, "seed_top1pct_share") and not pd.isna(r.seed_top1pct_share) else None} for r in t.itertuples()]})
     order = {k: i for i, k in enumerate(BELTS)}
     belts.sort(key=lambda b: order[b["key"]])
     won = [b for b in belts if "fine" in b["stat"] and "coarse" in b["stat"] and not b["frontier"]]

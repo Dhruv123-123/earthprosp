@@ -129,10 +129,10 @@ button.copy { font: 12px var(--body); color: var(--accent); background: none; bo
         <p class="note" id="statnote" style="margin-top:10px"></p>
       </div>
       <div>
-        <h3>Greenfield targets</h3>
-        <p class="note" style="margin:6px 0 8px">Highest-scoring cells with no mineral record of any kind within ~3 km, at most one per ~5 km. A score is a rank in this belt (1 = top), not a probability.</p>
+        <h3>Greenfield prospects</h3>
+        <p class="note" style="margin:6px 0 8px">Best cell of each separate anomaly with no mineral record of any kind within ~3 km; prospects are at least 10 km apart. Size counts the top-1% greenfield cells (0.7 km² each) within 5 km. A score is a rank in this belt (1 = top), not a probability. In a backtest, picks spread this way found 70% more separate deposit districts than picks one per ~5 km.</p>
         <div class="tablebox"><table>
-          <thead><tr><th>#</th><th class="num">Lat</th><th class="num">Lon</th><th class="num">Score</th><th>Likely system</th><th class="num" id="stabh" title="Share of five independent refits in which the cell made the top 1%">Top 1% in refits</th><th></th></tr></thead>
+          <thead><tr><th>#</th><th class="num">Lat</th><th class="num">Lon</th><th class="num">Score</th><th class="num" title="Top-1% greenfield cells within 5 km">Size</th><th>Likely system</th><th class="num" id="stabh" title="Share of five independent refits in which the cell made the top 1%">Top 1% in refits</th><th></th></tr></thead>
           <tbody id="targets"></tbody>
         </table></div>
       </div>
@@ -195,7 +195,7 @@ function select(key) {
   }
   const hasStab = b.targets.some((t) => t.stable != null);
   $("stabh").hidden = !hasStab;
-  $("targets").innerHTML = b.targets.map((t, i) => `<tr><td class="mono">${i + 1}</td><td class="num">${t.lat.toFixed(3)}</td><td class="num">${t.lon.toFixed(3)}</td><td class="num">${t.score.toFixed(3)}</td><td class="sys">${t.system || "–"}</td><td class="num stabc">${t.stable == null ? "–" : Math.round(t.stable * 5) + "/5"}</td><td><button class="copy" data-c="${t.lat}, ${t.lon}">Copy</button></td></tr>`).join("");
+  $("targets").innerHTML = b.targets.map((t, i) => `<tr><td class="mono">${i + 1}</td><td class="num">${t.lat.toFixed(3)}</td><td class="num">${t.lon.toFixed(3)}</td><td class="num">${t.score.toFixed(3)}</td><td class="num">${t.fp == null ? "–" : t.fp}</td><td class="sys">${t.system || "–"}</td><td class="num stabc">${t.stable == null ? "–" : Math.round(t.stable * 5) + "/5"}</td><td><button class="copy" data-c="${t.lat}, ${t.lon}">Copy</button></td></tr>`).join("");
   document.querySelectorAll(".stabc").forEach((c) => (c.hidden = !hasStab));
 }
 $("boxes").innerHTML = D.belts.map((b) => {
