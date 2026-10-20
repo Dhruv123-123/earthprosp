@@ -126,3 +126,13 @@ def test_grade_tonnage_composition_is_value_weighted(tmp_path):
     cl = labels.cell_labels_from_records(rec)
     np.testing.assert_allclose(cl[C.CLASSES].sum(axis=1), 1.0, rtol=1e-6)
     assert cl["major"].all()
+
+
+def test_enrichment_and_block_bootstrap():
+    rng = np.random.default_rng(0)
+    pos = rng.random(5000) < 0.05
+    score = pos * 1.0 + rng.normal(scale=0.5, size=5000)
+    assert evaluate.enrichment(score, pos, 0.05) > 3
+    blocks = np.arange(5000) // 100
+    p, lo, hi = evaluate.block_bootstrap_ci(score, pos, blocks, n_boot=50)
+    assert lo <= p <= hi and p > 0.8

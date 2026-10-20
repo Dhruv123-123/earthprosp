@@ -1,0 +1,11 @@
+{
+  "n_records": 279729,
+  "by_source": {
+    "minmod": 275709,
+    "minfac": 1569,
+    "gcdd": 1358,
+    "earthbyte": 1093
+  },
+  "n_pos_cells": 32858,
+  "n_world_class_cells": 4160
+}

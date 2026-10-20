@@ -1,0 +1,20 @@
+region_key,region,n,nn_km_median,clusters,largest_cluster,largest_share,busiest_1deg_share,boxes_1deg
+bc_alaska,British Columbia and SE Alaska,50,1.4,6,28,0.56,0.66,3
+tibet,Tibet and Yulong,50,1.8,7,20,0.4,0.44,7
+png,Papua New Guinea,50,1.7,8,18,0.36,0.52,5
+arabian_nubian,Arabian-Nubian Shield,50,1.7,5,17,0.34,0.54,3
+fennoscandia,Fennoscandian Shield,50,1.5,12,17,0.34,0.34,10
+carajas_qf,Carajás and Quadrilátero Ferrífero,50,2.5,9,15,0.3,0.72,6
+s_africa,Southern Africa,50,1.8,10,15,0.3,0.4,6
+gobi,Gobi and South Mongolia,50,0.9,15,13,0.26,0.28,9
+yilgarn,Yilgarn and Pilbara,50,1.5,12,12,0.24,0.7,3
+tethyan_iran,Iranian Tethyan belt,50,2.1,11,12,0.24,0.6,7
+n_andes,Northern Andes,50,2.0,10,11,0.22,0.66,5
+abitibi,Abitibi and Superior,50,1.7,14,11,0.22,0.22,11
+andes,Central Andes,50,1.7,14,10,0.2,0.32,6
+kazakh,Kazakhstan and Tien Shan,50,2.0,18,9,0.18,0.18,14
+wus,Great Basin and Arizona,50,2.0,26,8,0.16,0.22,18
+birimian,West African Birimian,50,1.4,12,7,0.14,0.4,6
+mexico,"Sierra Madre, Mexico",50,2.7,20,7,0.14,0.14,18
+guiana,Guiana Shield,50,1.5,19,7,0.14,0.26,5
+copperbelt,Central African Copperbelt,50,2.0,20,6,0.12,0.22,8

@@ -1,0 +1,181 @@
+system,h3,lat,lon,country,p_prospective,p_system,uncertainty,top_class,driver1,driver2,driver3
+porphyry_skarn_cu,863c7239fffffff,29.75,91.163,China,0.491,0.946,0.025,Cu,aef_std,aef_ctx25,litho
+porphyry_skarn_cu,863c72397ffffff,29.752,91.094,China,0.505,0.906,0.028,Cu,aef_std,aef_ctx25,litho
+porphyry_skarn_cu,863c0996fffffff,29.376,90.382,China,0.462,0.96,0.03,Cu,aef_std,aef_ctx25,landcover
+porphyry_skarn_cu,863c48af7ffffff,30.759,98.246,China,0.521,0.85,0.016,Cu,aef_std,aef_ctx25,aef_ctx10
+porphyry_skarn_cu,863c48ac7ffffff,30.753,98.315,China,0.527,0.84,0.018,Cu,aef_std,aef_ctx25,landcover
+porphyry_skarn_cu,863c722b7ffffff,29.701,91.193,China,0.476,0.922,0.014,Cu,aef_std,aef_ctx25,terrain
+porphyry_skarn_cu,863c722a7ffffff,29.748,91.231,China,0.446,0.965,0.023,Cu,aef_std,aef_ctx25,terrain
+porphyry_skarn_cu,863c72487ffffff,29.373,90.519,China,0.447,0.959,0.018,Cu,aef_std,aef_ctx25,terrain
+porphyry_skarn_cu,863c72497ffffff,29.325,90.481,China,0.449,0.95,0.018,Cu,aef_std,aef_ctx25,landcover
+porphyry_skarn_cu,863c48a1fffffff,30.809,98.216,China,0.486,0.862,0.01,Cu,aef_std,aef_ctx25,terrain
+porphyry_skarn_cu,863c0d007ffffff,29.534,89.608,China,0.449,0.913,0.028,Cu,aef_std,aef_ctx25,terrain
+porphyry_skarn_cu,863c720cfffffff,29.753,91.026,China,0.45,0.91,0.03,Cu,aef_std,aef_ctx25,terrain
+porphyry_skarn_cu,863c0994fffffff,29.326,90.413,China,0.429,0.952,0.025,Cu,aef_std,aef_ctx25,landcover
+porphyry_skarn_cu,863c09967ffffff,29.377,90.314,China,0.444,0.918,0.021,Cu,aef_std,aef_ctx25,terrain
+porphyry_skarn_cu,863c72ab7ffffff,30.047,90.978,China,0.447,0.909,0.033,Cu,aef_std,aef_ctx25,terrain
+porphyry_skarn_cu,863c48ae7ffffff,30.804,98.285,China,0.513,0.793,0.015,Cu,aef_std,aef_ctx25,terrain
+porphyry_skarn_cu,863c723b7ffffff,29.801,91.063,China,0.429,0.945,0.041,Cu,aef_std,aef_ctx25,terrain
+porphyry_skarn_cu,863c7214fffffff,29.999,90.94,China,0.435,0.911,0.033,Cu,aef_std,aef_ctx25,terrain
+porphyry_skarn_cu,863c72387ffffff,29.8,91.132,China,0.425,0.925,0.025,Cu,aef_std,aef_ctx25,litho
+porphyry_skarn_cu,863c7249fffffff,29.323,90.55,China,0.411,0.941,0.025,Cu,aef_std,aef_ctx25,terrain
+epithermal_orogenic_au,868aa6a2fffffff,-7.628,-56.704,Brazil,0.683,0.875,0.013,Au,aef_std,landcover,aef_ctx25
+epithermal_orogenic_au,865f02a97ffffff,4.411,-55.029,Suriname,0.599,0.912,0.018,Au,aef_std,landcover,aef_ctx25
+epithermal_orogenic_au,865f0214fffffff,4.365,-54.992,Suriname,0.538,0.914,0.023,Au,aef_std,aef_ctx25,landcover
+epithermal_orogenic_au,868aa6b5fffffff,-7.636,-56.764,Brazil,0.587,0.835,0.016,Au,landcover,aef_std,aef_ctx25
+epithermal_orogenic_au,865f0216fffffff,4.308,-55.013,Suriname,0.531,0.894,0.029,Au,aef_std,landcover,aef_ctx25
+epithermal_orogenic_au,865f73507ffffff,6.495,-59.963,Guyana,0.484,0.979,0.028,Au,aef_ctx25,aef_std,aef_ctx10
+epithermal_orogenic_au,865f724a7ffffff,6.144,-58.947,Guyana,0.491,0.953,0.044,Au,aef_ctx25,aef_ctx10,litho
+epithermal_orogenic_au,865f02ab7ffffff,4.354,-55.051,Suriname,0.539,0.868,0.027,Au,aef_std,aef_ctx25,landcover
+epithermal_orogenic_au,86b85d45fffffff,-27.895,121.269,Australia,0.645,0.719,0.014,Au,aef_std,aef_ctx25,litho
+epithermal_orogenic_au,865f72497ffffff,6.212,-58.869,Guyana,0.472,0.964,0.023,Au,aef_ctx25,aef_std,aef_ctx10
+epithermal_orogenic_au,868aae49fffffff,-4.993,-57.483,Brazil,0.496,0.91,0.035,Au,aef_ctx25,landcover,litho
+epithermal_orogenic_au,865f2a2dfffffff,4.377,-57.919,Suriname,0.499,0.901,0.032,Au,aef_std,aef_ctx25,landcover
+epithermal_orogenic_au,868b8d327ffffff,-10.08,-59.497,Brazil,0.663,0.667,0.016,Au,aef_std,landcover,aef_ctx25
+epithermal_orogenic_au,868aa30dfffffff,-5.581,-57.096,Brazil,0.492,0.891,0.041,Au,landcover,aef_ctx25,litho
+epithermal_orogenic_au,865f2b44fffffff,4.602,-58.367,Guyana,0.49,0.891,0.022,Au,aef_std,aef_ctx25,terrain
+epithermal_orogenic_au,86a710467ffffff,-27.86,117.251,Australia,0.513,0.835,0.039,Au,aef_std,aef_ctx25,litho
+epithermal_orogenic_au,865f72487ffffff,6.2,-58.926,Guyana,0.446,0.957,0.032,Au,aef_ctx25,aef_ctx10,litho
+epithermal_orogenic_au,865f0935fffffff,6.878,-58.878,Guyana,0.455,0.936,0.022,Au,aef_ctx25,aef_ctx10,aef_std
+epithermal_orogenic_au,865f02167ffffff,4.262,-54.976,Suriname,0.47,0.904,0.021,Au,aef_std,landcover,aef_ctx25
+epithermal_orogenic_au,868a84c27ffffff,-5.67,-55.898,Brazil,0.46,0.924,0.015,Au,aef_ctx25,litho,terrain
+vms,86a79e1afffffff,-21.437,119.69,Australia,0.505,0.825,0.018,Cu,aef_std,aef_ctx25,litho
+vms,86a79e107ffffff,-21.519,119.676,Australia,0.44,0.777,0.031,Cu,aef_std,aef_ctx25,litho
+vms,86126b2e7ffffff,54.392,-101.03,Canada,0.417,0.813,0.032,Cu,aef_std,litho,aef_ctx25
+vms,865206007ffffff,19.259,42.545,Saudi Arabia,0.44,0.763,0.028,PbZn,aef_std,aef_mean,aef_ctx10
+vms,869d56cf7ffffff,-19.665,145.907,Australia,0.625,0.511,0.01,Au,aef_std,landcover,aef_ctx25
+vms,869d56c1fffffff,-19.72,145.929,Australia,0.591,0.525,0.02,Au,aef_std,landcover,litho
+vms,862488a27ffffff,37.764,101.25,China,0.34,0.904,0.045,Cu,,,
+vms,863911957ffffff,37.921,-7.687,Portugal,0.332,0.922,0.024,Cu,,,
+vms,86a79e11fffffff,-21.471,119.656,Australia,0.528,0.574,0.021,Cu,aef_std,aef_ctx25,litho
+vms,86520601fffffff,19.2,42.545,Saudi Arabia,0.421,0.715,0.026,Cu,aef_std,aef_mean,aef_ctx25
+vms,86126b21fffffff,54.443,-101.092,Canada,0.376,0.79,0.025,Cu,litho,aef_std,aef_ctx25
+vms,861aa44b7ffffff,48.659,-54.003,Canada,0.425,0.694,0.017,Cu,aef_std,landcover,aef_ctx25
+vms,8624882b7ffffff,37.203,101.254,China,0.31,0.945,0.037,Cu,,,
+vms,861b9950fffffff,49.106,-55.367,Canada,0.439,0.657,0.022,Cu,aef_std,landcover,aef_ctx25
+vms,862488287ffffff,37.193,101.321,China,0.3,0.957,0.049,Au,,,
+vms,86521dca7ffffff,17.212,43.85,Yemen,0.399,0.716,0.036,PbZn,aef_std,aef_mean,aef_ctx25
+vms,86126b2efffffff,54.342,-100.968,Canada,0.335,0.85,0.038,Cu,,,
+vms,863902787ffffff,38.082,-7.062,Portugal,0.315,0.896,0.026,Cu,,,
+vms,86081b7afffffff,64.774,17.673,Sweden,0.418,0.673,0.024,PbZn,aef_std,landcover,litho
+vms,865231c87ffffff,20.353,41.707,Saudi Arabia,0.371,0.726,0.042,Cu,aef_std,aef_mean,aef_ctx25
+sed_hosted_base,86265289fffffff,38.384,-94.635,United States of America,0.407,0.927,0.024,PbZn,aef_std,landcover,aef_ctx25
+sed_hosted_base,86265171fffffff,37.469,-92.553,United States of America,0.528,0.712,0.015,PbZn,aef_std,aef_ctx25,aef_ctx10
+sed_hosted_base,861aa0637ffffff,47.507,-52.944,Canada,0.556,0.668,0.014,Cu,aef_std,landcover,aef_ctx25
+sed_hosted_base,861aa06c7ffffff,47.327,-52.822,Canada,0.439,0.813,0.031,Cu,aef_std,landcover,terrain
+sed_hosted_base,86262d067ffffff,43.567,-91.786,United States of America,0.542,0.658,0.017,PbZn,aef_std,aef_ctx25,litho
+sed_hosted_base,861aa0607ffffff,47.475,-52.873,Canada,0.505,0.693,0.017,Cu,aef_std,landcover,aef_ctx25
+sed_hosted_base,862b012efffffff,44.726,-63.505,Canada,0.435,0.779,0.028,Cu,aef_std,landcover,aef_ctx25
+sed_hosted_base,861aa0627ffffff,47.533,-52.864,Canada,0.542,0.625,0.016,Cu,aef_std,landcover,aef_ctx25
+sed_hosted_base,8626517afffffff,37.471,-92.627,United States of America,0.445,0.753,0.012,PbZn,aef_ctx25,aef_std,aef_ctx10
+sed_hosted_base,86265622fffffff,38.834,-94.085,United States of America,0.372,0.881,0.046,PbZn,aef_std,landcover,aef_ctx25
+sed_hosted_base,861aa06a7ffffff,47.422,-53.033,Canada,0.43,0.752,0.025,Cu,aef_std,landcover,terrain
+sed_hosted_base,86265630fffffff,38.936,-94.089,United States of America,0.368,0.863,0.03,PbZn,aef_std,aef_ctx25,landcover
+sed_hosted_base,861aa062fffffff,47.502,-52.793,Canada,0.415,0.761,0.032,Cu,aef_std,landcover,aef_ctx25
+sed_hosted_base,861aa2b4fffffff,47.369,-53.192,Canada,0.379,0.822,0.047,Cu,aef_std,landcover,terrain
+sed_hosted_base,861aa04cfffffff,47.517,-53.245,Canada,0.391,0.788,0.031,Cu,aef_std,terrain,landcover
+sed_hosted_base,863db6317ffffff,25.111,73.837,India,0.507,0.602,0.029,PbZn,aef_std,landcover,aef_ctx25
+sed_hosted_base,862b0148fffffff,45.411,-64.24,Canada,0.356,0.856,0.021,Cu,,,
+sed_hosted_base,863db2b87ffffff,24.751,74.576,India,0.438,0.688,0.024,PbZn,aef_std,landcover,litho
+sed_hosted_base,861aa079fffffff,47.454,-53.104,Canada,0.386,0.778,0.026,Cu,aef_std,landcover,aef_ctx25
+sed_hosted_base,86a806c57ffffff,-24.862,-48.552,Brazil,0.442,0.678,0.023,PbZn,aef_std,aef_ctx25,litho
+magmatic_mafic,862d34227ffffff,40.173,30.015,Turkey,0.535,0.871,0.009,NiCoPGECr,aef_std,landcover,terrain
+magmatic_mafic,862d30ad7ffffff,40.114,31.281,Turkey,0.471,0.935,0.021,NiCoPGECr,aef_std,landcover,aef_ctx25
+magmatic_mafic,863f69427ffffff,36.44,32.407,Turkey,0.472,0.91,0.029,NiCoPGECr,aef_std,landcover,aef_ctx25
+magmatic_mafic,862d30adfffffff,40.147,31.347,Turkey,0.458,0.912,0.01,NiCoPGECr,aef_std,landcover,aef_ctx25
+magmatic_mafic,863f2d767ffffff,38.105,22.216,Greece,0.511,0.815,0.015,NiCoPGECr,aef_std,aef_ctx25,aef_ctx10
+magmatic_mafic,862d3036fffffff,40.214,31.479,Turkey,0.453,0.919,0.015,NiCoPGECr,aef_std,landcover,aef_ctx25
+magmatic_mafic,863f63c77ffffff,37.211,28.194,Turkey,0.564,0.736,0.007,Al,aef_std,landcover,aef_ctx25
+magmatic_mafic,863f6c6a7ffffff,37.32,30.769,Turkey,0.465,0.889,0.018,NiCoPGECr,aef_std,landcover,terrain
+magmatic_mafic,863f6c627ffffff,37.451,30.89,Turkey,0.456,0.902,0.03,NiCoPGECr,aef_std,landcover,terrain
+magmatic_mafic,863f6c6e7ffffff,37.301,30.975,Turkey,0.439,0.937,0.021,NiCoPGECr,aef_std,landcover,terrain
+magmatic_mafic,862d30a1fffffff,40.169,31.135,Turkey,0.46,0.889,0.013,NiCoPGECr,aef_std,aef_ctx25,landcover
+magmatic_mafic,863f6951fffffff,36.468,32.338,Turkey,0.453,0.887,0.033,NiCoPGECr,aef_std,terrain,aef_ctx25
+magmatic_mafic,862d36d9fffffff,38.468,29.743,Turkey,0.447,0.894,0.029,NiCoPGECr,aef_std,landcover,terrain
+magmatic_mafic,863f6c70fffffff,37.513,30.883,Turkey,0.439,0.909,0.024,NiCoPGECr,aef_std,landcover,terrain
+magmatic_mafic,863f68a9fffffff,36.814,31.768,Turkey,0.517,0.764,0.02,NiCoPGECr,aef_std,landcover,terrain
+magmatic_mafic,863f68987ffffff,37.219,31.187,Turkey,0.434,0.902,0.019,NiCoPGECr,aef_std,terrain,aef_ctx25
+magmatic_mafic,863f6e2a7ffffff,36.644,30.373,Turkey,0.452,0.864,0.031,NiCoPGECr,aef_std,aef_ctx25,terrain
+magmatic_mafic,863f69507ffffff,36.53,32.332,Turkey,0.429,0.905,0.029,NiCoPGECr,aef_std,landcover,aef_ctx25
+magmatic_mafic,863f638b7ffffff,37.345,28.312,Turkey,0.508,0.764,0.019,NiCoPGECr,aef_std,landcover,terrain
+magmatic_mafic,863f6c687ffffff,37.259,30.776,Turkey,0.431,0.898,0.021,NiCoPGECr,aef_std,terrain,aef_mean
+felsic_alkaline_rare,866515a8fffffff,5.242,103.134,Malaysia,0.404,0.882,0.029,WMoSn,aef_std,aef_ctx25,landcover
+felsic_alkaline_rare,868189c17ffffff,-6.104,-37.589,Brazil,0.383,0.896,0.023,WMoSn,aef_std,aef_ctx25,terrain
+felsic_alkaline_rare,868189c1fffffff,-6.056,-37.63,Brazil,0.389,0.857,0.036,WMoSn,aef_std,aef_ctx25,terrain
+felsic_alkaline_rare,86be8a387ffffff,-25.021,153.364,(none),0.394,0.838,0.029,REE,aef_std,aef_ctx25,landcover
+felsic_alkaline_rare,86652362fffffff,2.43,102.206,Malaysia,0.419,0.788,0.034,WMoSn,aef_std,landcover,aef_ctx25
+felsic_alkaline_rare,866adc69fffffff,-1.772,29.622,Rwanda,0.444,0.737,0.028,WMoSn,aef_std,landcover,aef_ctx25
+felsic_alkaline_rare,86652370fffffff,2.368,102.294,Malaysia,0.36,0.905,0.05,WMoSn,aef_std,landcover,aef_ctx25
+felsic_alkaline_rare,86416494fffffff,15.395,108.798,(none),0.394,0.816,0.015,REE,aef_std,aef_ctx25,landcover
+felsic_alkaline_rare,869d2e4a7ffffff,-22.402,150.231,Australia,0.381,0.843,0.044,REE,aef_std,landcover,aef_ctx25
+felsic_alkaline_rare,866adc6a7ffffff,-1.65,29.604,Rwanda,0.448,0.712,0.019,WMoSn,aef_std,aef_ctx25,landcover
+felsic_alkaline_rare,86be8d4d7ffffff,-26.793,153.124,Australia,0.362,0.872,0.045,REE,aef_std,aef_ctx25,aef_ctx10
+felsic_alkaline_rare,86652372fffffff,2.312,102.32,Malaysia,0.377,0.817,0.043,WMoSn,aef_std,landcover,aef_ctx25
+felsic_alkaline_rare,866523607ffffff,2.481,102.242,Malaysia,0.378,0.813,0.05,WMoSn,aef_std,landcover,terrain
+felsic_alkaline_rare,866523777ffffff,2.317,102.258,Malaysia,0.363,0.844,0.052,WMoSn,aef_std,landcover,aef_ctx25
+felsic_alkaline_rare,8680141afffffff,-5.27,-38.873,Brazil,0.356,0.86,0.033,WMoSn,,,
+felsic_alkaline_rare,866523757ffffff,2.373,102.232,Malaysia,0.378,0.804,0.042,WMoSn,aef_std,landcover,aef_ctx25
+felsic_alkaline_rare,86be8a39fffffff,-24.965,153.336,Australia,0.362,0.837,0.04,REE,aef_std,aef_ctx25,landcover
+felsic_alkaline_rare,86650328fffffff,5.065,100.676,Malaysia,0.329,0.917,0.058,WMoSn,,,
+felsic_alkaline_rare,868189a4fffffff,-5.72,-38.566,Brazil,0.341,0.885,0.034,WMoSn,,,
+felsic_alkaline_rare,86641605fffffff,12.78,98.927,Myanmar,0.378,0.796,0.025,WMoSn,aef_std,landcover,terrain
+chemical_sedimentary,862624b0fffffff,47.0,-94.544,United States of America,0.522,0.898,0.035,Fe,aef_std,litho,landcover
+chemical_sedimentary,862624b57ffffff,46.948,-94.5,United States of America,0.505,0.894,0.022,Fe,aef_std,litho,aef_ctx25
+chemical_sedimentary,862c99317ffffff,31.362,50.589,Iran,0.431,0.977,0.012,P,aef_std,terrain,landcover
+chemical_sedimentary,862c8a497ffffff,31.676,50.041,Iran,0.437,0.961,0.025,P,aef_std,terrain,aef_ctx25
+chemical_sedimentary,86275629fffffff,46.018,-92.446,United States of America,0.45,0.926,0.03,Fe,aef_std,litho,landcover
+chemical_sedimentary,86219d777ffffff,40.614,64.772,Uzbekistan,0.488,0.854,0.021,P,aef_ctx25,aef_ctx10,aef_std
+chemical_sedimentary,862c9905fffffff,31.287,50.52,Iran,0.429,0.965,0.019,P,aef_std,terrain,landcover
+chemical_sedimentary,86262dd6fffffff,44.026,-91.972,United States of America,0.498,0.828,0.019,Fe,aef_std,aef_ctx25,litho
+chemical_sedimentary,862c993a7ffffff,31.306,50.582,Iran,0.423,0.965,0.017,P,aef_std,terrain,landcover
+chemical_sedimentary,862c8a4afffffff,31.789,50.055,Iran,0.425,0.957,0.033,P,aef_std,terrain,aef_ctx25
+chemical_sedimentary,862c990cfffffff,31.194,50.566,Iran,0.414,0.967,0.016,P,aef_std,terrain,landcover
+chemical_sedimentary,862c9974fffffff,31.138,50.735,Iran,0.414,0.961,0.015,P,aef_std,terrain,landcover
+chemical_sedimentary,8621830d7ffffff,41.193,63.264,Uzbekistan,0.472,0.841,0.038,P,aef_ctx25,aef_std,aef_ctx10
+chemical_sedimentary,862c993afffffff,31.324,50.643,Iran,0.406,0.974,0.035,P,aef_std,terrain,aef_ctx25
+chemical_sedimentary,862c99747ffffff,31.12,50.674,Iran,0.411,0.961,0.018,P,aef_std,terrain,aef_ctx25
+chemical_sedimentary,862c99217ffffff,31.306,50.759,Iran,0.408,0.966,0.019,P,aef_std,terrain,aef_mean
+chemical_sedimentary,862624a57ffffff,46.796,-94.542,United States of America,0.47,0.832,0.024,Fe,aef_std,litho,aef_ctx25
+chemical_sedimentary,862c99387ffffff,31.269,50.636,Iran,0.398,0.975,0.006,P,aef_std,terrain,landcover
+chemical_sedimentary,862c993b7ffffff,31.25,50.574,Iran,0.401,0.967,0.017,P,aef_std,terrain,aef_ctx25
+chemical_sedimentary,862c8a4e7ffffff,31.864,50.124,Iran,0.405,0.95,0.034,P,aef_std,terrain,landcover
+surficial_residual,8654ee477ffffff,10.403,-13.294,Guinea,0.346,0.909,0.032,Al,,,
+surficial_residual,86952955fffffff,-3.355,122.231,Indonesia,0.323,0.944,0.06,NiCoPGECr,,,
+surficial_residual,8654e3787ffffff,10.818,-14.083,Guinea,0.295,0.975,0.056,Al,,,
+surficial_residual,8654e345fffffff,10.909,-14.08,Guinea,0.308,0.914,0.04,Al,,,
+surficial_residual,868c8c72fffffff,-2.012,105.146,Indonesia,0.417,0.672,0.033,Al,aef_std,landcover,terrain
+surficial_residual,86952954fffffff,-3.309,122.268,Indonesia,0.337,0.816,0.051,NiCoPGECr,,,
+surficial_residual,8695290b7ffffff,-3.263,122.304,Indonesia,0.29,0.94,0.051,NiCoPGECr,,,
+surficial_residual,8654e3637ffffff,10.777,-13.998,Guinea,0.298,0.914,0.043,Al,,,
+surficial_residual,8654c588fffffff,10.33,-13.895,Guinea,0.275,0.983,0.056,Al,,,
+surficial_residual,8654e33afffffff,10.839,-13.623,Guinea,0.265,0.978,0.049,Al,,,
+surficial_residual,8644c5157ffffff,32.573,-84.466,United States of America,0.297,0.858,0.023,Al,,,
+surficial_residual,8654e36e7ffffff,10.642,-13.972,Guinea,0.261,0.974,0.029,Al,,,
+surficial_residual,86689894fffffff,-1.707,115.84,Indonesia,0.372,0.68,0.052,P,aef_std,landcover,terrain
+surficial_residual,86608d4c7ffffff,17.643,73.448,India,0.261,0.958,0.031,Al,,,
+surficial_residual,8654e371fffffff,10.824,-13.968,Guinea,0.252,0.987,0.057,Al,,,
+surficial_residual,8654e34efffffff,10.906,-14.138,Guinea,0.256,0.959,0.069,Al,,,
+surficial_residual,8654e331fffffff,10.842,-13.565,Guinea,0.253,0.969,0.041,Al,,,
+surficial_residual,86395484fffffff,39.958,-0.278,Spain,0.331,0.738,0.053,Al,,,
+surficial_residual,868d964dfffffff,-3.774,115.347,Indonesia,0.379,0.644,0.038,Au,aef_std,landcover,aef_ctx25
+surficial_residual,8644c50a7ffffff,32.606,-84.236,United States of America,0.263,0.926,0.042,Al,,,
+sandstone_u,869458d8fffffff,-13.197,132.8,Australia,0.404,0.815,0.038,U,aef_std,litho,terrain
+sandstone_u,869458d97ffffff,-13.23,132.699,Australia,0.348,0.823,0.044,U,,,
+sandstone_u,86279d547ffffff,45.859,-106.879,United States of America,0.294,0.957,0.042,U,,,
+sandstone_u,862691b5fffffff,39.65,-108.959,United States of America,0.331,0.829,0.033,U,,,
+sandstone_u,869458d9fffffff,-13.241,132.76,Australia,0.363,0.706,0.053,U,aef_std,litho,terrain
+sandstone_u,86278a577ffffff,45.317,-105.627,United States of America,0.273,0.922,0.041,U,,,
+sandstone_u,862799c07ffffff,45.126,-106.955,United States of America,0.259,0.932,0.04,U,,,
+sandstone_u,86278acdfffffff,45.367,-105.594,United States of America,0.251,0.956,0.042,U,,,
+sandstone_u,8648c825fffffff,35.567,-110.417,United States of America,0.244,0.933,0.038,U,,,
+sandstone_u,8626939a7ffffff,39.582,-110.926,United States of America,0.253,0.891,0.026,U,,,
+sandstone_u,86279d40fffffff,45.751,-107.03,United States of America,0.232,0.959,0.038,U,,,
+sandstone_u,869458ca7ffffff,-13.252,132.821,Australia,0.293,0.757,0.08,U,,,
+sandstone_u,8626d1777ffffff,34.802,-101.417,United States of America,0.362,0.61,0.023,U,aef_std,landcover,terrain
+sandstone_u,86945e36fffffff,-13.284,132.721,Australia,0.283,0.766,0.063,U,,,
+sandstone_u,869458cb7ffffff,-13.295,132.782,Australia,0.308,0.7,0.049,U,,,
+sandstone_u,862691b47ffffff,39.705,-108.929,United States of America,0.266,0.803,0.028,U,,,
+sandstone_u,8626d1667ffffff,34.644,-101.363,United States of America,0.258,0.826,0.046,U,,,
+sandstone_u,862691adfffffff,39.421,-109.158,United States of America,0.3,0.709,0.025,U,,,
+sandstone_u,86269a097ffffff,37.266,-110.07,United States of America,0.233,0.902,0.07,U,,,
+sandstone_u,862799d9fffffff,45.157,-107.174,United States of America,0.294,0.716,0.036,U,,,

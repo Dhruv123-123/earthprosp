@@ -1,0 +1,951 @@
+region,region_key,prospect,h3,lat,lon,blend,fine_rank,district_rank,footprint_cells,seed_rank_std,seed_top1pct_share,frontier,deposit_styles,likely_system,system_share,likely_commodities,global_percentile_36km2
+Great Basin and Arizona,wus,1,88298db525fffff,38.1846,-120.3465,0.9959,0.9935,0.9984,14,0.0014,1.0,False,"Carlin-type gold, porphyry copper, Mother Lode gold",epithermal_orogenic_au,0.939,"Au, Ag",0.9971
+Great Basin and Arizona,wus,2,882836585bfffff,37.7568,-120.3012,0.9932,0.9969,0.9894,4,0.0013,1.0,False,"Carlin-type gold, porphyry copper, Mother Lode gold",epithermal_orogenic_au,0.842,"Au, NiCoPGECr",0.9953
+Great Basin and Arizona,wus,3,88298da665fffff,38.2459,-120.4488,0.9929,0.9939,0.992,27,0.0007,1.0,False,"Carlin-type gold, porphyry copper, Mother Lode gold",epithermal_orogenic_au,0.916,"Au, Ag",0.9957
+Great Basin and Arizona,wus,4,8848eb5545fffff,33.3807,-110.8143,0.9904,0.9878,0.9931,5,0.001,1.0,False,"Carlin-type gold, porphyry copper, Mother Lode gold",porphyry_skarn_cu,0.316,"Cu, Au",0.9959
+Great Basin and Arizona,wus,5,8848eec5d5fffff,31.4252,-109.9579,0.9904,0.9903,0.9905,9,0.0014,1.0,False,"Carlin-type gold, porphyry copper, Mother Lode gold",epithermal_orogenic_au,0.408,"Cu, Ag",0.9955
+Great Basin and Arizona,wus,6,8828a48e25fffff,40.3633,-117.4824,0.9891,0.9863,0.9919,15,0.0013,1.0,False,"Carlin-type gold, porphyry copper, Mother Lode gold",epithermal_orogenic_au,0.715,"HgSbAs, Au",0.9957
+Great Basin and Arizona,wus,7,8829b149b5fffff,35.3962,-114.098,0.9891,0.9813,0.9969,1,0.0027,1.0,False,"Carlin-type gold, porphyry copper, Mother Lode gold",epithermal_orogenic_au,0.498,"Au, Ag",0.9967
+Great Basin and Arizona,wus,8,88298b7b31fffff,40.3563,-118.1644,0.9889,0.9906,0.9872,3,0.0019,1.0,False,"Carlin-type gold, porphyry copper, Mother Lode gold",epithermal_orogenic_au,0.735,"Au, Ag",0.995
+Great Basin and Arizona,wus,9,88298ea633fffff,38.4046,-118.0331,0.9887,0.9831,0.9943,3,0.0024,1.0,False,"Carlin-type gold, porphyry copper, Mother Lode gold",epithermal_orogenic_au,0.504,"HgSbAs, Au",0.9961
+Great Basin and Arizona,wus,10,882832c515fffff,38.6293,-120.7651,0.9886,0.9938,0.9835,4,0.0011,1.0,False,"Carlin-type gold, porphyry copper, Mother Lode gold",epithermal_orogenic_au,0.899,"Au, Ag",0.9945
+Great Basin and Arizona,wus,11,88485b7133fffff,33.149,-114.6211,0.9874,0.9773,0.9976,4,0.003,1.0,False,"Carlin-type gold, porphyry copper, Mother Lode gold",epithermal_orogenic_au,0.348,"Au, Cu",0.9969
+Great Basin and Arizona,wus,12,88298db025fffff,38.1009,-120.2433,0.9868,0.9873,0.9862,1,0.0022,1.0,False,"Carlin-type gold, porphyry copper, Mother Lode gold",epithermal_orogenic_au,0.885,"Au, Ag",0.9948
+Great Basin and Arizona,wus,13,8829891b25fffff,39.3484,-119.5331,0.9867,0.9871,0.9864,5,0.0014,1.0,False,"Carlin-type gold, porphyry copper, Mother Lode gold",epithermal_orogenic_au,0.744,"Au, Ag",0.9949
+Great Basin and Arizona,wus,14,8829a9c417fffff,36.4163,-120.7509,0.9866,0.9846,0.9887,3,0.0019,1.0,False,"Carlin-type gold, porphyry copper, Mother Lode gold",epithermal_orogenic_au,0.717,"HgSbAs, NiCoPGECr",0.9952
+Great Basin and Arizona,wus,15,8848c5aa5bfffff,32.1097,-109.3063,0.9863,0.9746,0.9982,4,0.0018,1.0,False,"Carlin-type gold, porphyry copper, Mother Lode gold",epithermal_orogenic_au,0.418,"Ag, Au",0.997
+Great Basin and Arizona,wus,16,88298b5055fffff,39.9865,-118.0434,0.9861,0.9742,0.9981,7,0.005,1.0,False,"Carlin-type gold, porphyry copper, Mother Lode gold",epithermal_orogenic_au,0.662,"HgSbAs, Ag",0.997
+Great Basin and Arizona,wus,17,88298bd2b5fffff,39.6102,-118.2668,0.9858,0.9721,0.9996,14,0.0038,1.0,False,"Carlin-type gold, porphyry copper, Mother Lode gold",epithermal_orogenic_au,0.589,"Ag, Au",0.9978
+Great Basin and Arizona,wus,18,8848e8d447fffff,31.8127,-111.1377,0.9857,0.9811,0.9903,1,0.0031,1.0,False,"Carlin-type gold, porphyry copper, Mother Lode gold",porphyry_skarn_cu,0.462,"Cu, Ag",0.9955
+Great Basin and Arizona,wus,19,8848eb1a1bfffff,33.268,-111.1366,0.9857,0.9736,0.9979,9,0.0032,1.0,False,"Carlin-type gold, porphyry copper, Mother Lode gold",epithermal_orogenic_au,0.332,"Cu, Ag",0.9969
+Great Basin and Arizona,wus,20,88298aae0dfffff,39.5523,-117.86,0.9856,0.9748,0.9965,6,0.0033,1.0,False,"Carlin-type gold, porphyry copper, Mother Lode gold",epithermal_orogenic_au,0.759,"Ag, Au",0.9966
+Great Basin and Arizona,wus,21,88298104a5fffff,37.482,-117.4717,0.9856,0.984,0.9871,5,0.0016,1.0,False,"Carlin-type gold, porphyry copper, Mother Lode gold",epithermal_orogenic_au,0.629,"Au, Ag",0.995
+Great Basin and Arizona,wus,22,8829b1a535fffff,35.1777,-115.4437,0.9851,0.9791,0.9911,10,0.0025,1.0,False,"Carlin-type gold, porphyry copper, Mother Lode gold",epithermal_orogenic_au,0.454,"Au, Ag",0.9956
+Great Basin and Arizona,wus,23,88298b09d5fffff,40.1824,-118.3814,0.9848,0.9921,0.9775,8,0.0006,1.0,False,"Carlin-type gold, porphyry copper, Mother Lode gold",epithermal_orogenic_au,0.554,"Au, Ag",0.9939
+Great Basin and Arizona,wus,24,88298d94abfffff,37.9129,-120.1328,0.9843,0.9734,0.9952,7,0.0024,1.0,False,"Carlin-type gold, porphyry copper, Mother Lode gold",epithermal_orogenic_au,0.918,"Au, Ag",0.9963
+Great Basin and Arizona,wus,25,8829812eb3fffff,37.8296,-117.7208,0.9842,0.9748,0.9938,1,0.0027,1.0,False,"Carlin-type gold, porphyry copper, Mother Lode gold",epithermal_orogenic_au,0.638,"Au, Ag",0.996
+Great Basin and Arizona,wus,26,8829ab2da5fffff,37.7754,-120.0316,0.9842,0.9866,0.9817,6,0.0016,1.0,False,"Carlin-type gold, porphyry copper, Mother Lode gold",epithermal_orogenic_au,0.913,"Au, Ag",0.9943
+Great Basin and Arizona,wus,27,8848eb0b4bfffff,33.4066,-111.0318,0.984,0.9692,0.9991,3,0.0063,1.0,False,"Carlin-type gold, porphyry copper, Mother Lode gold",porphyry_skarn_cu,0.452,"Cu, Au",0.9974
+Great Basin and Arizona,wus,28,8829b0b225fffff,34.2916,-114.1433,0.9832,0.9687,0.998,1,0.0021,1.0,False,"Carlin-type gold, porphyry copper, Mother Lode gold",porphyry_skarn_cu,0.444,"Au, Cu",0.997
+Great Basin and Arizona,wus,29,8829812b13fffff,37.7147,-117.4422,0.9832,0.9736,0.9928,4,0.0022,1.0,False,"Carlin-type gold, porphyry copper, Mother Lode gold",epithermal_orogenic_au,0.629,"Ag, Au",0.9959
+Great Basin and Arizona,wus,30,8829b13129fffff,35.3224,-115.0844,0.9825,0.9737,0.9914,4,0.0033,1.0,False,"Carlin-type gold, porphyry copper, Mother Lode gold",epithermal_orogenic_au,0.593,"Au, Ag",0.9956
+Great Basin and Arizona,wus,31,8829ab1ae1fffff,37.1527,-119.5983,0.9823,0.9858,0.9788,3,0.0012,1.0,False,"Carlin-type gold, porphyry copper, Mother Lode gold",epithermal_orogenic_au,0.878,"Au, Ag",0.994
+Great Basin and Arizona,wus,32,882832d82bfffff,38.4776,-120.4547,0.9823,0.9815,0.983,10,0.0038,1.0,False,"Carlin-type gold, porphyry copper, Mother Lode gold",epithermal_orogenic_au,0.914,"Au, Ag",0.9944
+Great Basin and Arizona,wus,33,882988726dfffff,39.1296,-118.3625,0.9821,0.9704,0.994,2,0.004,1.0,False,"Carlin-type gold, porphyry copper, Mother Lode gold",epithermal_orogenic_au,0.475,"WMoSn, Au",0.9961
+Great Basin and Arizona,wus,34,8829a3d61bfffff,34.655,-117.141,0.982,0.973,0.991,1,0.0035,1.0,False,"Carlin-type gold, porphyry copper, Mother Lode gold",epithermal_orogenic_au,0.545,"Au, Fe",0.9955
+Great Basin and Arizona,wus,35,8848c5a0edfffff,32.1334,-109.4341,0.9818,0.9749,0.9887,3,0.0011,1.0,False,"Carlin-type gold, porphyry copper, Mother Lode gold",epithermal_orogenic_au,0.442,"Ag, Au",0.9952
+Great Basin and Arizona,wus,36,882698da93fffff,38.2724,-108.918,0.9817,0.9854,0.978,1,0.0024,1.0,False,"Carlin-type gold, porphyry copper, Mother Lode gold",sandstone_u,0.697,"U, Cu",0.994
+Great Basin and Arizona,wus,37,8848ee16d3fffff,31.5406,-110.4068,0.9816,0.9804,0.9827,16,0.0034,1.0,False,"Carlin-type gold, porphyry copper, Mother Lode gold",epithermal_orogenic_au,0.333,"Cu, Ag",0.9944
+Great Basin and Arizona,wus,38,88298b2893fffff,40.4856,-118.8443,0.9816,0.9813,0.9818,5,0.0018,1.0,False,"Carlin-type gold, porphyry copper, Mother Lode gold",epithermal_orogenic_au,0.627,"Au, Ag",0.9943
+Great Basin and Arizona,wus,39,8829b08ae3fffff,34.2378,-113.6927,0.9812,0.9712,0.9912,5,0.0022,1.0,False,"Carlin-type gold, porphyry copper, Mother Lode gold",epithermal_orogenic_au,0.382,"Au, Cu",0.9956
+Great Basin and Arizona,wus,40,88485b7549fffff,33.1685,-114.7882,0.9811,0.9631,0.9994,2,0.0026,1.0,False,"Carlin-type gold, porphyry copper, Mother Lode gold",chemical_sedimentary,0.45,"Mn, Au",0.9976
+Great Basin and Arizona,wus,41,8829b2d039fffff,34.6631,-112.0637,0.9806,0.9919,0.9694,7,0.0012,1.0,False,"Carlin-type gold, porphyry copper, Mother Lode gold",epithermal_orogenic_au,0.427,"Cu, Au",0.9931
+Great Basin and Arizona,wus,42,8828a48dbdfffff,40.4779,-117.4617,0.9806,0.986,0.9752,4,0.0016,1.0,False,"Carlin-type gold, porphyry copper, Mother Lode gold",felsic_alkaline_rare,0.556,"WMoSn, Au",0.9937
+Great Basin and Arizona,wus,43,8848ebca27fffff,33.1026,-110.736,0.9806,0.9618,0.9997,3,0.002,1.0,False,"Carlin-type gold, porphyry copper, Mother Lode gold",porphyry_skarn_cu,0.351,"Cu, Au",0.9979
+Great Basin and Arizona,wus,44,8848e83a2bfffff,32.4499,-111.4662,0.9805,0.9713,0.9899,3,0.0038,1.0,False,"Carlin-type gold, porphyry copper, Mother Lode gold",epithermal_orogenic_au,0.39,"Cu, Ag",0.9954
+Great Basin and Arizona,wus,45,8848ea0481fffff,32.9273,-110.2806,0.9804,0.9638,0.9972,7,0.0042,1.0,False,"Carlin-type gold, porphyry copper, Mother Lode gold",porphyry_skarn_cu,0.346,"Cu, Ag",0.9968
+Great Basin and Arizona,wus,46,8829abc093fffff,37.0077,-119.452,0.9802,0.9751,0.9852,1,0.0008,1.0,False,"Carlin-type gold, porphyry copper, Mother Lode gold",magmatic_mafic,0.574,"NiCoPGECr, Au",0.9947
+Great Basin and Arizona,wus,47,8829ae18c5fffff,35.578,-118.3364,0.9802,0.961,0.9997,3,0.0026,1.0,False,"Carlin-type gold, porphyry copper, Mother Lode gold",felsic_alkaline_rare,0.483,"WMoSn, Au",0.9981
+Great Basin and Arizona,wus,48,8829b6a99dfffff,34.0663,-112.7682,0.98,0.9805,0.9795,2,0.002,1.0,False,"Carlin-type gold, porphyry copper, Mother Lode gold",epithermal_orogenic_au,0.353,"Mn, Au",0.9941
+Great Basin and Arizona,wus,49,8848eeceabfffff,31.4538,-109.8557,0.98,0.9676,0.9926,9,0.0057,1.0,False,"Carlin-type gold, porphyry copper, Mother Lode gold",epithermal_orogenic_au,0.408,"Cu, Ag",0.9958
+Great Basin and Arizona,wus,50,88298c45ddfffff,38.071,-118.164,0.98,0.9703,0.9897,8,0.005,1.0,False,"Carlin-type gold, porphyry copper, Mother Lode gold",epithermal_orogenic_au,0.375,"BaF, Au",0.9953
+Central Andes,andes,1,88b2e6289bfffff,-31.3614,-71.0151,0.9988,0.9986,0.9991,5,0.0009,1.0,False,"Porphyry copper, IOCG, epithermal gold and silver",porphyry_skarn_cu,0.737,"Cu, Au",0.9998
+Central Andes,andes,2,88b21911a3fffff,-29.8569,-71.1388,0.9986,0.9989,0.9984,30,0.0015,1.0,False,"Porphyry copper, IOCG, epithermal gold and silver",porphyry_skarn_cu,0.571,"Cu, Au",0.9998
+Central Andes,andes,3,88b2e295dbfffff,-31.5657,-70.9475,0.9985,0.9984,0.9986,72,0.0009,1.0,False,"Porphyry copper, IOCG, epithermal gold and silver",porphyry_skarn_cu,0.817,"Cu, Au",0.9998
+Central Andes,andes,4,88b2e629a7fffff,-31.3813,-71.1375,0.9985,0.9977,0.9992,36,0.0017,1.0,False,"Porphyry copper, IOCG, epithermal gold and silver",porphyry_skarn_cu,0.777,"Cu, Au",0.9998
+Central Andes,andes,5,88b321a61bfffff,-16.9503,-67.4453,0.9982,0.9967,0.9998,20,0.0014,1.0,False,"Porphyry copper, IOCG, epithermal gold and silver",felsic_alkaline_rare,0.682,"WMoSn, PbZn",0.9999
+Central Andes,andes,6,88b2190cd7fffff,-30.1193,-71.0642,0.9982,0.9995,0.9969,60,0.0004,1.0,False,"Porphyry copper, IOCG, epithermal gold and silver",porphyry_skarn_cu,0.748,"Cu, Au",0.9997
+Central Andes,andes,7,88b2e615b9fffff,-30.9445,-71.0691,0.9982,0.9971,0.9992,81,0.0014,1.0,False,"Porphyry copper, IOCG, epithermal gold and silver",porphyry_skarn_cu,0.636,"Cu, Au",0.9998
+Central Andes,andes,8,88b2e2af17fffff,-32.0017,-70.8706,0.9981,0.9991,0.9971,56,0.0008,1.0,False,"Porphyry copper, IOCG, epithermal gold and silver",porphyry_skarn_cu,0.822,"Cu, Au",0.9997
+Central Andes,andes,9,88b2e28543fffff,-31.6656,-71.0248,0.998,0.9978,0.9982,3,0.0011,1.0,False,"Porphyry copper, IOCG, epithermal gold and silver",porphyry_skarn_cu,0.834,"Cu, Au",0.9998
+Central Andes,andes,10,88b2e62841fffff,-31.2915,-71.0827,0.9979,0.9973,0.9985,22,0.0013,1.0,False,"Porphyry copper, IOCG, epithermal gold and silver",porphyry_skarn_cu,0.705,"Cu, Au",0.9998
+Central Andes,andes,11,888b2d9431fffff,-16.8977,-67.3504,0.9976,0.9952,1.0,45,0.0009,1.0,False,"Porphyry copper, IOCG, epithermal gold and silver",felsic_alkaline_rare,0.742,"WMoSn, HgSbAs",0.9999
+Central Andes,andes,12,88b21910dbfffff,-29.8179,-71.0245,0.9976,0.9989,0.9962,26,0.0002,1.0,False,"Porphyry copper, IOCG, epithermal gold and silver",porphyry_skarn_cu,0.554,"Cu, Au",0.9997
+Central Andes,andes,13,88b2e2aa49fffff,-31.8762,-70.961,0.9974,0.9955,0.9993,81,0.0011,1.0,False,"Porphyry copper, IOCG, epithermal gold and silver",porphyry_skarn_cu,0.785,"Cu, Au",0.9998
+Central Andes,andes,14,88b2e68893fffff,-30.7204,-71.1101,0.9974,0.9977,0.9971,39,0.0007,1.0,False,"Porphyry copper, IOCG, epithermal gold and silver",porphyry_skarn_cu,0.775,"Cu, Au",0.9997
+Central Andes,andes,15,88b321912bfffff,-16.4393,-67.9527,0.9973,0.9952,0.9994,65,0.0014,1.0,False,"Porphyry copper, IOCG, epithermal gold and silver",felsic_alkaline_rare,0.64,"WMoSn, PbZn",0.9999
+Central Andes,andes,16,88b2e2908bfffff,-31.4948,-71.0491,0.9971,0.9948,0.9994,59,0.0007,1.0,False,"Porphyry copper, IOCG, epithermal gold and silver",porphyry_skarn_cu,0.543,"Cu, Au",0.9999
+Central Andes,andes,17,88b2e230b9fffff,-32.1506,-70.965,0.997,0.9976,0.9964,61,0.0008,1.0,False,"Porphyry copper, IOCG, epithermal gold and silver",porphyry_skarn_cu,0.791,"Cu, Au",0.9997
+Central Andes,andes,18,88b2196667fffff,-30.3174,-71.147,0.9968,0.9996,0.994,7,1e-04,1.0,False,"Porphyry copper, IOCG, epithermal gold and silver",porphyry_skarn_cu,0.817,"Cu, Au",0.9996
+Central Andes,andes,19,88b2e604dbfffff,-31.0529,-70.9865,0.9965,0.9961,0.997,40,0.0016,1.0,False,"Porphyry copper, IOCG, epithermal gold and silver",porphyry_skarn_cu,0.782,"Cu, Au",0.9997
+Central Andes,andes,20,88b2e61727fffff,-30.8562,-71.1103,0.9964,0.9993,0.9935,61,0.0007,1.0,False,"Porphyry copper, IOCG, epithermal gold and silver",porphyry_skarn_cu,0.688,"Cu, Au",0.9996
+Central Andes,andes,21,88b32cd297fffff,-17.0909,-67.2859,0.996,0.993,0.999,22,0.0021,1.0,False,"Porphyry copper, IOCG, epithermal gold and silver",felsic_alkaline_rare,0.704,"WMoSn, PbZn",0.9998
+Central Andes,andes,22,88b22281ebfffff,-24.3239,-70.5095,0.9959,0.9967,0.9951,3,0.0021,1.0,False,"Porphyry copper, IOCG, epithermal gold and silver",porphyry_skarn_cu,0.846,"Cu, Au",0.9997
+Central Andes,andes,23,88b2e2271dfffff,-32.2729,-70.899,0.9957,0.9948,0.9966,34,0.0024,1.0,False,"Porphyry copper, IOCG, epithermal gold and silver",porphyry_skarn_cu,0.776,"Cu, Au",0.9997
+Central Andes,andes,24,88b2e2ba9bfffff,-31.81,-70.8836,0.9957,0.9955,0.9959,29,0.0031,1.0,False,"Porphyry copper, IOCG, epithermal gold and silver",porphyry_skarn_cu,0.831,"Cu, Au",0.9997
+Central Andes,andes,25,88b2e68351fffff,-30.5381,-71.0348,0.9957,0.9962,0.9952,78,0.0018,1.0,False,"Porphyry copper, IOCG, epithermal gold and silver",porphyry_skarn_cu,0.79,"Cu, Au",0.9997
+Central Andes,andes,26,88b2192911fffff,-30.32,-71.0364,0.9957,0.9979,0.9935,29,0.0008,1.0,False,"Porphyry copper, IOCG, epithermal gold and silver",porphyry_skarn_cu,0.719,"Cu, Au",0.9996
+Central Andes,andes,27,88b2e63909fffff,-31.1714,-71.1334,0.9955,0.9964,0.9946,19,0.002,1.0,False,"Porphyry copper, IOCG, epithermal gold and silver",porphyry_skarn_cu,0.73,"Cu, Au",0.9997
+Central Andes,andes,28,88b2e6319bfffff,-31.1553,-70.9095,0.9953,0.9979,0.9927,28,0.0009,1.0,False,"Porphyry copper, IOCG, epithermal gold and silver",porphyry_skarn_cu,0.756,"Cu, Au",0.9996
+Central Andes,andes,29,88b2e6161bfffff,-30.8364,-70.9882,0.9951,0.992,0.9982,74,0.0021,1.0,False,"Porphyry copper, IOCG, epithermal gold and silver",porphyry_skarn_cu,0.741,"Cu, Au",0.9998
+Central Andes,andes,30,88b2e220a7fffff,-32.2972,-71.0067,0.9951,0.9945,0.9958,43,0.0013,1.0,False,"Porphyry copper, IOCG, epithermal gold and silver",porphyry_skarn_cu,0.83,"Cu, Au",0.9997
+Central Andes,andes,31,88b32186e7fffff,-16.6529,-67.7176,0.995,0.9902,0.9998,48,0.0026,1.0,False,"Porphyry copper, IOCG, epithermal gold and silver",felsic_alkaline_rare,0.794,"WMoSn, PbZn",0.9999
+Central Andes,andes,32,88b219c6cdfffff,-29.6773,-71.1778,0.995,0.9971,0.9929,31,0.0014,1.0,False,"Porphyry copper, IOCG, epithermal gold and silver",porphyry_skarn_cu,0.622,"Cu, Au",0.9996
+Central Andes,andes,33,88b2e6030dfffff,-30.9055,-71.2477,0.9946,0.9908,0.9984,56,0.0013,1.0,False,"Porphyry copper, IOCG, epithermal gold and silver",porphyry_skarn_cu,0.699,"Cu, Au",0.9998
+Central Andes,andes,34,88b2190443fffff,-29.9924,-70.9573,0.9944,0.9977,0.9912,65,0.0009,1.0,False,"Porphyry copper, IOCG, epithermal gold and silver",porphyry_skarn_cu,0.759,"Cu, Au",0.9995
+Central Andes,andes,35,88b2e28cb1fffff,-31.8031,-71.0872,0.9944,0.9938,0.995,45,0.0017,1.0,False,"Porphyry copper, IOCG, epithermal gold and silver",porphyry_skarn_cu,0.797,"Cu, Au",0.9997
+Central Andes,andes,36,88b2e69a15fffff,-30.4776,-71.1248,0.9943,0.9956,0.993,92,0.0032,1.0,False,"Porphyry copper, IOCG, epithermal gold and silver",porphyry_skarn_cu,0.809,"Cu, Au",0.9996
+Central Andes,andes,37,88b321b75bfffff,-16.7768,-67.494,0.9938,0.9897,0.998,23,0.0022,1.0,False,"Porphyry copper, IOCG, epithermal gold and silver",felsic_alkaline_rare,0.843,"WMoSn, PbZn",0.9998
+Central Andes,andes,38,88b2e66621fffff,-31.3437,-71.2392,0.9937,0.9895,0.9979,98,0.0027,1.0,False,"Porphyry copper, IOCG, epithermal gold and silver",porphyry_skarn_cu,0.72,"Cu, Au",0.9998
+Central Andes,andes,39,88b2e60425fffff,-31.0359,-71.0899,0.9935,0.9986,0.9885,26,0.0009,1.0,False,"Porphyry copper, IOCG, epithermal gold and silver",porphyry_skarn_cu,0.723,"Cu, Au",0.9994
+Central Andes,andes,40,88b32c816dfffff,-17.1637,-67.0339,0.9935,0.9891,0.998,21,0.0025,1.0,False,"Porphyry copper, IOCG, epithermal gold and silver",felsic_alkaline_rare,0.487,"WMoSn, PbZn",0.9998
+Central Andes,andes,41,88b2e2a9a3fffff,-32.0222,-71.0366,0.9933,0.9924,0.9942,9,0.0015,1.0,False,"Porphyry copper, IOCG, epithermal gold and silver",porphyry_skarn_cu,0.816,"Cu, Au",0.9996
+Central Andes,andes,42,88b2e61163fffff,-30.814,-71.2701,0.9929,0.9875,0.9983,16,0.0034,1.0,False,"Porphyry copper, IOCG, epithermal gold and silver",porphyry_skarn_cu,0.598,"Cu, Au",0.9998
+Central Andes,andes,43,88b219d6c7fffff,-29.5439,-71.1626,0.9925,0.9929,0.9922,9,0.001,1.0,False,"Porphyry copper, IOCG, epithermal gold and silver",porphyry_skarn_cu,0.605,"Cu, Au",0.9996
+Central Andes,andes,44,88b2190de1fffff,-30.1225,-71.1692,0.9925,0.9973,0.9877,17,0.0011,1.0,False,"Porphyry copper, IOCG, epithermal gold and silver",porphyry_skarn_cu,0.683,"Cu, Au",0.9994
+Central Andes,andes,45,88b21902e3fffff,-29.9195,-71.0584,0.9923,0.9945,0.9902,26,0.0045,1.0,False,"Porphyry copper, IOCG, epithermal gold and silver",porphyry_skarn_cu,0.715,"Cu, Au",0.9995
+Central Andes,andes,46,88b222142bfffff,-24.6003,-70.5111,0.9923,0.99,0.9945,42,0.003,1.0,False,"Porphyry copper, IOCG, epithermal gold and silver",porphyry_skarn_cu,0.878,"Cu, Au",0.9997
+Central Andes,andes,47,88b2e29a69fffff,-31.4595,-71.247,0.9922,0.9932,0.9912,45,0.0013,1.0,False,"Porphyry copper, IOCG, epithermal gold and silver",porphyry_skarn_cu,0.828,"Cu, Au",0.9995
+Central Andes,andes,48,88b2e6845dfffff,-30.6452,-70.8567,0.992,0.9865,0.9975,46,0.0014,1.0,False,"Porphyry copper, IOCG, epithermal gold and silver",porphyry_skarn_cu,0.606,"Cu, PbZn",0.9998
+Central Andes,andes,49,88b2e68193fffff,-30.6579,-71.018,0.9919,0.9974,0.9864,58,0.0015,1.0,False,"Porphyry copper, IOCG, epithermal gold and silver",porphyry_skarn_cu,0.778,"Cu, Au",0.9994
+Central Andes,andes,50,88b2e68a59fffff,-30.5932,-71.1231,0.9918,0.9944,0.9892,34,0.0016,1.0,False,"Porphyry copper, IOCG, epithermal gold and silver",porphyry_skarn_cu,0.847,"Cu, Au",0.9994
+Northern Andes,n_andes,1,888f5866a9fffff,-9.8708,-77.5575,0.9998,0.9998,0.9998,45,1e-04,1.0,False,"Porphyry copper-gold, epithermal gold, Peruvian polymetallic",sed_hosted_base,0.659,"PbZn, Ag",0.9999
+Northern Andes,n_andes,2,888f58ccb5fffff,-9.255,-77.8039,0.9996,0.9995,0.9998,70,0.0003,1.0,False,"Porphyry copper-gold, epithermal gold, Peruvian polymetallic",sed_hosted_base,0.455,"PbZn, Ag",0.9998
+Northern Andes,n_andes,3,888f594369fffff,-10.0237,-77.0885,0.9995,0.9994,0.9997,54,0.0003,1.0,False,"Porphyry copper-gold, epithermal gold, Peruvian polymetallic",sed_hosted_base,0.504,"PbZn, Ag",0.9998
+Northern Andes,n_andes,4,888f5872a1fffff,-9.6144,-77.6828,0.9995,0.9998,0.9991,65,0.0002,1.0,False,"Porphyry copper-gold, epithermal gold, Peruvian polymetallic",sed_hosted_base,0.702,"PbZn, Ag",0.9998
+Northern Andes,n_andes,5,888f59d943fffff,-9.5863,-77.0436,0.9994,0.9997,0.9991,60,0.0002,1.0,False,"Porphyry copper-gold, epithermal gold, Peruvian polymetallic",sed_hosted_base,0.489,"PbZn, Ag",0.9998
+Northern Andes,n_andes,6,888f5b911bfffff,-9.9916,-77.5001,0.999,0.9987,0.9993,39,0.001,1.0,False,"Porphyry copper-gold, epithermal gold, Peruvian polymetallic",sed_hosted_base,0.457,"PbZn, Ag",0.9998
+Northern Andes,n_andes,7,888f594ee1fffff,-10.2444,-77.0076,0.999,0.9996,0.9984,45,0.0002,1.0,False,"Porphyry copper-gold, epithermal gold, Peruvian polymetallic",sed_hosted_base,0.556,"PbZn, Ag",0.9997
+Northern Andes,n_andes,8,888f583a13fffff,-9.6022,-77.3812,0.9989,0.9985,0.9992,74,0.0009,1.0,False,"Porphyry copper-gold, epithermal gold, Peruvian polymetallic",sed_hosted_base,0.598,"PbZn, Ag",0.9998
+Northern Andes,n_andes,9,888f58b969fffff,-9.2189,-77.3261,0.9986,0.9983,0.9989,42,0.0008,1.0,False,"Porphyry copper-gold, epithermal gold, Peruvian polymetallic",sed_hosted_base,0.526,"PbZn, Ag",0.9998
+Northern Andes,n_andes,10,888f59423bfffff,-10.0628,-77.0022,0.9986,0.9988,0.9985,67,0.0007,1.0,False,"Porphyry copper-gold, epithermal gold, Peruvian polymetallic",sed_hosted_base,0.545,"PbZn, Ag",0.9997
+Northern Andes,n_andes,11,8866e67867fffff,4.4708,-75.5546,0.9986,0.9985,0.9987,9,0.0007,1.0,False,"Porphyry copper-gold, epithermal gold, Peruvian polymetallic",epithermal_orogenic_au,0.933,"Au, Ag",0.9997
+Northern Andes,n_andes,12,888f5c6a69fffff,-8.5976,-77.7695,0.9985,0.9971,0.9999,53,0.0013,1.0,False,"Porphyry copper-gold, epithermal gold, Peruvian polymetallic",sed_hosted_base,0.395,"PbZn, Ag",0.9999
+Northern Andes,n_andes,13,888f580193fffff,-9.4529,-77.5559,0.9985,0.999,0.9979,20,0.0004,1.0,False,"Porphyry copper-gold, epithermal gold, Peruvian polymetallic",epithermal_orogenic_au,0.446,"Ag, PbZn",0.9997
+Northern Andes,n_andes,14,888f5959ddfffff,-10.0406,-77.1832,0.9984,0.9991,0.9976,48,1e-04,1.0,False,"Porphyry copper-gold, epithermal gold, Peruvian polymetallic",sed_hosted_base,0.489,"PbZn, Ag",0.9996
+Northern Andes,n_andes,15,888f59475dfffff,-10.1256,-76.9181,0.9983,0.9973,0.9994,34,0.0005,1.0,False,"Porphyry copper-gold, epithermal gold, Peruvian polymetallic",sed_hosted_base,0.497,"PbZn, HgSbAs",0.9998
+Northern Andes,n_andes,16,888f5c41a5fffff,-8.3137,-77.9425,0.9983,0.9975,0.9991,13,0.0009,1.0,False,"Porphyry copper-gold, epithermal gold, Peruvian polymetallic",porphyry_skarn_cu,0.451,"PbZn, Ag",0.9998
+Northern Andes,n_andes,17,888f5808cdfffff,-9.4638,-77.6741,0.9983,0.9993,0.9972,35,0.0006,1.0,False,"Porphyry copper-gold, epithermal gold, Peruvian polymetallic",sed_hosted_base,0.597,"PbZn, Ag",0.9996
+Northern Andes,n_andes,18,888f5830d9fffff,-9.6025,-77.2161,0.9983,0.9975,0.999,31,0.0007,1.0,False,"Porphyry copper-gold, epithermal gold, Peruvian polymetallic",sed_hosted_base,0.513,"PbZn, Ag",0.9998
+Northern Andes,n_andes,19,888f5c7b61fffff,-8.4446,-77.8205,0.9982,0.9969,0.9995,51,0.0011,1.0,False,"Porphyry copper-gold, epithermal gold, Peruvian polymetallic",sed_hosted_base,0.446,"Ag, PbZn",0.9998
+Northern Andes,n_andes,20,888f59412bfffff,-10.1126,-77.1121,0.9982,0.9971,0.9993,63,0.001,1.0,False,"Porphyry copper-gold, epithermal gold, Peruvian polymetallic",sed_hosted_base,0.51,"PbZn, Ag",0.9998
+Northern Andes,n_andes,21,888f5c559bfffff,-8.2473,-77.7292,0.9982,0.9967,0.9996,47,0.0007,1.0,False,"Porphyry copper-gold, epithermal gold, Peruvian polymetallic",porphyry_skarn_cu,0.447,"Cu, PbZn",0.9998
+Northern Andes,n_andes,22,888f5c50e3fffff,-8.1239,-77.846,0.9981,0.9989,0.9972,32,0.0003,1.0,False,"Porphyry copper-gold, epithermal gold, Peruvian polymetallic",sed_hosted_base,0.334,"PbZn, Ag",0.9996
+Northern Andes,n_andes,23,888f5b9267fffff,-9.9092,-77.462,0.998,0.999,0.997,31,0.0006,1.0,False,"Porphyry copper-gold, epithermal gold, Peruvian polymetallic",porphyry_skarn_cu,0.382,"PbZn, Ag",0.9996
+Northern Andes,n_andes,24,88661d6153fffff,6.5231,-75.2353,0.998,0.9962,0.9997,23,0.0018,1.0,False,"Porphyry copper-gold, epithermal gold, Peruvian polymetallic",epithermal_orogenic_au,0.865,"Au, Cu",0.9998
+Northern Andes,n_andes,25,8866e615e3fffff,4.7547,-75.12,0.9979,0.9985,0.9974,31,0.0005,1.0,False,"Porphyry copper-gold, epithermal gold, Peruvian polymetallic",epithermal_orogenic_au,0.92,"Au, Ag",0.9996
+Northern Andes,n_andes,26,888f594c97fffff,-10.338,-76.9985,0.9978,0.9975,0.9981,70,0.001,1.0,False,"Porphyry copper-gold, epithermal gold, Peruvian polymetallic",sed_hosted_base,0.615,"PbZn, Ag",0.9997
+Northern Andes,n_andes,27,8866e67adbfffff,4.4778,-75.4425,0.9978,0.9987,0.9968,20,0.0005,1.0,False,"Porphyry copper-gold, epithermal gold, Peruvian polymetallic",epithermal_orogenic_au,0.936,"Au, Ag",0.9996
+Northern Andes,n_andes,28,888f5899d9fffff,-8.9125,-77.5063,0.9978,0.9956,1.0,32,0.0012,1.0,False,"Porphyry copper-gold, epithermal gold, Peruvian polymetallic",sed_hosted_base,0.531,"PbZn, Ag",0.9999
+Northern Andes,n_andes,29,888e66d62dfffff,-10.737,-76.8083,0.9977,0.9957,0.9997,39,0.0012,1.0,False,"Porphyry copper-gold, epithermal gold, Peruvian polymetallic",sed_hosted_base,0.54,"PbZn, Ag",0.9998
+Northern Andes,n_andes,30,888f51201dfffff,-7.889,-78.1284,0.9977,0.9957,0.9996,43,0.001,1.0,False,"Porphyry copper-gold, epithermal gold, Peruvian polymetallic",epithermal_orogenic_au,0.442,"PbZn, Ag",0.9998
+Northern Andes,n_andes,31,888f58324dfffff,-9.4801,-77.2553,0.9976,0.9963,0.9989,55,0.0018,1.0,False,"Porphyry copper-gold, epithermal gold, Peruvian polymetallic",sed_hosted_base,0.542,"PbZn, Ag",0.9998
+Northern Andes,n_andes,32,888f595051fffff,-9.9206,-76.9976,0.9976,0.9996,0.9956,6,0.0002,1.0,False,"Porphyry copper-gold, epithermal gold, Peruvian polymetallic",sed_hosted_base,0.536,"PbZn, Ag",0.9995
+Northern Andes,n_andes,33,888f58aed1fffff,-9.4836,-77.0397,0.9976,0.997,0.9982,13,0.0046,1.0,False,"Porphyry copper-gold, epithermal gold, Peruvian polymetallic",sed_hosted_base,0.5,"PbZn, Ag",0.9997
+Northern Andes,n_andes,34,888f5c6f17fffff,-8.7456,-77.664,0.9976,0.9964,0.9987,61,0.0011,1.0,False,"Porphyry copper-gold, epithermal gold, Peruvian polymetallic",sed_hosted_base,0.43,"PbZn, Ag",0.9997
+Northern Andes,n_andes,35,888f594815fffff,-10.182,-77.1788,0.9976,0.9987,0.9964,65,0.0006,1.0,False,"Porphyry copper-gold, epithermal gold, Peruvian polymetallic",sed_hosted_base,0.545,"PbZn, Ag",0.9996
+Northern Andes,n_andes,36,888f58b9b1fffff,-9.3166,-77.2755,0.9975,0.9972,0.9979,42,0.0014,1.0,False,"Porphyry copper-gold, epithermal gold, Peruvian polymetallic",sed_hosted_base,0.454,"PbZn, Ag",0.9997
+Northern Andes,n_andes,37,888f556cadfffff,-6.9744,-78.4777,0.9975,0.998,0.9971,33,0.0006,1.0,False,"Porphyry copper-gold, epithermal gold, Peruvian polymetallic",epithermal_orogenic_au,0.428,"Au, Cu",0.9996
+Northern Andes,n_andes,38,888f59443bfffff,-10.2175,-76.8909,0.9975,0.9975,0.9974,49,0.0011,1.0,False,"Porphyry copper-gold, epithermal gold, Peruvian polymetallic",sed_hosted_base,0.537,"PbZn, Ag",0.9996
+Northern Andes,n_andes,39,888f5839ebfffff,-9.6814,-77.4699,0.9974,0.9989,0.9959,16,0.0005,1.0,False,"Porphyry copper-gold, epithermal gold, Peruvian polymetallic",sed_hosted_base,0.635,"PbZn, Ag",0.9995
+Northern Andes,n_andes,40,8866e60cb7fffff,4.5068,-75.2113,0.9974,0.9997,0.995,19,1e-04,1.0,False,"Porphyry copper-gold, epithermal gold, Peruvian polymetallic",epithermal_orogenic_au,0.946,"Au, Ag",0.9994
+Northern Andes,n_andes,41,888f5925b7fffff,-10.6013,-76.2254,0.9973,0.9983,0.9963,18,0.0004,1.0,False,"Porphyry copper-gold, epithermal gold, Peruvian polymetallic",sed_hosted_base,0.614,"PbZn, Ag",0.9996
+Northern Andes,n_andes,42,888f512ae1fffff,-7.9315,-78.2525,0.9973,0.9961,0.9985,38,0.0022,1.0,False,"Porphyry copper-gold, epithermal gold, Peruvian polymetallic",sed_hosted_base,0.371,"Cu, PbZn",0.9997
+Northern Andes,n_andes,43,888f582315fffff,-9.6991,-77.3215,0.9972,0.9977,0.9966,65,0.0008,1.0,False,"Porphyry copper-gold, epithermal gold, Peruvian polymetallic",sed_hosted_base,0.575,"PbZn, Ag",0.9996
+Northern Andes,n_andes,44,8866e60413fffff,4.6255,-75.072,0.9971,0.9996,0.9945,98,0.0002,1.0,False,"Porphyry copper-gold, epithermal gold, Peruvian polymetallic",epithermal_orogenic_au,0.914,"Au, Ag",0.9994
+Northern Andes,n_andes,45,888f58884dfffff,-9.0087,-77.5247,0.9971,0.9966,0.9975,65,0.0003,1.0,False,"Porphyry copper-gold, epithermal gold, Peruvian polymetallic",sed_hosted_base,0.446,"PbZn, Ag",0.9996
+Northern Andes,n_andes,46,888f586213fffff,-9.7411,-77.6892,0.9971,0.9989,0.9952,65,0.0002,1.0,False,"Porphyry copper-gold, epithermal gold, Peruvian polymetallic",sed_hosted_base,0.585,"PbZn, Ag",0.9995
+Northern Andes,n_andes,47,888f585485fffff,-9.3982,-77.8179,0.997,0.9974,0.9967,48,0.0015,1.0,False,"Porphyry copper-gold, epithermal gold, Peruvian polymetallic",sed_hosted_base,0.544,"PbZn, Ag",0.9996
+Northern Andes,n_andes,48,888f5b8447fffff,-10.2213,-77.345,0.997,0.996,0.9979,73,0.0022,1.0,False,"Porphyry copper-gold, epithermal gold, Peruvian polymetallic",sed_hosted_base,0.566,"PbZn, Ag",0.9997
+Northern Andes,n_andes,49,888f5c5a51fffff,-8.0801,-77.9735,0.997,0.9941,0.9998,35,0.0016,1.0,False,"Porphyry copper-gold, epithermal gold, Peruvian polymetallic",epithermal_orogenic_au,0.439,"PbZn, Ag",0.9999
+Northern Andes,n_andes,50,888f5c6cddfffff,-8.8098,-77.5893,0.9969,0.9956,0.9983,54,0.0016,1.0,False,"Porphyry copper-gold, epithermal gold, Peruvian polymetallic",sed_hosted_base,0.46,"PbZn, Ag",0.9997
+Yilgarn and Pilbara,yilgarn,1,88b84562d1fffff,-30.5528,121.2255,1.0,1.0,0.9999,92,,,False,"Archean orogenic gold, nickel sulphide, iron ore, lithium",epithermal_orogenic_au,0.476,"Au, NiCoPGECr",1.0
+Yilgarn and Pilbara,yilgarn,2,88b845c6d9fffff,-31.0862,121.4768,1.0,1.0,0.9999,116,,,False,"Archean orogenic gold, nickel sulphide, iron ore, lithium",epithermal_orogenic_au,0.743,"Au, NiCoPGECr",1.0
+Yilgarn and Pilbara,yilgarn,3,88b8453b61fffff,-30.7712,121.1781,0.9999,0.9999,0.9999,106,,,False,"Archean orogenic gold, nickel sulphide, iron ore, lithium",epithermal_orogenic_au,0.531,"Au, NiCoPGECr",1.0
+Yilgarn and Pilbara,yilgarn,4,88b8456139fffff,-30.4546,121.3267,0.9999,0.9998,1.0,87,,,False,"Archean orogenic gold, nickel sulphide, iron ore, lithium",epithermal_orogenic_au,0.754,"Au, NiCoPGECr",1.0
+Yilgarn and Pilbara,yilgarn,5,88b845c745fffff,-31.0601,121.6074,0.9999,0.9998,0.9999,68,,,False,"Archean orogenic gold, nickel sulphide, iron ore, lithium",epithermal_orogenic_au,0.777,"Au, NiCoPGECr",1.0
+Yilgarn and Pilbara,yilgarn,6,88b841986bfffff,-30.3691,121.0865,0.9999,1.0,0.9998,44,,,False,"Archean orogenic gold, nickel sulphide, iron ore, lithium",epithermal_orogenic_au,0.829,"Au, NiCoPGECr",1.0
+Yilgarn and Pilbara,yilgarn,7,88b84556e3fffff,-30.8016,121.5327,0.9999,0.9999,0.9998,62,,,False,"Archean orogenic gold, nickel sulphide, iron ore, lithium",epithermal_orogenic_au,0.854,"Au, NiCoPGECr",1.0
+Yilgarn and Pilbara,yilgarn,8,88b8454569fffff,-30.6113,121.5747,0.9999,1.0,0.9998,85,,,False,"Archean orogenic gold, nickel sulphide, iron ore, lithium",epithermal_orogenic_au,0.737,"Au, NiCoPGECr",1.0
+Yilgarn and Pilbara,yilgarn,9,88b8451463fffff,-31.0103,121.2421,0.9998,0.9999,0.9997,66,,,False,"Archean orogenic gold, nickel sulphide, iron ore, lithium",magmatic_mafic,0.659,"NiCoPGECr, Au",1.0
+Yilgarn and Pilbara,yilgarn,10,88b85905edfffff,-27.2542,120.5607,0.9998,0.9997,0.9999,39,,,False,"Archean orogenic gold, nickel sulphide, iron ore, lithium",magmatic_mafic,0.69,"NiCoPGECr, Au",1.0
+Yilgarn and Pilbara,yilgarn,11,88b845084dfffff,-30.7842,121.4283,0.9998,0.9999,0.9996,114,,,False,"Archean orogenic gold, nickel sulphide, iron ore, lithium",epithermal_orogenic_au,0.781,"Au, NiCoPGECr",1.0
+Yilgarn and Pilbara,yilgarn,12,88b84424c5fffff,-30.7741,121.8399,0.9997,0.9997,0.9997,92,,,False,"Archean orogenic gold, nickel sulphide, iron ore, lithium",epithermal_orogenic_au,0.623,"Au, NiCoPGECr",1.0
+Yilgarn and Pilbara,yilgarn,13,88b863610bfffff,-31.3916,121.7709,0.9997,0.9999,0.9994,22,,,False,"Archean orogenic gold, nickel sulphide, iron ore, lithium",epithermal_orogenic_au,0.495,"Au, NiCoPGECr",0.9999
+Yilgarn and Pilbara,yilgarn,14,88b8450651fffff,-30.954,121.1567,0.9997,1.0,0.9994,91,,,False,"Archean orogenic gold, nickel sulphide, iron ore, lithium",epithermal_orogenic_au,0.694,"Au, NiCoPGECr",0.9999
+Yilgarn and Pilbara,yilgarn,15,88b840b411fffff,-30.3803,121.5103,0.9996,0.9999,0.9993,56,,,False,"Archean orogenic gold, nickel sulphide, iron ore, lithium",epithermal_orogenic_au,0.69,"Au, NiCoPGECr",0.9999
+Yilgarn and Pilbara,yilgarn,16,88b845c525fffff,-30.9678,121.6065,0.9996,0.9997,0.9996,98,,,False,"Archean orogenic gold, nickel sulphide, iron ore, lithium",epithermal_orogenic_au,0.74,"Au, Cu",1.0
+Yilgarn and Pilbara,yilgarn,17,88b841a9c5fffff,-30.0486,120.6565,0.9996,0.9999,0.9993,72,,,False,"Archean orogenic gold, nickel sulphide, iron ore, lithium",epithermal_orogenic_au,0.767,"Au, NiCoPGECr",0.9999
+Yilgarn and Pilbara,yilgarn,18,88b8419331fffff,-30.4895,121.0236,0.9996,0.9998,0.9993,59,,,False,"Archean orogenic gold, nickel sulphide, iron ore, lithium",epithermal_orogenic_au,0.681,"Au, NiCoPGECr",0.9999
+Yilgarn and Pilbara,yilgarn,19,88b845d6c1fffff,-31.2111,121.5617,0.9996,0.9998,0.9993,102,,,False,"Archean orogenic gold, nickel sulphide, iron ore, lithium",magmatic_mafic,0.683,"NiCoPGECr, Au",0.9999
+Yilgarn and Pilbara,yilgarn,20,88b859c543fffff,-27.4178,120.9352,0.9996,0.9999,0.9992,49,,,False,"Archean orogenic gold, nickel sulphide, iron ore, lithium",epithermal_orogenic_au,0.595,"Au, NiCoPGECr",0.9999
+Yilgarn and Pilbara,yilgarn,21,88a7a1d481fffff,-26.6157,118.5007,0.9995,0.9999,0.9991,52,,,False,"Archean orogenic gold, nickel sulphide, iron ore, lithium",epithermal_orogenic_au,0.873,"Au, Cu",0.9999
+Yilgarn and Pilbara,yilgarn,22,88b84190d7fffff,-30.477,120.9137,0.9995,0.9999,0.9992,75,,,False,"Archean orogenic gold, nickel sulphide, iron ore, lithium",epithermal_orogenic_au,0.543,"Au, NiCoPGECr",0.9999
+Yilgarn and Pilbara,yilgarn,23,88b85d4581fffff,-27.8951,121.2691,0.9995,0.9999,0.9991,38,,,False,"Archean orogenic gold, nickel sulphide, iron ore, lithium",epithermal_orogenic_au,0.719,"Au, NiCoPGECr",0.9999
+Yilgarn and Pilbara,yilgarn,24,88b840c067fffff,-30.1426,122.3559,0.9995,0.9998,0.9991,32,,,False,"Archean orogenic gold, nickel sulphide, iron ore, lithium",epithermal_orogenic_au,0.623,"Au, NiCoPGECr",0.9998
+Yilgarn and Pilbara,yilgarn,25,88b845c065fffff,-31.0279,121.7227,0.9994,0.9995,0.9992,36,,,False,"Archean orogenic gold, nickel sulphide, iron ore, lithium",epithermal_orogenic_au,0.683,"Au, NiCoPGECr",0.9999
+Yilgarn and Pilbara,yilgarn,26,88b85c96e1fffff,-28.7656,122.069,0.9994,0.9999,0.9988,48,,,False,"Archean orogenic gold, nickel sulphide, iron ore, lithium",epithermal_orogenic_au,0.712,"Au, NiCoPGECr",0.9997
+Yilgarn and Pilbara,yilgarn,27,88a716315bfffff,-28.0669,117.795,0.9994,0.9992,0.9996,39,,,False,"Archean orogenic gold, nickel sulphide, iron ore, lithium",epithermal_orogenic_au,0.831,"Au, Cu",0.9999
+Yilgarn and Pilbara,yilgarn,28,88b8432b3bfffff,-28.8429,121.2843,0.9993,0.9998,0.9988,24,,,False,"Archean orogenic gold, nickel sulphide, iron ore, lithium",epithermal_orogenic_au,0.851,"Au, Cu",0.9997
+Yilgarn and Pilbara,yilgarn,29,88b84205c9fffff,-29.0927,122.4426,0.9993,0.9991,0.9994,20,,,False,"Archean orogenic gold, nickel sulphide, iron ore, lithium",epithermal_orogenic_au,0.775,"Au, NiCoPGECr",0.9999
+Yilgarn and Pilbara,yilgarn,30,88b85d91c7fffff,-28.6639,121.1909,0.9992,0.9995,0.999,30,,,False,"Archean orogenic gold, nickel sulphide, iron ore, lithium",epithermal_orogenic_au,0.891,"Au, Cu",0.9998
+Yilgarn and Pilbara,yilgarn,31,88b8426653fffff,-28.806,122.385,0.9992,0.9993,0.999,30,,,False,"Archean orogenic gold, nickel sulphide, iron ore, lithium",epithermal_orogenic_au,0.646,"Au, NiCoPGECr",0.9998
+Yilgarn and Pilbara,yilgarn,32,88b8450725fffff,-30.8787,121.2384,0.9992,0.9988,0.9995,89,,,False,"Archean orogenic gold, nickel sulphide, iron ore, lithium",epithermal_orogenic_au,0.526,"Au, NiCoPGECr",0.9999
+Yilgarn and Pilbara,yilgarn,33,88b8450c2dfffff,-30.7413,121.278,0.9992,0.9989,0.9994,61,,,False,"Archean orogenic gold, nickel sulphide, iron ore, lithium",epithermal_orogenic_au,0.674,"Au, NiCoPGECr",0.9999
+Yilgarn and Pilbara,yilgarn,34,88b8633941fffff,-31.6563,121.6015,0.9991,0.9995,0.9988,94,,,False,"Archean orogenic gold, nickel sulphide, iron ore, lithium",magmatic_mafic,0.561,"Au, NiCoPGECr",0.9997
+Yilgarn and Pilbara,yilgarn,35,88b84598dbfffff,-31.2846,121.4351,0.9991,0.9987,0.9996,84,,,False,"Archean orogenic gold, nickel sulphide, iron ore, lithium",magmatic_mafic,0.714,"NiCoPGECr, Au",0.9999
+Yilgarn and Pilbara,yilgarn,36,88b8442ca5fffff,-30.6115,121.9356,0.9991,0.9996,0.9986,108,,,False,"Archean orogenic gold, nickel sulphide, iron ore, lithium",epithermal_orogenic_au,0.766,"Au, NiCoPGECr",0.9997
+Yilgarn and Pilbara,yilgarn,37,88a79e52c9fffff,-21.3396,119.8993,0.9991,0.9993,0.9989,60,,,False,"Archean orogenic gold, nickel sulphide, iron ore, lithium",felsic_alkaline_rare,0.356,"Cu, Au",0.9998
+Yilgarn and Pilbara,yilgarn,38,88a7984925fffff,-21.0342,118.909,0.9991,0.9994,0.9987,35,,,False,"Archean orogenic gold, nickel sulphide, iron ore, lithium",felsic_alkaline_rare,0.671,"WMoSn, LiBeTaNb",0.9997
+Yilgarn and Pilbara,yilgarn,39,88b84560b3fffff,-30.4581,121.2176,0.9991,0.9985,0.9997,96,,,False,"Archean orogenic gold, nickel sulphide, iron ore, lithium",epithermal_orogenic_au,0.66,"Au, NiCoPGECr",1.0
+Yilgarn and Pilbara,yilgarn,40,88a7a19893fffff,-26.7321,118.3865,0.9991,0.9985,0.9996,31,,,False,"Archean orogenic gold, nickel sulphide, iron ore, lithium",epithermal_orogenic_au,0.881,"Au, Cu",1.0
+Yilgarn and Pilbara,yilgarn,41,88b84339c9fffff,-28.9373,121.3137,0.999,0.9986,0.9994,34,,,False,"Archean orogenic gold, nickel sulphide, iron ore, lithium",epithermal_orogenic_au,0.892,"Au, NiCoPGECr",0.9999
+Yilgarn and Pilbara,yilgarn,42,88c993b90dfffff,-32.911,115.9083,0.999,0.9997,0.9982,75,,,False,"Archean orogenic gold, nickel sulphide, iron ore, lithium",felsic_alkaline_rare,0.72,"REE, Al",0.9995
+Yilgarn and Pilbara,yilgarn,43,88b845634dfffff,-30.5423,121.3561,0.9989,0.998,0.9999,48,,,False,"Archean orogenic gold, nickel sulphide, iron ore, lithium",epithermal_orogenic_au,0.846,"Au, NiCoPGECr",1.0
+Yilgarn and Pilbara,yilgarn,44,88a78280e9fffff,-23.3623,119.7269,0.9989,0.9993,0.9986,20,,,False,"Archean orogenic gold, nickel sulphide, iron ore, lithium",chemical_sedimentary,0.828,"Fe, Au",0.9997
+Yilgarn and Pilbara,yilgarn,45,88b8634167fffff,-31.5249,122.1793,0.9989,0.9995,0.9983,40,,,False,"Archean orogenic gold, nickel sulphide, iron ore, lithium",epithermal_orogenic_au,0.605,"Au, NiCoPGECr",0.9996
+Yilgarn and Pilbara,yilgarn,46,88b85990c1fffff,-27.8111,120.7277,0.9989,0.9978,1.0,14,,,False,"Archean orogenic gold, nickel sulphide, iron ore, lithium",magmatic_mafic,0.585,"NiCoPGECr, Au",1.0
+Yilgarn and Pilbara,yilgarn,47,88b844ae6bfffff,-31.1059,122.0268,0.9989,0.9996,0.9982,52,,,False,"Archean orogenic gold, nickel sulphide, iron ore, lithium",magmatic_mafic,0.648,"NiCoPGECr, Au",0.9995
+Yilgarn and Pilbara,yilgarn,48,88b8455765fffff,-30.7852,121.6491,0.9989,0.9996,0.9982,86,,,False,"Archean orogenic gold, nickel sulphide, iron ore, lithium",epithermal_orogenic_au,0.363,"Au, NiCoPGECr",0.9995
+Yilgarn and Pilbara,yilgarn,49,88a7984415fffff,-21.2041,118.6577,0.9989,0.9997,0.9981,37,,,False,"Archean orogenic gold, nickel sulphide, iron ore, lithium",vms,0.326,"Cu, Au",0.9995
+Yilgarn and Pilbara,yilgarn,50,88b8452a63fffff,-30.6717,121.0603,0.9989,0.9997,0.998,95,,,False,"Archean orogenic gold, nickel sulphide, iron ore, lithium",epithermal_orogenic_au,0.624,"Au, NiCoPGECr",0.9994
+Abitibi and Superior,abitibi,1,882b96d183fffff,48.5479,-81.1672,0.9996,0.9995,0.9997,31,,,False,Archean gold and VMS copper-zinc,epithermal_orogenic_au,0.535,"Au, Cu",1.0
+Abitibi and Superior,abitibi,2,8827468613fffff,46.4691,-87.5527,0.9996,0.9997,0.9995,2,,,False,Archean gold and VMS copper-zinc,chemical_sedimentary,0.885,"Fe, Cu",0.9999
+Abitibi and Superior,abitibi,3,882b9220c3fffff,46.568,-81.3794,0.9991,0.999,0.9993,42,,,False,Archean gold and VMS copper-zinc,magmatic_mafic,0.365,"NiCoPGECr, Cu",0.9999
+Abitibi and Superior,abitibi,4,882773b045fffff,47.1673,-88.6235,0.999,0.9983,0.9997,15,,,False,Archean gold and VMS copper-zinc,porphyry_skarn_cu,0.925,"Cu, Fe",1.0
+Abitibi and Superior,abitibi,5,882b96d8d7fffff,48.5193,-81.2995,0.999,0.9981,0.9998,21,,,False,Archean gold and VMS copper-zinc,epithermal_orogenic_au,0.419,"Au, Cu",1.0
+Abitibi and Superior,abitibi,6,882b94163dfffff,48.2263,-78.9868,0.9988,0.9993,0.9983,21,,,False,Archean gold and VMS copper-zinc,vms,0.842,"Au, Ag",0.9998
+Abitibi and Superior,abitibi,7,882bb37a2dfffff,48.1595,-78.1246,0.9987,0.9989,0.9986,19,,,False,Archean gold and VMS copper-zinc,epithermal_orogenic_au,0.786,"Au, Cu",0.9998
+Abitibi and Superior,abitibi,8,882bb372bdfffff,48.096,-77.8325,0.9987,0.9991,0.9984,33,,,False,Archean gold and VMS copper-zinc,epithermal_orogenic_au,0.79,"Au, Cu",0.9998
+Abitibi and Superior,abitibi,9,882754da63fffff,47.3123,-91.3378,0.9986,0.9979,0.9994,46,,,False,Archean gold and VMS copper-zinc,chemical_sedimentary,0.41,"Fe, Cu",0.9999
+Abitibi and Superior,abitibi,10,882b96a903fffff,47.944,-80.6866,0.9986,0.9994,0.9979,37,,,False,Archean gold and VMS copper-zinc,epithermal_orogenic_au,0.47,"Au, Cu",0.9997
+Abitibi and Superior,abitibi,11,882b93c195fffff,46.4653,-80.8593,0.9985,0.9983,0.9987,47,,,False,Archean gold and VMS copper-zinc,magmatic_mafic,0.638,"NiCoPGECr, Cu",0.9998
+Abitibi and Superior,abitibi,12,882b94b053fffff,48.2199,-78.501,0.9984,0.9979,0.9988,20,,,False,Archean gold and VMS copper-zinc,epithermal_orogenic_au,0.523,"Au, Cu",0.9998
+Abitibi and Superior,abitibi,13,882b96c057fffff,48.4491,-81.177,0.9983,0.9968,0.9999,18,,,False,Archean gold and VMS copper-zinc,epithermal_orogenic_au,0.743,"Au, Cu",1.0
+Abitibi and Superior,abitibi,14,880ecd0f5bfffff,50.0445,-79.6999,0.9983,0.9971,0.9994,27,,,False,Archean gold and VMS copper-zinc,epithermal_orogenic_au,0.692,"Au, Ag",0.9999
+Abitibi and Superior,abitibi,15,882760d23dfffff,48.2941,-84.4967,0.9983,0.9994,0.9971,24,,,False,Archean gold and VMS copper-zinc,epithermal_orogenic_au,0.73,"Au, Cu",0.9993
+Abitibi and Superior,abitibi,16,882bb3713bfffff,48.1153,-77.997,0.9982,0.9989,0.9975,11,,,False,Archean gold and VMS copper-zinc,epithermal_orogenic_au,0.72,"Au, Cu",0.9995
+Abitibi and Superior,abitibi,17,882bb38c87fffff,48.3763,-77.1829,0.9982,0.9989,0.9974,68,,,False,Archean gold and VMS copper-zinc,epithermal_orogenic_au,0.437,"Au, Cu",0.9995
+Abitibi and Superior,abitibi,18,882b93db01fffff,46.7102,-80.982,0.998,0.9997,0.9964,20,,,False,Archean gold and VMS copper-zinc,magmatic_mafic,0.294,"NiCoPGECr, Cu",0.9989
+Abitibi and Superior,abitibi,19,882bb3191dfffff,48.42,-77.7688,0.998,0.9978,0.9983,27,,,False,Archean gold and VMS copper-zinc,felsic_alkaline_rare,0.458,"LiBeTaNb, Au",0.9998
+Abitibi and Superior,abitibi,20,882b93c36dfffff,46.6097,-80.8612,0.998,0.9973,0.9988,1,,,False,Archean gold and VMS copper-zinc,magmatic_mafic,0.492,"NiCoPGECr, Cu",0.9998
+Abitibi and Superior,abitibi,21,880e5b29e1fffff,49.9342,-74.3734,0.9979,0.9969,0.999,43,,,False,Archean gold and VMS copper-zinc,epithermal_orogenic_au,0.504,"Cu, Au",0.9999
+Abitibi and Superior,abitibi,22,8827665419fffff,48.6507,-85.8894,0.9979,0.9979,0.998,53,,,False,Archean gold and VMS copper-zinc,epithermal_orogenic_au,0.535,"Au, Cu",0.9997
+Abitibi and Superior,abitibi,23,880ecba5b3fffff,48.6547,-81.334,0.9979,0.9961,0.9998,18,,,False,Archean gold and VMS copper-zinc,vms,0.338,"Au, Ag",1.0
+Abitibi and Superior,abitibi,24,882b948ce9fffff,48.3083,-78.916,0.9979,0.9984,0.9975,25,,,False,Archean gold and VMS copper-zinc,vms,0.882,"Cu, Au",0.9995
+Abitibi and Superior,abitibi,25,882bb35a09fffff,48.5699,-78.2591,0.9979,0.9974,0.9984,67,,,False,Archean gold and VMS copper-zinc,vms,0.574,"Au, Cu",0.9998
+Abitibi and Superior,abitibi,26,882b945241fffff,48.487,-79.7419,0.9977,0.9985,0.997,49,,,False,Archean gold and VMS copper-zinc,epithermal_orogenic_au,0.473,"Au, Cu",0.9993
+Abitibi and Superior,abitibi,27,882bb30cbdfffff,48.066,-77.6517,0.9977,0.9983,0.9971,9,,,False,Archean gold and VMS copper-zinc,vms,0.895,"Au, Cu",0.9993
+Abitibi and Superior,abitibi,28,882b9226c9fffff,46.5012,-81.1697,0.9976,0.9957,0.9995,27,,,False,Archean gold and VMS copper-zinc,magmatic_mafic,0.534,"NiCoPGECr, Cu",0.9999
+Abitibi and Superior,abitibi,29,882b96c84dfffff,48.461,-81.4406,0.9975,0.9989,0.996,67,,,False,Archean gold and VMS copper-zinc,epithermal_orogenic_au,0.411,"Au, Cu",0.9986
+Abitibi and Superior,abitibi,30,882773b093fffff,47.0655,-88.5521,0.9974,0.9965,0.9983,24,,,False,Archean gold and VMS copper-zinc,porphyry_skarn_cu,0.932,"Cu, Ag",0.9998
+Abitibi and Superior,abitibi,31,880ec92d23fffff,48.5343,-80.3393,0.9974,0.9957,0.9991,27,,,False,Archean gold and VMS copper-zinc,epithermal_orogenic_au,0.414,"Au, Cu",0.9999
+Abitibi and Superior,abitibi,32,882b93c895fffff,46.4331,-81.0067,0.9974,0.9984,0.9963,5,,,False,Archean gold and VMS copper-zinc,magmatic_mafic,0.544,"NiCoPGECr, Cu",0.9989
+Abitibi and Superior,abitibi,33,882b948d45fffff,48.3788,-79.0215,0.9973,0.9986,0.996,25,,,False,Archean gold and VMS copper-zinc,vms,0.938,"Au, Cu",0.9986
+Abitibi and Superior,abitibi,34,880ecd241bfffff,49.5694,-79.2286,0.9971,0.9977,0.9966,24,,,False,Archean gold and VMS copper-zinc,epithermal_orogenic_au,0.471,"Ag, Au",0.999
+Abitibi and Superior,abitibi,35,8827768505fffff,49.1501,-89.6539,0.9971,0.9969,0.9972,25,,,False,Archean gold and VMS copper-zinc,magmatic_mafic,0.573,"NiCoPGECr, Au",0.9994
+Abitibi and Superior,abitibi,36,8827733ae5fffff,46.7809,-89.1531,0.997,0.9964,0.9977,25,,,False,Archean gold and VMS copper-zinc,porphyry_skarn_cu,0.838,"Cu, Fe",0.9996
+Abitibi and Superior,abitibi,37,882b944529fffff,48.1606,-79.887,0.997,0.9952,0.9987,25,,,False,Archean gold and VMS copper-zinc,epithermal_orogenic_au,0.576,"Au, Cu",0.9998
+Abitibi and Superior,abitibi,38,8827462ab5fffff,45.7857,-88.0564,0.997,0.9994,0.9945,3,,,False,Archean gold and VMS copper-zinc,chemical_sedimentary,0.937,"Fe, Cu",0.9976
+Abitibi and Superior,abitibi,39,88274645a5fffff,46.1071,-88.703,0.9969,0.9993,0.9945,1,,,False,Archean gold and VMS copper-zinc,chemical_sedimentary,0.936,"Fe, Cu",0.9975
+Abitibi and Superior,abitibi,40,8827462a4bfffff,45.8809,-88.0498,0.9968,0.9986,0.9951,49,,,False,Archean gold and VMS copper-zinc,chemical_sedimentary,0.943,"Fe, Cu",0.9979
+Abitibi and Superior,abitibi,41,882b94b349fffff,48.3119,-78.5427,0.9967,0.9946,0.9989,14,,,False,Archean gold and VMS copper-zinc,epithermal_orogenic_au,0.537,"Au, Cu",0.9999
+Abitibi and Superior,abitibi,42,880e5bdb43fffff,51.0174,-74.4678,0.9967,0.9943,0.9991,19,,,False,Archean gold and VMS copper-zinc,epithermal_orogenic_au,0.467,"Ag, Au",0.9999
+Abitibi and Superior,abitibi,43,880ec96285fffff,48.7604,-80.687,0.9967,0.998,0.9953,44,,,False,Archean gold and VMS copper-zinc,epithermal_orogenic_au,0.442,"Au, Cu",0.9981
+Abitibi and Superior,abitibi,44,882b92da3bfffff,47.5609,-81.934,0.9966,0.9978,0.9955,25,,,False,Archean gold and VMS copper-zinc,epithermal_orogenic_au,0.557,"Au, Cu",0.9983
+Abitibi and Superior,abitibi,45,882b944d11fffff,48.1201,-80.085,0.9966,0.994,0.9992,19,,,False,Archean gold and VMS copper-zinc,epithermal_orogenic_au,0.636,"Au, Cu",0.9999
+Abitibi and Superior,abitibi,46,882bb62f61fffff,49.7607,-77.7821,0.9966,0.9976,0.9957,18,,,False,Archean gold and VMS copper-zinc,vms,0.911,"PbZn, Au",0.9984
+Abitibi and Superior,abitibi,47,882763a007fffff,46.5912,-84.3174,0.9965,0.9955,0.9975,58,,,False,Archean gold and VMS copper-zinc,porphyry_skarn_cu,0.476,"Cu, Ag",0.9995
+Abitibi and Superior,abitibi,48,88274685e3fffff,46.4072,-87.7026,0.9965,0.9961,0.9969,49,,,False,Archean gold and VMS copper-zinc,chemical_sedimentary,0.905,"Fe, Cu",0.9993
+Abitibi and Superior,abitibi,49,882766d125fffff,49.1242,-85.8311,0.9964,0.9987,0.9942,16,,,False,Archean gold and VMS copper-zinc,vms,0.374,"Au, Cu",0.9972
+Abitibi and Superior,abitibi,50,880ec94e07fffff,49.0682,-81.0194,0.9963,0.9955,0.9972,25,,,False,Archean gold and VMS copper-zinc,epithermal_orogenic_au,0.403,"Au, Cu",0.9994
+Central African Copperbelt,copperbelt,1,889608ce07fffff,-12.1179,26.4115,0.9996,0.9999,0.9993,40,,,False,Sediment-hosted copper-cobalt,porphyry_skarn_cu,0.835,"Cu, NiCoPGECr",0.9999
+Central African Copperbelt,copperbelt,2,88960b55b9fffff,-10.7818,25.7764,0.9994,0.9995,0.9992,40,,,False,Sediment-hosted copper-cobalt,magmatic_mafic,0.486,"Cu, NiCoPGECr",0.9998
+Central African Copperbelt,copperbelt,3,8896039549fffff,-12.7554,28.5025,0.9994,0.9991,0.9996,43,,,False,Sediment-hosted copper-cobalt,porphyry_skarn_cu,0.723,"Cu, NiCoPGECr",0.9999
+Central African Copperbelt,copperbelt,4,88960169bbfffff,-12.5063,27.8149,0.9992,0.9984,1.0,36,,,False,Sediment-hosted copper-cobalt,porphyry_skarn_cu,0.696,"Cu, NiCoPGECr",1.0
+Central African Copperbelt,copperbelt,5,8896e49041fffff,-10.6189,26.3365,0.9991,0.9986,0.9996,18,,,False,Sediment-hosted copper-cobalt,porphyry_skarn_cu,0.609,"Cu, NiCoPGECr",0.9999
+Central African Copperbelt,copperbelt,6,88961db409fffff,-11.5496,27.4726,0.999,0.9992,0.9988,37,,,False,Sediment-hosted copper-cobalt,porphyry_skarn_cu,0.624,"Cu, NiCoPGECr",0.9998
+Central African Copperbelt,copperbelt,7,88960a0e01fffff,-10.9718,26.6577,0.9989,0.9994,0.9984,38,,,False,Sediment-hosted copper-cobalt,porphyry_skarn_cu,0.666,"Cu, NiCoPGECr",0.9997
+Central African Copperbelt,copperbelt,8,88960a0125fffff,-10.9949,26.7983,0.9989,0.9996,0.9982,26,,,False,Sediment-hosted copper-cobalt,porphyry_skarn_cu,0.785,"Cu, NiCoPGECr",0.9996
+Central African Copperbelt,copperbelt,9,8896015767fffff,-13.0539,28.1602,0.9989,0.9993,0.9984,40,,,False,Sediment-hosted copper-cobalt,porphyry_skarn_cu,0.558,"Cu, NiCoPGECr",0.9997
+Central African Copperbelt,copperbelt,10,889603b637fffff,-12.6276,28.0111,0.9988,0.9977,0.9998,37,,,False,Sediment-hosted copper-cobalt,porphyry_skarn_cu,0.6,"Cu, NiCoPGECr",0.9999
+Central African Copperbelt,copperbelt,11,88960eda3bfffff,-12.3409,27.8492,0.9987,0.999,0.9985,39,,,False,Sediment-hosted copper-cobalt,porphyry_skarn_cu,0.576,"Cu, NiCoPGECr",0.9997
+Central African Copperbelt,copperbelt,12,889601533dfffff,-13.0528,28.3072,0.9987,0.9996,0.9979,6,,,False,Sediment-hosted copper-cobalt,porphyry_skarn_cu,0.762,"Cu, NiCoPGECr",0.9995
+Central African Copperbelt,copperbelt,13,8896014f5bfffff,-12.7954,28.1324,0.9987,0.9977,0.9997,16,,,False,Sediment-hosted copper-cobalt,porphyry_skarn_cu,0.765,"Cu, NiCoPGECr",0.9999
+Central African Copperbelt,copperbelt,14,88960e71ddfffff,-11.7829,27.2686,0.9985,0.9991,0.9978,22,,,False,Sediment-hosted copper-cobalt,sed_hosted_base,0.567,"Cu, NiCoPGECr",0.9995
+Central African Copperbelt,copperbelt,15,88960ec313fffff,-12.3036,27.7137,0.9985,0.9977,0.9992,2,,,False,Sediment-hosted copper-cobalt,porphyry_skarn_cu,0.64,"Cu, NiCoPGECr",0.9999
+Central African Copperbelt,copperbelt,16,88960a2f6dfffff,-10.7672,26.3236,0.9985,0.9977,0.9992,10,,,False,Sediment-hosted copper-cobalt,porphyry_skarn_cu,0.533,"Cu, NiCoPGECr",0.9998
+Central African Copperbelt,copperbelt,17,889601414bfffff,-12.8841,28.2264,0.9985,0.9995,0.9974,23,,,False,Sediment-hosted copper-cobalt,porphyry_skarn_cu,0.724,"Cu, NiCoPGECr",0.9994
+Central African Copperbelt,copperbelt,18,889603bab9fffff,-12.4895,28.2204,0.9983,0.9978,0.9988,17,,,False,Sediment-hosted copper-cobalt,porphyry_skarn_cu,0.725,"Cu, NiCoPGECr",0.9998
+Central African Copperbelt,copperbelt,19,88960b7421fffff,-10.6655,25.3906,0.9983,0.9983,0.9983,54,,,False,Sediment-hosted copper-cobalt,porphyry_skarn_cu,0.677,"Cu, NiCoPGECr",0.9997
+Central African Copperbelt,copperbelt,20,889608b9abfffff,-12.2459,25.8678,0.9983,0.9988,0.9978,55,,,False,Sediment-hosted copper-cobalt,porphyry_skarn_cu,0.822,"Cu, NiCoPGECr",0.9995
+Central African Copperbelt,copperbelt,21,8896e49449fffff,-10.6178,26.1668,0.9982,0.9966,0.9999,5,,,False,Sediment-hosted copper-cobalt,porphyry_skarn_cu,0.65,"Cu, NiCoPGECr",1.0
+Central African Copperbelt,copperbelt,22,88960b765bfffff,-10.7741,25.3641,0.9981,0.9987,0.9975,23,,,False,Sediment-hosted copper-cobalt,porphyry_skarn_cu,0.751,"Cu, NiCoPGECr",0.9994
+Central African Copperbelt,copperbelt,23,88960b7053fffff,-10.7127,25.5256,0.9979,0.9969,0.999,37,,,False,Sediment-hosted copper-cobalt,porphyry_skarn_cu,0.491,"Cu, NiCoPGECr",0.9998
+Central African Copperbelt,copperbelt,24,88960eca45fffff,-12.2222,27.8084,0.9979,0.9991,0.9966,57,,,False,Sediment-hosted copper-cobalt,porphyry_skarn_cu,0.6,"Cu, NiCoPGECr",0.9991
+Central African Copperbelt,copperbelt,25,8896016b27fffff,-12.5805,27.9149,0.9979,0.9994,0.9963,39,,,False,Sediment-hosted copper-cobalt,porphyry_skarn_cu,0.845,"Cu, NiCoPGECr",0.999
+Central African Copperbelt,copperbelt,26,88960038d5fffff,-13.0645,28.7014,0.9978,0.9968,0.9987,15,,,False,Sediment-hosted copper-cobalt,porphyry_skarn_cu,0.62,"Cu, NiCoPGECr",0.9998
+Central African Copperbelt,copperbelt,27,8896014da5fffff,-12.6565,28.1049,0.9976,0.9996,0.9957,58,,,False,Sediment-hosted copper-cobalt,porphyry_skarn_cu,0.621,"Cu, NiCoPGECr",0.9985
+Central African Copperbelt,copperbelt,28,88960ac555fffff,-11.1956,27.0194,0.9975,0.9989,0.9962,17,,,False,Sediment-hosted copper-cobalt,porphyry_skarn_cu,0.623,"Cu, NiCoPGECr",0.9989
+Central African Copperbelt,copperbelt,29,8896002a2dfffff,-12.9699,28.7208,0.9975,0.9982,0.9968,34,,,False,Sediment-hosted copper-cobalt,porphyry_skarn_cu,0.644,"Cu, NiCoPGECr",0.9992
+Central African Copperbelt,copperbelt,30,88960e4dc9fffff,-11.6585,27.5524,0.9975,0.9977,0.9972,19,,,False,Sediment-hosted copper-cobalt,porphyry_skarn_cu,0.816,"Cu, NiCoPGECr",0.9993
+Central African Copperbelt,copperbelt,31,88961db4b7fffff,-11.4858,27.399,0.9974,0.9979,0.9969,40,,,False,Sediment-hosted copper-cobalt,porphyry_skarn_cu,0.703,"Cu, NiCoPGECr",0.9992
+Central African Copperbelt,copperbelt,32,8896014733fffff,-12.886,28.0388,0.9973,0.9984,0.9962,16,,,False,Sediment-hosted copper-cobalt,porphyry_skarn_cu,0.551,"Cu, NiCoPGECr",0.9989
+Central African Copperbelt,copperbelt,33,8896014aa5fffff,-12.7681,28.2347,0.9972,0.9992,0.9953,59,,,False,Sediment-hosted copper-cobalt,porphyry_skarn_cu,0.71,"Cu, NiCoPGECr",0.9981
+Central African Copperbelt,copperbelt,34,88961d3621fffff,-11.1415,27.4335,0.9971,0.9982,0.9961,14,,,False,Sediment-hosted copper-cobalt,porphyry_skarn_cu,0.628,"Cu, NiCoPGECr",0.9988
+Central African Copperbelt,copperbelt,35,889603b147fffff,-12.5776,28.249,0.9971,0.9977,0.9965,42,,,False,Sediment-hosted copper-cobalt,porphyry_skarn_cu,0.568,"Cu, NiCoPGECr",0.9991
+Central African Copperbelt,copperbelt,36,889601c96dfffff,-13.1629,28.4126,0.9969,0.9971,0.9967,20,,,False,Sediment-hosted copper-cobalt,porphyry_skarn_cu,0.742,"Cu, NiCoPGECr",0.9992
+Central African Copperbelt,copperbelt,37,8896000e1bfffff,-13.1503,28.9182,0.9968,0.9948,0.9989,26,,,False,Sediment-hosted copper-cobalt,porphyry_skarn_cu,0.646,"Cu, NiCoPGECr",0.9998
+Central African Copperbelt,copperbelt,38,8896016a1dfffff,-12.6508,27.8348,0.9966,0.9953,0.998,13,,,False,Sediment-hosted copper-cobalt,porphyry_skarn_cu,0.75,"Cu, NiCoPGECr",0.9995
+Central African Copperbelt,copperbelt,39,88960b31adfffff,-10.8859,25.2009,0.9966,0.9991,0.9941,42,,,False,Sediment-hosted copper-cobalt,porphyry_skarn_cu,0.49,"Cu, NiCoPGECr",0.9966
+Central African Copperbelt,copperbelt,40,889609d0b7fffff,-12.2357,25.2824,0.9964,0.9973,0.9956,30,,,False,Sediment-hosted copper-cobalt,porphyry_skarn_cu,0.5,"Cu, NiCoPGECr",0.9983
+Central African Copperbelt,copperbelt,41,889603a4c9fffff,-12.4506,27.8888,0.9964,0.9959,0.9969,31,,,False,Sediment-hosted copper-cobalt,porphyry_skarn_cu,0.684,"Cu, NiCoPGECr",0.9992
+Central African Copperbelt,copperbelt,42,88961da1e7fffff,-11.3288,27.5806,0.9962,0.9973,0.9952,23,,,False,Sediment-hosted copper-cobalt,porphyry_skarn_cu,0.593,"Cu, NiCoPGECr",0.998
+Central African Copperbelt,copperbelt,43,88960b6255fffff,-10.6231,25.4739,0.9962,0.9987,0.9936,61,,,False,Sediment-hosted copper-cobalt,porphyry_skarn_cu,0.544,"Cu, NiCoPGECr",0.9957
+Central African Copperbelt,copperbelt,44,889601560bfffff,-13.1062,28.0775,0.9961,0.9952,0.997,47,,,False,Sediment-hosted copper-cobalt,porphyry_skarn_cu,0.547,"Cu, NiCoPGECr",0.9993
+Central African Copperbelt,copperbelt,45,88961db2b5fffff,-11.562,27.588,0.9961,0.9978,0.9944,76,,,False,Sediment-hosted copper-cobalt,porphyry_skarn_cu,0.652,"Cu, NiCoPGECr",0.9969
+Central African Copperbelt,copperbelt,46,889601791bfffff,-12.7013,27.9397,0.996,0.995,0.9971,1,,,False,Sediment-hosted copper-cobalt,porphyry_skarn_cu,0.549,"Cu, NiCoPGECr",0.9993
+Central African Copperbelt,copperbelt,47,88960b434dfffff,-10.7667,25.9682,0.996,0.999,0.9931,25,,,False,Sediment-hosted copper-cobalt,porphyry_skarn_cu,0.501,"Cu, NiCoPGECr",0.9952
+Central African Copperbelt,copperbelt,48,88960b4219fffff,-10.7878,25.874,0.9959,0.996,0.9958,36,,,False,Sediment-hosted copper-cobalt,porphyry_skarn_cu,0.489,"Cu, NiCoPGECr",0.9987
+Central African Copperbelt,copperbelt,49,88960a05d3fffff,-11.0027,26.5242,0.9958,0.9947,0.997,11,,,False,Sediment-hosted copper-cobalt,porphyry_skarn_cu,0.593,"Cu, NiCoPGECr",0.9992
+Central African Copperbelt,copperbelt,50,88960e7837fffff,-11.651,27.3645,0.9958,0.999,0.9926,45,,,False,Sediment-hosted copper-cobalt,porphyry_skarn_cu,0.661,"Cu, NiCoPGECr",0.994
+Southern Africa,s_africa,1,88adb285d5fffff,-27.255,22.9459,0.9998,1.0,0.9996,42,,,False,"Bushveld PGM and chrome, Witwatersrand gold, Kalahari manganese",chemical_sedimentary,0.886,"Mn, Fe",0.9999
+Southern Africa,s_africa,2,88adb634d1fffff,-27.854,23.0166,0.9996,0.9993,0.9999,63,,,False,"Bushveld PGM and chrome, Witwatersrand gold, Kalahari manganese",chemical_sedimentary,0.899,"Fe, Mn",0.9999
+Southern Africa,s_africa,3,88adb62449fffff,-27.7462,23.028,0.9994,0.9988,1.0,60,,,False,"Bushveld PGM and chrome, Witwatersrand gold, Kalahari manganese",chemical_sedimentary,0.902,"Fe, Mn",1.0
+Southern Africa,s_africa,4,88bcdd8d47fffff,-25.4973,27.104,0.9991,0.9988,0.9995,23,,,False,"Bushveld PGM and chrome, Witwatersrand gold, Kalahari manganese",magmatic_mafic,0.608,"NiCoPGECr, Au",0.9999
+Southern Africa,s_africa,5,88bcc3688bfffff,-25.6794,27.5963,0.9991,0.9993,0.9989,38,,,False,"Bushveld PGM and chrome, Witwatersrand gold, Kalahari manganese",magmatic_mafic,0.58,"NiCoPGECr, Au",0.9998
+Southern Africa,s_africa,6,88bcdca0cdfffff,-25.5737,27.9077,0.9991,0.999,0.9991,38,,,False,"Bushveld PGM and chrome, Witwatersrand gold, Kalahari manganese",chemical_sedimentary,0.43,"Fe, NiCoPGECr",0.9999
+Southern Africa,s_africa,7,88adb2863dfffff,-27.3437,22.9661,0.999,0.9984,0.9995,24,,,False,"Bushveld PGM and chrome, Witwatersrand gold, Kalahari manganese",chemical_sedimentary,0.916,"Mn, Fe",0.9999
+Southern Africa,s_africa,8,88bcdd0c03fffff,-25.095,26.9671,0.999,0.9987,0.9992,12,,,False,"Bushveld PGM and chrome, Witwatersrand gold, Kalahari manganese",magmatic_mafic,0.509,"NiCoPGECr, Cu",0.9999
+Southern Africa,s_africa,9,88adb6a71bfffff,-28.1594,23.1003,0.9988,0.9983,0.9993,38,,,False,"Bushveld PGM and chrome, Witwatersrand gold, Kalahari manganese",chemical_sedimentary,0.848,"Fe, Mn",0.9999
+Southern Africa,s_africa,10,88bcdd9947fffff,-25.6523,27.3682,0.9988,0.9996,0.998,51,,,False,"Bushveld PGM and chrome, Witwatersrand gold, Kalahari manganese",magmatic_mafic,0.441,"NiCoPGECr, Cu",0.9997
+Southern Africa,s_africa,11,88adb2bb37fffff,-27.1529,22.9325,0.9987,0.9985,0.999,13,,,False,"Bushveld PGM and chrome, Witwatersrand gold, Kalahari manganese",chemical_sedimentary,0.86,"Mn, Fe",0.9998
+Southern Africa,s_africa,12,88bcddd053fffff,-25.5692,27.5624,0.9986,0.9994,0.9978,44,,,False,"Bushveld PGM and chrome, Witwatersrand gold, Kalahari manganese",magmatic_mafic,0.531,"NiCoPGECr, Fe",0.9997
+Southern Africa,s_africa,13,88bcdd8861fffff,-25.5342,27.2472,0.9986,0.9988,0.9985,14,,,False,"Bushveld PGM and chrome, Witwatersrand gold, Kalahari manganese",magmatic_mafic,0.666,"NiCoPGECr, Au",0.9998
+Southern Africa,s_africa,14,88bcdd4da7fffff,-24.7514,27.3624,0.9985,0.9993,0.9978,32,,,False,"Bushveld PGM and chrome, Witwatersrand gold, Kalahari manganese",magmatic_mafic,0.473,"NiCoPGECr, Cu",0.9996
+Southern Africa,s_africa,15,88bcdd073dfffff,-25.239,26.9368,0.9981,0.9976,0.9987,27,,,False,"Bushveld PGM and chrome, Witwatersrand gold, Kalahari manganese",magmatic_mafic,0.448,"NiCoPGECr, Cu",0.9998
+Southern Africa,s_africa,16,88bcddd6a7fffff,-25.5522,27.3618,0.9979,0.9965,0.9994,61,,,False,"Bushveld PGM and chrome, Witwatersrand gold, Kalahari manganese",magmatic_mafic,0.513,"NiCoPGECr, Cu",0.9999
+Southern Africa,s_africa,17,88bc5b8aedfffff,-29.996,22.3291,0.9979,0.9961,0.9997,7,,,False,"Bushveld PGM and chrome, Witwatersrand gold, Kalahari manganese",sed_hosted_base,0.674,"PbZn, Cu",0.9999
+Southern Africa,s_africa,18,88bcdd44bdfffff,-24.9336,27.1921,0.9978,0.9963,0.9992,26,,,False,"Bushveld PGM and chrome, Witwatersrand gold, Kalahari manganese",magmatic_mafic,0.614,"NiCoPGECr, Cu",0.9999
+Southern Africa,s_africa,19,88adb46b4dfffff,-28.3079,23.0515,0.9977,0.9959,0.9995,29,,,False,"Bushveld PGM and chrome, Witwatersrand gold, Kalahari manganese",chemical_sedimentary,0.861,"Fe, Mn",0.9999
+Southern Africa,s_africa,20,88bcdd12a3fffff,-25.4023,27.0899,0.9977,0.9996,0.9957,55,,,False,"Bushveld PGM and chrome, Witwatersrand gold, Kalahari manganese",magmatic_mafic,0.645,"NiCoPGECr, Cu",0.9993
+Southern Africa,s_africa,21,88bcdd4cc9fffff,-24.8458,27.3078,0.9975,0.9994,0.9956,9,,,False,"Bushveld PGM and chrome, Witwatersrand gold, Kalahari manganese",magmatic_mafic,0.72,"NiCoPGECr, Cu",0.9993
+Southern Africa,s_africa,22,88adb68607fffff,-28.357,23.5231,0.9974,0.9961,0.9987,55,,,False,"Bushveld PGM and chrome, Witwatersrand gold, Kalahari manganese",chemical_sedimentary,0.639,"Fe, Au",0.9998
+Southern Africa,s_africa,23,88bcd8a23dfffff,-24.6033,27.3833,0.9974,0.9958,0.9989,34,,,False,"Bushveld PGM and chrome, Witwatersrand gold, Kalahari manganese",chemical_sedimentary,0.441,"Fe, NiCoPGECr",0.9998
+Southern Africa,s_africa,24,88bcdcb597fffff,-25.6371,27.814,0.9973,0.9964,0.9982,13,,,False,"Bushveld PGM and chrome, Witwatersrand gold, Kalahari manganese",magmatic_mafic,0.365,"NiCoPGECr, Fe",0.9997
+Southern Africa,s_africa,25,88bcc30ac9fffff,-26.185,27.6905,0.9973,0.9996,0.9949,55,,,False,"Bushveld PGM and chrome, Witwatersrand gold, Kalahari manganese",epithermal_orogenic_au,0.644,"Au, NiCoPGECr",0.9991
+Southern Africa,s_africa,26,88bcc30b43fffff,-26.1596,27.7989,0.9973,0.999,0.9956,22,,,False,"Bushveld PGM and chrome, Witwatersrand gold, Kalahari manganese",epithermal_orogenic_au,0.593,"Au, NiCoPGECr",0.9993
+Southern Africa,s_africa,27,88bcc36ed5fffff,-25.7381,27.4242,0.9972,0.9964,0.998,17,,,False,"Bushveld PGM and chrome, Witwatersrand gold, Kalahari manganese",magmatic_mafic,0.532,"NiCoPGECr, Au",0.9997
+Southern Africa,s_africa,28,88bcc35ab3fffff,-26.0176,28.1226,0.997,0.9985,0.9955,36,,,False,"Bushveld PGM and chrome, Witwatersrand gold, Kalahari manganese",epithermal_orogenic_au,0.461,"Au, NiCoPGECr",0.9993
+Southern Africa,s_africa,29,88adb0da27fffff,-28.0209,23.0131,0.9969,0.9954,0.9984,31,,,False,"Bushveld PGM and chrome, Witwatersrand gold, Kalahari manganese",chemical_sedimentary,0.879,"Mn, Fe",0.9998
+Southern Africa,s_africa,30,88adb468cdfffff,-28.2578,22.9244,0.9969,0.9951,0.9986,44,,,False,"Bushveld PGM and chrome, Witwatersrand gold, Kalahari manganese",chemical_sedimentary,0.811,"Mn, Fe",0.9998
+Southern Africa,s_africa,31,88bcdc8a0dfffff,-25.6647,28.5168,0.9968,0.9978,0.9958,46,,,False,"Bushveld PGM and chrome, Witwatersrand gold, Kalahari manganese",magmatic_mafic,0.595,"NiCoPGECr, Au",0.9993
+Southern Africa,s_africa,32,88bcdd793bfffff,-24.7771,27.2118,0.9966,0.9965,0.9966,31,,,False,"Bushveld PGM and chrome, Witwatersrand gold, Kalahari manganese",magmatic_mafic,0.44,"NiCoPGECr, Cu",0.9994
+Southern Africa,s_africa,33,88bcc3c953fffff,-26.2607,28.2122,0.9965,0.9993,0.9938,10,,,False,"Bushveld PGM and chrome, Witwatersrand gold, Kalahari manganese",epithermal_orogenic_au,0.636,"Au, NiCoPGECr",0.9987
+Southern Africa,s_africa,34,88bcdc8089fffff,-25.7212,28.3358,0.9965,0.9953,0.9977,46,,,False,"Bushveld PGM and chrome, Witwatersrand gold, Kalahari manganese",magmatic_mafic,0.451,"NiCoPGECr, Au",0.9996
+Southern Africa,s_africa,35,88bcdc8691fffff,-25.7623,28.135,0.9965,0.9963,0.9967,51,,,False,"Bushveld PGM and chrome, Witwatersrand gold, Kalahari manganese",magmatic_mafic,0.399,"NiCoPGECr, Au",0.9994
+Southern Africa,s_africa,36,88bcdcb167fffff,-25.6728,28.1126,0.9964,0.9981,0.9947,55,,,False,"Bushveld PGM and chrome, Witwatersrand gold, Kalahari manganese",magmatic_mafic,0.502,"NiCoPGECr, Au",0.9989
+Southern Africa,s_africa,37,88bcd3b917fffff,-24.643,30.1299,0.9964,0.9989,0.9939,1,,,False,"Bushveld PGM and chrome, Witwatersrand gold, Kalahari manganese",magmatic_mafic,0.784,"NiCoPGECr, Cu",0.9987
+Southern Africa,s_africa,38,88bcc3cc15fffff,-26.2657,27.9795,0.9964,0.9995,0.9932,41,,,False,"Bushveld PGM and chrome, Witwatersrand gold, Kalahari manganese",epithermal_orogenic_au,0.607,"Au, NiCoPGECr",0.9986
+Southern Africa,s_africa,39,88bcd86c81fffff,-23.7025,27.5493,0.9963,0.9939,0.9988,55,,,False,"Bushveld PGM and chrome, Witwatersrand gold, Kalahari manganese",magmatic_mafic,0.473,"NiCoPGECr, Cu",0.9998
+Southern Africa,s_africa,40,88bcdd9999fffff,-25.6239,27.2692,0.9963,0.9946,0.998,50,,,False,"Bushveld PGM and chrome, Witwatersrand gold, Kalahari manganese",magmatic_mafic,0.463,"NiCoPGECr, Au",0.9997
+Southern Africa,s_africa,41,88bcc31053fffff,-26.4118,27.6907,0.9962,0.9959,0.9964,26,,,False,"Bushveld PGM and chrome, Witwatersrand gold, Kalahari manganese",epithermal_orogenic_au,0.734,"Au, NiCoPGECr",0.9994
+Southern Africa,s_africa,42,88bcc22255fffff,-26.2309,28.4671,0.9961,0.9995,0.9927,4,,,False,"Bushveld PGM and chrome, Witwatersrand gold, Kalahari manganese",epithermal_orogenic_au,0.648,"Au, NiCoPGECr",0.9984
+Southern Africa,s_africa,43,88bcca5065fffff,-25.0497,26.2828,0.996,0.9975,0.9946,2,,,False,"Bushveld PGM and chrome, Witwatersrand gold, Kalahari manganese",magmatic_mafic,0.599,"NiCoPGECr, Au",0.9989
+Southern Africa,s_africa,44,88bcc3d563fffff,-26.5103,28.052,0.996,0.9961,0.9958,24,,,False,"Bushveld PGM and chrome, Witwatersrand gold, Kalahari manganese",epithermal_orogenic_au,0.475,"Au, NiCoPGECr",0.9993
+Southern Africa,s_africa,45,88bcc179edfffff,-26.719,27.0715,0.9959,0.9954,0.9965,32,,,False,"Bushveld PGM and chrome, Witwatersrand gold, Kalahari manganese",epithermal_orogenic_au,0.582,"Au, NiCoPGECr",0.9994
+Southern Africa,s_africa,46,88bcce6449fffff,-25.7725,26.1212,0.9959,0.9942,0.9977,2,,,False,"Bushveld PGM and chrome, Witwatersrand gold, Kalahari manganese",sed_hosted_base,0.564,"BaF, Au",0.9996
+Southern Africa,s_africa,47,88bcc36db3fffff,-25.6031,27.4556,0.9959,0.9977,0.994,63,,,False,"Bushveld PGM and chrome, Witwatersrand gold, Kalahari manganese",magmatic_mafic,0.57,"NiCoPGECr, Cu",0.9988
+Southern Africa,s_africa,48,88bcc30835fffff,-26.0933,27.7283,0.9956,0.9928,0.9985,5,,,False,"Bushveld PGM and chrome, Witwatersrand gold, Kalahari manganese",epithermal_orogenic_au,0.675,"Au, NiCoPGECr",0.9998
+Southern Africa,s_africa,49,88bcc22713fffff,-26.1663,28.3099,0.9956,0.9996,0.9917,6,,,False,"Bushveld PGM and chrome, Witwatersrand gold, Kalahari manganese",epithermal_orogenic_au,0.616,"Au, NiCoPGECr",0.9982
+Southern Africa,s_africa,50,88bcde6719fffff,-23.9591,28.82,0.9956,0.9953,0.9959,12,,,False,"Bushveld PGM and chrome, Witwatersrand gold, Kalahari manganese",magmatic_mafic,0.554,"NiCoPGECr, Au",0.9993
+Iranian Tethyan belt,tethyan_iran,1,8843284ab9fffff,31.8362,55.5988,0.9999,1.0,0.9998,48,,,False,"Porphyry copper, chromite, lead-zinc",chemical_sedimentary,0.867,"P, Fe",0.9982
+Iranian Tethyan belt,tethyan_iran,2,882c996917fffff,30.7749,50.7683,0.9998,0.9998,0.9999,74,,,False,"Porphyry copper, chromite, lead-zinc",chemical_sedimentary,0.969,"P, Cu",0.9983
+Iranian Tethyan belt,tethyan_iran,3,882c9bae3dfffff,30.5528,50.7872,0.9998,0.9998,0.9998,78,,,False,"Porphyry copper, chromite, lead-zinc",chemical_sedimentary,0.975,"P, Cu",0.9982
+Iranian Tethyan belt,tethyan_iran,4,882c9ba423fffff,30.6558,50.8017,0.9998,0.9999,0.9997,37,,,False,"Porphyry copper, chromite, lead-zinc",chemical_sedimentary,0.968,"P, Cu",0.9978
+Iranian Tethyan belt,tethyan_iran,5,882c99622dfffff,30.9844,50.655,0.9998,0.9997,0.9998,115,,,False,"Porphyry copper, chromite, lead-zinc",chemical_sedimentary,0.977,"P, Cu",0.9981
+Iranian Tethyan belt,tethyan_iran,6,882c9b32b3fffff,30.4283,50.9031,0.9998,0.9996,0.9999,94,,,False,"Porphyry copper, chromite, lead-zinc",chemical_sedimentary,0.965,"P, Cu",0.9983
+Iranian Tethyan belt,tethyan_iran,7,88432d7b2bfffff,33.014,55.6016,0.9997,1.0,0.9995,62,,,False,"Porphyry copper, chromite, lead-zinc",chemical_sedimentary,0.713,"P, PbZn",0.9975
+Iranian Tethyan belt,tethyan_iran,8,884326d05bfffff,30.7956,50.9138,0.9997,1.0,0.9995,36,,,False,"Porphyry copper, chromite, lead-zinc",chemical_sedimentary,0.961,"P, Cu",0.9974
+Iranian Tethyan belt,tethyan_iran,9,882cda5a67fffff,33.5893,56.1599,0.9996,0.9996,0.9996,44,,,False,"Porphyry copper, chromite, lead-zinc",chemical_sedimentary,0.872,"P, Cu",0.9977
+Iranian Tethyan belt,tethyan_iran,10,884326d13dfffff,30.7003,50.9253,0.9995,0.9994,0.9996,28,,,False,"Porphyry copper, chromite, lead-zinc",chemical_sedimentary,0.972,"P, Cu",0.9975
+Iranian Tethyan belt,tethyan_iran,11,882c9b265bfffff,30.4799,51.1027,0.9995,0.9996,0.9994,113,,,False,"Porphyry copper, chromite, lead-zinc",chemical_sedimentary,0.956,"P, Cu",0.9972
+Iranian Tethyan belt,tethyan_iran,12,884328b72dfffff,32.8483,55.6187,0.9995,0.9996,0.9993,52,,,False,"Porphyry copper, chromite, lead-zinc",chemical_sedimentary,0.795,"P, Fe",0.9971
+Iranian Tethyan belt,tethyan_iran,13,8843280e17fffff,32.3186,55.7779,0.9994,0.9999,0.999,79,,,False,"Porphyry copper, chromite, lead-zinc",chemical_sedimentary,0.756,"P, Fe",0.9967
+Iranian Tethyan belt,tethyan_iran,14,882c99704dfffff,31.0322,50.5105,0.9993,0.999,0.9995,88,,,False,"Porphyry copper, chromite, lead-zinc",chemical_sedimentary,0.978,"P, Cu",0.9974
+Iranian Tethyan belt,tethyan_iran,15,884326d93bfffff,30.5626,50.9725,0.9992,0.9995,0.999,99,,,False,"Porphyry copper, chromite, lead-zinc",chemical_sedimentary,0.949,"P, Cu",0.9967
+Iranian Tethyan belt,tethyan_iran,16,882c995765fffff,30.9497,50.1645,0.9992,0.9986,0.9999,49,,,False,"Porphyry copper, chromite, lead-zinc",chemical_sedimentary,0.97,"P, Cu",0.9982
+Iranian Tethyan belt,tethyan_iran,17,882c997a13fffff,30.9315,50.5554,0.9992,0.9996,0.9989,92,,,False,"Porphyry copper, chromite, lead-zinc",chemical_sedimentary,0.983,"P, Cu",0.9964
+Iranian Tethyan belt,tethyan_iran,18,882c9b31adfffff,30.3175,50.9123,0.9991,0.9984,0.9997,62,,,False,"Porphyry copper, chromite, lead-zinc",chemical_sedimentary,0.958,"P, Cu",0.9978
+Iranian Tethyan belt,tethyan_iran,19,882cda51c5fffff,33.684,56.2278,0.999,0.9997,0.9984,31,,,False,"Porphyry copper, chromite, lead-zinc",chemical_sedimentary,0.87,"P, Cu",0.9959
+Iranian Tethyan belt,tethyan_iran,20,8843281923fffff,32.1676,55.4855,0.999,1.0,0.998,66,,,False,"Porphyry copper, chromite, lead-zinc",chemical_sedimentary,0.786,"P, Fe",0.9956
+Iranian Tethyan belt,tethyan_iran,21,882cda5413fffff,33.8313,56.3819,0.999,0.9987,0.9992,50,,,False,"Porphyry copper, chromite, lead-zinc",chemical_sedimentary,0.787,"P, PbZn",0.9969
+Iranian Tethyan belt,tethyan_iran,22,8843284299fffff,32.0118,55.5667,0.9989,0.9987,0.999,20,,,False,"Porphyry copper, chromite, lead-zinc",chemical_sedimentary,0.77,"Fe, P",0.9967
+Iranian Tethyan belt,tethyan_iran,23,884328143dfffff,32.4777,55.6168,0.9989,0.9995,0.9982,50,,,False,"Porphyry copper, chromite, lead-zinc",chemical_sedimentary,0.749,"P, Fe",0.9958
+Iranian Tethyan belt,tethyan_iran,24,882c9b21a7fffff,30.2583,51.0954,0.9988,0.9987,0.9989,78,,,False,"Porphyry copper, chromite, lead-zinc",chemical_sedimentary,0.977,"P, Cu",0.9965
+Iranian Tethyan belt,tethyan_iran,25,884321aa21fffff,32.3889,53.4784,0.9988,0.9995,0.9981,40,,,False,"Porphyry copper, chromite, lead-zinc",chemical_sedimentary,0.533,"P, PbZn",0.9957
+Iranian Tethyan belt,tethyan_iran,26,882cda31d1fffff,34.2299,56.8291,0.9987,0.9995,0.998,20,,,False,"Porphyry copper, chromite, lead-zinc",chemical_sedimentary,0.851,"P, PbZn",0.9956
+Iranian Tethyan belt,tethyan_iran,27,884326caa7fffff,30.5906,51.1441,0.9987,0.998,0.9994,92,,,False,"Porphyry copper, chromite, lead-zinc",chemical_sedimentary,0.975,"P, Cu",0.9972
+Iranian Tethyan belt,tethyan_iran,28,882cda4325fffff,33.6116,56.3115,0.9986,0.9983,0.9989,25,,,False,"Porphyry copper, chromite, lead-zinc",chemical_sedimentary,0.842,"P, PbZn",0.9965
+Iranian Tethyan belt,tethyan_iran,29,88432d6491fffff,33.2583,56.0465,0.9986,0.9993,0.9978,87,,,False,"Porphyry copper, chromite, lead-zinc",chemical_sedimentary,0.701,"P, PbZn",0.9955
+Iranian Tethyan belt,tethyan_iran,30,88432ab26bfffff,31.7546,55.6693,0.9984,1.0,0.9969,45,,,False,"Porphyry copper, chromite, lead-zinc",chemical_sedimentary,0.811,"P, Fe",0.9948
+Iranian Tethyan belt,tethyan_iran,31,882c9b2213fffff,30.3749,51.0039,0.9983,0.9977,0.9989,94,,,False,"Porphyry copper, chromite, lead-zinc",chemical_sedimentary,0.977,"P, Cu",0.9966
+Iranian Tethyan belt,tethyan_iran,32,882cd969d1fffff,35.3491,57.8382,0.9983,0.9994,0.9972,45,,,False,"Porphyry copper, chromite, lead-zinc",porphyry_skarn_cu,0.423,"Cu, PbZn",0.995
+Iranian Tethyan belt,tethyan_iran,33,8843281b5bfffff,32.2574,55.4162,0.9982,0.9974,0.999,37,,,False,"Porphyry copper, chromite, lead-zinc",chemical_sedimentary,0.762,"P, Fe",0.9967
+Iranian Tethyan belt,tethyan_iran,34,882c9b2567fffff,30.3397,51.1407,0.9982,0.9976,0.9988,35,,,False,"Porphyry copper, chromite, lead-zinc",chemical_sedimentary,0.968,"P, Cu",0.9964
+Iranian Tethyan belt,tethyan_iran,35,88432996e5fffff,33.4477,56.2455,0.9982,0.9991,0.9972,68,,,False,"Porphyry copper, chromite, lead-zinc",chemical_sedimentary,0.847,"P, PbZn",0.995
+Iranian Tethyan belt,tethyan_iran,36,882cdc2143fffff,35.6931,55.4663,0.9982,0.9987,0.9976,67,,,False,"Porphyry copper, chromite, lead-zinc",chemical_sedimentary,0.679,"P, PbZn",0.9953
+Iranian Tethyan belt,tethyan_iran,37,8843287239fffff,32.1539,55.7944,0.9981,0.9998,0.9965,73,,,False,"Porphyry copper, chromite, lead-zinc",chemical_sedimentary,0.808,"Fe, P",0.9946
+Iranian Tethyan belt,tethyan_iran,38,882cda5505fffff,33.7496,56.335,0.9981,0.9992,0.9971,46,,,False,"Porphyry copper, chromite, lead-zinc",chemical_sedimentary,0.832,"P, PbZn",0.9949
+Iranian Tethyan belt,tethyan_iran,39,882c99cee5fffff,31.079,50.0643,0.9981,0.9994,0.9969,103,,,False,"Porphyry copper, chromite, lead-zinc",chemical_sedimentary,0.953,"P, Cu",0.9948
+Iranian Tethyan belt,tethyan_iran,40,882c9ba897fffff,30.4605,50.7825,0.9981,0.9976,0.9986,112,,,False,"Porphyry copper, chromite, lead-zinc",chemical_sedimentary,0.965,"P, Cu",0.9962
+Iranian Tethyan belt,tethyan_iran,41,882cdd5b3dfffff,35.7418,55.7784,0.9981,0.9997,0.9965,48,,,False,"Porphyry copper, chromite, lead-zinc",chemical_sedimentary,0.702,"P, PbZn",0.9946
+Iranian Tethyan belt,tethyan_iran,42,88432c91adfffff,33.0467,53.9049,0.9979,0.9996,0.9962,52,,,False,"Porphyry copper, chromite, lead-zinc",chemical_sedimentary,0.53,"P, Cu",0.9944
+Iranian Tethyan belt,tethyan_iran,43,88432d4f4dfffff,32.9429,55.4146,0.9979,0.9969,0.9989,51,,,False,"Porphyry copper, chromite, lead-zinc",chemical_sedimentary,0.7,"P, Fe",0.9966
+Iranian Tethyan belt,tethyan_iran,44,882cd232b3fffff,33.4371,53.5159,0.9979,0.9975,0.9983,9,,,False,"Porphyry copper, chromite, lead-zinc",magmatic_mafic,0.707,"NiCoPGECr, Cu",0.9958
+Iranian Tethyan belt,tethyan_iran,45,882c991a51fffff,31.1959,50.1465,0.9979,0.9972,0.9986,44,,,False,"Porphyry copper, chromite, lead-zinc",chemical_sedimentary,0.976,"P, Cu",0.9962
+Iranian Tethyan belt,tethyan_iran,46,8843265335fffff,30.4709,51.2521,0.9979,0.9985,0.9973,53,,,False,"Porphyry copper, chromite, lead-zinc",chemical_sedimentary,0.936,"P, Cu",0.995
+Iranian Tethyan belt,tethyan_iran,47,882c89aaa3fffff,34.2931,50.8397,0.9979,0.9988,0.9969,70,,,False,"Porphyry copper, chromite, lead-zinc",sed_hosted_base,0.475,"Cu, PbZn",0.9948
+Iranian Tethyan belt,tethyan_iran,48,884326404bfffff,30.464,51.4355,0.9979,0.9994,0.9963,81,,,False,"Porphyry copper, chromite, lead-zinc",chemical_sedimentary,0.948,"P, Cu",0.9944
+Iranian Tethyan belt,tethyan_iran,49,882cda02bdfffff,34.1109,56.504,0.9978,0.9988,0.9968,69,,,False,"Porphyry copper, chromite, lead-zinc",chemical_sedimentary,0.734,"P, PbZn",0.9947
+Iranian Tethyan belt,tethyan_iran,50,884328cd87fffff,32.1076,55.4012,0.9978,0.9987,0.9969,48,,,False,"Porphyry copper, chromite, lead-zinc",chemical_sedimentary,0.823,"P, Fe",0.9948
+Tibet and Yulong,tibet,1,883c4d4b33fffff,31.0614,97.8884,0.9999,1.0,0.9999,67,,,False,Collisional porphyry copper-molybdenum,porphyry_skarn_cu,0.89,"Cu, WMoSn",0.9999
+Tibet and Yulong,tibet,2,883c0d31a1fffff,29.5571,89.9801,0.9999,1.0,0.9999,67,,,False,Collisional porphyry copper-molybdenum,porphyry_skarn_cu,0.954,"Cu, WMoSn",0.9999
+Tibet and Yulong,tibet,3,883c0d2131fffff,29.4649,90.0665,0.9999,0.9999,0.9999,68,,,False,Collisional porphyry copper-molybdenum,porphyry_skarn_cu,0.96,"Cu, WMoSn",1.0
+Tibet and Yulong,tibet,4,883c4d58c9fffff,31.1951,97.8471,0.9999,1.0,0.9998,42,,,False,Collisional porphyry copper-molybdenum,porphyry_skarn_cu,0.871,"Cu, WMoSn",0.9998
+Tibet and Yulong,tibet,5,883c54946dfffff,29.6361,91.5317,0.9997,0.9999,0.9995,92,,,False,Collisional porphyry copper-molybdenum,porphyry_skarn_cu,0.97,"Cu, WMoSn",0.9992
+Tibet and Yulong,tibet,6,883c4d49bbfffff,31.0131,97.9831,0.9996,0.9994,0.9997,51,,,False,Collisional porphyry copper-molybdenum,porphyry_skarn_cu,0.898,"Cu, WMoSn",0.9997
+Tibet and Yulong,tibet,7,883c48ac6bfffff,30.7549,98.2953,0.9996,0.9999,0.9992,98,,,False,Collisional porphyry copper-molybdenum,porphyry_skarn_cu,0.84,"Cu, WMoSn",0.9989
+Tibet and Yulong,tibet,8,883c0c1615fffff,29.3978,88.429,0.9995,0.9996,0.9995,42,,,False,Collisional porphyry copper-molybdenum,porphyry_skarn_cu,0.916,"Cu, WMoSn",0.9993
+Tibet and Yulong,tibet,9,883c4d4f13fffff,31.1165,98.0732,0.9995,0.9994,0.9995,112,,,False,Collisional porphyry copper-molybdenum,porphyry_skarn_cu,0.879,"Cu, WMoSn",0.9993
+Tibet and Yulong,tibet,10,883c4dc891fffff,31.4238,97.8154,0.9995,0.9998,0.9991,95,,,False,Collisional porphyry copper-molybdenum,porphyry_skarn_cu,0.876,"Cu, WMoSn",0.9987
+Tibet and Yulong,tibet,11,883c2b69adfffff,29.6668,88.8873,0.9993,0.9996,0.999,38,,,False,Collisional porphyry copper-molybdenum,porphyry_skarn_cu,0.9,"Cu, WMoSn",0.9983
+Tibet and Yulong,tibet,12,883c48b65dfffff,31.0723,98.2031,0.9993,0.9992,0.9994,87,,,False,Collisional porphyry copper-molybdenum,porphyry_skarn_cu,0.768,"Cu, WMoSn",0.9991
+Tibet and Yulong,tibet,13,883c48a1d3fffff,30.8288,98.2331,0.9993,0.9999,0.9986,104,,,False,Collisional porphyry copper-molybdenum,porphyry_skarn_cu,0.862,"Cu, WMoSn",0.998
+Tibet and Yulong,tibet,14,883c4d5305fffff,31.3171,97.7747,0.9993,0.9998,0.9987,113,,,False,Collisional porphyry copper-molybdenum,porphyry_skarn_cu,0.858,"Cu, WMoSn",0.998
+Tibet and Yulong,tibet,15,883c48b111fffff,30.9259,98.044,0.9992,0.9999,0.9984,109,,,False,Collisional porphyry copper-molybdenum,porphyry_skarn_cu,0.896,"Cu, WMoSn",0.9977
+Tibet and Yulong,tibet,16,883c727b43fffff,29.4792,90.7904,0.9992,0.9987,0.9996,61,,,False,Collisional porphyry copper-molybdenum,porphyry_skarn_cu,0.958,"Cu, WMoSn",0.9995
+Tibet and Yulong,tibet,17,883c727ac7fffff,29.519,90.8911,0.9991,0.9992,0.9991,64,,,False,Collisional porphyry copper-molybdenum,porphyry_skarn_cu,0.938,"Cu, Au",0.9985
+Tibet and Yulong,tibet,18,883c734825fffff,29.6586,91.7297,0.9991,0.9991,0.9991,51,,,False,Collisional porphyry copper-molybdenum,porphyry_skarn_cu,0.939,"Cu, WMoSn",0.9988
+Tibet and Yulong,tibet,19,883c548a1dfffff,29.4071,91.4608,0.9991,0.9998,0.9984,64,,,False,Collisional porphyry copper-molybdenum,porphyry_skarn_cu,0.942,"Cu, Au",0.9975
+Tibet and Yulong,tibet,20,883c48b091fffff,30.966,98.1525,0.999,0.9998,0.9983,103,,,False,Collisional porphyry copper-molybdenum,porphyry_skarn_cu,0.805,"Cu, WMoSn",0.9975
+Tibet and Yulong,tibet,21,883c0d30d5fffff,29.6401,90.0248,0.999,0.9996,0.9983,49,,,False,Collisional porphyry copper-molybdenum,porphyry_skarn_cu,0.926,"Cu, WMoSn",0.9975
+Tibet and Yulong,tibet,22,883c4b8a47fffff,30.0649,98.5083,0.9988,0.9997,0.998,45,,,False,Collisional porphyry copper-molybdenum,porphyry_skarn_cu,0.847,"Cu, WMoSn",0.9971
+Tibet and Yulong,tibet,23,883c4d41c5fffff,31.1713,97.9842,0.9988,0.9993,0.9982,68,,,False,Collisional porphyry copper-molybdenum,porphyry_skarn_cu,0.881,"Cu, WMoSn",0.9975
+Tibet and Yulong,tibet,24,883c0d0061fffff,29.5277,89.5834,0.9988,0.9998,0.9977,56,,,False,Collisional porphyry copper-molybdenum,porphyry_skarn_cu,0.913,"Cu, WMoSn",0.9968
+Tibet and Yulong,tibet,25,883c722841fffff,29.7133,91.2432,0.9988,0.9996,0.9979,77,,,False,Collisional porphyry copper-molybdenum,porphyry_skarn_cu,0.944,"Cu, WMoSn",0.997
+Tibet and Yulong,tibet,26,883c724957fffff,29.3384,90.4921,0.9988,0.9998,0.9978,88,,,False,Collisional porphyry copper-molybdenum,porphyry_skarn_cu,0.95,"Cu, Au",0.9968
+Tibet and Yulong,tibet,27,883c720c87fffff,29.7463,91.0299,0.9987,0.9997,0.9978,92,,,False,Collisional porphyry copper-molybdenum,porphyry_skarn_cu,0.91,"Cu, WMoSn",0.9969
+Tibet and Yulong,tibet,28,883c48b803fffff,30.8242,98.0188,0.9987,0.999,0.9984,98,,,False,Collisional porphyry copper-molybdenum,porphyry_skarn_cu,0.845,"Cu, WMoSn",0.9976
+Tibet and Yulong,tibet,29,883c4d5013fffff,31.3228,97.8849,0.9985,0.9985,0.9985,113,,,False,Collisional porphyry copper-molybdenum,porphyry_skarn_cu,0.842,"Cu, WMoSn",0.9977
+Tibet and Yulong,tibet,30,883c549ac3fffff,29.5143,91.3756,0.9984,0.9978,0.999,52,,,False,Collisional porphyry copper-molybdenum,porphyry_skarn_cu,0.971,"Cu, WMoSn",0.9984
+Tibet and Yulong,tibet,31,883c5495bbfffff,29.5847,91.6211,0.9983,0.9978,0.9989,57,,,False,Collisional porphyry copper-molybdenum,porphyry_skarn_cu,0.971,"Cu, WMoSn",0.9983
+Tibet and Yulong,tibet,32,883c548313fffff,29.5044,91.4876,0.9982,0.9994,0.9971,72,,,False,Collisional porphyry copper-molybdenum,porphyry_skarn_cu,0.951,"Cu, WMoSn",0.996
+Tibet and Yulong,tibet,33,883c6bcb59fffff,32.1847,96.7479,0.9982,0.9991,0.9972,35,,,False,Collisional porphyry copper-molybdenum,porphyry_skarn_cu,0.893,"Cu, Au",0.9961
+Tibet and Yulong,tibet,34,883c72ac1dfffff,30.0963,91.237,0.9982,0.9995,0.9969,97,,,False,Collisional porphyry copper-molybdenum,porphyry_skarn_cu,0.901,"Cu, WMoSn",0.9959
+Tibet and Yulong,tibet,35,883c7244c7fffff,29.5701,90.792,0.9981,0.9979,0.9984,70,,,False,Collisional porphyry copper-molybdenum,porphyry_skarn_cu,0.962,"Cu, Au",0.9975
+Tibet and Yulong,tibet,36,883c5496d5fffff,29.7039,91.6055,0.9981,0.9983,0.998,68,,,False,Collisional porphyry copper-molybdenum,porphyry_skarn_cu,0.958,"Cu, WMoSn",0.9971
+Tibet and Yulong,tibet,37,883c72a823fffff,30.0242,91.0501,0.9981,1.0,0.9962,71,,,False,Collisional porphyry copper-molybdenum,porphyry_skarn_cu,0.909,"Cu, WMoSn",0.9952
+Tibet and Yulong,tibet,38,883c4bc5e5fffff,29.8,98.5014,0.9981,1.0,0.9962,79,,,False,Collisional porphyry copper-molybdenum,porphyry_skarn_cu,0.821,"Cu, WMoSn",0.9951
+Tibet and Yulong,tibet,39,883c724e27fffff,29.44,90.6605,0.998,0.9982,0.9978,55,,,False,Collisional porphyry copper-molybdenum,porphyry_skarn_cu,0.964,"Cu, WMoSn",0.9969
+Tibet and Yulong,tibet,40,883c4d1067fffff,31.6215,98.1047,0.9978,0.9991,0.9966,69,,,False,Collisional porphyry copper-molybdenum,porphyry_skarn_cu,0.7,"Cu, WMoSn",0.9955
+Tibet and Yulong,tibet,41,883c0d393bfffff,29.4257,89.8981,0.9978,0.999,0.9966,90,,,False,Collisional porphyry copper-molybdenum,porphyry_skarn_cu,0.91,"Cu, WMoSn",0.9957
+Tibet and Yulong,tibet,42,883c5481b1fffff,29.4321,91.5705,0.9978,0.999,0.9965,53,,,False,Collisional porphyry copper-molybdenum,porphyry_skarn_cu,0.957,"Cu, WMoSn",0.9955
+Tibet and Yulong,tibet,43,883c0d2b17fffff,29.3821,90.0023,0.9977,0.9981,0.9974,84,,,False,Collisional porphyry copper-molybdenum,porphyry_skarn_cu,0.954,"Cu, WMoSn",0.9963
+Tibet and Yulong,tibet,44,883c099651fffff,29.3977,90.3205,0.9977,0.9979,0.9975,32,,,False,Collisional porphyry copper-molybdenum,porphyry_skarn_cu,0.918,"Cu, WMoSn",0.9966
+Tibet and Yulong,tibet,45,883c7239c9fffff,29.7716,91.1396,0.9976,0.9964,0.9989,61,,,False,Collisional porphyry copper-molybdenum,porphyry_skarn_cu,0.946,"Cu, WMoSn",0.9981
+Tibet and Yulong,tibet,46,883c0d1847fffff,29.4948,89.4206,0.9976,0.9995,0.9957,107,,,False,Collisional porphyry copper-molybdenum,porphyry_skarn_cu,0.93,"Cu, Au",0.9946
+Tibet and Yulong,tibet,47,883c4b8833fffff,29.9894,98.58,0.9976,0.9979,0.9973,67,,,False,Collisional porphyry copper-molybdenum,porphyry_skarn_cu,0.841,"Cu, WMoSn",0.9962
+Tibet and Yulong,tibet,48,883c4c2c2dfffff,31.1231,97.6059,0.9976,0.9987,0.9964,83,,,False,Collisional porphyry copper-molybdenum,porphyry_skarn_cu,0.881,"Cu, WMoSn",0.9953
+Tibet and Yulong,tibet,49,883c726525fffff,29.4776,91.1672,0.9975,0.9984,0.9966,31,,,False,Collisional porphyry copper-molybdenum,porphyry_skarn_cu,0.968,"Cu, WMoSn",0.9955
+Tibet and Yulong,tibet,50,883c7248b9fffff,29.3643,90.6014,0.9974,0.998,0.9967,55,,,False,Collisional porphyry copper-molybdenum,porphyry_skarn_cu,0.96,"Cu, WMoSn",0.9957
+Kazakhstan and Tien Shan,kazakh,1,882044b4d7fffff,50.5862,81.8982,0.9999,1.0,0.9999,34,,,False,"Porphyry copper, orogenic gold, uranium",sed_hosted_base,0.623,"PbZn, Cu",0.9994
+Kazakhstan and Tien Shan,kazakh,2,882023bac7fffff,48.2569,70.1678,0.9999,1.0,0.9998,19,,,False,"Porphyry copper, orogenic gold, uranium",sed_hosted_base,0.576,"BaF, PbZn",0.999
+Kazakhstan and Tien Shan,kazakh,3,88212a066bfffff,51.9876,62.2671,0.9998,0.9996,1.0,22,,,False,"Porphyry copper, orogenic gold, uranium",surficial_residual,0.555,"Al, Cu",0.9998
+Kazakhstan and Tien Shan,kazakh,4,882044718bfffff,49.7041,81.612,0.9998,0.9998,0.9998,32,,,False,"Porphyry copper, orogenic gold, uranium",epithermal_orogenic_au,0.454,"Au, PbZn",0.9992
+Kazakhstan and Tien Shan,kazakh,5,8820260ebbfffff,47.8544,67.3774,0.9998,0.9999,0.9996,56,,,False,"Porphyry copper, orogenic gold, uranium",sed_hosted_base,0.521,"Cu, PbZn",0.9986
+Kazakhstan and Tien Shan,kazakh,6,882063569dfffff,51.0142,81.5011,0.9998,0.9997,0.9998,17,,,False,"Porphyry copper, orogenic gold, uranium",vms,0.462,"PbZn, Cu",0.9993
+Kazakhstan and Tien Shan,kazakh,7,88218e8301fffff,42.2643,63.9124,0.9996,0.9997,0.9996,49,,,False,"Porphyry copper, orogenic gold, uranium",chemical_sedimentary,0.719,"P, Au",0.9985
+Kazakhstan and Tien Shan,kazakh,8,88218e49e7fffff,41.2998,64.2809,0.9996,0.9997,0.9995,59,,,False,"Porphyry copper, orogenic gold, uranium",chemical_sedimentary,0.474,"Au, P",0.9983
+Kazakhstan and Tien Shan,kazakh,9,8820263a37fffff,47.9114,67.506,0.9995,0.9997,0.9993,50,,,False,"Porphyry copper, orogenic gold, uranium",sed_hosted_base,0.484,"Cu, Mn",0.9981
+Kazakhstan and Tien Shan,kazakh,10,88218e7b45fffff,41.5303,64.505,0.9995,0.9997,0.9992,52,,,False,"Porphyry copper, orogenic gold, uranium",chemical_sedimentary,0.578,"Au, P",0.9979
+Kazakhstan and Tien Shan,kazakh,11,88219d8763fffff,41.1739,64.1544,0.9994,0.999,0.9998,48,,,False,"Porphyry copper, orogenic gold, uranium",chemical_sedimentary,0.847,"P, Au",0.9992
+Kazakhstan and Tien Shan,kazakh,12,8820292f11fffff,49.3702,75.7661,0.9993,0.9998,0.9987,9,,,False,"Porphyry copper, orogenic gold, uranium",sed_hosted_base,0.389,"PbZn, Cu",0.9973
+Kazakhstan and Tien Shan,kazakh,13,88218e06b1fffff,42.0918,64.6475,0.9993,0.9986,0.9999,61,,,False,"Porphyry copper, orogenic gold, uranium",chemical_sedimentary,0.86,"P, Au",0.9993
+Kazakhstan and Tien Shan,kazakh,14,88218e3ad7fffff,42.041,64.8252,0.9993,0.999,0.9995,65,,,False,"Porphyry copper, orogenic gold, uranium",chemical_sedimentary,0.827,"P, Au",0.9984
+Kazakhstan and Tien Shan,kazakh,15,8821816e6dfffff,42.131,63.5185,0.9992,0.999,0.9995,17,,,False,"Porphyry copper, orogenic gold, uranium",chemical_sedimentary,0.791,"P, Au",0.9983
+Kazakhstan and Tien Shan,kazakh,16,882020b005fffff,48.9641,68.634,0.9992,0.9999,0.9986,30,,,False,"Porphyry copper, orogenic gold, uranium",porphyry_skarn_cu,0.446,"Cu, Au",0.997
+Kazakhstan and Tien Shan,kazakh,17,88218e046dfffff,42.0282,64.5551,0.9992,0.9987,0.9997,35,,,False,"Porphyry copper, orogenic gold, uranium",chemical_sedimentary,0.861,"P, Au",0.9987
+Kazakhstan and Tien Shan,kazakh,18,8820a1115bfffff,40.8462,69.6172,0.9991,0.9997,0.9985,16,,,False,"Porphyry copper, orogenic gold, uranium",sed_hosted_base,0.331,"PbZn, Cu",0.997
+Kazakhstan and Tien Shan,kazakh,19,8820108701fffff,43.5494,69.6547,0.9991,1.0,0.9983,55,,,False,"Porphyry copper, orogenic gold, uranium",chemical_sedimentary,0.77,"P, PbZn",0.9965
+Kazakhstan and Tien Shan,kazakh,20,88202dc6d9fffff,50.2091,73.0213,0.9991,0.9998,0.9984,37,,,False,"Porphyry copper, orogenic gold, uranium",epithermal_orogenic_au,0.269,"Au, Cu",0.9966
+Kazakhstan and Tien Shan,kazakh,21,8820a11959fffff,40.6775,69.5996,0.999,0.9994,0.9986,26,,,False,"Porphyry copper, orogenic gold, uranium",sed_hosted_base,0.341,"PbZn, Cu",0.997
+Kazakhstan and Tien Shan,kazakh,22,882199c89bfffff,40.0025,65.3696,0.999,0.9986,0.9994,45,,,False,"Porphyry copper, orogenic gold, uranium",chemical_sedimentary,0.802,"P, WMoSn",0.9982
+Kazakhstan and Tien Shan,kazakh,23,88218e9b63fffff,42.1643,63.7074,0.9989,0.9987,0.9991,67,,,False,"Porphyry copper, orogenic gold, uranium",chemical_sedimentary,0.667,"P, Au",0.9976
+Kazakhstan and Tien Shan,kazakh,24,88218e21a5fffff,41.9717,65.0392,0.9989,0.9983,0.9995,59,,,False,"Porphyry copper, orogenic gold, uranium",chemical_sedimentary,0.886,"P, Au",0.9984
+Kazakhstan and Tien Shan,kazakh,25,882023b551fffff,48.4041,70.3548,0.9989,0.9984,0.9993,7,,,False,"Porphyry copper, orogenic gold, uranium",sed_hosted_base,0.645,"PbZn, Cu",0.9981
+Kazakhstan and Tien Shan,kazakh,26,882026a8e7fffff,48.1277,67.3812,0.9988,1.0,0.9977,18,,,False,"Porphyry copper, orogenic gold, uranium",sed_hosted_base,0.527,"Cu, Mn",0.9957
+Kazakhstan and Tien Shan,kazakh,27,8820a10351fffff,40.7989,69.749,0.9988,0.9987,0.9989,15,,,False,"Porphyry copper, orogenic gold, uranium",porphyry_skarn_cu,0.47,"Cu, PbZn",0.9974
+Kazakhstan and Tien Shan,kazakh,28,88218e7931fffff,41.4698,64.6223,0.9988,0.9979,0.9996,15,,,False,"Porphyry copper, orogenic gold, uranium",epithermal_orogenic_au,0.353,"Au, U",0.9985
+Kazakhstan and Tien Shan,kazakh,29,88218e42e5fffff,41.5712,64.2266,0.9988,0.9985,0.9991,80,,,False,"Porphyry copper, orogenic gold, uranium",chemical_sedimentary,0.713,"P, Au",0.9976
+Kazakhstan and Tien Shan,kazakh,30,8820233527fffff,48.0009,70.7792,0.9987,0.9997,0.9978,14,,,False,"Porphyry copper, orogenic gold, uranium",chemical_sedimentary,0.628,"Fe, Mn",0.9959
+Kazakhstan and Tien Shan,kazakh,31,88218ada61fffff,41.2495,64.9355,0.9987,0.9974,1.0,58,,,False,"Porphyry copper, orogenic gold, uranium",chemical_sedimentary,0.832,"P, Au",0.9996
+Kazakhstan and Tien Shan,kazakh,32,88218e200bfffff,42.0596,64.9877,0.9987,0.9978,0.9996,52,,,False,"Porphyry copper, orogenic gold, uranium",chemical_sedimentary,0.853,"P, Au",0.9984
+Kazakhstan and Tien Shan,kazakh,33,8821994c6dfffff,39.7124,65.7939,0.9987,0.9986,0.9987,57,,,False,"Porphyry copper, orogenic gold, uranium",chemical_sedimentary,0.573,"P, WMoSn",0.9972
+Kazakhstan and Tien Shan,kazakh,34,8820637997fffff,50.6797,81.9252,0.9986,0.9973,0.9999,7,,,False,"Porphyry copper, orogenic gold, uranium",sed_hosted_base,0.546,"PbZn, Cu",0.9993
+Kazakhstan and Tien Shan,kazakh,35,8820a4716dfffff,40.4928,67.2691,0.9986,0.9988,0.9983,19,,,False,"Porphyry copper, orogenic gold, uranium",sed_hosted_base,0.469,"PbZn, WMoSn",0.9965
+Kazakhstan and Tien Shan,kazakh,36,8820748805fffff,50.0925,76.1721,0.9986,1.0,0.9971,45,,,False,"Porphyry copper, orogenic gold, uranium",porphyry_skarn_cu,0.526,"Cu, Au",0.9952
+Kazakhstan and Tien Shan,kazakh,37,8821994097fffff,39.8258,65.7561,0.9986,0.9989,0.9982,50,,,False,"Porphyry copper, orogenic gold, uranium",chemical_sedimentary,0.642,"P, WMoSn",0.9964
+Kazakhstan and Tien Shan,kazakh,38,882010841bfffff,43.5795,69.7751,0.9984,0.9994,0.9975,28,,,False,"Porphyry copper, orogenic gold, uranium",chemical_sedimentary,0.77,"P, PbZn",0.9957
+Kazakhstan and Tien Shan,kazakh,39,88219d9091fffff,41.2151,63.9757,0.9984,0.9968,1.0,60,,,False,"Porphyry copper, orogenic gold, uranium",chemical_sedimentary,0.673,"Au, P",0.9997
+Kazakhstan and Tien Shan,kazakh,40,8820704857fffff,48.6417,77.7191,0.9984,0.9999,0.9968,19,,,False,"Porphyry copper, orogenic gold, uranium",sed_hosted_base,0.319,"Cu, PbZn",0.9949
+Kazakhstan and Tien Shan,kazakh,41,8820a155c9fffff,40.5091,69.6484,0.9983,0.9993,0.9972,32,,,False,"Porphyry copper, orogenic gold, uranium",chemical_sedimentary,0.376,"P, Cu",0.9953
+Kazakhstan and Tien Shan,kazakh,42,8821836713fffff,41.0997,63.6383,0.9982,0.9977,0.9988,35,,,False,"Porphyry copper, orogenic gold, uranium",chemical_sedimentary,0.88,"P, Au",0.9974
+Kazakhstan and Tien Shan,kazakh,43,88202a2e41fffff,47.7681,73.9606,0.9982,0.9971,0.9993,8,,,False,"Porphyry copper, orogenic gold, uranium",sed_hosted_base,0.44,"PbZn, Cu",0.998
+Kazakhstan and Tien Shan,kazakh,44,88219d864bfffff,41.2646,64.1689,0.9982,0.9995,0.9968,87,,,False,"Porphyry copper, orogenic gold, uranium",chemical_sedimentary,0.621,"Au, P",0.9949
+Kazakhstan and Tien Shan,kazakh,45,88218e7537fffff,41.7179,64.8121,0.9982,0.997,0.9993,50,,,False,"Porphyry copper, orogenic gold, uranium",chemical_sedimentary,0.787,"P, Au",0.9981
+Kazakhstan and Tien Shan,kazakh,46,88218ad9b5fffff,41.1485,65.1007,0.9981,0.9965,0.9998,31,,,False,"Porphyry copper, orogenic gold, uranium",chemical_sedimentary,0.859,"P, Cu",0.9992
+Kazakhstan and Tien Shan,kazakh,47,88201474d9fffff,43.6155,69.0151,0.9981,0.9983,0.998,30,,,False,"Porphyry copper, orogenic gold, uranium",sed_hosted_base,0.745,"PbZn, Cu",0.9961
+Kazakhstan and Tien Shan,kazakh,48,88218e38b7fffff,41.959,64.9124,0.9981,0.9971,0.999,85,,,False,"Porphyry copper, orogenic gold, uranium",chemical_sedimentary,0.861,"P, Au",0.9976
+Kazakhstan and Tien Shan,kazakh,49,88219db549fffff,41.3321,64.5661,0.9981,0.9967,0.9994,43,,,False,"Porphyry copper, orogenic gold, uranium",chemical_sedimentary,0.769,"P, Au",0.9982
+Kazakhstan and Tien Shan,kazakh,50,88202d541dfffff,49.8672,73.2066,0.9981,0.999,0.9971,52,,,False,"Porphyry copper, orogenic gold, uranium",porphyry_skarn_cu,0.263,"Cu, Au",0.9952
+"Sierra Madre, Mexico",mexico,1,884983af39fffff,21.0566,-101.2088,0.9994,0.999,0.9998,7,,,False,"Epithermal silver-gold, porphyry copper",epithermal_orogenic_au,0.747,"Au, Ag",0.9969
+"Sierra Madre, Mexico",mexico,2,8848e4a051fffff,28.5905,-109.6408,0.9994,0.999,0.9998,43,,,False,"Epithermal silver-gold, porphyry copper",porphyry_skarn_cu,0.544,"Cu, Au",0.9969
+"Sierra Madre, Mexico",mexico,3,884810cb17fffff,24.5418,-104.3325,0.9992,0.9993,0.9991,11,,,False,"Epithermal silver-gold, porphyry copper",epithermal_orogenic_au,0.696,"Ag, Au",0.9955
+"Sierra Madre, Mexico",mexico,4,8849826ed9fffff,20.8181,-99.6691,0.9992,0.9991,0.9992,23,,,False,"Epithermal silver-gold, porphyry copper",chemical_sedimentary,0.368,"P, PbZn",0.9956
+"Sierra Madre, Mexico",mexico,5,8848e56d25fffff,29.8981,-109.9424,0.9992,0.9988,0.9996,22,,,False,"Epithermal silver-gold, porphyry copper",felsic_alkaline_rare,0.365,"Cu, WMoSn",0.9961
+"Sierra Madre, Mexico",mexico,6,88481932cbfffff,28.1722,-108.3954,0.9989,0.998,0.9997,21,,,False,"Epithermal silver-gold, porphyry copper",epithermal_orogenic_au,0.697,"Ag, Cu",0.9964
+"Sierra Madre, Mexico",mexico,7,8848a231e3fffff,25.8726,-100.4698,0.9989,0.998,0.9997,42,,,False,"Epithermal silver-gold, porphyry copper",sed_hosted_base,0.676,"PbZn, Cu",0.9962
+"Sierra Madre, Mexico",mexico,8,884983aac1fffff,20.9656,-101.1719,0.9988,0.9979,0.9997,19,,,False,"Epithermal silver-gold, porphyry copper",sed_hosted_base,0.461,"Ag, PbZn",0.9966
+"Sierra Madre, Mexico",mexico,9,8848a644a3fffff,24.66,-100.0524,0.9988,0.998,0.9996,44,,,False,"Epithermal silver-gold, porphyry copper",sed_hosted_base,0.385,"BaF, P",0.9961
+"Sierra Madre, Mexico",mexico,10,8848a64e8dfffff,24.6447,-99.9277,0.9987,0.9988,0.9986,44,,,False,"Epithermal silver-gold, porphyry copper",sed_hosted_base,0.619,"BaF, P",0.9951
+"Sierra Madre, Mexico",mexico,11,8848a67b3bfffff,24.7277,-99.9787,0.9987,0.9975,0.9999,35,,,False,"Epithermal silver-gold, porphyry copper",sed_hosted_base,0.58,"BaF, P",0.997
+"Sierra Madre, Mexico",mexico,12,88499dc4bbfffff,21.9384,-100.5765,0.9986,0.9973,0.9999,43,,,False,"Epithermal silver-gold, porphyry copper",sed_hosted_base,0.409,"PbZn, BaF",0.9972
+"Sierra Madre, Mexico",mexico,13,8849992739fffff,23.7206,-100.8926,0.9986,0.9984,0.9988,25,,,False,"Epithermal silver-gold, porphyry copper",sed_hosted_base,0.496,"PbZn, Ag",0.9952
+"Sierra Madre, Mexico",mexico,14,88481d2c3bfffff,27.3887,-108.3749,0.9985,0.9989,0.9981,28,,,False,"Epithermal silver-gold, porphyry copper",epithermal_orogenic_au,0.832,"Ag, Au",0.9946
+"Sierra Madre, Mexico",mexico,15,8849826d51fffff,20.8362,-99.5315,0.9984,0.9988,0.9979,30,,,False,"Epithermal silver-gold, porphyry copper",sed_hosted_base,0.541,"PbZn, Cu",0.9944
+"Sierra Madre, Mexico",mexico,16,88481d25ddfffff,27.3309,-108.5265,0.9983,0.9966,1.0,30,,,False,"Epithermal silver-gold, porphyry copper",epithermal_orogenic_au,0.691,"Au, Ag",0.9974
+"Sierra Madre, Mexico",mexico,17,88481d01b3fffff,26.9346,-108.0489,0.9983,0.9977,0.9988,43,,,False,"Epithermal silver-gold, porphyry copper",epithermal_orogenic_au,0.447,"Au, Cu",0.9953
+"Sierra Madre, Mexico",mexico,18,884991b561fffff,20.6339,-99.2063,0.9983,0.9972,0.9993,38,,,False,"Epithermal silver-gold, porphyry copper",sed_hosted_base,0.413,"PbZn, Ag",0.9956
+"Sierra Madre, Mexico",mexico,19,8848e4a0b3fffff,28.6824,-109.6663,0.9983,0.9979,0.9986,54,,,False,"Epithermal silver-gold, porphyry copper",porphyry_skarn_cu,0.477,"Cu, Ag",0.9952
+"Sierra Madre, Mexico",mexico,20,88481d5759fffff,26.7572,-107.7296,0.9982,0.9986,0.9978,29,,,False,"Epithermal silver-gold, porphyry copper",epithermal_orogenic_au,0.572,"Au, Ag",0.9942
+"Sierra Madre, Mexico",mexico,21,88498861cbfffff,22.7697,-102.6121,0.9982,0.9994,0.997,43,,,False,"Epithermal silver-gold, porphyry copper",epithermal_orogenic_au,0.365,"Ag, Cu",0.9935
+"Sierra Madre, Mexico",mexico,22,8848a226ddfffff,26.0671,-100.7317,0.9982,0.9977,0.9987,28,,,False,"Epithermal silver-gold, porphyry copper",sed_hosted_base,0.731,"BaF, Cu",0.9952
+"Sierra Madre, Mexico",mexico,23,88480a59bdfffff,27.5338,-108.4901,0.9982,0.9976,0.9988,40,,,False,"Epithermal silver-gold, porphyry copper",epithermal_orogenic_au,0.731,"Au, Ag",0.9952
+"Sierra Madre, Mexico",mexico,24,8848169b03fffff,23.6372,-103.7666,0.9981,0.9983,0.9978,33,,,False,"Epithermal silver-gold, porphyry copper",epithermal_orogenic_au,0.458,"Ag, PbZn",0.9943
+"Sierra Madre, Mexico",mexico,25,8849992153fffff,23.6608,-100.7448,0.9978,0.9984,0.9972,26,,,False,"Epithermal silver-gold, porphyry copper",epithermal_orogenic_au,0.384,"BaF, PbZn",0.9936
+"Sierra Madre, Mexico",mexico,26,88481d0897fffff,26.9921,-107.9647,0.9978,0.9983,0.9973,66,,,False,"Epithermal silver-gold, porphyry copper",epithermal_orogenic_au,0.387,"Au, Cu",0.9937
+"Sierra Madre, Mexico",mexico,27,88499d0587fffff,22.2924,-100.7664,0.9977,0.9961,0.9994,20,,,False,"Epithermal silver-gold, porphyry copper",sed_hosted_base,0.615,"PbZn, Cu",0.9957
+"Sierra Madre, Mexico",mexico,28,88480a5851fffff,27.4473,-108.5494,0.9977,0.996,0.9995,21,,,False,"Epithermal silver-gold, porphyry copper",epithermal_orogenic_au,0.654,"Au, Ag",0.9959
+"Sierra Madre, Mexico",mexico,29,8848a66c3bfffff,25.0464,-100.1428,0.9976,0.9953,1.0,43,,,False,"Epithermal silver-gold, porphyry copper",sed_hosted_base,0.679,"BaF, P",0.9972
+"Sierra Madre, Mexico",mexico,30,8848a04ebbfffff,25.3743,-100.9717,0.9976,0.9964,0.9989,38,,,False,"Epithermal silver-gold, porphyry copper",sed_hosted_base,0.464,"BaF, PbZn",0.9953
+"Sierra Madre, Mexico",mexico,31,884819319dfffff,28.2705,-108.301,0.9976,0.9977,0.9975,49,,,False,"Epithermal silver-gold, porphyry copper",epithermal_orogenic_au,0.74,"Au, Ag",0.9938
+"Sierra Madre, Mexico",mexico,32,8848e4546bfffff,28.6349,-108.7695,0.9976,0.9985,0.9966,40,,,False,"Epithermal silver-gold, porphyry copper",epithermal_orogenic_au,0.5,"Ag, Au",0.9931
+"Sierra Madre, Mexico",mexico,33,8848a230d9fffff,25.8572,-100.5835,0.9975,0.996,0.999,30,,,False,"Epithermal silver-gold, porphyry copper",sed_hosted_base,0.751,"PbZn, Cu",0.9954
+"Sierra Madre, Mexico",mexico,34,8848a6306bfffff,24.6424,-100.65,0.9974,0.9967,0.998,17,,,False,"Epithermal silver-gold, porphyry copper",chemical_sedimentary,0.383,"Cu, P",0.9944
+"Sierra Madre, Mexico",mexico,35,88481d771dfffff,27.1364,-108.0221,0.9974,0.998,0.9968,38,,,False,"Epithermal silver-gold, porphyry copper",epithermal_orogenic_au,0.747,"Ag, Au",0.9933
+"Sierra Madre, Mexico",mexico,36,8848a26b49fffff,26.0016,-99.8057,0.9973,0.9975,0.9971,23,,,False,"Epithermal silver-gold, porphyry copper",sed_hosted_base,0.635,"PbZn, Cu",0.9936
+"Sierra Madre, Mexico",mexico,37,8848a2af25fffff,25.7139,-100.6113,0.9973,0.9974,0.9972,56,,,False,"Epithermal silver-gold, porphyry copper",sed_hosted_base,0.647,"BaF, PbZn",0.9937
+"Sierra Madre, Mexico",mexico,38,88481d0829fffff,26.9223,-107.8823,0.9972,0.9966,0.9978,57,,,False,"Epithermal silver-gold, porphyry copper",porphyry_skarn_cu,0.416,"Au, Cu",0.9942
+"Sierra Madre, Mexico",mexico,39,8848e4091bfffff,28.7613,-108.9045,0.9972,0.9974,0.9969,15,,,False,"Epithermal silver-gold, porphyry copper",sed_hosted_base,0.474,"Ag, PbZn",0.9935
+"Sierra Madre, Mexico",mexico,40,8848848e3bfffff,26.5196,-100.2982,0.9971,0.9953,0.999,29,,,False,"Epithermal silver-gold, porphyry copper",sed_hosted_base,0.551,"P, PbZn",0.9954
+"Sierra Madre, Mexico",mexico,41,8849b13b23fffff,18.1969,-100.1535,0.9971,0.9983,0.9959,17,,,False,"Epithermal silver-gold, porphyry copper",epithermal_orogenic_au,0.516,"Ag, Cu",0.9924
+"Sierra Madre, Mexico",mexico,42,88481d5413fffff,26.8474,-107.7735,0.9969,0.9978,0.996,49,,,False,"Epithermal silver-gold, porphyry copper",epithermal_orogenic_au,0.51,"Cu, Ag",0.9925
+"Sierra Madre, Mexico",mexico,43,88480a562dfffff,27.4187,-108.8504,0.9969,0.9954,0.9983,53,,,False,"Epithermal silver-gold, porphyry copper",porphyry_skarn_cu,0.489,"Cu, Au",0.9949
+"Sierra Madre, Mexico",mexico,44,88480a4467fffff,27.6373,-108.817,0.9968,0.9944,0.9992,38,,,False,"Epithermal silver-gold, porphyry copper",porphyry_skarn_cu,0.433,"Cu, Au",0.9956
+"Sierra Madre, Mexico",mexico,45,88481d1619fffff,26.7148,-108.2942,0.9968,0.9976,0.9959,24,,,False,"Epithermal silver-gold, porphyry copper",porphyry_skarn_cu,0.593,"Cu, Ag",0.9924
+"Sierra Madre, Mexico",mexico,46,8848a22169fffff,25.971,-100.408,0.9968,0.9953,0.9982,30,,,False,"Epithermal silver-gold, porphyry copper",sed_hosted_base,0.569,"PbZn, Cu",0.9947
+"Sierra Madre, Mexico",mexico,47,88480ac8c5fffff,27.2414,-108.7402,0.9965,0.9952,0.9979,36,,,False,"Epithermal silver-gold, porphyry copper",porphyry_skarn_cu,0.404,"Ag, Cu",0.9944
+"Sierra Madre, Mexico",mexico,48,884999adb7fffff,23.513,-100.9339,0.9965,0.9961,0.9968,42,,,False,"Epithermal silver-gold, porphyry copper",sed_hosted_base,0.348,"BaF, Cu",0.9934
+"Sierra Madre, Mexico",mexico,49,88481d50cdfffff,26.7531,-107.6261,0.9964,0.9976,0.9951,2,,,False,"Epithermal silver-gold, porphyry copper",epithermal_orogenic_au,0.542,"Ag, Cu",0.9916
+"Sierra Madre, Mexico",mexico,50,8848a220cdfffff,26.0099,-100.5314,0.9963,0.9945,0.9982,13,,,False,"Epithermal silver-gold, porphyry copper",sed_hosted_base,0.429,"Mn, BaF",0.9949
+British Columbia and SE Alaska,bc_alaska,1,88139e19d7fffff,58.2515,-134.5037,0.9999,0.9999,0.9998,75,,,False,"Porphyry copper-gold, VMS, orogenic gold",epithermal_orogenic_au,0.855,"Au, Ag",0.9991
+British Columbia and SE Alaska,bc_alaska,2,88139a9351fffff,57.8919,-133.7431,0.9997,0.9997,0.9998,38,,,False,"Porphyry copper-gold, VMS, orogenic gold",epithermal_orogenic_au,0.864,"Au, Ag",0.9987
+British Columbia and SE Alaska,bc_alaska,3,88139e769bfffff,58.0375,-133.9223,0.9997,0.9997,0.9997,39,,,False,"Porphyry copper-gold, VMS, orogenic gold",epithermal_orogenic_au,0.889,"Au, Ag",0.9983
+British Columbia and SE Alaska,bc_alaska,4,88139ec743fffff,58.4723,-134.757,0.9996,0.9997,0.9996,31,,,False,"Porphyry copper-gold, VMS, orogenic gold",epithermal_orogenic_au,0.889,"Au, Ag",0.9979
+British Columbia and SE Alaska,bc_alaska,5,88139e3949fffff,58.1183,-134.0025,0.9995,0.9996,0.9994,81,,,False,"Porphyry copper-gold, VMS, orogenic gold",epithermal_orogenic_au,0.848,"Au, Ag",0.9975
+British Columbia and SE Alaska,bc_alaska,6,88139ec531fffff,58.383,-134.7198,0.9995,0.9996,0.9993,38,,,False,"Porphyry copper-gold, VMS, orogenic gold",epithermal_orogenic_au,0.846,"Au, Ag",0.9974
+British Columbia and SE Alaska,bc_alaska,7,88139e2ac7fffff,58.0257,-133.7286,0.9994,0.9991,0.9997,68,,,False,"Porphyry copper-gold, VMS, orogenic gold",epithermal_orogenic_au,0.874,"Au, Ag",0.9984
+British Columbia and SE Alaska,bc_alaska,8,88139ed749fffff,58.6176,-134.895,0.9994,0.9998,0.999,4,,,False,"Porphyry copper-gold, VMS, orogenic gold",epithermal_orogenic_au,0.881,"Au, Ag",0.997
+British Columbia and SE Alaska,bc_alaska,9,88139a8e53fffff,57.6464,-133.4235,0.9993,0.9993,0.9993,23,,,False,"Porphyry copper-gold, VMS, orogenic gold",epithermal_orogenic_au,0.83,"Au, Ag",0.9974
+British Columbia and SE Alaska,bc_alaska,10,88139e01abfffff,58.2101,-134.2774,0.9993,0.9997,0.9989,20,,,False,"Porphyry copper-gold, VMS, orogenic gold",epithermal_orogenic_au,0.888,"Au, Ag",0.9969
+British Columbia and SE Alaska,bc_alaska,11,88139e1a5bfffff,58.3727,-134.525,0.9992,0.9988,0.9996,8,,,False,"Porphyry copper-gold, VMS, orogenic gold",epithermal_orogenic_au,0.873,"Au, Ag",0.9981
+British Columbia and SE Alaska,bc_alaska,12,88139ab933fffff,57.5041,-133.2374,0.9988,0.9994,0.9982,2,,,False,"Porphyry copper-gold, VMS, orogenic gold",epithermal_orogenic_au,0.909,"Au, Ag",0.9959
+British Columbia and SE Alaska,bc_alaska,13,88139e7123fffff,57.9801,-134.3825,0.9988,0.9995,0.9982,62,,,False,"Porphyry copper-gold, VMS, orogenic gold",epithermal_orogenic_au,0.786,"Au, Ag",0.9958
+British Columbia and SE Alaska,bc_alaska,14,88139e6707fffff,57.8904,-134.0154,0.9987,0.9979,0.9995,78,,,False,"Porphyry copper-gold, VMS, orogenic gold",epithermal_orogenic_au,0.783,"Au, Ag",0.9978
+British Columbia and SE Alaska,bc_alaska,15,88121608dbfffff,58.0852,-125.8765,0.9984,0.997,0.9999,7,,,False,"Porphyry copper-gold, VMS, orogenic gold",sed_hosted_base,0.76,"PbZn, Cu",0.9992
+British Columbia and SE Alaska,bc_alaska,16,88139e7205fffff,58.0794,-134.326,0.9982,0.9994,0.9971,107,,,False,"Porphyry copper-gold, VMS, orogenic gold",epithermal_orogenic_au,0.806,"Au, Ag",0.9944
+British Columbia and SE Alaska,bc_alaska,17,8812b4bad3fffff,56.6436,-132.3104,0.9982,0.9978,0.9985,94,,,False,"Porphyry copper-gold, VMS, orogenic gold",epithermal_orogenic_au,0.833,"Au, Ag",0.9964
+British Columbia and SE Alaska,bc_alaska,18,8812b010dbfffff,55.5636,-131.9485,0.998,0.9984,0.9977,37,,,False,"Porphyry copper-gold, VMS, orogenic gold",epithermal_orogenic_au,0.695,"HgSbAs, Au",0.9952
+British Columbia and SE Alaska,bc_alaska,19,88139e5497fffff,58.1484,-134.5469,0.998,0.9968,0.9992,70,,,False,"Porphyry copper-gold, VMS, orogenic gold",epithermal_orogenic_au,0.756,"Au, Ag",0.9973
+British Columbia and SE Alaska,bc_alaska,20,88139a8ce1fffff,57.5568,-133.3907,0.998,0.9969,0.999,18,,,False,"Porphyry copper-gold, VMS, orogenic gold",epithermal_orogenic_au,0.875,"Au, Ag",0.997
+British Columbia and SE Alaska,bc_alaska,21,8812b04c01fffff,55.1149,-132.3624,0.9979,0.9975,0.9983,118,,,False,"Porphyry copper-gold, VMS, orogenic gold",epithermal_orogenic_au,0.505,"Cu, Au",0.996
+British Columbia and SE Alaska,bc_alaska,22,88139e4767fffff,58.0704,-134.6799,0.9979,0.9988,0.997,7,,,False,"Porphyry copper-gold, VMS, orogenic gold",epithermal_orogenic_au,0.73,"Ag, Au",0.9942
+British Columbia and SE Alaska,bc_alaska,23,8812de3951fffff,49.0951,-118.6809,0.9978,0.9981,0.9976,45,,,False,"Porphyry copper-gold, VMS, orogenic gold",epithermal_orogenic_au,0.61,"Au, Cu",0.995
+British Columbia and SE Alaska,bc_alaska,24,88139a9297fffff,57.8678,-133.5592,0.9978,0.9978,0.9978,32,,,False,"Porphyry copper-gold, VMS, orogenic gold",epithermal_orogenic_au,0.868,"Au, Ag",0.9954
+British Columbia and SE Alaska,bc_alaska,25,88139e570dfffff,58.2126,-134.7792,0.9977,0.9983,0.9972,22,,,False,"Porphyry copper-gold, VMS, orogenic gold",epithermal_orogenic_au,0.755,"Au, Ag",0.9944
+British Columbia and SE Alaska,bc_alaska,26,8812128e25fffff,57.4711,-125.1688,0.9977,0.9955,0.9999,4,,,False,"Porphyry copper-gold, VMS, orogenic gold",sed_hosted_base,0.729,"PbZn, Cu",0.9994
+British Columbia and SE Alaska,bc_alaska,27,8812b0c737fffff,55.6,-132.3673,0.9971,0.9977,0.9966,29,,,False,"Porphyry copper-gold, VMS, orogenic gold",epithermal_orogenic_au,0.447,"Cu, Au",0.9939
+British Columbia and SE Alaska,bc_alaska,28,88139160b1fffff,58.79,-134.9209,0.997,0.9968,0.9973,60,,,False,"Porphyry copper-gold, VMS, orogenic gold",epithermal_orogenic_au,0.903,"Au, Ag",0.9945
+British Columbia and SE Alaska,bc_alaska,29,8812b005e7fffff,55.3498,-131.7439,0.997,0.9971,0.9969,17,,,False,"Porphyry copper-gold, VMS, orogenic gold",epithermal_orogenic_au,0.593,"Au, Cu",0.9942
+British Columbia and SE Alaska,bc_alaska,30,88139a3a61fffff,57.2313,-133.152,0.997,0.998,0.996,65,,,False,"Porphyry copper-gold, VMS, orogenic gold",epithermal_orogenic_au,0.842,"Au, Ag",0.9934
+British Columbia and SE Alaska,bc_alaska,31,8812b0c257fffff,55.6889,-132.5295,0.997,0.9994,0.9946,99,,,False,"Porphyry copper-gold, VMS, orogenic gold",epithermal_orogenic_au,0.599,"Au, Cu",0.9922
+British Columbia and SE Alaska,bc_alaska,32,88139a875bfffff,57.7375,-133.3622,0.9969,0.9968,0.997,14,,,False,"Porphyry copper-gold, VMS, orogenic gold",epithermal_orogenic_au,0.86,"Au, Ag",0.9943
+British Columbia and SE Alaska,bc_alaska,33,8812b486a9fffff,56.7601,-132.4718,0.9968,0.9958,0.9977,69,,,False,"Porphyry copper-gold, VMS, orogenic gold",epithermal_orogenic_au,0.829,"Au, Ag",0.9952
+British Columbia and SE Alaska,bc_alaska,34,88139a1495fffff,57.4104,-133.2159,0.9967,0.999,0.9944,96,,,False,"Porphyry copper-gold, VMS, orogenic gold",epithermal_orogenic_au,0.851,"Au, Ag",0.9922
+British Columbia and SE Alaska,bc_alaska,35,8812d36329fffff,49.3601,-120.4991,0.9966,0.9956,0.9976,35,,,False,"Porphyry copper-gold, VMS, orogenic gold",porphyry_skarn_cu,0.512,"Au, Cu",0.9951
+British Columbia and SE Alaska,bc_alaska,36,8812b04417fffff,55.2102,-132.1937,0.9966,0.9994,0.9938,43,,,False,"Porphyry copper-gold, VMS, orogenic gold",felsic_alkaline_rare,0.439,"REE, Au",0.9917
+British Columbia and SE Alaska,bc_alaska,37,88139a2f65fffff,57.0387,-132.877,0.9966,0.9968,0.9963,73,,,False,"Porphyry copper-gold, VMS, orogenic gold",epithermal_orogenic_au,0.836,"Au, Ag",0.9937
+British Columbia and SE Alaska,bc_alaska,38,8812b07b3dfffff,55.0988,-132.2059,0.9965,0.9956,0.9975,47,,,False,"Porphyry copper-gold, VMS, orogenic gold",epithermal_orogenic_au,0.605,"Cu, Au",0.9947
+British Columbia and SE Alaska,bc_alaska,39,88139ac9bdfffff,57.3317,-134.2,0.9963,0.9939,0.9988,77,,,False,"Porphyry copper-gold, VMS, orogenic gold",epithermal_orogenic_au,0.758,"Au, Ag",0.9968
+British Columbia and SE Alaska,bc_alaska,40,88139e05c9fffff,58.2277,-134.0307,0.996,0.9958,0.9962,69,,,False,"Porphyry copper-gold, VMS, orogenic gold",epithermal_orogenic_au,0.771,"Au, Ag",0.9936
+British Columbia and SE Alaska,bc_alaska,41,88139a64bbfffff,56.8853,-133.0172,0.996,0.997,0.995,50,,,False,"Porphyry copper-gold, VMS, orogenic gold",epithermal_orogenic_au,0.737,"Au, Ag",0.9926
+British Columbia and SE Alaska,bc_alaska,42,8812b04769fffff,55.2609,-132.3464,0.9959,0.9972,0.9947,38,,,False,"Porphyry copper-gold, VMS, orogenic gold",epithermal_orogenic_au,0.536,"Au, Cu",0.9922
+British Columbia and SE Alaska,bc_alaska,43,88139a02b1fffff,57.3418,-133.3756,0.9959,0.9954,0.9964,72,,,False,"Porphyry copper-gold, VMS, orogenic gold",epithermal_orogenic_au,0.761,"Au, Ag",0.9937
+British Columbia and SE Alaska,bc_alaska,44,8812b03907fffff,55.2374,-131.6913,0.9958,0.9981,0.9936,45,,,False,"Porphyry copper-gold, VMS, orogenic gold",epithermal_orogenic_au,0.488,"Au, Cu",0.9915
+British Columbia and SE Alaska,bc_alaska,45,88139e7733fffff,58.01,-134.1056,0.9957,0.9961,0.9954,52,,,False,"Porphyry copper-gold, VMS, orogenic gold",epithermal_orogenic_au,0.816,"Au, Ag",0.993
+British Columbia and SE Alaska,bc_alaska,46,8812b28635fffff,55.0662,-132.7354,0.9957,0.9974,0.994,26,,,False,"Porphyry copper-gold, VMS, orogenic gold",epithermal_orogenic_au,0.557,"Au, Cu",0.9918
+British Columbia and SE Alaska,bc_alaska,47,8812de7191fffff,49.0156,-119.0133,0.9957,0.9942,0.9972,43,,,False,"Porphyry copper-gold, VMS, orogenic gold",epithermal_orogenic_au,0.52,"Au, Cu",0.9944
+British Columbia and SE Alaska,bc_alaska,48,8812b01849fffff,55.4915,-132.2133,0.9956,0.9982,0.993,24,,,False,"Porphyry copper-gold, VMS, orogenic gold",epithermal_orogenic_au,0.555,"Au, Cu",0.9912
+British Columbia and SE Alaska,bc_alaska,49,8812aa6741fffff,54.0561,-125.1382,0.9956,0.9987,0.9926,8,,,False,"Porphyry copper-gold, VMS, orogenic gold",felsic_alkaline_rare,0.459,"WMoSn, Cu",0.9909
+British Columbia and SE Alaska,bc_alaska,50,8812b40cc5fffff,56.2385,-132.5269,0.9956,0.9941,0.9971,91,,,False,"Porphyry copper-gold, VMS, orogenic gold",epithermal_orogenic_au,0.718,"Au, Ag",0.9944
+Fennoscandian Shield,fennoscandia,1,88112ebae3fffff,62.7288,29.0574,0.9999,0.9999,1.0,14,,,False,"Orogenic gold, VMS, iron, nickel",vms,0.85,"Cu, PbZn",1.0
+Fennoscandian Shield,fennoscandia,2,88112cd5ddfffff,63.1277,27.7163,0.9999,0.9999,1.0,53,,,False,"Orogenic gold, VMS, iron, nickel",chemical_sedimentary,0.361,"P, Cu",0.9999
+Fennoscandian Shield,fennoscandia,3,8808d36163fffff,63.9617,28.0455,0.9998,0.9999,0.9997,46,,,False,"Orogenic gold, VMS, iron, nickel",porphyry_skarn_cu,0.24,"Cu, Au",0.9997
+Fennoscandian Shield,fennoscandia,4,881164d20bfffff,67.5212,30.5613,0.9997,0.9997,0.9998,56,,,False,"Orogenic gold, VMS, iron, nickel",chemical_sedimentary,0.663,"Fe, P",0.9998
+Fennoscandian Shield,fennoscandia,5,8808da4adbfffff,64.7181,30.6881,0.9997,0.9999,0.9995,114,,,False,"Orogenic gold, VMS, iron, nickel",chemical_sedimentary,0.458,"Fe, Cu",0.9997
+Fennoscandian Shield,fennoscandia,6,8808e33a49fffff,67.1676,20.6209,0.9997,0.9998,0.9996,34,,,False,"Orogenic gold, VMS, iron, nickel",chemical_sedimentary,0.672,"Fe, Cu",0.9997
+Fennoscandian Shield,fennoscandia,7,8808ee5401fffff,67.6553,21.012,0.9997,1.0,0.9994,22,,,False,"Orogenic gold, VMS, iron, nickel",chemical_sedimentary,0.658,"Fe, Cu",0.9996
+Fennoscandian Shield,fennoscandia,8,8808d3676bfffff,64.1085,28.0651,0.9997,0.9995,0.9998,42,,,False,"Orogenic gold, VMS, iron, nickel",magmatic_mafic,0.245,"Cu, NiCoPGECr",0.9998
+Fennoscandian Shield,fennoscandia,9,8808e376edfffff,67.0868,20.9187,0.9996,0.9999,0.9993,72,,,False,"Orogenic gold, VMS, iron, nickel",porphyry_skarn_cu,0.397,"Cu, Fe",0.9996
+Fennoscandian Shield,fennoscandia,10,8808f1d925fffff,64.8401,20.3939,0.9995,0.9992,0.9998,17,,,False,"Orogenic gold, VMS, iron, nickel",vms,0.325,"Au, Cu",0.9998
+Fennoscandian Shield,fennoscandia,11,8808da40bbfffff,64.8087,30.7135,0.9995,0.9999,0.9991,54,,,False,"Orogenic gold, VMS, iron, nickel",chemical_sedimentary,0.36,"Fe, Cu",0.9995
+Fennoscandian Shield,fennoscandia,12,88112e221bfffff,62.7603,29.8594,0.9995,0.9992,0.9997,52,,,False,"Orogenic gold, VMS, iron, nickel",magmatic_mafic,0.277,"Cu, NiCoPGECr",0.9997
+Fennoscandian Shield,fennoscandia,13,88112cdb27fffff,62.8198,27.6192,0.9994,0.9999,0.999,55,,,False,"Orogenic gold, VMS, iron, nickel",porphyry_skarn_cu,0.482,"Cu, NiCoPGECr",0.9993
+Fennoscandian Shield,fennoscandia,14,88112508ddfffff,62.188,25.6923,0.9994,0.9998,0.9989,80,,,False,"Orogenic gold, VMS, iron, nickel",porphyry_skarn_cu,0.292,"Cu, NiCoPGECr",0.9993
+Fennoscandian Shield,fennoscandia,15,8811250ce9fffff,62.293,25.8135,0.9994,0.9994,0.9994,99,,,False,"Orogenic gold, VMS, iron, nickel",porphyry_skarn_cu,0.279,"Cu, NiCoPGECr",0.9996
+Fennoscandian Shield,fennoscandia,16,8811641b39fffff,67.6201,31.4798,0.9993,0.999,0.9996,27,,,False,"Orogenic gold, VMS, iron, nickel",chemical_sedimentary,0.572,"Fe, Cu",0.9997
+Fennoscandian Shield,fennoscandia,17,880134a631fffff,69.61,30.0249,0.9993,0.9993,0.9993,85,,,False,"Orogenic gold, VMS, iron, nickel",chemical_sedimentary,0.598,"Fe, Cu",0.9996
+Fennoscandian Shield,fennoscandia,18,8808f571d7fffff,65.0644,19.5151,0.9993,1.0,0.9986,40,,,False,"Orogenic gold, VMS, iron, nickel",vms,0.64,"Cu, PbZn",0.9991
+Fennoscandian Shield,fennoscandia,19,8808a266c5fffff,60.1262,15.0595,0.9991,0.9996,0.9986,62,,,False,"Orogenic gold, VMS, iron, nickel",chemical_sedimentary,0.404,"Fe, Cu",0.9991
+Fennoscandian Shield,fennoscandia,20,8808ee8d35fffff,67.8622,20.2573,0.999,0.9991,0.9989,23,,,False,"Orogenic gold, VMS, iron, nickel",vms,0.792,"Cu, Fe",0.9993
+Fennoscandian Shield,fennoscandia,21,8808da4835fffff,64.6338,30.779,0.999,0.9995,0.9985,101,,,False,"Orogenic gold, VMS, iron, nickel",chemical_sedimentary,0.308,"Fe, Cu",0.999
+Fennoscandian Shield,fennoscandia,22,8808d9142dfffff,66.9716,30.3412,0.999,0.999,0.999,51,,,False,"Orogenic gold, VMS, iron, nickel",chemical_sedimentary,0.512,"Fe, Cu",0.9994
+Fennoscandian Shield,fennoscandia,23,881164c097fffff,67.5691,31.1688,0.9989,0.9986,0.9992,29,,,False,"Orogenic gold, VMS, iron, nickel",chemical_sedimentary,0.596,"Fe, Cu",0.9995
+Fennoscandian Shield,fennoscandia,24,8808d36581fffff,64.147,28.2776,0.9989,0.9997,0.9981,48,,,False,"Orogenic gold, VMS, iron, nickel",chemical_sedimentary,0.286,"Cu, NiCoPGECr",0.9987
+Fennoscandian Shield,fennoscandia,25,88112172b7fffff,62.3091,27.8687,0.9988,0.9998,0.9979,114,,,False,"Orogenic gold, VMS, iron, nickel",porphyry_skarn_cu,0.382,"NiCoPGECr, Cu",0.9984
+Fennoscandian Shield,fennoscandia,26,8808f02c1dfffff,64.7436,20.9593,0.9988,0.9995,0.9981,73,,,False,"Orogenic gold, VMS, iron, nickel",magmatic_mafic,0.287,"Cu, Au",0.9987
+Fennoscandian Shield,fennoscandia,27,88112c4e5dfffff,62.9553,28.6621,0.9988,0.9984,0.9992,23,,,False,"Orogenic gold, VMS, iron, nickel",porphyry_skarn_cu,0.511,"Cu, NiCoPGECr",0.9995
+Fennoscandian Shield,fennoscandia,28,88112e38edfffff,62.602,29.8494,0.9988,0.9993,0.9982,91,,,False,"Orogenic gold, VMS, iron, nickel",porphyry_skarn_cu,0.281,"Cu, NiCoPGECr",0.9988
+Fennoscandian Shield,fennoscandia,29,8808ccc981fffff,67.9221,25.4009,0.9986,0.9998,0.9975,30,,,False,"Orogenic gold, VMS, iron, nickel",chemical_sedimentary,0.312,"Au, Fe",0.9979
+Fennoscandian Shield,fennoscandia,30,88088a2e65fffff,61.4773,23.5106,0.9986,0.9992,0.998,38,,,False,"Orogenic gold, VMS, iron, nickel",porphyry_skarn_cu,0.29,"Cu, NiCoPGECr",0.9985
+Fennoscandian Shield,fennoscandia,31,88112505dbfffff,62.3983,25.6949,0.9986,0.9984,0.9988,46,,,False,"Orogenic gold, VMS, iron, nickel",porphyry_skarn_cu,0.253,"Cu, NiCoPGECr",0.9992
+Fennoscandian Shield,fennoscandia,32,8808a262c7fffff,60.0198,14.9363,0.9985,0.9991,0.9979,66,,,False,"Orogenic gold, VMS, iron, nickel",chemical_sedimentary,0.48,"Fe, Cu",0.9985
+Fennoscandian Shield,fennoscandia,33,8811253293fffff,62.596,25.7441,0.9985,0.9994,0.9976,42,,,False,"Orogenic gold, VMS, iron, nickel",magmatic_mafic,0.328,"NiCoPGECr, Cu",0.998
+Fennoscandian Shield,fennoscandia,34,88112e3105fffff,62.6481,29.6806,0.9984,0.9995,0.9973,81,,,False,"Orogenic gold, VMS, iron, nickel",porphyry_skarn_cu,0.356,"Cu, NiCoPGECr",0.9977
+Fennoscandian Shield,fennoscandia,35,88112c58a7fffff,62.8061,28.4895,0.9984,0.9976,0.9993,70,,,False,"Orogenic gold, VMS, iron, nickel",magmatic_mafic,0.416,"Cu, NiCoPGECr",0.9996
+Fennoscandian Shield,fennoscandia,36,8808c88ebbfffff,68.608,27.429,0.9984,0.9991,0.9977,42,,,False,"Orogenic gold, VMS, iron, nickel",chemical_sedimentary,0.366,"Fe, Cu",0.9982
+Fennoscandian Shield,fennoscandia,37,8808a345bdfffff,60.6158,15.6482,0.9984,0.9989,0.9979,37,,,False,"Orogenic gold, VMS, iron, nickel",sed_hosted_base,0.422,"PbZn, Cu",0.9985
+Fennoscandian Shield,fennoscandia,38,8808f56a13fffff,65.0156,19.7944,0.9983,0.9997,0.9968,39,,,False,"Orogenic gold, VMS, iron, nickel",vms,0.375,"Cu, PbZn",0.9972
+Fennoscandian Shield,fennoscandia,39,8808d3c8b5fffff,63.751,27.0093,0.9983,0.9991,0.9974,48,,,False,"Orogenic gold, VMS, iron, nickel",chemical_sedimentary,0.232,"Cu, PbZn",0.9979
+Fennoscandian Shield,fennoscandia,40,88112538e5fffff,62.4169,25.953,0.9983,0.9991,0.9974,44,,,False,"Orogenic gold, VMS, iron, nickel",porphyry_skarn_cu,0.246,"Cu, NiCoPGECr",0.9978
+Fennoscandian Shield,fennoscandia,41,8801348cb1fffff,69.3835,30.9016,0.9982,0.9968,0.9996,25,,,False,"Orogenic gold, VMS, iron, nickel",magmatic_mafic,0.531,"Cu, Fe",0.9997
+Fennoscandian Shield,fennoscandia,42,8811249293fffff,61.456,23.7649,0.9981,0.9988,0.9975,73,,,False,"Orogenic gold, VMS, iron, nickel",porphyry_skarn_cu,0.267,"Cu, NiCoPGECr",0.9979
+Fennoscandian Shield,fennoscandia,43,88112495adfffff,61.4799,23.9825,0.9981,0.9992,0.997,53,,,False,"Orogenic gold, VMS, iron, nickel",porphyry_skarn_cu,0.25,"Cu, Au",0.9973
+Fennoscandian Shield,fennoscandia,44,8811213a25fffff,62.4967,27.7474,0.9981,0.9999,0.9963,94,,,False,"Orogenic gold, VMS, iron, nickel",magmatic_mafic,0.805,"NiCoPGECr, Cu",0.9966
+Fennoscandian Shield,fennoscandia,45,8811210ab5fffff,62.2903,27.5806,0.9978,0.9977,0.998,59,,,False,"Orogenic gold, VMS, iron, nickel",magmatic_mafic,0.488,"NiCoPGECr, Cu",0.9985
+Fennoscandian Shield,fennoscandia,46,8808f0a497fffff,64.9417,20.1486,0.9978,0.9996,0.9961,31,,,False,"Orogenic gold, VMS, iron, nickel",vms,0.379,"PbZn, Cu",0.9965
+Fennoscandian Shield,fennoscandia,47,8808a8053bfffff,62.4151,17.3418,0.9978,0.9991,0.9965,104,,,False,"Orogenic gold, VMS, iron, nickel",chemical_sedimentary,0.437,"Cu, PbZn",0.9968
+Fennoscandian Shield,fennoscandia,48,8808c18769fffff,67.5299,23.9097,0.9978,0.999,0.9966,40,,,False,"Orogenic gold, VMS, iron, nickel",porphyry_skarn_cu,0.742,"Cu, Au",0.9969
+Fennoscandian Shield,fennoscandia,49,8811217581fffff,62.3751,28.0702,0.9978,0.9978,0.9978,59,,,False,"Orogenic gold, VMS, iron, nickel",magmatic_mafic,0.636,"NiCoPGECr, Cu",0.9982
+Fennoscandian Shield,fennoscandia,50,88112ea039fffff,62.8242,29.2541,0.9978,0.9983,0.9972,41,,,False,"Orogenic gold, VMS, iron, nickel",magmatic_mafic,0.285,"Cu, NiCoPGECr",0.9975
+Carajás and Quadrilátero Ferrífero,carajas_qf,1,88a8811281fffff,-20.2286,-43.4546,0.9997,0.9998,0.9995,25,,,False,"IOCG copper, iron ore, orogenic gold",chemical_sedimentary,0.601,"Fe, Au",0.9998
+Carajás and Quadrilátero Ferrífero,carajas_qf,2,88a881a2b7fffff,-20.1081,-43.8984,0.9996,1.0,0.9993,41,,,False,"IOCG copper, iron ore, orogenic gold",chemical_sedimentary,0.71,"Mn, Fe",0.9997
+Carajás and Quadrilátero Ferrífero,carajas_qf,3,88a881a265fffff,-20.1947,-43.8302,0.9995,1.0,0.9991,18,,,False,"IOCG copper, iron ore, orogenic gold",chemical_sedimentary,0.749,"Fe, Au",0.9996
+Carajás and Quadrilátero Ferrífero,carajas_qf,4,88a8810695fffff,-19.9768,-43.6108,0.9995,0.9998,0.9992,33,,,False,"IOCG copper, iron ore, orogenic gold",epithermal_orogenic_au,0.612,"Au, Fe",0.9997
+Carajás and Quadrilátero Ferrífero,carajas_qf,5,88814e7103fffff,-6.404,-50.0392,0.9994,0.9989,0.9999,33,,,False,"IOCG copper, iron ore, orogenic gold",porphyry_skarn_cu,0.61,"Cu, Au",1.0
+Carajás and Quadrilátero Ferrífero,carajas_qf,6,88a881b5c9fffff,-20.178,-43.9705,0.9993,0.9997,0.999,59,,,False,"IOCG copper, iron ore, orogenic gold",chemical_sedimentary,0.761,"Fe, Au",0.9996
+Carajás and Quadrilátero Ferrífero,carajas_qf,7,88a8aa4ac9fffff,-20.4809,-43.9136,0.9993,0.9999,0.9988,43,,,False,"IOCG copper, iron ore, orogenic gold",chemical_sedimentary,0.831,"Fe, Au",0.9995
+Carajás and Quadrilátero Ferrífero,carajas_qf,8,88a8810d8dfffff,-19.8569,-43.3541,0.9993,0.9995,0.9991,78,,,False,"IOCG copper, iron ore, orogenic gold",chemical_sedimentary,0.552,"Au, Fe",0.9997
+Carajás and Quadrilátero Ferrífero,carajas_qf,9,88a8aa4835fffff,-20.4178,-43.8355,0.9993,0.9997,0.9989,86,,,False,"IOCG copper, iron ore, orogenic gold",chemical_sedimentary,0.691,"Fe, Au",0.9995
+Carajás and Quadrilátero Ferrífero,carajas_qf,10,88815dae61fffff,-6.0896,-49.6526,0.9993,0.9987,0.9998,53,,,False,"IOCG copper, iron ore, orogenic gold",epithermal_orogenic_au,0.643,"Au, Cu",1.0
+Carajás and Quadrilátero Ferrífero,carajas_qf,11,88a8aa6967fffff,-20.115,-44.0485,0.9993,0.9995,0.999,32,,,False,"IOCG copper, iron ore, orogenic gold",chemical_sedimentary,0.761,"Fe, Au",0.9996
+Carajás and Quadrilátero Ferrífero,carajas_qf,12,88a881074dfffff,-20.0552,-43.4872,0.9992,0.999,0.9994,40,,,False,"IOCG copper, iron ore, orogenic gold",chemical_sedimentary,0.532,"Mn, Au",0.9998
+Carajás and Quadrilátero Ferrífero,carajas_qf,13,88a8819689fffff,-20.5407,-43.765,0.9991,0.9993,0.9989,68,,,False,"IOCG copper, iron ore, orogenic gold",chemical_sedimentary,0.724,"Fe, Au",0.9995
+Carajás and Quadrilátero Ferrífero,carajas_qf,14,88a88e0093fffff,-18.8958,-43.4297,0.9991,0.9991,0.9991,70,,,False,"IOCG copper, iron ore, orogenic gold",chemical_sedimentary,0.37,"Fe, Au",0.9996
+Carajás and Quadrilátero Ferrífero,carajas_qf,15,88814a84a3fffff,-5.7545,-50.5338,0.9991,0.9982,1.0,35,,,False,"IOCG copper, iron ore, orogenic gold",porphyry_skarn_cu,0.579,"Au, Cu",1.0
+Carajás and Quadrilátero Ferrífero,carajas_qf,16,88814a9b25fffff,-6.035,-50.1575,0.9991,0.9983,0.9998,57,,,False,"IOCG copper, iron ore, orogenic gold",chemical_sedimentary,0.531,"Fe, Au",1.0
+Carajás and Quadrilátero Ferrífero,carajas_qf,17,88815dadc5fffff,-5.9815,-49.6199,0.9991,0.9981,1.0,72,,,False,"IOCG copper, iron ore, orogenic gold",epithermal_orogenic_au,0.497,"Au, Cu",1.0
+Carajás and Quadrilátero Ferrífero,carajas_qf,18,88a8aa6843fffff,-20.1362,-44.1438,0.999,0.9993,0.9988,19,,,False,"IOCG copper, iron ore, orogenic gold",chemical_sedimentary,0.748,"Fe, Au",0.9995
+Carajás and Quadrilátero Ferrífero,carajas_qf,19,88a8aa61e7fffff,-20.1429,-44.2418,0.999,0.9992,0.9989,30,,,False,"IOCG copper, iron ore, orogenic gold",chemical_sedimentary,0.643,"Fe, Au",0.9995
+Carajás and Quadrilátero Ferrífero,carajas_qf,20,88a881b2a5fffff,-20.2828,-43.8751,0.9989,0.9996,0.9983,58,,,False,"IOCG copper, iron ore, orogenic gold",chemical_sedimentary,0.798,"Fe, Au",0.999
+Carajás and Quadrilátero Ferrífero,carajas_qf,21,88a881ac83fffff,-19.9198,-43.8817,0.9989,0.9999,0.998,6,,,False,"IOCG copper, iron ore, orogenic gold",chemical_sedimentary,0.612,"Fe, Au",0.9985
+Carajás and Quadrilátero Ferrífero,carajas_qf,22,88814e0dc3fffff,-6.457,-50.2263,0.9989,0.998,0.9999,41,,,False,"IOCG copper, iron ore, orogenic gold",epithermal_orogenic_au,0.738,"Au, Fe",1.0
+Carajás and Quadrilátero Ferrífero,carajas_qf,23,88a881b94dfffff,-20.2307,-43.6199,0.9989,0.9996,0.9982,64,,,False,"IOCG copper, iron ore, orogenic gold",chemical_sedimentary,0.784,"Fe, Au",0.9988
+Carajás and Quadrilátero Ferrífero,carajas_qf,24,88a88161b5fffff,-19.5945,-43.1952,0.9989,0.9991,0.9986,25,,,False,"IOCG copper, iron ore, orogenic gold",chemical_sedimentary,0.716,"Fe, Au",0.9993
+Carajás and Quadrilátero Ferrífero,carajas_qf,25,88a881098dfffff,-19.939,-43.2061,0.9988,0.9996,0.9981,9,,,False,"IOCG copper, iron ore, orogenic gold",chemical_sedimentary,0.726,"Fe, Au",0.9987
+Carajás and Quadrilátero Ferrífero,carajas_qf,26,888141a453fffff,-7.8133,-50.8858,0.9988,0.9978,0.9997,24,,,False,"IOCG copper, iron ore, orogenic gold",epithermal_orogenic_au,0.674,"Au, WMoSn",0.9999
+Carajás and Quadrilátero Ferrífero,carajas_qf,27,88814e734dfffff,-6.5007,-50.051,0.9987,0.9977,0.9997,49,,,False,"IOCG copper, iron ore, orogenic gold",epithermal_orogenic_au,0.655,"Au, NiCoPGECr",0.9999
+Carajás and Quadrilátero Ferrífero,carajas_qf,28,88a8818189fffff,-20.4022,-43.526,0.9987,1.0,0.9975,22,,,False,"IOCG copper, iron ore, orogenic gold",epithermal_orogenic_au,0.394,"Fe, Au",0.998
+Carajás and Quadrilátero Ferrífero,carajas_qf,29,88a8812265fffff,-19.8071,-43.671,0.9987,0.9994,0.998,43,,,False,"IOCG copper, iron ore, orogenic gold",chemical_sedimentary,0.532,"Au, Fe",0.9986
+Carajás and Quadrilátero Ferrífero,carajas_qf,30,88a88162a9fffff,-19.6809,-43.2736,0.9987,0.9986,0.9988,8,,,False,"IOCG copper, iron ore, orogenic gold",chemical_sedimentary,0.669,"Fe, Au",0.9994
+Carajás and Quadrilátero Ferrífero,carajas_qf,31,88815db527fffff,-6.2343,-49.7159,0.9986,0.9974,0.9998,22,,,False,"IOCG copper, iron ore, orogenic gold",surficial_residual,0.744,"Au, NiCoPGECr",1.0
+Carajás and Quadrilátero Ferrífero,carajas_qf,32,88814e705bfffff,-6.4333,-50.1255,0.9986,0.9972,0.9999,64,,,False,"IOCG copper, iron ore, orogenic gold",porphyry_skarn_cu,0.709,"Cu, Au",1.0
+Carajás and Quadrilátero Ferrífero,carajas_qf,33,88814e3b67fffff,-6.4639,-50.3206,0.9985,0.9973,0.9998,86,,,False,"IOCG copper, iron ore, orogenic gold",epithermal_orogenic_au,0.64,"Au, WMoSn",1.0
+Carajás and Quadrilátero Ferrífero,carajas_qf,34,88a881ab03fffff,-20.0941,-43.6503,0.9985,0.9992,0.9979,35,,,False,"IOCG copper, iron ore, orogenic gold",chemical_sedimentary,0.496,"Fe, Au",0.9985
+Carajás and Quadrilátero Ferrífero,carajas_qf,35,88a8810ed7fffff,-19.9181,-43.4657,0.9985,0.9993,0.9978,30,,,False,"IOCG copper, iron ore, orogenic gold",epithermal_orogenic_au,0.492,"Au, Fe",0.9984
+Carajás and Quadrilátero Ferrífero,carajas_qf,36,88814e649dfffff,-6.1107,-50.2863,0.9985,0.9974,0.9996,76,,,False,"IOCG copper, iron ore, orogenic gold",epithermal_orogenic_au,0.438,"Au, Mn",0.9998
+Carajás and Quadrilátero Ferrífero,carajas_qf,37,88814c6d9dfffff,-6.5698,-51.1017,0.9985,0.9976,0.9994,66,,,False,"IOCG copper, iron ore, orogenic gold",epithermal_orogenic_au,0.439,"Au, NiCoPGECr",0.9998
+Carajás and Quadrilátero Ferrífero,carajas_qf,38,88a88194b7fffff,-20.4476,-43.7352,0.9985,0.9995,0.9974,55,,,False,"IOCG copper, iron ore, orogenic gold",chemical_sedimentary,0.531,"Au, Fe",0.9978
+Carajás and Quadrilátero Ferrífero,carajas_qf,39,88815da41bfffff,-6.0855,-49.8264,0.9984,0.9975,0.9994,64,,,False,"IOCG copper, iron ore, orogenic gold",epithermal_orogenic_au,0.749,"Au, Fe",0.9998
+Carajás and Quadrilátero Ferrífero,carajas_qf,40,88a8d4a1dbfffff,-17.204,-46.9041,0.9983,0.9979,0.9987,51,,,False,"IOCG copper, iron ore, orogenic gold",sed_hosted_base,0.413,"Cu, Au",0.9994
+Carajás and Quadrilátero Ferrífero,carajas_qf,41,88814e6ecdfffff,-6.1276,-50.1427,0.9983,0.9968,0.9998,23,,,False,"IOCG copper, iron ore, orogenic gold",epithermal_orogenic_au,0.583,"Au, Fe",1.0
+Carajás and Quadrilátero Ferrífero,carajas_qf,42,88a8f6b023fffff,-19.6066,-46.9475,0.9983,0.998,0.9985,26,,,False,"IOCG copper, iron ore, orogenic gold",felsic_alkaline_rare,0.482,"REE, LiBeTaNb",0.9992
+Carajás and Quadrilátero Ferrífero,carajas_qf,43,88815db5b3fffff,-6.1739,-49.7849,0.9983,0.997,0.9995,82,,,False,"IOCG copper, iron ore, orogenic gold",epithermal_orogenic_au,0.706,"Au, NiCoPGECr",0.9998
+Carajás and Quadrilátero Ferrífero,carajas_qf,44,88a881a413fffff,-20.0281,-44.0127,0.9982,0.9976,0.9989,30,,,False,"IOCG copper, iron ore, orogenic gold",chemical_sedimentary,0.585,"Fe, Al",0.9995
+Carajás and Quadrilátero Ferrífero,carajas_qf,45,88815d30a5fffff,-5.8774,-49.5137,0.9982,0.9966,0.9999,61,,,False,"IOCG copper, iron ore, orogenic gold",epithermal_orogenic_au,0.612,"Au, NiCoPGECr",1.0
+Carajás and Quadrilátero Ferrífero,carajas_qf,46,88a881b81bfffff,-20.2009,-43.7202,0.9982,0.9991,0.9974,13,,,False,"IOCG copper, iron ore, orogenic gold",epithermal_orogenic_au,0.768,"Au, Fe",0.9978
+Carajás and Quadrilátero Ferrífero,carajas_qf,47,88814e4569fffff,-6.5205,-49.8748,0.9982,0.9968,0.9995,45,,,False,"IOCG copper, iron ore, orogenic gold",porphyry_skarn_cu,0.456,"Au, Cu",0.9998
+Carajás and Quadrilátero Ferrífero,carajas_qf,48,88814a8461fffff,-5.8344,-50.4893,0.9981,0.9965,0.9997,40,,,False,"IOCG copper, iron ore, orogenic gold",epithermal_orogenic_au,0.418,"Au, Cu",0.9999
+Carajás and Quadrilátero Ferrífero,carajas_qf,49,88a88130c9fffff,-19.8824,-43.7279,0.9981,0.9997,0.9964,3,,,False,"IOCG copper, iron ore, orogenic gold",epithermal_orogenic_au,0.659,"Au, Fe",0.9967
+Carajás and Quadrilátero Ferrífero,carajas_qf,50,88a881022dfffff,-20.1138,-43.3815,0.9981,0.9968,0.9994,10,,,False,"IOCG copper, iron ore, orogenic gold",epithermal_orogenic_au,0.441,"Fe, Au",0.9998
+Papua New Guinea,png,1,889c815615fffff,-8.0162,147.303,0.9997,0.9997,0.9998,59,,,False,"Porphyry copper-gold, epithermal gold",magmatic_mafic,0.774,"NiCoPGECr, Au",0.997
+Papua New Guinea,png,2,889c81c911fffff,-8.0111,147.5777,0.9997,0.9998,0.9996,63,,,False,"Porphyry copper-gold, epithermal gold",epithermal_orogenic_au,0.381,"NiCoPGECr, Au",0.9963
+Papua New Guinea,png,3,889c8036d7fffff,-8.0849,147.6696,0.9997,1.0,0.9994,99,,,False,"Porphyry copper-gold, epithermal gold",magmatic_mafic,0.647,"NiCoPGECr, Au",0.9954
+Papua New Guinea,png,4,889ca2b65dfffff,-10.1432,149.2805,0.9996,0.9997,0.9995,46,,,False,"Porphyry copper-gold, epithermal gold",magmatic_mafic,0.591,"NiCoPGECr, Au",0.9961
+Papua New Guinea,png,5,889c81d311fffff,-8.3364,147.6397,0.9995,0.9999,0.9991,53,,,False,"Porphyry copper-gold, epithermal gold",epithermal_orogenic_au,0.407,"NiCoPGECr, Au",0.9938
+Papua New Guinea,png,6,889c8144bbfffff,-7.8228,147.1182,0.9994,0.9999,0.9989,31,,,False,"Porphyry copper-gold, epithermal gold",magmatic_mafic,0.824,"NiCoPGECr, Au",0.993
+Papua New Guinea,png,7,8872de6869fffff,-5.4425,143.1304,0.9992,0.9989,0.9996,31,,,False,"Porphyry copper-gold, epithermal gold",epithermal_orogenic_au,0.794,"Ag, Au",0.9961
+Papua New Guinea,png,8,889c81cccdfffff,-8.0929,147.3636,0.9991,0.9992,0.9991,87,,,False,"Porphyry copper-gold, epithermal gold",magmatic_mafic,0.776,"NiCoPGECr, Au",0.9936
+Papua New Guinea,png,9,8872db3369fffff,-5.499,145.1736,0.999,0.999,0.9991,26,,,False,"Porphyry copper-gold, epithermal gold",surficial_residual,0.813,"NiCoPGECr, Au",0.9934
+Papua New Guinea,png,10,889c81464dfffff,-7.9166,147.2421,0.999,1.0,0.998,53,,,False,"Porphyry copper-gold, epithermal gold",magmatic_mafic,0.392,"NiCoPGECr, Au",0.9904
+Papua New Guinea,png,11,889c814ad7fffff,-7.7234,147.367,0.999,1.0,0.998,44,,,False,"Porphyry copper-gold, epithermal gold",magmatic_mafic,0.593,"NiCoPGECr, Au",0.9904
+Papua New Guinea,png,12,889ca041edfffff,-10.2419,149.4696,0.9988,0.9997,0.9979,28,,,False,"Porphyry copper-gold, epithermal gold",magmatic_mafic,0.796,"NiCoPGECr, Au",0.9903
+Papua New Guinea,png,13,889ca61325fffff,-10.5025,150.4547,0.9987,0.9991,0.9983,53,,,False,"Porphyry copper-gold, epithermal gold",magmatic_mafic,0.779,"NiCoPGECr, Cu",0.9916
+Papua New Guinea,png,14,889ca0693dfffff,-10.0354,149.1363,0.9987,0.9984,0.999,48,,,False,"Porphyry copper-gold, epithermal gold",magmatic_mafic,0.661,"NiCoPGECr, Au",0.9933
+Papua New Guinea,png,15,889c802423fffff,-7.8815,147.6198,0.9987,0.9993,0.9981,39,,,False,"Porphyry copper-gold, epithermal gold",magmatic_mafic,0.819,"NiCoPGECr, Au",0.9906
+Papua New Guinea,png,16,889ca2b737fffff,-10.0504,149.3028,0.9987,0.9978,0.9995,37,,,False,"Porphyry copper-gold, epithermal gold",magmatic_mafic,0.633,"NiCoPGECr, Au",0.9959
+Papua New Guinea,png,17,889c80ae9bfffff,-8.2024,147.7531,0.9984,0.9986,0.9983,63,,,False,"Porphyry copper-gold, epithermal gold",magmatic_mafic,0.852,"NiCoPGECr, Au",0.9916
+Papua New Guinea,png,18,889c8ece4dfffff,-7.311,146.7356,0.9984,0.999,0.9979,41,,,False,"Porphyry copper-gold, epithermal gold",epithermal_orogenic_au,0.557,"Au, Cu",0.9903
+Papua New Guinea,png,19,889c8579e1fffff,-8.5032,147.8062,0.9984,0.9997,0.997,55,,,False,"Porphyry copper-gold, epithermal gold",magmatic_mafic,0.595,"NiCoPGECr, Au",0.9871
+Papua New Guinea,png,20,889c85acc5fffff,-9.1896,147.3677,0.9983,0.9988,0.9977,49,,,False,"Porphyry copper-gold, epithermal gold",magmatic_mafic,0.598,"Au, NiCoPGECr",0.9888
+Papua New Guinea,png,21,889c83b701fffff,-7.5801,147.217,0.9983,0.9999,0.9966,34,,,False,"Porphyry copper-gold, epithermal gold",magmatic_mafic,0.354,"NiCoPGECr, Au",0.9865
+Papua New Guinea,png,22,889c815883fffff,-7.7735,147.4503,0.9982,0.9999,0.9965,50,,,False,"Porphyry copper-gold, epithermal gold",magmatic_mafic,0.563,"NiCoPGECr, Au",0.9858
+Papua New Guinea,png,23,889c811527fffff,-8.2153,147.0664,0.998,0.9997,0.9964,36,,,False,"Porphyry copper-gold, epithermal gold",epithermal_orogenic_au,0.551,"Au, Ag",0.9854
+Papua New Guinea,png,24,8872db066dfffff,-5.4864,145.0456,0.9978,0.9981,0.9975,17,,,False,"Porphyry copper-gold, epithermal gold",epithermal_orogenic_au,0.595,"Au, Cu",0.9882
+Papua New Guinea,png,25,889ca61059fffff,-10.551,150.3765,0.9977,0.9971,0.9983,38,,,False,"Porphyry copper-gold, epithermal gold",magmatic_mafic,0.724,"NiCoPGECr, Cu",0.9912
+Papua New Guinea,png,26,889ca6a945fffff,-10.5481,150.1275,0.9977,0.9976,0.9978,72,,,False,"Porphyry copper-gold, epithermal gold",magmatic_mafic,0.546,"NiCoPGECr, Cu",0.989
+Papua New Guinea,png,27,889c81d81dfffff,-8.1795,147.6473,0.9976,0.9995,0.9957,84,,,False,"Porphyry copper-gold, epithermal gold",magmatic_mafic,0.528,"NiCoPGECr, Au",0.9839
+Papua New Guinea,png,28,889c8ec631fffff,-7.4255,146.6386,0.9975,0.9973,0.9978,11,,,False,"Porphyry copper-gold, epithermal gold",epithermal_orogenic_au,0.441,"Cu, Au",0.9894
+Papua New Guinea,png,29,889c81cda5fffff,-7.9994,147.3945,0.9975,0.9994,0.9956,49,,,False,"Porphyry copper-gold, epithermal gold",magmatic_mafic,0.504,"NiCoPGECr, Au",0.9837
+Papua New Guinea,png,30,889c815303fffff,-7.9411,147.5115,0.9974,0.9977,0.997,39,,,False,"Porphyry copper-gold, epithermal gold",magmatic_mafic,0.718,"NiCoPGECr, Au",0.9874
+Papua New Guinea,png,31,889c8e5633fffff,-7.1518,146.5876,0.9972,0.9984,0.9961,57,,,False,"Porphyry copper-gold, epithermal gold",epithermal_orogenic_au,0.438,"Au, Cu",0.9849
+Papua New Guinea,png,32,889c83b2edfffff,-7.5862,147.3088,0.9971,0.9995,0.9948,28,,,False,"Porphyry copper-gold, epithermal gold",magmatic_mafic,0.506,"NiCoPGECr, Au",0.9817
+Papua New Guinea,png,33,8872c9c065fffff,-2.0894,146.8692,0.9971,0.9955,0.9988,44,,,False,"Porphyry copper-gold, epithermal gold",porphyry_skarn_cu,0.774,"Cu, NiCoPGECr",0.9926
+Papua New Guinea,png,34,889c81ca0bfffff,-8.1164,147.5755,0.9971,0.9999,0.9942,79,,,False,"Porphyry copper-gold, epithermal gold",porphyry_skarn_cu,0.396,"NiCoPGECr, Cu",0.9804
+Papua New Guinea,png,35,8872d230e5fffff,-5.2404,141.1303,0.997,0.994,0.9999,7,,,False,"Porphyry copper-gold, epithermal gold",porphyry_skarn_cu,0.551,"Cu, Au",0.999
+Papua New Guinea,png,36,889ca3c957fffff,-9.6832,148.9908,0.997,0.9955,0.9985,24,,,False,"Porphyry copper-gold, epithermal gold",porphyry_skarn_cu,0.343,"NiCoPGECr, Au",0.9918
+Papua New Guinea,png,37,889c856365fffff,-8.5902,147.7325,0.9969,0.9991,0.9948,64,,,False,"Porphyry copper-gold, epithermal gold",magmatic_mafic,0.52,"NiCoPGECr, Au",0.9816
+Papua New Guinea,png,38,8872dc8d11fffff,-3.5748,143.4245,0.9969,0.9985,0.9953,17,,,False,"Porphyry copper-gold, epithermal gold",epithermal_orogenic_au,0.567,"Ag, Au",0.9832
+Papua New Guinea,png,39,8872db311bfffff,-5.5497,145.2496,0.9968,0.9938,0.9999,19,,,False,"Porphyry copper-gold, epithermal gold",porphyry_skarn_cu,0.412,"NiCoPGECr, Au",0.9975
+Papua New Guinea,png,40,8872dcd64bfffff,-3.5025,143.0831,0.9967,0.9963,0.9972,20,,,False,"Porphyry copper-gold, epithermal gold",magmatic_mafic,0.623,"Au, NiCoPGECr",0.9876
+Papua New Guinea,png,41,889ca621edfffff,-10.2964,149.883,0.9967,0.9988,0.9945,86,,,False,"Porphyry copper-gold, epithermal gold",magmatic_mafic,0.541,"NiCoPGECr, Cu",0.9807
+Papua New Guinea,png,42,889ca63801fffff,-10.3228,150.0289,0.9967,0.9994,0.994,64,,,False,"Porphyry copper-gold, epithermal gold",magmatic_mafic,0.583,"NiCoPGECr, Au",0.9794
+Papua New Guinea,png,43,889ca35521fffff,-9.5617,148.7526,0.9966,0.9945,0.9987,30,,,False,"Porphyry copper-gold, epithermal gold",magmatic_mafic,0.627,"NiCoPGECr, Au",0.9926
+Papua New Guinea,png,44,889ca3c5b7fffff,-9.815,148.7084,0.9966,0.9973,0.9959,60,,,False,"Porphyry copper-gold, epithermal gold",magmatic_mafic,0.781,"NiCoPGECr, Au",0.9846
+Papua New Guinea,png,45,889c8ecc1bfffff,-7.2468,146.6632,0.9965,0.9984,0.9946,60,,,False,"Porphyry copper-gold, epithermal gold",epithermal_orogenic_au,0.665,"Au, Cu",0.9813
+Papua New Guinea,png,46,8872d04cd3fffff,-4.649,141.086,0.9965,0.9994,0.9936,29,,,False,"Porphyry copper-gold, epithermal gold",epithermal_orogenic_au,0.384,"Au, Cu",0.9787
+Papua New Guinea,png,47,889c9098d1fffff,-6.003,150.365,0.9964,0.9973,0.9955,12,,,False,"Porphyry copper-gold, epithermal gold",porphyry_skarn_cu,0.826,"Cu, Au",0.9837
+Papua New Guinea,png,48,889ca61abbfffff,-10.4127,150.3819,0.9964,0.9991,0.9936,48,,,False,"Porphyry copper-gold, epithermal gold",epithermal_orogenic_au,0.577,"Au, NiCoPGECr",0.9788
+Papua New Guinea,png,49,889c8146dbfffff,-7.9174,147.1447,0.9964,0.9952,0.9975,47,,,False,"Porphyry copper-gold, epithermal gold",magmatic_mafic,0.695,"NiCoPGECr, Au",0.9881
+Papua New Guinea,png,50,889ca666a3fffff,-10.0848,149.9498,0.9963,0.9963,0.9963,20,,,False,"Porphyry copper-gold, epithermal gold",magmatic_mafic,0.741,"NiCoPGECr, Au",0.9854
+West African Birimian,birimian,1,88752b883dfffff,6.3442,-1.0566,0.9999,0.9999,0.9999,74,,,True,"Orogenic and paleoplacer gold, manganese",epithermal_orogenic_au,0.515,"Au, Al",0.9994
+West African Birimian,birimian,2,88750ca1a3fffff,5.9617,-1.762,0.9999,0.9999,0.9998,129,,,True,"Orogenic and paleoplacer gold, manganese",epithermal_orogenic_au,0.858,"Au, Fe",0.9989
+West African Birimian,birimian,3,8875a3d2e1fffff,7.4562,-8.6772,0.9999,0.9998,1.0,24,,,True,"Orogenic and paleoplacer gold, manganese",chemical_sedimentary,0.741,"Fe, Au",0.9995
+West African Birimian,birimian,4,887508ab61fffff,5.2693,-2.1878,0.9999,0.9998,0.9999,83,,,True,"Orogenic and paleoplacer gold, manganese",chemical_sedimentary,0.593,"Mn, Au",0.9993
+West African Birimian,birimian,5,8875b14989fffff,7.1381,-10.7922,0.9999,0.9999,0.9999,71,,,True,"Orogenic and paleoplacer gold, manganese",chemical_sedimentary,0.786,"Fe, Au",0.999
+West African Birimian,birimian,6,88750c9b29fffff,6.511,-1.96,0.9998,0.9999,0.9997,143,,,True,"Orogenic and paleoplacer gold, manganese",epithermal_orogenic_au,0.663,"Au, Fe",0.9982
+West African Birimian,birimian,7,88750d5a85fffff,5.5317,-1.8519,0.9998,0.9998,0.9999,81,,,True,"Orogenic and paleoplacer gold, manganese",epithermal_orogenic_au,0.676,"Au, Al",0.9992
+West African Birimian,birimian,8,8875294f61fffff,6.1931,-0.6382,0.9998,0.9998,0.9998,98,,,True,"Orogenic and paleoplacer gold, manganese",surficial_residual,0.397,"Au, Al",0.9989
+West African Birimian,birimian,9,8875088559fffff,5.4516,-2.0953,0.9998,0.9997,0.9999,88,,,True,"Orogenic and paleoplacer gold, manganese",epithermal_orogenic_au,0.839,"Au, Mn",0.9992
+West African Birimian,birimian,10,88752b49d7fffff,6.1942,-1.6408,0.9998,1.0,0.9996,95,,,True,"Orogenic and paleoplacer gold, manganese",epithermal_orogenic_au,0.817,"Au, Fe",0.9975
+West African Birimian,birimian,11,88750ca30dfffff,6.0576,-1.7349,0.9997,0.9998,0.9997,145,,,True,"Orogenic and paleoplacer gold, manganese",epithermal_orogenic_au,0.829,"Au, Fe",0.998
+West African Birimian,birimian,12,88750c3aebfffff,5.8828,-1.9766,0.9997,0.9999,0.9994,137,,,True,"Orogenic and paleoplacer gold, manganese",epithermal_orogenic_au,0.743,"Au, Mn",0.9963
+West African Birimian,birimian,13,88752a64ebfffff,6.5381,-1.8693,0.9996,0.9999,0.9992,142,,,True,"Orogenic and paleoplacer gold, manganese",epithermal_orogenic_au,0.818,"Au, Fe",0.9959
+West African Birimian,birimian,14,887508940dfffff,5.5512,-2.0271,0.9995,0.9995,0.9996,103,,,True,"Orogenic and paleoplacer gold, manganese",epithermal_orogenic_au,0.851,"Au, Mn",0.997
+West African Birimian,birimian,15,887508b11dfffff,5.3254,-2.0233,0.9995,0.9999,0.9991,127,,,True,"Orogenic and paleoplacer gold, manganese",epithermal_orogenic_au,0.628,"Au, Mn",0.9956
+West African Birimian,birimian,16,8875294ed3fffff,6.1045,-0.5358,0.9995,1.0,0.999,40,,,True,"Orogenic and paleoplacer gold, manganese",surficial_residual,0.878,"Al, Au",0.995
+West African Birimian,birimian,17,88752bc143fffff,6.4918,-1.3079,0.9994,1.0,0.9988,92,,,True,"Orogenic and paleoplacer gold, manganese",epithermal_orogenic_au,0.8,"Au, Fe",0.9944
+West African Birimian,birimian,18,8875a06ab7fffff,7.5477,-8.6351,0.9994,0.9994,0.9994,84,,,True,"Orogenic and paleoplacer gold, manganese",chemical_sedimentary,0.787,"Fe, Au",0.9964
+West African Birimian,birimian,19,887584a8c9fffff,6.6498,-9.2778,0.9993,0.9989,0.9998,37,,,True,"Orogenic and paleoplacer gold, manganese",chemical_sedimentary,0.581,"Au, Fe",0.9987
+West African Birimian,birimian,20,8854568b0bfffff,13.0801,-11.4132,0.9993,0.9998,0.9989,43,,,True,"Orogenic and paleoplacer gold, manganese",epithermal_orogenic_au,0.592,"Au, Cu",0.9947
+West African Birimian,birimian,21,8875a0653dfffff,7.5237,-8.5048,0.9993,0.9999,0.9988,90,,,True,"Orogenic and paleoplacer gold, manganese",chemical_sedimentary,0.673,"Fe, Au",0.9939
+West African Birimian,birimian,22,88750d4a67fffff,5.4758,-1.9244,0.9993,0.9991,0.9995,68,,,True,"Orogenic and paleoplacer gold, manganese",epithermal_orogenic_au,0.787,"Au, Mn",0.9968
+West African Birimian,birimian,23,887508a9b3fffff,5.15,-2.1924,0.9993,0.9994,0.9992,87,,,True,"Orogenic and paleoplacer gold, manganese",epithermal_orogenic_au,0.548,"Au, Mn",0.9959
+West African Birimian,birimian,24,8875a06759fffff,7.5923,-8.4419,0.9992,0.9997,0.9988,62,,,True,"Orogenic and paleoplacer gold, manganese",chemical_sedimentary,0.498,"Fe, U",0.9943
+West African Birimian,birimian,25,88750cb161fffff,6.1487,-1.731,0.9992,0.9997,0.9987,116,,,True,"Orogenic and paleoplacer gold, manganese",epithermal_orogenic_au,0.778,"Au, Ag",0.9937
+West African Birimian,birimian,26,8875b44f1dfffff,8.5994,-11.1569,0.9992,0.9997,0.9987,95,,,True,"Orogenic and paleoplacer gold, manganese",chemical_sedimentary,0.402,"Fe, Au",0.9937
+West African Birimian,birimian,27,885451c55bfffff,11.7522,-10.0463,0.9992,0.9987,0.9996,50,,,True,"Orogenic and paleoplacer gold, manganese",epithermal_orogenic_au,0.55,"Au, Al",0.9971
+West African Birimian,birimian,28,88752b9a29fffff,6.5078,-0.9827,0.9991,0.9997,0.9985,53,,,True,"Orogenic and paleoplacer gold, manganese",epithermal_orogenic_au,0.723,"Au, Al",0.9931
+West African Birimian,birimian,29,8875089017fffff,5.6361,-2.1024,0.9991,0.9997,0.9986,75,,,True,"Orogenic and paleoplacer gold, manganese",epithermal_orogenic_au,0.712,"Au, Mn",0.9933
+West African Birimian,birimian,30,8875088ccbfffff,5.3958,-2.1673,0.9991,0.9995,0.9987,121,,,True,"Orogenic and paleoplacer gold, manganese",epithermal_orogenic_au,0.813,"Au, Mn",0.9938
+West African Birimian,birimian,31,88752b4157fffff,6.2447,-1.5271,0.9991,0.9999,0.9982,138,,,True,"Orogenic and paleoplacer gold, manganese",epithermal_orogenic_au,0.687,"Au, Al",0.9916
+West African Birimian,birimian,32,887508b099fffff,5.2591,-1.9489,0.999,0.9996,0.9984,74,,,True,"Orogenic and paleoplacer gold, manganese",epithermal_orogenic_au,0.594,"Au, Mn",0.9926
+West African Birimian,birimian,33,88750c5035fffff,6.3225,-2.3784,0.9989,0.9984,0.9993,90,,,True,"Orogenic and paleoplacer gold, manganese",epithermal_orogenic_au,0.663,"Au, Al",0.9963
+West African Birimian,birimian,34,885456b923fffff,12.8401,-11.2491,0.9988,0.9989,0.9988,48,,,True,"Orogenic and paleoplacer gold, manganese",epithermal_orogenic_au,0.511,"Au, Cu",0.9944
+West African Birimian,birimian,35,88750c98a7fffff,6.4035,-1.9326,0.9988,0.9997,0.9979,147,,,True,"Orogenic and paleoplacer gold, manganese",epithermal_orogenic_au,0.751,"Au, Mn",0.9892
+West African Birimian,birimian,36,88750d570dfffff,5.4888,-1.6988,0.9988,0.9981,0.9995,89,,,True,"Orogenic and paleoplacer gold, manganese",epithermal_orogenic_au,0.736,"Au, Mn",0.9966
+West African Birimian,birimian,37,885890d417fffff,6.3693,1.4123,0.9988,0.9998,0.9978,16,,,True,"Orogenic and paleoplacer gold, manganese",chemical_sedimentary,0.803,"P, Fe",0.9881
+West African Birimian,birimian,38,88750caa27fffff,6.0285,-1.837,0.9988,0.9983,0.9992,135,,,True,"Orogenic and paleoplacer gold, manganese",epithermal_orogenic_au,0.806,"Au, Fe",0.996
+West African Birimian,birimian,39,88752bb2b3fffff,6.0866,-0.6952,0.9988,0.9999,0.9976,133,,,True,"Orogenic and paleoplacer gold, manganese",epithermal_orogenic_au,0.544,"Au, Al",0.9875
+West African Birimian,birimian,40,88752b9205fffff,6.5072,-0.8419,0.9987,0.9999,0.9975,132,,,True,"Orogenic and paleoplacer gold, manganese",epithermal_orogenic_au,0.698,"Au, Fe",0.9873
+West African Birimian,birimian,41,8875294089fffff,6.1988,-0.538,0.9987,0.9999,0.9975,115,,,True,"Orogenic and paleoplacer gold, manganese",epithermal_orogenic_au,0.526,"Au, Al",0.9873
+West African Birimian,birimian,42,88752bcce1fffff,6.3177,-1.3073,0.9986,0.9994,0.9979,82,,,True,"Orogenic and paleoplacer gold, manganese",epithermal_orogenic_au,0.521,"Au, Al",0.989
+West African Birimian,birimian,43,88750ca61bfffff,5.9029,-1.577,0.9986,0.9986,0.9986,51,,,True,"Orogenic and paleoplacer gold, manganese",epithermal_orogenic_au,0.824,"Au, Al",0.9934
+West African Birimian,birimian,44,8875295065fffff,6.3783,-0.5326,0.9985,0.9991,0.9979,125,,,True,"Orogenic and paleoplacer gold, manganese",epithermal_orogenic_au,0.619,"Au, Fe",0.9894
+West African Birimian,birimian,45,8854563859fffff,12.5396,-11.3689,0.9985,0.9982,0.9988,46,,,True,"Orogenic and paleoplacer gold, manganese",epithermal_orogenic_au,0.561,"Au, Al",0.9939
+West African Birimian,birimian,46,88752b5415fffff,6.2209,-1.354,0.9984,0.9995,0.9974,123,,,True,"Orogenic and paleoplacer gold, manganese",surficial_residual,0.452,"Au, Al",0.9871
+West African Birimian,birimian,47,8854e9612bfffff,8.963,-11.7394,0.9984,0.9987,0.9981,60,,,True,"Orogenic and paleoplacer gold, manganese",surficial_residual,0.396,"Al, Fe",0.9903
+West African Birimian,birimian,48,88750c04edfffff,5.9735,-1.973,0.9984,0.9997,0.9971,68,,,True,"Orogenic and paleoplacer gold, manganese",epithermal_orogenic_au,0.802,"Au, Fe",0.9853
+West African Birimian,birimian,49,88545685a9fffff,12.9478,-11.1852,0.9983,0.9978,0.9989,57,,,True,"Orogenic and paleoplacer gold, manganese",epithermal_orogenic_au,0.486,"Au, Cu",0.9947
+West African Birimian,birimian,50,88750c2a6dfffff,5.8264,-2.0491,0.9983,0.9997,0.9969,112,,,True,"Orogenic and paleoplacer gold, manganese",epithermal_orogenic_au,0.803,"Au, Mn",0.9845
+Arabian-Nubian Shield,arabian_nubian,1,883e4e7451fffff,26.0609,34.2458,1.0,1.0,1.0,88,,,True,"Orogenic gold, VMS copper-zinc",chemical_sedimentary,0.581,"P, Cu",0.9999
+Arabian-Nubian Shield,arabian_nubian,2,883e4a128dfffff,25.47,34.5558,1.0,1.0,0.9999,64,,,True,"Orogenic gold, VMS copper-zinc",chemical_sedimentary,0.292,"Cu, Au",0.9998
+Arabian-Nubian Shield,arabian_nubian,3,883e4a02e5fffff,25.3115,34.5995,0.9999,1.0,0.9999,60,,,True,"Orogenic gold, VMS copper-zinc",felsic_alkaline_rare,0.322,"Cu, Au",0.9998
+Arabian-Nubian Shield,arabian_nubian,4,885230a12bfffff,20.6267,41.3781,0.9999,0.9998,0.9999,19,,,True,"Orogenic gold, VMS copper-zinc",vms,0.984,"PbZn, Cu",0.9998
+Arabian-Nubian Shield,arabian_nubian,5,883e4e0f63fffff,26.2214,34.0812,0.9998,0.9999,0.9996,52,,,True,"Orogenic gold, VMS copper-zinc",chemical_sedimentary,0.768,"P, Cu",0.9996
+Arabian-Nubian Shield,arabian_nubian,6,883e4a0703fffff,25.282,34.7028,0.9997,0.9999,0.9995,86,,,True,"Orogenic gold, VMS copper-zinc",chemical_sedimentary,0.408,"P, Cu",0.9996
+Arabian-Nubian Shield,arabian_nubian,7,883e4a1159fffff,25.4241,34.4654,0.9996,0.9999,0.9993,64,,,True,"Orogenic gold, VMS copper-zinc",chemical_sedimentary,0.248,"Cu, Au",0.9996
+Arabian-Nubian Shield,arabian_nubian,8,883e4e70b9fffff,26.0217,34.1202,0.9995,1.0,0.9991,81,,,True,"Orogenic gold, VMS copper-zinc",chemical_sedimentary,0.466,"P, Cu",0.9995
+Arabian-Nubian Shield,arabian_nubian,9,883e4a010bfffff,25.2488,34.5273,0.9995,1.0,0.999,64,,,True,"Orogenic gold, VMS copper-zinc",felsic_alkaline_rare,0.37,"LiBeTaNb, Cu",0.9994
+Arabian-Nubian Shield,arabian_nubian,10,883e4a0ce9fffff,25.1105,34.6795,0.9994,0.9992,0.9996,58,,,True,"Orogenic gold, VMS copper-zinc",magmatic_mafic,0.704,"NiCoPGECr, Cu",0.9996
+Arabian-Nubian Shield,arabian_nubian,11,883e4e6347fffff,25.9498,34.0482,0.9994,1.0,0.9988,89,,,True,"Orogenic gold, VMS copper-zinc",porphyry_skarn_cu,0.262,"Au, Cu",0.9993
+Arabian-Nubian Shield,arabian_nubian,12,883e4a661dfffff,24.885,34.7943,0.9994,0.9994,0.9993,67,,,True,"Orogenic gold, VMS copper-zinc",epithermal_orogenic_au,0.235,"Cu, Au",0.9996
+Arabian-Nubian Shield,arabian_nubian,13,883e4a1aadfffff,25.3189,34.4297,0.9994,0.9999,0.9988,78,,,True,"Orogenic gold, VMS copper-zinc",felsic_alkaline_rare,0.265,"LiBeTaNb, Cu",0.9993
+Arabian-Nubian Shield,arabian_nubian,14,883e4a8a6bfffff,25.6542,34.4169,0.9993,0.9996,0.9989,71,,,True,"Orogenic gold, VMS copper-zinc",sed_hosted_base,0.469,"PbZn, Cu",0.9994
+Arabian-Nubian Shield,arabian_nubian,15,885230b1b7fffff,20.7299,41.3937,0.9992,0.9986,0.9998,22,,,True,"Orogenic gold, VMS copper-zinc",vms,0.942,"Ag, Cu",0.9998
+Arabian-Nubian Shield,arabian_nubian,16,8853a41757fffff,24.3824,35.1173,0.9991,0.9986,0.9996,71,,,True,"Orogenic gold, VMS copper-zinc",chemical_sedimentary,0.353,"P, Cu",0.9997
+Arabian-Nubian Shield,arabian_nubian,17,883e4a6017fffff,24.83,34.6292,0.9991,0.9999,0.9983,64,,,True,"Orogenic gold, VMS copper-zinc",epithermal_orogenic_au,0.37,"Au, Cu",0.9991
+Arabian-Nubian Shield,arabian_nubian,18,8853a4825bfffff,24.7351,35.0469,0.9991,0.9984,0.9998,23,,,True,"Orogenic gold, VMS copper-zinc",felsic_alkaline_rare,0.426,"REE, P",0.9998
+Arabian-Nubian Shield,arabian_nubian,19,883e4e60bdfffff,25.8639,34.1819,0.9991,0.9999,0.9982,65,,,True,"Orogenic gold, VMS copper-zinc",sed_hosted_base,0.223,"Cu, Au",0.9991
+Arabian-Nubian Shield,arabian_nubian,20,883e4a086dfffff,25.1533,34.4317,0.9989,1.0,0.9979,73,,,True,"Orogenic gold, VMS copper-zinc",epithermal_orogenic_au,0.264,"Cu, Au",0.9989
+Arabian-Nubian Shield,arabian_nubian,21,883e4e0e1bfffff,26.2595,34.19,0.9989,0.9995,0.9983,34,,,True,"Orogenic gold, VMS copper-zinc",chemical_sedimentary,0.736,"P, Cu",0.9991
+Arabian-Nubian Shield,arabian_nubian,22,883e4a8abbfffff,25.6019,34.5136,0.9989,0.9993,0.9984,64,,,True,"Orogenic gold, VMS copper-zinc",sed_hosted_base,0.337,"Cu, P",0.9992
+Arabian-Nubian Shield,arabian_nubian,23,88523144cbfffff,20.0338,42.0249,0.9988,0.999,0.9987,38,,,True,"Orogenic gold, VMS copper-zinc",vms,0.607,"Cu, Au",0.9993
+Arabian-Nubian Shield,arabian_nubian,24,883e4a7517fffff,24.9273,34.6822,0.9988,0.9998,0.9977,89,,,True,"Orogenic gold, VMS copper-zinc",epithermal_orogenic_au,0.245,"Au, Cu",0.9988
+Arabian-Nubian Shield,arabian_nubian,25,88521dd235fffff,17.4494,43.9069,0.9988,0.9978,0.9997,46,,,True,"Orogenic gold, VMS copper-zinc",vms,0.969,"PbZn, Cu",0.9997
+Arabian-Nubian Shield,arabian_nubian,26,8853a49133fffff,24.7408,34.9206,0.9987,0.9993,0.9982,52,,,True,"Orogenic gold, VMS copper-zinc",chemical_sedimentary,0.313,"Cu, P",0.999
+Arabian-Nubian Shield,arabian_nubian,27,883e4a70ddfffff,24.9894,34.6025,0.9987,0.9994,0.998,91,,,True,"Orogenic gold, VMS copper-zinc",epithermal_orogenic_au,0.352,"Au, Cu",0.999
+Arabian-Nubian Shield,arabian_nubian,28,8853a41b69fffff,24.2727,34.7889,0.9987,0.9987,0.9987,54,,,True,"Orogenic gold, VMS copper-zinc",vms,0.271,"Cu, PbZn",0.9993
+Arabian-Nubian Shield,arabian_nubian,29,883e4a0ab7fffff,25.1507,34.5334,0.9986,0.9986,0.9986,77,,,True,"Orogenic gold, VMS copper-zinc",felsic_alkaline_rare,0.515,"LiBeTaNb, Cu",0.9993
+Arabian-Nubian Shield,arabian_nubian,30,885230305bfffff,20.4228,41.4083,0.9985,0.998,0.9991,40,,,True,"Orogenic gold, VMS copper-zinc",vms,0.933,"Cu, Au",0.9994
+Arabian-Nubian Shield,arabian_nubian,31,8852031a91fffff,18.1362,43.8953,0.9985,0.9984,0.9985,49,,,True,"Orogenic gold, VMS copper-zinc",vms,0.785,"PbZn, Cu",0.9992
+Arabian-Nubian Shield,arabian_nubian,32,883e4a6ee5fffff,24.7224,34.6947,0.9985,0.9999,0.997,41,,,True,"Orogenic gold, VMS copper-zinc",chemical_sedimentary,0.227,"Au, Cu",0.9983
+Arabian-Nubian Shield,arabian_nubian,33,883e4e0311fffff,26.3725,34.0539,0.9984,0.9979,0.9989,91,,,True,"Orogenic gold, VMS copper-zinc",chemical_sedimentary,0.682,"P, Cu",0.9994
+Arabian-Nubian Shield,arabian_nubian,34,8853a4803dfffff,24.6313,35.0277,0.9984,0.9976,0.9991,85,,,True,"Orogenic gold, VMS copper-zinc",chemical_sedimentary,0.351,"P, Cu",0.9995
+Arabian-Nubian Shield,arabian_nubian,35,8852036065fffff,17.6778,43.9347,0.9983,0.9972,0.9993,64,,,True,"Orogenic gold, VMS copper-zinc",vms,0.976,"PbZn, Cu",0.9996
+Arabian-Nubian Shield,arabian_nubian,36,883e4e6e99fffff,25.7977,34.2715,0.9982,0.997,0.9994,53,,,True,"Orogenic gold, VMS copper-zinc",chemical_sedimentary,0.284,"Cu, PbZn",0.9996
+Arabian-Nubian Shield,arabian_nubian,37,8852303429fffff,20.3679,41.5308,0.9982,0.9989,0.9976,95,,,True,"Orogenic gold, VMS copper-zinc",vms,0.709,"Cu, PbZn",0.9986
+Arabian-Nubian Shield,arabian_nubian,38,883e4ad5e1fffff,25.5443,34.237,0.9982,0.9998,0.9966,44,,,True,"Orogenic gold, VMS copper-zinc",epithermal_orogenic_au,0.283,"Cu, Au",0.9981
+Arabian-Nubian Shield,arabian_nubian,39,883e4a722dfffff,25.0415,34.5064,0.9982,0.9984,0.9979,77,,,True,"Orogenic gold, VMS copper-zinc",porphyry_skarn_cu,0.289,"Cu, Au",0.999
+Arabian-Nubian Shield,arabian_nubian,40,883e4e75b9fffff,25.9665,34.2434,0.9981,0.9971,0.9992,87,,,True,"Orogenic gold, VMS copper-zinc",chemical_sedimentary,0.565,"P, Cu",0.9995
+Arabian-Nubian Shield,arabian_nubian,41,883e4a761bfffff,25.0384,34.7429,0.9981,0.9965,0.9997,86,,,True,"Orogenic gold, VMS copper-zinc",porphyry_skarn_cu,0.282,"Cu, PbZn",0.9997
+Arabian-Nubian Shield,arabian_nubian,42,883e4e0125fffff,26.2888,34.0082,0.9981,0.9985,0.9977,55,,,True,"Orogenic gold, VMS copper-zinc",chemical_sedimentary,0.667,"P, Cu",0.9987
+Arabian-Nubian Shield,arabian_nubian,43,8853a48a81fffff,24.5521,34.9736,0.9981,0.9976,0.9985,60,,,True,"Orogenic gold, VMS copper-zinc",chemical_sedimentary,0.299,"Cu, P",0.9992
+Arabian-Nubian Shield,arabian_nubian,44,8853a414b9fffff,24.3046,35.2303,0.998,0.9986,0.9974,67,,,True,"Orogenic gold, VMS copper-zinc",chemical_sedimentary,0.552,"P, Cu",0.9984
+Arabian-Nubian Shield,arabian_nubian,45,8853a4990bfffff,24.6396,34.8005,0.9979,0.9994,0.9964,78,,,True,"Orogenic gold, VMS copper-zinc",chemical_sedimentary,0.356,"Cu, Au",0.998
+Arabian-Nubian Shield,arabian_nubian,46,8852302729fffff,20.2484,41.5303,0.9979,0.9983,0.9974,79,,,True,"Orogenic gold, VMS copper-zinc",vms,0.738,"Cu, PbZn",0.9985
+Arabian-Nubian Shield,arabian_nubian,47,8853a404b5fffff,24.1389,35.2895,0.9978,0.996,0.9997,13,,,True,"Orogenic gold, VMS copper-zinc",chemical_sedimentary,0.553,"Mn, Cu",0.9997
+Arabian-Nubian Shield,arabian_nubian,48,885300689bfffff,25.8105,41.0355,0.9978,0.9971,0.9985,22,,,True,"Orogenic gold, VMS copper-zinc",felsic_alkaline_rare,0.777,"LiBeTaNb, REE",0.9992
+Arabian-Nubian Shield,arabian_nubian,49,883e4a6437fffff,24.791,34.7915,0.9977,0.9994,0.996,72,,,True,"Orogenic gold, VMS copper-zinc",chemical_sedimentary,0.211,"Cu, Au",0.9978
+Arabian-Nubian Shield,arabian_nubian,50,8852315129fffff,20.1653,41.6905,0.9977,0.9964,0.999,91,,,True,"Orogenic gold, VMS copper-zinc",vms,0.676,"Cu, PbZn",0.9994
+Guiana Shield,guiana,1,885f55c0a3fffff,7.402,-60.0778,0.9999,0.9999,0.9999,83,,,True,"Orogenic gold, bauxite",epithermal_orogenic_au,0.969,"Au, Ag",1.0
+Guiana Shield,guiana,2,885f55ca3dfffff,7.3815,-59.9379,0.9998,0.9998,0.9998,66,,,True,"Orogenic gold, bauxite",epithermal_orogenic_au,0.962,"Au, Ag",1.0
+Guiana Shield,guiana,3,885f72d863fffff,5.647,-59.0678,0.9995,0.9996,0.9994,36,,,True,"Orogenic gold, bauxite",epithermal_orogenic_au,0.977,"Au, NiCoPGECr",1.0
+Guiana Shield,guiana,4,885f54861bfffff,6.7625,-59.7358,0.9993,0.9996,0.999,20,,,True,"Orogenic gold, bauxite",epithermal_orogenic_au,0.977,"Au, Cu",1.0
+Guiana Shield,guiana,5,885f543445fffff,7.3266,-59.7885,0.9992,0.9989,0.9994,17,,,True,"Orogenic gold, bauxite",epithermal_orogenic_au,0.962,"Au, NiCoPGECr",1.0
+Guiana Shield,guiana,6,885f542a97fffff,7.5128,-59.5991,0.9991,0.9982,0.9999,19,,,True,"Orogenic gold, bauxite",epithermal_orogenic_au,0.968,"Au, Ag",1.0
+Guiana Shield,guiana,7,885f764e29fffff,5.1289,-59.1059,0.9989,0.9997,0.9981,19,,,True,"Orogenic gold, bauxite",epithermal_orogenic_au,0.972,"Au, NiCoPGECr",1.0
+Guiana Shield,guiana,8,885f55cde7fffff,7.5476,-60.0076,0.9989,0.9993,0.9985,71,,,True,"Orogenic gold, bauxite",epithermal_orogenic_au,0.952,"Au, Mn",1.0
+Guiana Shield,guiana,9,885f720d25fffff,6.2177,-59.3687,0.9989,0.9985,0.9993,59,,,True,"Orogenic gold, bauxite",epithermal_orogenic_au,0.974,"Au, NiCoPGECr",1.0
+Guiana Shield,guiana,10,885f7276ebfffff,6.3237,-59.4928,0.9988,0.9984,0.9991,64,,,True,"Orogenic gold, bauxite",epithermal_orogenic_au,0.964,"Au, WMoSn",1.0
+Guiana Shield,guiana,11,885f76611bfffff,5.3572,-59.3276,0.9986,0.9989,0.9984,14,,,True,"Orogenic gold, bauxite",epithermal_orogenic_au,0.651,"Au, NiCoPGECr",1.0
+Guiana Shield,guiana,12,885f55a1d5fffff,7.602,-60.6852,0.9986,0.9974,0.9997,52,,,True,"Orogenic gold, bauxite",epithermal_orogenic_au,0.907,"Au, Cu",1.0
+Guiana Shield,guiana,13,885f09a623fffff,6.5491,-59.0484,0.9986,0.9994,0.9977,67,,,True,"Orogenic gold, bauxite",epithermal_orogenic_au,0.925,"Au, Ag",1.0
+Guiana Shield,guiana,14,885f0dab0dfffff,5.4468,-58.7822,0.9985,0.9981,0.9989,37,,,True,"Orogenic gold, bauxite",epithermal_orogenic_au,0.947,"Au, NiCoPGECr",1.0
+Guiana Shield,guiana,15,885f0db64dfffff,5.2537,-59.1114,0.9984,0.9979,0.9989,1,,,True,"Orogenic gold, bauxite",epithermal_orogenic_au,0.902,"Au, WMoSn",1.0
+Guiana Shield,guiana,16,885f551757fffff,7.5163,-60.4172,0.9984,0.9976,0.9992,64,,,True,"Orogenic gold, bauxite",epithermal_orogenic_au,0.937,"Au, Cu",1.0
+Guiana Shield,guiana,17,885f7231ddfffff,6.2271,-59.7083,0.9984,0.9992,0.9975,46,,,True,"Orogenic gold, bauxite",epithermal_orogenic_au,0.984,"Au, WMoSn",1.0
+Guiana Shield,guiana,18,885f766cc3fffff,5.5208,-59.3932,0.9983,0.9973,0.9992,49,,,True,"Orogenic gold, bauxite",epithermal_orogenic_au,0.968,"Au, NiCoPGECr",1.0
+Guiana Shield,guiana,19,885f0da263fffff,5.3572,-58.9669,0.9983,0.9987,0.9978,35,,,True,"Orogenic gold, bauxite",epithermal_orogenic_au,0.783,"Au, NiCoPGECr",1.0
+Guiana Shield,guiana,20,885f726a45fffff,6.4312,-59.1905,0.9981,0.9984,0.9977,27,,,True,"Orogenic gold, bauxite",epithermal_orogenic_au,0.952,"Au, Cu",1.0
+Guiana Shield,guiana,21,885f72702dfffff,6.2775,-59.2937,0.998,0.9979,0.998,15,,,True,"Orogenic gold, bauxite",epithermal_orogenic_au,0.958,"Au, WMoSn",1.0
+Guiana Shield,guiana,22,885f0db04dfffff,5.2325,-58.9613,0.9973,0.997,0.9976,22,,,True,"Orogenic gold, bauxite",epithermal_orogenic_au,0.966,"Au, NiCoPGECr",1.0
+Guiana Shield,guiana,23,885f10246bfffff,4.7851,-53.2655,0.9972,0.9982,0.9962,28,,,True,"Orogenic gold, bauxite",epithermal_orogenic_au,0.961,"Au, WMoSn",0.9999
+Guiana Shield,guiana,24,885f551307fffff,7.454,-60.2717,0.9971,0.9943,0.9998,47,,,True,"Orogenic gold, bauxite",epithermal_orogenic_au,0.966,"Au, Mn",1.0
+Guiana Shield,guiana,25,885f73cd01fffff,6.4275,-60.0408,0.997,0.998,0.9959,54,,,True,"Orogenic gold, bauxite",epithermal_orogenic_au,0.975,"Au, WMoSn",0.9999
+Guiana Shield,guiana,26,885f0db691fffff,5.3379,-59.1698,0.9969,0.9954,0.9985,11,,,True,"Orogenic gold, bauxite",epithermal_orogenic_au,0.944,"Au, NiCoPGECr",1.0
+Guiana Shield,guiana,27,885f7239dbfffff,6.3113,-59.587,0.9968,0.9963,0.9974,61,,,True,"Orogenic gold, bauxite",epithermal_orogenic_au,0.972,"Au, WMoSn",1.0
+Guiana Shield,guiana,28,885f548d59fffff,6.8815,-59.5196,0.9965,0.9993,0.9937,68,,,True,"Orogenic gold, bauxite",epithermal_orogenic_au,0.971,"Au, WMoSn",0.9999
+Guiana Shield,guiana,29,885f73c459fffff,6.3167,-60.253,0.9964,0.9969,0.996,8,,,True,"Orogenic gold, bauxite",epithermal_orogenic_au,0.983,"Au, WMoSn",0.9999
+Guiana Shield,guiana,30,885f54d283fffff,6.6572,-59.2318,0.9962,0.9993,0.9932,34,,,True,"Orogenic gold, bauxite",epithermal_orogenic_au,0.945,"Au, Cu",0.9999
+Guiana Shield,guiana,31,885f09a1d5fffff,6.5577,-58.9026,0.9962,0.996,0.9964,49,,,True,"Orogenic gold, bauxite",epithermal_orogenic_au,0.902,"Au, Cu",0.9999
+Guiana Shield,guiana,32,885f540247fffff,7.0535,-59.4319,0.9961,0.9977,0.9946,20,,,True,"Orogenic gold, bauxite",epithermal_orogenic_au,0.967,"Au, Cu",0.9999
+Guiana Shield,guiana,33,885f1cd033fffff,5.0706,-54.5191,0.9961,0.9964,0.9957,90,,,True,"Orogenic gold, bauxite",epithermal_orogenic_au,0.953,"Au, WMoSn",0.9999
+Guiana Shield,guiana,34,885f0d9745fffff,4.9612,-58.7998,0.996,0.9979,0.9942,38,,,True,"Orogenic gold, bauxite",epithermal_orogenic_au,0.927,"Au, NiCoPGECr",0.9999
+Guiana Shield,guiana,35,885f54a669fffff,7.039,-59.9422,0.9953,0.9967,0.9938,29,,,True,"Orogenic gold, bauxite",epithermal_orogenic_au,0.976,"Au, WMoSn",0.9999
+Guiana Shield,guiana,36,885f764761fffff,5.0468,-59.1821,0.9951,0.9984,0.9919,22,,,True,"Orogenic gold, bauxite",epithermal_orogenic_au,0.953,"Au, NiCoPGECr",0.9998
+Guiana Shield,guiana,37,885f55ccd9fffff,7.5188,-60.1072,0.9949,0.997,0.9929,59,,,True,"Orogenic gold, bauxite",epithermal_orogenic_au,0.964,"Au, Mn",0.9999
+Guiana Shield,guiana,38,885f721045fffff,5.8607,-59.4591,0.9947,0.9945,0.995,8,,,True,"Orogenic gold, bauxite",epithermal_orogenic_au,0.977,"Au, Cu",0.9999
+Guiana Shield,guiana,39,885f73c315fffff,6.2295,-60.0788,0.9945,0.9952,0.9938,29,,,True,"Orogenic gold, bauxite",epithermal_orogenic_au,0.982,"Au, WMoSn",0.9999
+Guiana Shield,guiana,40,885f727735fffff,6.3283,-59.4015,0.9945,0.9922,0.9967,65,,,True,"Orogenic gold, bauxite",epithermal_orogenic_au,0.967,"Au, Cu",0.9999
+Guiana Shield,guiana,41,885f54a935fffff,7.1541,-59.6093,0.9941,0.9985,0.9898,37,,,True,"Orogenic gold, bauxite",epithermal_orogenic_au,0.981,"Au, Cu",0.9997
+Guiana Shield,guiana,42,885f0c3501fffff,5.2009,-57.9807,0.9941,0.9943,0.994,18,,,True,"Orogenic gold, bauxite",surficial_residual,0.922,"Al, Au",0.9999
+Guiana Shield,guiana,43,885f725b17fffff,6.0185,-58.912,0.9941,0.9947,0.9935,10,,,True,"Orogenic gold, bauxite",epithermal_orogenic_au,0.97,"Au, Cu",0.9999
+Guiana Shield,guiana,44,885f09a95bfffff,6.5901,-58.7476,0.9939,0.9911,0.9968,3,,,True,"Orogenic gold, bauxite",epithermal_orogenic_au,0.957,"Au, Ag",0.9999
+Guiana Shield,guiana,45,885f72c73bfffff,5.7814,-59.3095,0.9938,0.9954,0.9922,12,,,True,"Orogenic gold, bauxite",epithermal_orogenic_au,0.976,"Au, Cu",0.9998
+Guiana Shield,guiana,46,885f464a69fffff,7.1765,-60.7148,0.9935,0.992,0.9949,23,,,True,"Orogenic gold, bauxite",epithermal_orogenic_au,0.792,"Au, Cu",0.9999
+Guiana Shield,guiana,47,885f0db467fffff,5.3355,-59.0729,0.9935,0.9913,0.9956,11,,,True,"Orogenic gold, bauxite",epithermal_orogenic_au,0.96,"Au, NiCoPGECr",0.9999
+Guiana Shield,guiana,48,885f54da81fffff,6.7307,-59.0917,0.9933,0.9943,0.9924,37,,,True,"Orogenic gold, bauxite",epithermal_orogenic_au,0.963,"Au, WMoSn",0.9999
+Guiana Shield,guiana,49,885f55556bfffff,7.6486,-59.9766,0.9933,0.9977,0.9889,40,,,True,"Orogenic gold, bauxite",epithermal_orogenic_au,0.962,"Au, Mn",0.9996
+Guiana Shield,guiana,50,885f09b6cdfffff,6.3913,-59.1008,0.9932,0.9947,0.9918,30,,,True,"Orogenic gold, bauxite",epithermal_orogenic_au,0.929,"Au, Cu",0.9998
+Gobi and South Mongolia,gobi,1,8824ed2067fffff,41.6488,110.1874,0.9993,0.9998,0.9988,68,,,True,"Porphyry copper-gold, orogenic gold",sed_hosted_base,0.295,"Cu, Au",0.9948
+Gobi and South Mongolia,gobi,2,8824ed0687fffff,41.8063,110.0041,0.9991,0.9993,0.9989,42,,,True,"Porphyry copper-gold, orogenic gold",magmatic_mafic,0.283,"REE, Cu",0.9949
+Gobi and South Mongolia,gobi,3,8824564d6bfffff,43.0362,106.8457,0.999,0.9999,0.9981,31,,,True,"Porphyry copper-gold, orogenic gold",porphyry_skarn_cu,0.719,"Cu, Au",0.9923
+Gobi and South Mongolia,gobi,4,8824ed0769fffff,41.7991,109.8583,0.9989,1.0,0.9977,83,,,True,"Porphyry copper-gold, orogenic gold",chemical_sedimentary,0.234,"Au, Cu",0.9909
+Gobi and South Mongolia,gobi,5,8824edb91bfffff,41.9991,109.9431,0.9987,0.9992,0.9983,28,,,True,"Porphyry copper-gold, orogenic gold",sed_hosted_base,0.228,"Cu, NiCoPGECr",0.9931
+Gobi and South Mongolia,gobi,6,88240c5b3dfffff,44.8827,103.7246,0.9984,0.9995,0.9973,52,,,True,"Porphyry copper-gold, orogenic gold",porphyry_skarn_cu,0.422,"Cu, Au",0.9891
+Gobi and South Mongolia,gobi,7,88240ea949fffff,44.3469,103.9546,0.9981,0.9964,0.9999,27,,,True,"Porphyry copper-gold, orogenic gold",felsic_alkaline_rare,0.676,"REE, Cu",0.9998
+Gobi and South Mongolia,gobi,8,8824edaea9fffff,41.9385,110.2657,0.9976,0.9995,0.9957,8,,,True,"Porphyry copper-gold, orogenic gold",magmatic_mafic,0.215,"Cu, Au",0.9866
+Gobi and South Mongolia,gobi,9,8824e440e5fffff,42.1347,104.8596,0.9975,0.9999,0.9951,47,,,True,"Porphyry copper-gold, orogenic gold",sed_hosted_base,0.5,"Cu, PbZn",0.9842
+Gobi and South Mongolia,gobi,10,8824ed26abfffff,41.6872,110.4384,0.997,0.9998,0.9942,32,,,True,"Porphyry copper-gold, orogenic gold",sed_hosted_base,0.229,"Cu, Au",0.9824
+Gobi and South Mongolia,gobi,11,8824e8ba4dfffff,41.19,109.2552,0.9968,0.9951,0.9985,88,,,True,"Porphyry copper-gold, orogenic gold",sed_hosted_base,0.468,"PbZn, Cu",0.9936
+Gobi and South Mongolia,gobi,12,8824ed3755fffff,41.8164,110.2526,0.9968,0.9968,0.9968,28,,,True,"Porphyry copper-gold, orogenic gold",felsic_alkaline_rare,0.329,"Cu, Au",0.9885
+Gobi and South Mongolia,gobi,13,88240eaf3dfffff,44.3741,104.1617,0.9964,0.9962,0.9966,28,,,True,"Porphyry copper-gold, orogenic gold",felsic_alkaline_rare,0.553,"REE, LiBeTaNb",0.9881
+Gobi and South Mongolia,gobi,14,8824e882b7fffff,41.2454,109.0884,0.9963,0.9978,0.9947,116,,,True,"Porphyry copper-gold, orogenic gold",sed_hosted_base,0.411,"Cu, PbZn",0.9838
+Gobi and South Mongolia,gobi,15,8824090e47fffff,44.3057,106.5987,0.9962,0.9999,0.9926,41,,,True,"Porphyry copper-gold, orogenic gold",porphyry_skarn_cu,0.446,"Cu, Au",0.9787
+Gobi and South Mongolia,gobi,16,8824ed5357fffff,41.653,109.2603,0.9961,1.0,0.9923,88,,,True,"Porphyry copper-gold, orogenic gold",sed_hosted_base,0.275,"Cu, Au",0.9784
+Gobi and South Mongolia,gobi,17,8824e3b4c9fffff,41.1383,107.0639,0.9957,0.9951,0.9963,32,,,True,"Porphyry copper-gold, orogenic gold",sed_hosted_base,0.762,"PbZn, Cu",0.9878
+Gobi and South Mongolia,gobi,18,8824edc501fffff,41.8501,109.4488,0.9956,0.9943,0.9969,63,,,True,"Porphyry copper-gold, orogenic gold",sed_hosted_base,0.299,"Cu, Au",0.9889
+Gobi and South Mongolia,gobi,19,88240eaebbfffff,44.4053,104.3086,0.9955,0.9981,0.9928,35,,,True,"Porphyry copper-gold, orogenic gold",felsic_alkaline_rare,0.561,"REE, LiBeTaNb",0.9793
+Gobi and South Mongolia,gobi,20,882456624dfffff,43.1656,107.2657,0.9954,0.9991,0.9917,33,,,True,"Porphyry copper-gold, orogenic gold",porphyry_skarn_cu,0.542,"Cu, REE",0.9775
+Gobi and South Mongolia,gobi,21,8824040ab9fffff,45.7622,100.6337,0.9953,0.9907,0.9998,8,,,True,"Porphyry copper-gold, orogenic gold",porphyry_skarn_cu,0.602,"Cu, Au",0.9996
+Gobi and South Mongolia,gobi,22,8824ec3ad5fffff,41.6562,108.8226,0.9951,0.9964,0.9938,78,,,True,"Porphyry copper-gold, orogenic gold",sed_hosted_base,0.483,"Cu, Fe",0.9819
+Gobi and South Mongolia,gobi,23,8824ed14c1fffff,41.9022,109.9174,0.9947,0.9902,0.9992,12,,,True,"Porphyry copper-gold, orogenic gold",felsic_alkaline_rare,0.228,"Cu, REE",0.9957
+Gobi and South Mongolia,gobi,24,882450993bfffff,43.8582,108.2368,0.9946,0.9915,0.9978,16,,,True,"Porphyry copper-gold, orogenic gold",porphyry_skarn_cu,0.592,"Cu, REE",0.9912
+Gobi and South Mongolia,gobi,25,8824ed8de7fffff,41.9624,109.7674,0.9946,0.9948,0.9944,26,,,True,"Porphyry copper-gold, orogenic gold",felsic_alkaline_rare,0.271,"Cu, REE",0.9829
+Gobi and South Mongolia,gobi,26,8824e16625fffff,41.313,107.4409,0.9946,0.994,0.9951,54,,,True,"Porphyry copper-gold, orogenic gold",sed_hosted_base,0.558,"PbZn, Cu",0.9842
+Gobi and South Mongolia,gobi,27,88245ad0e5fffff,42.0234,110.5357,0.9945,0.9928,0.9962,28,,,True,"Porphyry copper-gold, orogenic gold",porphyry_skarn_cu,0.26,"Cu, BaF",0.9875
+Gobi and South Mongolia,gobi,28,8824e1604dfffff,41.2926,107.2677,0.9942,0.993,0.9954,43,,,True,"Porphyry copper-gold, orogenic gold",sed_hosted_base,0.592,"Cu, PbZn",0.9853
+Gobi and South Mongolia,gobi,29,8824ec7b51fffff,41.3651,108.3393,0.9942,0.9967,0.9916,98,,,True,"Porphyry copper-gold, orogenic gold",sed_hosted_base,0.419,"Cu, PbZn",0.9774
+Gobi and South Mongolia,gobi,30,8824ec4a21fffff,41.3482,107.9996,0.994,0.9977,0.9904,83,,,True,"Porphyry copper-gold, orogenic gold",sed_hosted_base,0.351,"Cu, PbZn",0.976
+Gobi and South Mongolia,gobi,31,8824012a39fffff,44.9037,103.3792,0.994,0.9998,0.9882,35,,,True,"Porphyry copper-gold, orogenic gold",felsic_alkaline_rare,0.407,"Cu, Au",0.9724
+Gobi and South Mongolia,gobi,32,88245432a5fffff,44.4459,108.3187,0.9935,0.9992,0.9879,18,,,True,"Porphyry copper-gold, orogenic gold",sed_hosted_base,0.269,"Cu, Au",0.9721
+Gobi and South Mongolia,gobi,33,8824092807fffff,44.1128,106.9214,0.9934,0.9969,0.9899,10,,,True,"Porphyry copper-gold, orogenic gold",porphyry_skarn_cu,0.417,"Cu, Au",0.9753
+Gobi and South Mongolia,gobi,34,8824e12c83fffff,41.4101,107.8268,0.9934,0.9947,0.9922,77,,,True,"Porphyry copper-gold, orogenic gold",sed_hosted_base,0.456,"Cu, PbZn",0.9783
+Gobi and South Mongolia,gobi,35,8824e14b45fffff,41.2658,106.6483,0.9934,0.988,0.9989,28,,,True,"Porphyry copper-gold, orogenic gold",sed_hosted_base,0.651,"Cu, PbZn",0.9949
+Gobi and South Mongolia,gobi,36,8824e1410dfffff,41.3366,106.7655,0.9933,0.9975,0.9891,33,,,True,"Porphyry copper-gold, orogenic gold",sed_hosted_base,0.457,"Cu, PbZn",0.9742
+Gobi and South Mongolia,gobi,37,882409b1b7fffff,44.693,106.8506,0.9929,0.9991,0.9867,47,,,True,"Porphyry copper-gold, orogenic gold",porphyry_skarn_cu,0.304,"Cu, PbZn",0.9696
+Gobi and South Mongolia,gobi,38,8824e88639fffff,41.2839,109.2022,0.9928,0.9989,0.9868,68,,,True,"Porphyry copper-gold, orogenic gold",sed_hosted_base,0.44,"Cu, PbZn",0.9696
+Gobi and South Mongolia,gobi,39,8824edc25bfffff,41.9606,109.3314,0.9927,0.997,0.9884,5,,,True,"Porphyry copper-gold, orogenic gold",sed_hosted_base,0.273,"Cu, Au",0.9729
+Gobi and South Mongolia,gobi,40,8824ec0f27fffff,41.5847,108.5037,0.9926,0.9976,0.9876,42,,,True,"Porphyry copper-gold, orogenic gold",sed_hosted_base,0.37,"Cu, Au",0.9718
+Gobi and South Mongolia,gobi,41,8824ec076dfffff,41.745,108.5757,0.9926,0.9892,0.996,34,,,True,"Porphyry copper-gold, orogenic gold",sed_hosted_base,0.402,"Cu, PbZn",0.9868
+Gobi and South Mongolia,gobi,42,8824ec21e1fffff,41.5564,108.9305,0.9925,0.9981,0.987,54,,,True,"Porphyry copper-gold, orogenic gold",sed_hosted_base,0.348,"Cu, Au",0.9699
+Gobi and South Mongolia,gobi,43,8824ec4c25fffff,41.2975,108.1869,0.9923,0.9925,0.9921,54,,,True,"Porphyry copper-gold, orogenic gold",sed_hosted_base,0.421,"Cu, PbZn",0.9782
+Gobi and South Mongolia,gobi,44,88240836c9fffff,44.3961,105.7737,0.9923,0.9987,0.9859,46,,,True,"Porphyry copper-gold, orogenic gold",porphyry_skarn_cu,0.325,"Cu, LiBeTaNb",0.9681
+Gobi and South Mongolia,gobi,45,8824550717fffff,44.4691,109.4014,0.9923,0.9927,0.9918,13,,,True,"Porphyry copper-gold, orogenic gold",porphyry_skarn_cu,0.661,"Cu, Au",0.9779
+Gobi and South Mongolia,gobi,46,8824e8b537fffff,41.1905,109.5225,0.9923,0.9897,0.9949,51,,,True,"Porphyry copper-gold, orogenic gold",sed_hosted_base,0.375,"Cu, PbZn",0.9841
+Gobi and South Mongolia,gobi,47,8824ed11e5fffff,41.8341,109.6609,0.992,0.9862,0.9979,26,,,True,"Porphyry copper-gold, orogenic gold",felsic_alkaline_rare,0.284,"Cu, Fe",0.9914
+Gobi and South Mongolia,gobi,48,8824ecaa3dfffff,41.8995,108.7639,0.9918,0.996,0.9877,13,,,True,"Porphyry copper-gold, orogenic gold",sed_hosted_base,0.299,"Cu, Au",0.9719
+Gobi and South Mongolia,gobi,49,8824ec4157fffff,41.4179,108.0814,0.9918,0.9946,0.9891,62,,,True,"Porphyry copper-gold, orogenic gold",sed_hosted_base,0.436,"Cu, PbZn",0.9741
+Gobi and South Mongolia,gobi,50,8824e8ab65fffff,41.0015,109.2745,0.9917,0.9915,0.9919,14,,,True,"Porphyry copper-gold, orogenic gold",sed_hosted_base,0.43,"PbZn, Au",0.9779

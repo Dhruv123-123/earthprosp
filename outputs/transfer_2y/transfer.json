@@ -1,0 +1,82 @@
+{
+  "regions": {
+    "south_america": [
+      -82,
+      -56,
+      -34,
+      13
+    ],
+    "australia": [
+      112,
+      -44,
+      154,
+      -10
+    ],
+    "africa": [
+      -18,
+      -35,
+      52,
+      37
+    ],
+    "canada": [
+      -141,
+      50,
+      -52,
+      75
+    ],
+    "central_asia": [
+      46,
+      36,
+      120,
+      56
+    ]
+  },
+  "configs": {
+    "lean": [
+      "lean",
+      {}
+    ],
+    "lean_shallow": [
+      "lean",
+      {
+        "num_leaves": 15,
+        "min_child_samples": 200
+      }
+    ],
+    "lean_reg": [
+      "lean",
+      {
+        "num_leaves": 31,
+        "min_child_samples": 500,
+        "reg_lambda": 10.0,
+        "colsample_bytree": 0.3
+      }
+    ],
+    "lean_extra": [
+      "lean",
+      {
+        "extra_trees": true
+      }
+    ],
+    "lean_shallow_extra": [
+      "lean",
+      {
+        "num_leaves": 15,
+        "min_child_samples": 200,
+        "extra_trees": true
+      }
+    ],
+    "aef": [
+      "aef",
+      {}
+    ],
+    "aef_shallow": [
+      "aef",
+      {
+        "num_leaves": 15,
+        "min_child_samples": 200
+      }
+    ]
+  },
+  "features_cache": "data/global_features_2y.npz"
+}

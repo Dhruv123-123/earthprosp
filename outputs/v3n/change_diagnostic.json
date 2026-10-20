@@ -1,0 +1,13 @@
+{
+  "years": [
+    "data/global_2018.npz",
+    "data/global_2024.npz"
+  ],
+  "cells": 4147750,
+  "spearman_score_vs_change": 0.2577509268433698,
+  "top1pct_share_in_top5pct_change": 0.05332947586672453,
+  "top1pct_unlabelled_share_in_top5pct_change": 0.05399422521655438,
+  "top5pct_share_in_top5pct_change": 0.06029278453912473,
+  "top5pct_unlabelled_share_in_top5pct_change": 0.059793172734618996,
+  "known_positive_share_in_top5pct_change": 0.06362640038967365
+}

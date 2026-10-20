@@ -1,0 +1,225 @@
+<meta charset="utf-8">
+<title>EarthProsp Belt Atlas</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@500;600&display=swap">
+<style>
+/* Layout: locator map of the belts on top, one belt open below (map | numbers + targets), all-belts table last. */
+:root {
+  --page: #f6f7f5; --surface: #fdfdfc; --ink: #101211; --ink-2: #4c524f; --muted: #848a86;
+  --hair: #dfe2de; --land: #e3e6e1; --accent: #2a78d6; --accent-soft: rgba(42,120,214,0.14);
+  --fine: #2a78d6; --coarse: #a9b0ab; --pooled: #9a5bd0; --win: #1f8a4c; --loss: #c2410c;
+  --display: "IBM Plex Sans Condensed", "Arial Narrow", system-ui, sans-serif;
+  --body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --page: #0e100f; --surface: #171a18; --ink: #f3f5f3; --ink-2: #bfc5c1; --muted: #858c87;
+    --hair: #2b302d; --land: #262b28; --accent: #5aa0ef; --accent-soft: rgba(90,160,239,0.18);
+    --fine: #5aa0ef; --coarse: #59605b; --pooled: #c08af0; --win: #4ade80; --loss: #fb923c;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #0e100f; --surface: #171a18; --ink: #f3f5f3; --ink-2: #bfc5c1; --muted: #858c87;
+  --hair: #2b302d; --land: #262b28; --accent: #5aa0ef; --accent-soft: rgba(90,160,239,0.18);
+  --fine: #5aa0ef; --coarse: #59605b; --pooled: #c08af0; --win: #4ade80; --loss: #fb923c;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--page); color: var(--ink); font: 15px/1.55 var(--body);
+  padding-block: 24px 48px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr); gap: 28px; }
+.wrap > *, header > * { min-width: 0; }
+h1, h2, h3 { font-family: var(--display); font-weight: 600; margin: 0; text-wrap: balance; letter-spacing: -0.005em; }
+h1 { font-size: clamp(28px, 4vw, 40px); line-height: 1.1; }
+h2 { font-size: 24px; line-height: 1.2; }
+h3 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); font-family: var(--body); font-weight: 500; }
+p { margin: 0; }
+.lede { color: var(--ink-2); max-width: 68ch; margin-top: 8px; }
+.mono, td.num, .coord { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+header { display: grid; gap: 18px; }
+.figs { display: flex; flex-wrap: wrap; gap: 12px 36px; }
+.fig { display: grid; gap: 2px; min-width: 0; }
+.fig b { font: 600 30px/1.1 var(--display); }
+.fig b small { font-size: 18px; color: var(--muted); font-weight: 500; }
+.fig span { color: var(--ink-2); font-size: 13px; max-width: 26ch; }
+.locator { background: var(--surface); border: 1px solid var(--hair); border-radius: 8px; padding: 10px; }
+.locator svg { width: 100%; height: auto; display: block; }
+.locator .land { fill: var(--land); }
+.locator rect { fill: var(--accent-soft); stroke: var(--accent); stroke-width: 1; cursor: pointer; vector-effect: non-scaling-stroke; }
+.locator rect.on { fill: var(--accent); fill-opacity: 0.45; stroke-width: 2; }
+.locator rect:focus-visible { outline: none; stroke-width: 3; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.chip { font: 13px var(--body); color: var(--ink); background: var(--page); border: 1px solid var(--hair); border-radius: 999px; padding: 4px 10px; cursor: pointer; }
+td.sys { font-size: 12px; color: var(--ink-2); white-space: nowrap; }
+.chip.frontier { border-style: dashed; }
+#boxes rect.frontier { stroke-dasharray: 3 2; }
+.chip[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+.chip:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.belt { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 24px; align-items: start; }
+@media (max-width: 860px) { .belt { grid-template-columns: minmax(0, 1fr); } }
+.mapbox { margin: 0; display: grid; gap: 6px; }
+.mapbox img { width: 100%; height: auto; border-radius: 6px; border: 1px solid var(--hair); background: #0b0b0b; }
+.mapbox figcaption { color: var(--muted); font-size: 12px; }
+.side { display: grid; gap: 20px; min-width: 0; }
+.side > div { min-width: 0; }
+.deps { color: var(--ink-2); margin-top: 4px; }
+.meta { color: var(--muted); font-size: 13px; margin-top: 6px; }
+.bars { display: grid; gap: 10px; }
+.bar { display: grid; grid-template-columns: 112px minmax(0, 1fr) 52px; gap: 10px; align-items: center; font-size: 13px; }
+.bar .track { height: 10px; background: var(--hair); border-radius: 2px; position: relative; overflow: hidden; }
+.bar .fill { position: absolute; inset: 0 auto 0 0; border-radius: 2px; }
+.bar .lbl { color: var(--ink-2); }
+.pair { display: grid; gap: 4px; }
+.pair .t { font-size: 13px; color: var(--ink); font-weight: 500; }
+.delta { font: 500 12px var(--mono); }
+.delta.up { color: var(--win); } .delta.down { color: var(--loss); }
+.scale { font-size: 11px; color: var(--muted); display: flex; justify-content: space-between; padding-left: 122px; padding-right: 62px; }
+.tablebox { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th, td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--hair); white-space: nowrap; }
+th { color: var(--muted); font-weight: 500; font-size: 12px; }
+td.num, th.num { text-align: right; }
+tbody tr.sel { background: var(--accent-soft); }
+tbody tr.click { cursor: pointer; }
+button.copy { font: 12px var(--body); color: var(--accent); background: none; border: 1px solid var(--hair); border-radius: 4px; padding: 2px 8px; cursor: pointer; }
+.note { color: var(--ink-2); font-size: 13px; max-width: 72ch; }
+.legend { display: flex; gap: 16px; font-size: 12px; color: var(--ink-2); }
+.sw { display: inline-block; width: 10px; height: 10px; border-radius: 2px; vertical-align: -1px; margin-right: 6px; }
+@media (prefers-reduced-motion: no-preference) { .mapbox img { transition: opacity .2s; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <div>
+      <h1>Mineral belts at 0.7 km²</h1>
+      <p class="lede">The global EarthProsp map scores 36 km² hexagons. Here __NCORE__ of the world's major metallogenic belts and __NFRONT__ under-explored frontier regions are re-mapped on H3 resolution-8 cells (~0.7 km², __NCELLS__ million of them) from 160 m AlphaEarth pixels, and each fine model is tested against the coarse one on ground it never saw.</p>
+    </div>
+    <div class="figs" id="figs"></div>
+  </header>
+
+  <section class="locator" aria-label="Belt locator">
+    <svg viewBox="0 0 720 300" role="img" aria-label="World map with the mapped belts outlined">
+      <g transform="translate(0,-30)"><path class="land" d="__LAND__"></path><g id="boxes"></g></g>
+    </svg>
+    <div class="chips" id="chips" role="group" aria-label="Choose a belt"></div>
+  </section>
+
+  <section class="belt" id="belt" aria-live="polite">
+    <figure class="mapbox">
+      <img id="mapimg" alt="" width="1100" height="1300">
+      <figcaption id="mapcap">Brightness: rank of the fine model's score × the global map's district score. Blue dots: known deposit cells. Green rings: top greenfield cells.</figcaption>
+    </figure>
+    <div class="side">
+      <div>
+        <h2 id="bname"></h2>
+        <p class="deps" id="bdeps"></p>
+        <p class="meta mono" id="bmeta"></p>
+      </div>
+      <div>
+        <h3>Held-out test, capture AUC</h3>
+        <div class="legend" style="margin:8px 0 10px"><span><i class="sw" style="background:var(--fine)"></i>0.7 km² model</span><span><i class="sw" style="background:var(--coarse)"></i>36 km² model</span><span id="pooledkey" hidden><i class="sw" style="background:var(--pooled)"></i>pooled 0.7 km², never saw this region</span></div>
+        <div class="bars" id="bars"></div>
+        <p class="note" id="statnote" style="margin-top:10px"></p>
+      </div>
+      <div>
+        <h3>Greenfield prospects</h3>
+        <p class="note" style="margin:6px 0 8px">Best cell of each separate anomaly with no mineral record of any kind within ~3 km; prospects are at least 10 km apart. Size counts the top-1% greenfield cells (0.7 km² each) within 5 km. A score is a rank in this belt (1 = top), not a probability. In a backtest, picks spread this way found 70% more separate deposit districts than picks one per ~5 km.</p>
+        <div class="tablebox"><table>
+          <thead><tr><th>#</th><th class="num">Lat</th><th class="num">Lon</th><th class="num">Score</th><th class="num" title="Top-1% greenfield cells within 5 km">Size</th><th>Likely system</th><th class="num" id="stabh" title="Share of five independent refits in which the cell made the top 1%">Top 1% in refits</th><th></th></tr></thead>
+          <tbody id="targets"></tbody>
+        </table></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h3 style="margin-bottom:8px">All belts</h3>
+    <div class="tablebox"><table>
+      <thead><tr><th>Belt</th><th class="num">Cells</th><th class="num">Deposit cells</th><th class="num">AUC 0.7 km²</th><th class="num">AUC 36 km²</th><th class="num">Inside districts 0.7 km²</th><th class="num">Inside districts 36 km²</th><th class="num">AUC pooled, unseen</th></tr></thead>
+      <tbody id="all"></tbody>
+    </table></div>
+    <p class="note" style="margin-top:10px">Capture AUC: share of held-out deposit cells captured, averaged over every area cutoff (0.5 = random). Five spatial block folds per belt with a 10 km dead zone. "Inside districts" ranks only the cells inside the 36 km² model's top 10% of ground: once a district is chosen, which square kilometre. Belts with too few deposit cells for five folds show the map only. The last four are frontier regions with few recorded deposits: they are mapped with one model trained on the other belts, and "pooled, unseen" is that model's score on them.</p>
+  </section>
+</div>
+
+<script>
+const D = __DATA__;
+const $ = (id) => document.getElementById(id);
+const fmt = (x) => x == null ? "–" : x.toFixed(3);
+const S = D.summary;
+$("figs").innerHTML = S.n ? `
+  <div class="fig"><b>${S.n_win}<small>/${S.n}</small></b><span>core belts where the 0.7 km² model ranks held-out deposits better</span></div>
+  <div class="fig"><b>${fmt(S.auc_fine)} <small>vs ${fmt(S.auc_coarse)}</small></b><span>median capture AUC, 0.7 km² vs 36 km²</span></div>
+  <div class="fig"><b>${fmt(S.district_fine)} <small>vs ${fmt(S.district_coarse)}</small></b><span>median inside the top districts, where the choice is which square kilometre</span></div>` : "";
+
+let cur = null;
+function select(key) {
+  const b = D.belts.find((x) => x.key === key); if (!b) return; cur = key;
+  try { localStorage.setItem("atlas-belt", key); } catch (e) {}
+  document.querySelectorAll("#boxes rect").forEach((r) => r.classList.toggle("on", r.dataset.k === key));
+  document.querySelectorAll(".chip").forEach((c) => c.setAttribute("aria-pressed", c.dataset.k === key));
+  document.querySelectorAll("#all tr").forEach((r) => r.classList.toggle("sel", r.dataset.k === key));
+  const img = $("mapimg"); img.src = b.img; img.width = b.iw; img.height = b.ih;
+  img.alt = `Prospectivity map of ${b.name} at 0.7 km² resolution`;
+  $("bname").textContent = b.name; $("bdeps").textContent = b.deposits;
+  const [x0, y0, x1, y1] = b.bbox;
+  $("mapcap").textContent = `Brightness: rank of the ${b.map_model === "pooled" ? "pooled model's (trained on the other belts)" : "fine model's"} score × the global map's district score. Blue dots: known deposit cells. Green rings: top greenfield cells.`;
+  $("bmeta").textContent = `${b.cells.toLocaleString()} cells · ${b.pos.toLocaleString()} deposit cells · ${y0}° to ${y1}°, ${x0}° to ${x1}°`;
+  const f = b.stat.fine, c = b.stat.coarse;
+  if (f && c) {
+    const lo = 0.5, hi = 1.0, pct = (v) => Math.max(0, (v - lo) / (hi - lo) * 100);
+    const p = b.stat.pooled;
+    const bar = (l, v, col) => `<div class="bar"><span class="lbl">${l}</span><span class="track"><span class="fill" style="width:${pct(v)}%;background:var(--${col})"></span></span><span class="mono">${fmt(v)}</span></div>`;
+    const row = (t, a, bb, pp) => {
+      const top = pp != null ? Math.max(a, pp) : a, d = top - bb, cls = d >= 0 ? "up" : "down";
+      return `<div class="pair"><div class="t">${t} <span class="delta ${cls}">${d >= 0 ? "+" : "−"}${Math.abs(d).toFixed(3)}</span></div>
+        ${bar("0.7 km²", a, "fine")}${pp != null ? bar("pooled", pp, "pooled") : ""}${bar("36 km²", bb, "coarse")}</div>`;
+    };
+    $("pooledkey").hidden = !p;
+    $("bars").innerHTML = row("All deposit cells", f.auc, c.auc, p && p.auc) + (f.district != null && c.district != null ? row("Inside the top 10% districts", f.district, c.district, p && p.district) : "")
+      + `<div class="scale"><span>0.5 random</span><span>1.0</span></div>`;
+    const ci = b.ci && b.ci.blend, sgn = (v) => (v >= 0 ? "+" : "−") + Math.abs(v).toFixed(3);
+    const verdict = !ci ? "" : ci[1] > 0 ? "reliably better than" : ci[2] < 0 ? "reliably worse than" : "within noise of";
+    $("statnote").textContent = `The 0.7 km² model's top 5% of ground holds ${(f.top5 * 100).toFixed(0)}% of held-out deposit cells; the 36 km² model's holds ${(c.top5 * 100).toFixed(0)}%.`
+      + (ci ? ` The map's blend is ${verdict} the 36 km² map here: ${sgn(ci[0])} capture AUC, 90% block-bootstrap interval ${sgn(ci[1])} to ${sgn(ci[2])}.` : "");
+  } else {
+    $("bars").innerHTML = `<p class="note">Too few deposit cells here for a five-fold test; the map is from the model fitted on all of them.</p>`;
+    $("statnote").textContent = "";
+  }
+  const hasStab = b.targets.some((t) => t.stable != null);
+  $("stabh").hidden = !hasStab;
+  $("targets").innerHTML = b.targets.map((t, i) => `<tr><td class="mono">${i + 1}</td><td class="num">${t.lat.toFixed(3)}</td><td class="num">${t.lon.toFixed(3)}</td><td class="num">${t.score.toFixed(3)}</td><td class="num">${t.fp == null ? "–" : t.fp}</td><td class="sys">${t.system || "–"}</td><td class="num stabc">${t.stable == null ? "–" : Math.round(t.stable * 5) + "/5"}</td><td><button class="copy" data-c="${t.lat}, ${t.lon}">Copy</button></td></tr>`).join("");
+  document.querySelectorAll(".stabc").forEach((c) => (c.hidden = !hasStab));
+}
+$("boxes").innerHTML = D.belts.map((b) => {
+  const [x0, y0, x1, y1] = b.bbox, X = (x) => (x + 180) * 2, Y = (y) => (90 - y) * 2;
+  return `<rect class="${b.frontier ? "frontier" : ""}" data-k="${b.key}" tabindex="0" role="button" aria-label="${b.name}" x="${X(x0)}" y="${Y(y1)}" width="${(x1 - x0) * 2}" height="${(y1 - y0) * 2}"><title>${b.name}</title></rect>`;
+}).join("");
+$("chips").innerHTML = D.belts.map((b) => `<button class="chip${b.frontier ? " frontier" : ""}" data-k="${b.key}" aria-pressed="false">${b.frontier ? "Frontier · " : ""}${b.name}</button>`).join("");
+$("all").innerHTML = D.belts.map((b) => {
+  const f = b.stat.fine || {}, c = b.stat.coarse || {};
+  return `<tr class="click" data-k="${b.key}"><td>${b.name}</td><td class="num">${b.cells.toLocaleString()}</td><td class="num">${b.pos.toLocaleString()}</td><td class="num">${fmt(f.auc)}</td><td class="num">${fmt(c.auc)}</td><td class="num">${fmt(f.district)}</td><td class="num">${fmt(c.district)}</td><td class="num">${fmt((b.stat.pooled || {}).auc)}</td></tr>`;
+}).join("");
+document.addEventListener("click", (e) => {
+  const k = e.target.closest("[data-k]"); if (k) { select(k.dataset.k); return; }
+  const cp = e.target.closest("button.copy");
+  if (cp) {
+    const done = () => { cp.textContent = "Copied"; setTimeout(() => (cp.textContent = "Copy"), 1200); };
+    (navigator.clipboard ? navigator.clipboard.writeText(cp.dataset.c) : Promise.reject()).then(done, () => {
+      const r = document.createRange(); r.selectNodeContents(cp.parentElement.parentElement); const s = getSelection(); s.removeAllRanges(); s.addRange(r);
+    });
+  }
+});
+document.addEventListener("keydown", (e) => { const k = e.target.closest && e.target.closest("rect[data-k]"); if (k && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); select(k.dataset.k); } });
+let start = D.belts[0] && D.belts[0].key;
+try { const s = localStorage.getItem("atlas-belt"); if (s && D.belts.some((b) => b.key === s)) start = s; } catch (e) {}
+const h = location.hash.slice(1); if (D.belts.some((b) => b.key === h)) start = h;
+if (start) select(start);
+</script>

@@ -1,0 +1,7 @@
+region=wus n_pos=16902 pos_clusters=5467 top_cells_hits=43 top_cells_clusters=19 one_per_res7_hits=39 one_per_res7_clusters=31 nms_5km_hits=38 nms_5km_clusters=56 nms_10km_hits=31 nms_10km_clusters=56 random_hits=5 random_clusters=7
+region=yilgarn n_pos=334 pos_clusters=268 top_cells_hits=28 top_cells_clusters=7 one_per_res7_hits=28 one_per_res7_clusters=12 nms_5km_hits=16 nms_5km_clusters=17 nms_10km_hits=17 nms_10km_clusters=18 random_hits=0 random_clusters=0
+top_cells     median hits   5.0  clusters   2.0  total clusters 75
+one_per_res7  median hits   7.0  clusters   4.0  total clusters 114
+nms_5km       median hits   6.0  clusters   6.0  total clusters 184
+nms_10km      median hits   4.0  clusters   4.0  total clusters 189
+random        median hits   0.0  clusters   0.0  total clusters 12

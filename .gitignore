@@ -6,3 +6,9 @@ __pycache__/
 .pytest_cache/
 outputs/*/global_split_res6.parquet
 outputs/*/oof_scores.npz
+outputs/*/*.joblib
+outputs/*/global_v3_res6.parquet
+outputs/*/top1pct_drivers.parquet
+outputs/transfer*/scores.npz
+outputs/transfer*/te_*.npy
+outputs/downscale_*/*.parquet

@@ -82,17 +82,35 @@ def run(tiles: pd.DataFrame, shard_dir: str, level: int = 6, res: int = grid.DEF
 
 
 def merge(shard_dir: str, min_pixels: int = 4) -> pd.DataFrame | tuple:
-    """Merge shards -> (cells, mean (N,64) unit-norm, std (N,64), count, failed_paths)."""
+    """Merge shards -> (cells, mean (N,64) unit-norm, std (N,64), count, failed_paths).
+
+    Streams one shard at a time into float32 accumulators: concatenating all shards (and
+    float64 sums) needs ~10 GB at global scale. Most cells live in one or two shards, so
+    float32 sums lose nothing that matters."""
     files = sorted(glob.glob(os.path.join(shard_dir, "shard_*.npz")))
-    zs = [np.load(f) for f in files]
-    cells, S, SS, N = _reduce(np.concatenate([z["cells"].astype(object) for z in zs]),
-                              np.concatenate([z["s"] for z in zs]),
-                              np.concatenate([z["ss"] for z in zs]),
-                              np.concatenate([z["n"] for z in zs]))
-    failed = np.concatenate([z["failed"] for z in zs]) if zs else np.empty(0, str)
+    cell_lists = []
+    for f in files:
+        with np.load(f) as z:
+            cell_lists.append(z["cells"])
+    codes_all, uniq = pd.factorize(np.concatenate(cell_lists))
+    bounds = np.cumsum([0] + [len(c) for c in cell_lists])
+    del cell_lists
+    S = np.zeros((len(uniq), 64), np.float32)
+    SS = np.zeros((len(uniq), 64), np.float32)
+    N = np.zeros(len(uniq), np.int64)
+    failed = []
+    for k, f in enumerate(files):
+        codes = codes_all[bounds[k]:bounds[k + 1]]
+        with np.load(f) as z:
+            np.add.at(S, codes, z["s"])
+            np.add.at(SS, codes, z["ss"])
+            np.add.at(N, codes, z["n"])
+            failed.extend(z["failed"].tolist())
     keep = N >= min_pixels
-    cells, S, SS, N = cells[keep], S[keep], SS[keep], N[keep]
-    mean = S / N[:, None]
-    std = np.sqrt(np.maximum(SS / N[:, None] - mean ** 2, 0))
-    mean /= np.linalg.norm(mean, axis=1, keepdims=True) + 1e-8
-    return cells, mean.astype(np.float32), std.astype(np.float32), N, failed
+    cells, S, SS, N = np.asarray(uniq)[keep], S[keep], SS[keep], N[keep]
+    S /= N[:, None]                       # S is now the mean
+    SS /= N[:, None]
+    SS -= S ** 2
+    np.sqrt(np.maximum(SS, 0, out=SS), out=SS)
+    S /= np.linalg.norm(S, axis=1, keepdims=True) + 1e-8
+    return cells, S, SS, N.astype(np.int32), np.array(failed, dtype=str)
