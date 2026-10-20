@@ -132,6 +132,9 @@ def main():
     ap.add_argument("--extra-res8", default="",
                     help="comma list of res-8 parquets (fetch_rasters.py --res 8) whose columns are added to the "
                          "fine model's features")
+    ap.add_argument("--seed-runs", type=int, default=1,
+                    help="refit the final fine model this many times with new seeds; the map averages them and "
+                         "the targets carry how often each cell made the top 1%%")
     ap.add_argument("--fine-bags", type=int, default=0, help="bags for the fine model (default --bags)")
     ap.add_argument("--pool-dir", default="data/pool",
                     help="write a training sample here for pool_belts.py (empty string to skip)")
@@ -271,25 +274,37 @@ def final_map(a, c8, lat, lon, p6, X8, nz8, pos8, w8, any_rec8, pooled=None):
         log("mapping with the pooled model")
         m, a.map_model = pooled, "pooled"
     else:
-        log("final fine model on all cells")
+        log(f"final fine model on all cells ({a.seed_runs} seed run(s))")
         a.map_model = "fine"
-        m = pu.PUBaggingGBM(n_bags=2 * a.fine_bags, seed=1)
-        m.params = {**m.params, **a.fine_params}
-        m.fit(X8, pos8, w8)
-    fine = np.empty(len(c8), np.float32)
-    for s in range(0, len(c8), 300_000):
-        xb = np.asarray(X8[s:s + 300_000], np.float32)
-        xb[:, nz8] = 0.0
-        fine[s:s + 300_000] = m.predict(xb)
     g = pd.read_parquet(a.global_map, columns=["h3", "p_prospective"]).set_index("h3").p_prospective
     district = g.reindex(p6).to_numpy(np.float32)
     district = np.where(np.isnan(district), np.nanmedian(district), district)
-    rf, rd = pu.rank_normalise(fine), pu.rank_normalise(district)
+    rd = pu.rank_normalise(district)
+    # Each seed run is a full refit (new bags of background cells). The map is the mean of
+    # their ranks; their spread says how much a cell's place depends on the draw.
+    runs = []
+    for seed in range(1, (1 if use_pooled else a.seed_runs) + 1):
+        if not use_pooled:
+            m = pu.PUBaggingGBM(n_bags=2 * a.fine_bags, seed=seed)
+            m.params = {**m.params, **a.fine_params}
+            m.fit(X8, pos8, w8)
+        fine = np.empty(len(c8), np.float32)
+        for s in range(0, len(c8), 300_000):
+            xb = np.asarray(X8[s:s + 300_000], np.float32)
+            xb[:, nz8] = 0.0
+            fine[s:s + 300_000] = m.predict(xb)
+        runs.append(pu.rank_normalise(fine).astype(np.float32))
+    R = np.stack(runs)
+    rf = pu.rank_normalise(R.mean(0))
     blend = np.sqrt(rf * rd).astype(np.float32)
+    B = np.sqrt(R * rd)  # blend per seed run
+    top1 = (B >= np.quantile(B, 0.99, axis=1, keepdims=True)).mean(0).astype(np.float32)
+    spread = R.std(0).astype(np.float32)
     # Greenfield: no mineral record of any kind within ~3 km (res-8 ring 3).
     rec_cells = set(c8[any_rec8])
     near = np.array([any(n in rec_cells for n in h3.grid_disk(c, 3)) for c in c8])
     df = pd.DataFrame({"h3": c8, "lat": lat, "lon": lon, "fine_rank": rf, "district_rank": rd, "blend": blend,
+                       "seed_rank_std": spread, "seed_top1pct_share": top1,
                        "known_positive": pos8, "any_record": any_rec8, "record_within_3km": near})
     df.to_parquet(os.path.join(a.out, "map_res8.parquet"), index=False, compression="zstd")
     top = df[~df.record_within_3km].nlargest(200, "blend")
