@@ -1,0 +1,10 @@
+target,model,capture@1%,capture@5%,capture_auc,within_district_auc
+all,blend,0.1247,0.342,0.815,0.696
+all,coarse,0.1115,0.2795,0.7882,0.6251
+all,fine,0.1231,0.343,0.8219,0.6986
+no_mine_within_1.5km,blend,0.1276,0.3446,0.8119,0.6996
+no_mine_within_1.5km,coarse,0.1173,0.2851,0.7865,0.6317
+no_mine_within_1.5km,fine,0.1215,0.3382,0.8178,0.6997
+occurrence_only,blend,0.0799,0.2666,0.7837,0.6366
+occurrence_only,coarse,0.0736,0.2355,0.7589,0.583
+occurrence_only,fine,0.0814,0.2655,0.789,0.6379
