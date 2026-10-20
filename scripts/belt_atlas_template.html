@@ -130,7 +130,7 @@ button.copy { font: 12px var(--body); color: var(--accent); background: none; bo
         <h3>Greenfield targets</h3>
         <p class="note" style="margin:6px 0 8px">Highest-scoring cells with no mineral record of any kind within ~3 km, at most one per ~5 km. A score is a rank in this belt (1 = top), not a probability.</p>
         <div class="tablebox"><table>
-          <thead><tr><th>#</th><th class="num">Lat</th><th class="num">Lon</th><th class="num">Score</th><th></th></tr></thead>
+          <thead><tr><th>#</th><th class="num">Lat</th><th class="num">Lon</th><th class="num">Score</th><th class="num" id="stabh" title="Share of five independent refits in which the cell made the top 1%">Top 1% in refits</th><th></th></tr></thead>
           <tbody id="targets"></tbody>
         </table></div>
       </div>
@@ -191,7 +191,10 @@ function select(key) {
     $("bars").innerHTML = `<p class="note">Too few deposit cells here for a five-fold test; the map is from the model fitted on all of them.</p>`;
     $("statnote").textContent = "";
   }
-  $("targets").innerHTML = b.targets.map((t, i) => `<tr><td class="mono">${i + 1}</td><td class="num">${t.lat.toFixed(3)}</td><td class="num">${t.lon.toFixed(3)}</td><td class="num">${t.score.toFixed(3)}</td><td><button class="copy" data-c="${t.lat}, ${t.lon}">Copy</button></td></tr>`).join("");
+  const hasStab = b.targets.some((t) => t.stable != null);
+  $("stabh").hidden = !hasStab;
+  $("targets").innerHTML = b.targets.map((t, i) => `<tr><td class="mono">${i + 1}</td><td class="num">${t.lat.toFixed(3)}</td><td class="num">${t.lon.toFixed(3)}</td><td class="num">${t.score.toFixed(3)}</td><td class="num stabc">${t.stable == null ? "–" : Math.round(t.stable * 5) + "/5"}</td><td><button class="copy" data-c="${t.lat}, ${t.lon}">Copy</button></td></tr>`).join("");
+  document.querySelectorAll(".stabc").forEach((c) => (c.hidden = !hasStab));
 }
 $("boxes").innerHTML = D.belts.map((b) => {
   const [x0, y0, x1, y1] = b.bbox, X = (x) => (x + 180) * 2, Y = (y) => (90 - y) * 2;

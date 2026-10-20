@@ -96,7 +96,8 @@ def main():
                       "cells": meta["n_res8"], "pos": meta["n_pos8"], "stat": stat, "img": f"maps/{key}.jpg",
                       "iw": w, "ih": h,
                       "targets": [{"lat": round(r.lat, 3), "lon": round(r.lon, 3), "score": round(r.blend, 4),
-                                   "h3": r.h3} for r in t.itertuples()]})
+                                   "h3": r.h3, "stable": round(float(getattr(r, "seed_top1pct_share", np.nan)), 2)
+                                   if hasattr(r, "seed_top1pct_share") else None} for r in t.itertuples()]})
     order = {k: i for i, k in enumerate(BELTS)}
     belts.sort(key=lambda b: order[b["key"]])
     won = [b for b in belts if "fine" in b["stat"] and "coarse" in b["stat"] and not b["frontier"]]
