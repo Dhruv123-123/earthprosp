@@ -21,6 +21,7 @@ from earthprosp import prospects  # noqa: E402
 
 sys.path.insert(0, os.path.dirname(__file__))
 from build_belt_atlas import BELTS, FRONTIER  # noqa: E402
+from enrich_targets import add_systems  # noqa: E402
 
 
 def main():
@@ -51,7 +52,7 @@ def main():
               flush=True)
     cols = ["region", "region_key", "prospect", "h3", "lat", "lon", "blend", "fine_rank", "district_rank",
             "footprint_cells", "seed_rank_std", "seed_top1pct_share", "frontier", "deposit_styles"]
-    out = pd.concat(parts)[cols].round(4)
+    out = add_systems(pd.concat(parts)[cols].reset_index(drop=True)).round(4)
     out.to_csv(os.path.join(a.out, "prospects_all_regions.csv"), index=False)
     pd.DataFrame(rows).to_csv(os.path.join(a.out, "summary.csv"), index=False)
     print(f"{len(out)} prospects in {len(rows)} regions")
